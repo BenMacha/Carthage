@@ -3,34 +3,38 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-section">
-          <h3>🏛️ Carthage</h3>
-          <p>Un projet dédié à la mémoire et à l'histoire de la grande civilisation carthaginoise, de ses héros et de son héritage.</p>
+          <h3>🏛️ {{ t.siteName }}</h3>
+          <p>{{ t.footer.description }}</p>
         </div>
         <div class="footer-section">
-          <h4>Explorer</h4>
+          <h4>{{ t.footer.explore }}</h4>
           <ul>
-            <li><NuxtLink to="/chronologie">Chronologie</NuxtLink></li>
-            <li><NuxtLink to="/elephants">Passage des Éléphants</NuxtLink></li>
-            <li><NuxtLink to="/economie">Économie</NuxtLink></li>
-            <li><NuxtLink to="/afrique">Afrique & son nom</NuxtLink></li>
+            <li><NuxtLink to="/chronologie">{{ t.footer.timeline }}</NuxtLink></li>
+            <li><NuxtLink to="/elephants">{{ t.footer.elephantPassage }}</NuxtLink></li>
+            <li><NuxtLink to="/economie">{{ t.footer.economy }}</NuxtLink></li>
+            <li><NuxtLink to="/afrique">{{ t.footer.africa }}</NuxtLink></li>
           </ul>
         </div>
         <div class="footer-section">
-          <h4>Époques</h4>
+          <h4>{{ t.footer.periods }}</h4>
           <ul>
-            <li>Fondation (814 av. J.-C.)</li>
-            <li>Guerres Puniques</li>
-            <li>Hannibal Barca</li>
-            <li>Chute de Carthage</li>
+            <li>{{ t.footer.founding }}</li>
+            <li>{{ t.footer.punicWars }}</li>
+            <li>{{ t.footer.hannibal }}</li>
+            <li>{{ t.footer.fall }}</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>Projet éducatif — Carthage & Hannibal Barca</p>
+        <p>{{ t.footer.copyright }}</p>
       </div>
     </div>
   </footer>
 </template>
+
+<script setup>
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .footer {

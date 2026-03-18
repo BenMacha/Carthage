@@ -272,3 +272,57 @@ img {
     font-size: 1.8rem;
   }
 }
+
+/* === RTL Support === */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .timeline::before {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+[dir="rtl"] .timeline-item {
+  padding-right: calc(50% + 2rem);
+  padding-left: 0;
+}
+
+[dir="rtl"] .timeline-item:nth-child(even) {
+  padding-right: 0;
+  padding-left: calc(50% + 2rem);
+}
+
+[dir="rtl"] .timeline-dot {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+[dir="rtl"] .section-title::after {
+  margin: 1rem auto 0;
+}
+
+[dir="rtl"] .btn {
+  letter-spacing: 0;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .timeline::before {
+    left: auto;
+    right: 20px;
+  }
+
+  [dir="rtl"] .timeline-item,
+  [dir="rtl"] .timeline-item:nth-child(even) {
+    padding-right: 50px;
+    padding-left: 0;
+  }
+
+  [dir="rtl"] .timeline-dot {
+    left: auto;
+    right: 20px;
+  }
+}

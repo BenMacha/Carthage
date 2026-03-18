@@ -3,25 +3,31 @@
     <div class="container navbar-inner">
       <NuxtLink to="/" class="navbar-brand">
         <span class="brand-icon">🏛️</span>
-        <span class="brand-text">Carthage</span>
+        <span class="brand-text">{{ t.siteName }}</span>
       </NuxtLink>
 
-      <button class="menu-toggle" @click="menuOpen = !menuOpen" :aria-label="menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'">
-        <span :class="{ open: menuOpen }"></span>
-      </button>
+      <div class="navbar-right">
+        <LangSwitcher />
+
+        <button class="menu-toggle" @click="menuOpen = !menuOpen" :aria-label="menuOpen ? 'Close' : 'Open'">
+          <span :class="{ open: menuOpen }"></span>
+        </button>
+      </div>
 
       <ul class="nav-links" :class="{ open: menuOpen }">
-        <li><NuxtLink to="/" @click="menuOpen = false">Accueil</NuxtLink></li>
-        <li><NuxtLink to="/chronologie" @click="menuOpen = false">Chronologie</NuxtLink></li>
-        <li><NuxtLink to="/elephants" @click="menuOpen = false">Les Éléphants</NuxtLink></li>
-        <li><NuxtLink to="/economie" @click="menuOpen = false">Économie</NuxtLink></li>
-        <li><NuxtLink to="/afrique" @click="menuOpen = false">Afrique</NuxtLink></li>
+        <li><NuxtLink to="/" @click="menuOpen = false">{{ t.nav.home }}</NuxtLink></li>
+        <li><NuxtLink to="/chronologie" @click="menuOpen = false">{{ t.nav.timeline }}</NuxtLink></li>
+        <li><NuxtLink to="/elephants" @click="menuOpen = false">{{ t.nav.elephants }}</NuxtLink></li>
+        <li><NuxtLink to="/economie" @click="menuOpen = false">{{ t.nav.economy }}</NuxtLink></li>
+        <li><NuxtLink to="/afrique" @click="menuOpen = false">{{ t.nav.africa }}</NuxtLink></li>
+        <li><NuxtLink to="/biographies" @click="menuOpen = false">{{ t.nav.biographies }}</NuxtLink></li>
       </ul>
     </div>
   </nav>
 </template>
 
 <script setup>
+const { t } = useI18n()
 const isScrolled = ref(false)
 const menuOpen = ref(false)
 
@@ -72,18 +78,24 @@ onMounted(() => {
   font-size: 1.8rem;
 }
 
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   color: var(--color-gold-light);
   text-decoration: none;
   padding: 0.5rem 0;
