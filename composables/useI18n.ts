@@ -2,24 +2,38 @@ import { fr } from '~/i18n/fr'
 import { en } from '~/i18n/en'
 import { ar } from '~/i18n/ar'
 
-const currentLocale = ref<string>('fr')
-
-const locales = { fr, en, ar }
+const locales: Record<string, typeof fr> = { fr, en, ar }
 
 export const useI18n = () => {
-  const t = computed(() => locales[currentLocale.value as keyof typeof locales] || fr)
+  const route = useRoute()
 
-  const setLocale = (locale: string) => {
-    if (locales[locale as keyof typeof locales]) {
-      currentLocale.value = locale
+  const locale = computed(() => {
+    const lang = route.params.lang as string
+    return locales[lang] ? lang : 'fr'
+  })
+
+  const t = computed(() => locales[locale.value] || fr)
+
+  const setLocale = (newLocale: string) => {
+    if (locales[newLocale]) {
+      const currentPath = route.path
+      const currentLang = locale.value
+      const newPath = currentPath.replace(`/${currentLang}`, `/${newLocale}`)
       if (typeof document !== 'undefined') {
-        document.documentElement.setAttribute('dir', t.value.dir)
-        document.documentElement.setAttribute('lang', t.value.lang)
+        document.documentElement.setAttribute('dir', locales[newLocale].dir)
+        document.documentElement.setAttribute('lang', locales[newLocale].lang)
       }
+      navigateTo(newPath)
     }
   }
 
-  const locale = computed(() => currentLocale.value)
+  // Set dir/lang on mount
+  if (typeof document !== 'undefined') {
+    document.documentElement.setAttribute('dir', t.value.dir)
+    document.documentElement.setAttribute('lang', t.value.lang)
+  }
+
+  const localePath = (path: string) => `/${locale.value}${path}`
 
   const availableLocales = [
     { code: 'fr', label: 'Français', flag: '🇫🇷' },
@@ -27,5 +41,5 @@ export const useI18n = () => {
     { code: 'ar', label: 'العربية', flag: '🇹🇳' },
   ]
 
-  return { t, locale, setLocale, availableLocales }
+  return { t, locale, setLocale, localePath, availableLocales }
 }

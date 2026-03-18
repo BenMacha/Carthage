@@ -180,6 +180,34 @@
         </div>
       </div>
     </section>
+
+    <!-- Trade Routes Map -->
+    <section class="section section-map">
+      <div class="container">
+        <h2 class="section-title">Carte des routes commerciales</h2>
+        <p class="section-subtitle">Territoires, villes, zones agricoles et industries sur la carte</p>
+        <ClientOnly>
+          <MapsCarthageMap lang="fr" />
+        </ClientOnly>
+      </div>
+    </section>
+
+    <!-- Economic Images -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Vestiges de la puissance économique</h2>
+        <div class="econ-gallery">
+          <div class="econ-gallery-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Carthage_Punic_port_circular.jpg/800px-Carthage_Punic_port_circular.jpg" alt="Port circulaire de Carthage" loading="lazy" />
+            <p>Le port circulaire militaire de Carthage (Cothon) — pouvait abriter 220 navires de guerre</p>
+          </div>
+          <div class="econ-gallery-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Carthage_National_Museum_general_view.jpg/800px-Carthage_National_Museum_general_view.jpg" alt="Musée National de Carthage" loading="lazy" />
+            <p>Musée National de Carthage — vestiges de la civilisation punique</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -700,5 +728,41 @@ const comparisons = [
     background: var(--color-sand);
     font-weight: 700;
   }
+
+  .econ-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-map {
+  background: var(--color-sand-light);
+}
+
+.econ-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.econ-gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.econ-gallery-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.econ-gallery-item p {
+  padding: 0.8rem 1rem;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  font-style: italic;
 }
 </style>
