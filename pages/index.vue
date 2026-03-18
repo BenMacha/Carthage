@@ -4,16 +4,12 @@
     <section class="hero">
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <h1 class="hero-title">Carthage</h1>
-        <p class="hero-subtitle">La puissance méditerranéenne qui a défié Rome</p>
-        <p class="hero-desc">
-          De sa fondation légendaire par la reine Didon en 814 av. J.-C. à la marche
-          épique d'Hannibal à travers les Alpes, découvrez l'histoire d'une des plus
-          grandes civilisations de l'Antiquité.
-        </p>
+        <h1 class="hero-title">{{ t.home.heroTitle }}</h1>
+        <p class="hero-subtitle">{{ t.home.heroSubtitle }}</p>
+        <p class="hero-desc">{{ t.home.heroDesc }}</p>
         <div class="hero-buttons">
-          <NuxtLink to="/chronologie" class="btn btn-primary">Explorer la chronologie</NuxtLink>
-          <NuxtLink to="/elephants" class="btn btn-outline">La traversée des Alpes</NuxtLink>
+          <NuxtLink to="/chronologie" class="btn btn-primary">{{ t.home.btnTimeline }}</NuxtLink>
+          <NuxtLink to="/elephants" class="btn btn-outline">{{ t.home.btnElephants }}</NuxtLink>
         </div>
       </div>
     </section>
@@ -21,24 +17,24 @@
     <!-- Introduction -->
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Une civilisation extraordinaire</h2>
-        <p class="section-subtitle">Plus de sept siècles d'histoire, de commerce et de conquêtes</p>
+        <h2 class="section-title">{{ t.home.introTitle }}</h2>
+        <p class="section-subtitle">{{ t.home.introSubtitle }}</p>
 
         <div class="intro-grid">
           <div class="intro-card">
             <div class="intro-icon">⚓</div>
-            <h3>Maîtres de la mer</h3>
-            <p>Les Carthaginois ont bâti la plus puissante flotte de la Méditerranée occidentale, contrôlant les routes commerciales de la Sicile à l'Espagne et au-delà des Colonnes d'Hercule.</p>
+            <h3>{{ t.home.card1Title }}</h3>
+            <p>{{ t.home.card1Text }}</p>
           </div>
           <div class="intro-card">
             <div class="intro-icon">⚔️</div>
-            <h3>Guerriers légendaires</h3>
-            <p>Hannibal Barca reste l'un des plus grands stratèges militaires de l'histoire. Sa traversée des Alpes avec des éléphants de guerre demeure un exploit inégalé.</p>
+            <h3>{{ t.home.card2Title }}</h3>
+            <p>{{ t.home.card2Text }}</p>
           </div>
           <div class="intro-card">
             <div class="intro-icon">💰</div>
-            <h3>Empire commercial</h3>
-            <p>Le commerce carthaginois s'étendait de la Bretagne à l'Afrique de l'Ouest. Leurs réseaux d'échanges ont façonné l'économie du monde antique.</p>
+            <h3>{{ t.home.card3Title }}</h3>
+            <p>{{ t.home.card3Text }}</p>
           </div>
         </div>
       </div>
@@ -47,37 +43,37 @@
     <!-- Key Figures -->
     <section class="section section-dark">
       <div class="container">
-        <h2 class="section-title light">Figures marquantes</h2>
-        <p class="section-subtitle light">Les héros qui ont forgé l'histoire de Carthage</p>
+        <h2 class="section-title light">{{ t.home.figuresTitle }}</h2>
+        <p class="section-subtitle light">{{ t.home.figuresSubtitle }}</p>
 
         <div class="figures-grid">
           <div class="figure-card">
             <div class="figure-header">
-              <span class="figure-era">814 av. J.-C.</span>
+              <span class="figure-era">{{ t.home.didonEra }}</span>
             </div>
             <div class="card-body">
-              <h3>Didon (Élyssa)</h3>
-              <p>Princesse phénicienne de Tyr, fondatrice légendaire de Carthage. Selon la tradition, elle acheta aux Libyens autant de terre qu'une peau de bœuf pouvait couvrir, puis découpa celle-ci en fines lanières pour entourer la colline de Byrsa.</p>
+              <h3>{{ t.home.didonName }}</h3>
+              <p>{{ t.home.didonDesc }}</p>
             </div>
           </div>
 
           <div class="figure-card">
             <div class="figure-header">
-              <span class="figure-era">275–228 av. J.-C.</span>
+              <span class="figure-era">{{ t.home.hamilcarEra }}</span>
             </div>
             <div class="card-body">
-              <h3>Hamilcar Barca</h3>
-              <p>Général carthaginois et père d'Hannibal. Il mena la résistance contre Rome lors de la première guerre punique et conquit une grande partie de l'Espagne, posant les bases de la puissance des Barcides.</p>
+              <h3>{{ t.home.hamilcarName }}</h3>
+              <p>{{ t.home.hamilcarDesc }}</p>
             </div>
           </div>
 
           <div class="figure-card">
             <div class="figure-header">
-              <span class="figure-era">247–183 av. J.-C.</span>
+              <span class="figure-era">{{ t.home.hannibalEra }}</span>
             </div>
             <div class="card-body">
-              <h3>Hannibal Barca</h3>
-              <p>Le plus célèbre des généraux carthaginois. Il traversa les Alpes avec ses éléphants et infligea à Rome ses plus grandes défaites : Trébie, Lac Trasimène et Cannes. Considéré comme l'un des plus grands tacticiens de l'histoire.</p>
+              <h3>{{ t.home.hannibalName }}</h3>
+              <p>{{ t.home.hannibalDesc }}</p>
             </div>
           </div>
         </div>
@@ -87,36 +83,40 @@
     <!-- Quick Links -->
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Explorez l'histoire</h2>
+        <h2 class="section-title">{{ t.home.exploreTitle }}</h2>
         <div class="explore-grid">
           <NuxtLink to="/chronologie" class="explore-card">
             <div class="explore-icon">📜</div>
-            <h3>Chronologie historique</h3>
-            <p>De la fondation en 814 av. J.-C. à la destruction en 146 av. J.-C.</p>
+            <h3>{{ t.home.exploreTimeline }}</h3>
+            <p>{{ t.home.exploreTimelineDesc }}</p>
           </NuxtLink>
 
           <NuxtLink to="/elephants" class="explore-card">
             <div class="explore-icon">🐘</div>
-            <h3>La traversée des Alpes</h3>
-            <p>L'exploit militaire le plus audacieux de l'Antiquité</p>
+            <h3>{{ t.home.exploreElephants }}</h3>
+            <p>{{ t.home.exploreElephantsDesc }}</p>
           </NuxtLink>
 
           <NuxtLink to="/economie" class="explore-card">
             <div class="explore-icon">🏺</div>
-            <h3>L'économie carthaginoise</h3>
-            <p>Commerce, agriculture et puissance financière</p>
+            <h3>{{ t.home.exploreEconomy }}</h3>
+            <p>{{ t.home.exploreEconomyDesc }}</p>
           </NuxtLink>
 
           <NuxtLink to="/afrique" class="explore-card">
             <div class="explore-icon">🌍</div>
-            <h3>L'Afrique et son nom</h3>
-            <p>Comment Carthage a donné son nom au continent africain</p>
+            <h3>{{ t.home.exploreAfrica }}</h3>
+            <p>{{ t.home.exploreAfricaDesc }}</p>
           </NuxtLink>
         </div>
       </div>
     </section>
   </div>
 </template>
+
+<script setup>
+const { t } = useI18n()
+</script>
 
 <style scoped>
 /* Hero */
@@ -278,14 +278,14 @@
 /* Explore Grid */
 .explore-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-top: 2rem;
 }
 
 .explore-card {
   text-align: center;
-  padding: 3rem 2rem;
+  padding: 3rem 1.5rem;
   background: white;
   border-radius: 12px;
   border: 2px solid transparent;
