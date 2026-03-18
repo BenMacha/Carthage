@@ -128,6 +128,51 @@
         </div>
       </div>
     </section>
+
+    <!-- Hannibal's Route Map -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Carte : la route d'Hannibal</h2>
+        <p class="section-subtitle">De Carthagène à la plaine du Pô — suivez le trajet sur la carte interactive</p>
+        <ClientOnly>
+          <MapsCarthageMap lang="fr" />
+        </ClientOnly>
+      </div>
+    </section>
+
+    <!-- Historical Images -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Représentations historiques</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Heinrich_Leutemann_-_Hannibal%27s_Campaign_in_Italy_-_Crossing_the_Alps.jpg/800px-Heinrich_Leutemann_-_Hannibal%27s_Campaign_in_Italy_-_Crossing_the_Alps.jpg" alt="Hannibal traversant les Alpes" loading="lazy" />
+            <p>Hannibal traversant les Alpes — Heinrich Leutemann (XIXe siècle)</p>
+          </div>
+          <div class="gallery-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Hannibal_traverse_les_Alpes_Nicolas_Poussin.jpg/800px-Hannibal_traverse_les_Alpes_Nicolas_Poussin.jpg" alt="Hannibal dans les Alpes — Poussin" loading="lazy" />
+            <p>Hannibal dans les Alpes — Nicolas Poussin</p>
+          </div>
+          <div class="gallery-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Francisco_de_Goya_y_Lucientes_-_Hannibal_the_Conqueror_Viewing_Italy_from_the_Alps.jpg/800px-Francisco_de_Goya_y_Lucientes_-_Hannibal_the_Conqueror_Viewing_Italy_from_the_Alps.jpg" alt="Hannibal contemplant l'Italie — Goya" loading="lazy" />
+            <p>Hannibal contemplant l'Italie depuis les Alpes — Francisco de Goya</p>
+          </div>
+          <div class="gallery-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Hannibal_Slodtz_Louvre_MR2093.jpg/440px-Hannibal_Slodtz_Louvre_MR2093.jpg" alt="Statue d'Hannibal comptant les anneaux — Sébastien Slodtz" loading="lazy" />
+            <p>Hannibal comptant les anneaux des chevaliers romains tués — Sébastien Slodtz, Louvre</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Battle Tactics -->
+    <section class="section section-dark">
+      <div class="container">
+        <h2 class="section-title light">Tactiques de guerre détaillées</h2>
+        <p class="section-subtitle light">Analyse des manœuvres qui ont changé l'histoire</p>
+        <TacticsBattleTactics lang="fr" />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -493,6 +538,45 @@ const battles = [
 
   .step-stats {
     flex-wrap: wrap;
+  }
+}
+
+.section-alt {
+  background: var(--color-sand);
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item p {
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

@@ -9,10 +9,10 @@
         <div class="footer-section">
           <h4>{{ t.footer.explore }}</h4>
           <ul>
-            <li><NuxtLink to="/chronologie">{{ t.footer.timeline }}</NuxtLink></li>
-            <li><NuxtLink to="/elephants">{{ t.footer.elephantPassage }}</NuxtLink></li>
-            <li><NuxtLink to="/economie">{{ t.footer.economy }}</NuxtLink></li>
-            <li><NuxtLink to="/afrique">{{ t.footer.africa }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/chronologie')">{{ t.footer.timeline }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/elephants')">{{ t.footer.elephantPassage }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/economie')">{{ t.footer.economy }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/afrique')">{{ t.footer.africa }}</NuxtLink></li>
           </ul>
         </div>
         <div class="footer-section">
@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-const { t } = useI18n()
+const { t, localePath } = useI18n()
 </script>
 
 <style scoped>
