@@ -91,8 +91,30 @@
       </div>
     </section>
 
-    <!-- Historical Images Gallery -->
+    <!-- 3D Animated Harbor Scene -->
     <section class="section">
+      <div class="container">
+        <h2 class="section-title">{{ harborTitle }}</h2>
+        <p class="section-subtitle">{{ harborSubtitle }}</p>
+        <ClientOnly>
+          <AnimationsCarthageHarbor :title="harborLabel" :subtitle="harborLabelSub" />
+        </ClientOnly>
+      </div>
+    </section>
+
+    <!-- Animated Warship -->
+    <section class="section section-dark">
+      <div class="container">
+        <h2 class="section-title light">{{ warshipTitle }}</h2>
+        <p class="section-subtitle light">{{ warshipSubtitle }}</p>
+        <ClientOnly>
+          <AnimationsPunicWarship :title="warshipLabel" :subtitle="warshipLabelSub" />
+        </ClientOnly>
+      </div>
+    </section>
+
+    <!-- Historical Images Gallery -->
+    <section class="section section-alt">
       <div class="container">
         <h2 class="section-title">{{ galleryTitle }}</h2>
         <div class="gallery-grid">
@@ -170,6 +192,54 @@ const galleryTitle = computed(() => ({
   en: 'Historical Gallery',
   ar: 'معرض تاريخي'
 }[locale.value] || 'Galerie'))
+
+const harborTitle = computed(() => ({
+  fr: 'Le Port Légendaire',
+  en: 'The Legendary Harbor',
+  ar: 'الميناء الأسطوري'
+}[locale.value] || 'Le Port Légendaire'))
+
+const harborSubtitle = computed(() => ({
+  fr: 'Le double port de Carthage — merveille d\'ingénierie antique',
+  en: 'The twin harbors of Carthage — a marvel of ancient engineering',
+  ar: 'الميناء المزدوج لقرطاج — أعجوبة هندسية قديمة'
+}[locale.value] || ''))
+
+const harborLabel = computed(() => ({
+  fr: 'Port de Carthage',
+  en: 'Harbor of Carthage',
+  ar: 'ميناء قرطاج'
+}[locale.value] || 'Port de Carthage'))
+
+const harborLabelSub = computed(() => ({
+  fr: 'Cothon — Le double port légendaire',
+  en: 'Cothon — The legendary twin harbor',
+  ar: 'الكوثون — الميناء المزدوج الأسطوري'
+}[locale.value] || ''))
+
+const warshipTitle = computed(() => ({
+  fr: 'La Puissance Navale',
+  en: 'Naval Power',
+  ar: 'القوة البحرية'
+}[locale.value] || 'La Puissance Navale'))
+
+const warshipSubtitle = computed(() => ({
+  fr: 'Les quinquérèmes qui dominaient la Méditerranée',
+  en: 'The quinqueremes that dominated the Mediterranean',
+  ar: 'السفن الخماسية التي سيطرت على البحر المتوسط'
+}[locale.value] || ''))
+
+const warshipLabel = computed(() => ({
+  fr: 'Quinquérème Punique',
+  en: 'Punic Quinquereme',
+  ar: 'سفينة خماسية بونيقية'
+}[locale.value] || 'Quinquérème Punique'))
+
+const warshipLabelSub = computed(() => ({
+  fr: 'La puissance navale de Carthage',
+  en: 'The naval power of Carthage',
+  ar: 'القوة البحرية لقرطاج'
+}[locale.value] || ''))
 
 const galleryCaptions = computed(() => {
   const c = {

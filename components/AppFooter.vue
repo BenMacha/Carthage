@@ -18,10 +18,10 @@
         <div class="footer-section">
           <h4>{{ t.footer.periods }}</h4>
           <ul>
-            <li>{{ t.footer.founding }}</li>
-            <li>{{ t.footer.punicWars }}</li>
-            <li>{{ t.footer.hannibal }}</li>
-            <li>{{ t.footer.fall }}</li>
+            <li><NuxtLink :to="localePath('/fondation')">{{ t.footer.founding }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/guerres-puniques')">{{ t.footer.punicWars }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/hannibal')">{{ t.footer.hannibal }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/prise-de-carthage')">{{ t.footer.fall }}</NuxtLink></li>
           </ul>
         </div>
       </div>
