@@ -79,6 +79,28 @@
       </div>
     </section>
 
+    <!-- Animated Harbor -->
+    <section class="section section-dark">
+      <div class="container">
+        <h2 class="section-title light">{{ harborAnimTitle }}</h2>
+        <p class="section-subtitle light">{{ harborAnimSubtitle }}</p>
+        <ClientOnly>
+          <AnimationsCarthageHarbor :title="harborLabel" :subtitle="harborLabelSub" />
+        </ClientOnly>
+      </div>
+    </section>
+
+    <!-- Ancient Tools Animation -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">{{ toolsAnimTitle }}</h2>
+        <p class="section-subtitle">{{ toolsAnimSubtitle }}</p>
+        <ClientOnly>
+          <AnimationsAncientTools :title="toolsLabel" :subtitle="toolsLabelSub" />
+        </ClientOnly>
+      </div>
+    </section>
+
     <!-- Map -->
     <section class="section">
       <div class="container">
@@ -112,6 +134,15 @@ const isAr = computed(() => locale.value === 'ar')
 
 const title = computed(() => isFr.value ? 'La Fondation de Carthage' : isAr.value ? 'تأسيس قرطاج' : 'The Foundation of Carthage')
 const subtitle = computed(() => isFr.value ? '814 av. J.-C. — Naissance d\'une superpuissance méditerranéenne' : isAr.value ? '814 ق.م — ولادة قوة عظمى متوسطية' : '814 BC — Birth of a Mediterranean superpower')
+
+const harborAnimTitle = computed(() => isFr.value ? 'Le Port de Carthage' : isAr.value ? 'ميناء قرطاج' : 'The Harbor of Carthage')
+const harborAnimSubtitle = computed(() => isFr.value ? 'Le célèbre Cothon, double port militaire et commercial' : isAr.value ? 'الكوثون الشهير، الميناء العسكري والتجاري المزدوج' : 'The famous Cothon, twin military and commercial harbor')
+const harborLabel = computed(() => isFr.value ? 'Port de Carthage' : isAr.value ? 'ميناء قرطاج' : 'Harbor of Carthage')
+const harborLabelSub = computed(() => isFr.value ? 'Cothon — Le double port légendaire' : isAr.value ? 'الكوثون — الميناء المزدوج الأسطوري' : 'Cothon — The legendary twin harbor')
+const toolsAnimTitle = computed(() => isFr.value ? 'Artisanat Punique' : isAr.value ? 'الحرف البونيقية' : 'Punic Craftsmanship')
+const toolsAnimSubtitle = computed(() => isFr.value ? 'Les outils et objets qui témoignent du savoir-faire carthaginois' : isAr.value ? 'الأدوات والأشياء التي تشهد على المهارة القرطاجية' : 'Tools and artifacts that testify to Carthaginian craftsmanship')
+const toolsLabel = computed(() => isFr.value ? 'Artisanat Punique' : isAr.value ? 'الحرف البونيقية' : 'Punic Craftsmanship')
+const toolsLabelSub = computed(() => isFr.value ? 'Outils et objets de la civilisation carthaginoise' : isAr.value ? 'أدوات وأشياء الحضارة القرطاجية' : 'Tools and artifacts of Carthaginian civilization')
 
 const legendTitle = computed(() => isFr.value ? 'La légende de Didon' : isAr.value ? 'أسطورة ديدون' : 'The Legend of Dido')
 const didonCaption = computed(() => isFr.value ? 'Didon accueillant Énée — Pierre-Narcisse Guérin' : isAr.value ? 'ديدون تستقبل إينياس — بيير-نارسيس غيران' : 'Dido welcoming Aeneas — Pierre-Narcisse Guérin')

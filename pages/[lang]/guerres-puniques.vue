@@ -53,6 +53,17 @@
       </div>
     </section>
 
+    <!-- Animated Warship -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">{{ warshipSectionTitle }}</h2>
+        <p class="section-subtitle">{{ warshipSectionSubtitle }}</p>
+        <ClientOnly>
+          <AnimationsPunicWarship :title="warshipLabel" :subtitle="warshipLabelSub" />
+        </ClientOnly>
+      </div>
+    </section>
+
     <!-- Tactics -->
     <section class="section section-dark">
       <div class="container">
@@ -78,6 +89,11 @@
 const { locale } = useI18n()
 const isFr = computed(() => locale.value === 'fr')
 const isAr = computed(() => locale.value === 'ar')
+
+const warshipSectionTitle = computed(() => isFr.value ? 'La Flotte Punique' : isAr.value ? 'الأسطول البونيقي' : 'The Punic Fleet')
+const warshipSectionSubtitle = computed(() => isFr.value ? 'Les quinquérèmes carthaginoises, terreur de la Méditerranée' : isAr.value ? 'السفن القرطاجية الخماسية، رعب البحر المتوسط' : 'Carthaginian quinqueremes, terror of the Mediterranean')
+const warshipLabel = computed(() => isFr.value ? 'Quinquérème Punique' : isAr.value ? 'سفينة خماسية بونيقية' : 'Punic Quinquereme')
+const warshipLabelSub = computed(() => isFr.value ? 'La puissance navale de Carthage' : isAr.value ? 'القوة البحرية لقرطاج' : 'The naval power of Carthage')
 
 const title = computed(() => isFr.value ? 'Les Guerres Puniques' : isAr.value ? 'الحروب البونية' : 'The Punic Wars')
 const subtitle = computed(() => isFr.value ? '264–146 av. J.-C. — Le duel titanesque entre Carthage et Rome' : isAr.value ? '264–146 ق.م — الصراع العملاق بين قرطاج وروما' : '264–146 BC — The titanic duel between Carthage and Rome')

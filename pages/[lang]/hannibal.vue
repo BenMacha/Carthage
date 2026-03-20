@@ -74,8 +74,19 @@
       </div>
     </section>
 
-    <!-- Paintings -->
+    <!-- Animated Alpine Crossing -->
     <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">{{ marchTitle }}</h2>
+        <p class="section-subtitle">{{ marchSubtitle }}</p>
+        <ClientOnly>
+          <AnimationsHannibalMarch :title="marchLabel" :subtitle="marchLabelSub" />
+        </ClientOnly>
+      </div>
+    </section>
+
+    <!-- Paintings -->
+    <section class="section">
       <div class="container">
         <h2 class="section-title">{{ paintingsTitle }}</h2>
         <div class="gallery-grid">
@@ -118,6 +129,11 @@
 const { locale } = useI18n()
 const isFr = computed(() => locale.value === 'fr')
 const isAr = computed(() => locale.value === 'ar')
+
+const marchTitle = computed(() => isFr.value ? 'La Traversée des Alpes' : isAr.value ? 'عبور جبال الألب' : 'Crossing the Alps')
+const marchSubtitle = computed(() => isFr.value ? 'L\'exploit militaire le plus audacieux de l\'histoire antique' : isAr.value ? 'أجرأ إنجاز عسكري في التاريخ القديم' : 'The most daring military feat of ancient history')
+const marchLabel = computed(() => isFr.value ? 'La Traversée des Alpes' : isAr.value ? 'عبور جبال الألب' : 'Crossing the Alps')
+const marchLabelSub = computed(() => isFr.value ? '218 av. J.-C. — Hannibal et ses éléphants' : isAr.value ? '218 ق.م — حنبعل وفيلته' : '218 BC — Hannibal and his elephants')
 
 const title = computed(() => isFr.value ? 'Hannibal Barca' : isAr.value ? 'حنبعل برقا' : 'Hannibal Barca')
 const subtitle = computed(() => isFr.value ? '247–183 av. J.-C. — Le plus grand stratège de l\'Antiquité' : isAr.value ? '247–183 ق.م — أعظم استراتيجي في العصور القديمة' : '247–183 BC — The greatest strategist of antiquity')
