@@ -12,7 +12,20 @@
         <li><NuxtLink :to="localePath('/elephants')" @click="menuOpen = false">{{ t.nav.elephants }}</NuxtLink></li>
         <li><NuxtLink :to="localePath('/economie')" @click="menuOpen = false">{{ t.nav.economy }}</NuxtLink></li>
         <li><NuxtLink :to="localePath('/afrique')" @click="menuOpen = false">{{ t.nav.africa }}</NuxtLink></li>
-        <li><NuxtLink :to="localePath('/biographies')" @click="menuOpen = false">{{ t.nav.biographies }}</NuxtLink></li>
+        <li class="nav-dropdown">
+          <NuxtLink :to="localePath('/biographies')" @click="menuOpen = false">{{ t.nav.biographies }}</NuxtLink>
+          <ul class="dropdown-menu">
+            <li><NuxtLink :to="localePath('/didon')" @click="menuOpen = false">{{ bioLabels.didon }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/hannibal')" @click="menuOpen = false">{{ bioLabels.hannibal }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/hamilcar')" @click="menuOpen = false">{{ bioLabels.hamilcar }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/hasdrubal')" @click="menuOpen = false">{{ bioLabels.hasdrubal }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/magon-barca')" @click="menuOpen = false">{{ bioLabels.magonBarca }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/hannon')" @click="menuOpen = false">{{ bioLabels.hannon }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/magon-agronome')" @click="menuOpen = false">{{ bioLabels.magonAgronome }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/sophonisbe')" @click="menuOpen = false">{{ bioLabels.sophonisbe }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/armee')" @click="menuOpen = false">{{ bioLabels.armee }}</NuxtLink></li>
+          </ul>
+        </li>
       </ul>
 
       <div class="navbar-right">
@@ -42,6 +55,15 @@
 const { t, locale, setLocale, localePath, availableLocales } = useI18n()
 const isScrolled = ref(false)
 const menuOpen = ref(false)
+
+const bioLabels = computed(() => {
+  const labels = {
+    fr: { didon: 'Didon (Élyssa)', hannibal: 'Hannibal Barca', hamilcar: 'Hamilcar Barca', hasdrubal: 'Hasdrubal Barca', magonBarca: 'Magon Barca', hannon: 'Hannon le Navigateur', magonAgronome: 'Magon l\'Agronome', sophonisbe: 'Sophonisbe', armee: 'L\'Armée Multinationale' },
+    en: { didon: 'Dido (Elissa)', hannibal: 'Hannibal Barca', hamilcar: 'Hamilcar Barca', hasdrubal: 'Hasdrubal Barca', magonBarca: 'Magon Barca', hannon: 'Hanno the Navigator', magonAgronome: 'Mago the Agronomist', sophonisbe: 'Sophonisba', armee: 'The Multinational Army' },
+    ar: { didon: 'ديدو (إليسا)', hannibal: 'حنبعل برقا', hamilcar: 'حملقار برقا', hasdrubal: 'صدربعل برقا', magonBarca: 'ماغون برقا', hannon: 'حنون الملاح', magonAgronome: 'ماغون المهندس الزراعي', sophonisbe: 'صفنبعل', armee: 'الجيش المتعدد الجنسيات' }
+  }
+  return labels[locale.value] || labels.fr
+})
 
 onMounted(() => {
   window.addEventListener('scroll', () => {
@@ -142,6 +164,46 @@ onMounted(() => {
   width: 100%;
 }
 
+/* Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26, 26, 46, 0.97);
+  backdrop-filter: blur(10px);
+  list-style: none;
+  min-width: 220px;
+  padding: 0.75rem 0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1.2rem !important;
+  font-size: 0.7rem !important;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(201, 168, 76, 0.1);
+}
+
 /* Language Switcher (inline) */
 .lang-switcher {
   display: flex;
@@ -228,5 +290,15 @@ onMounted(() => {
     z-index: 999;
   }
   .nav-links.open { right: 0; }
+  .dropdown-menu {
+    position: static;
+    display: block;
+    transform: none;
+    background: rgba(26, 26, 46, 0.5);
+    box-shadow: none;
+    border: none;
+    min-width: auto;
+    padding-left: 1rem;
+  }
 }
 </style>
