@@ -24,6 +24,16 @@
             <li><NuxtLink :to="localePath('/prise-de-carthage')">{{ t.footer.fall }}</NuxtLink></li>
           </ul>
         </div>
+        <div class="footer-section">
+          <h4>{{ footerBioTitle }}</h4>
+          <ul>
+            <li><NuxtLink :to="localePath('/didon')">{{ footerBioLabels.didon }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/hamilcar')">{{ footerBioLabels.hamilcar }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/hannon')">{{ footerBioLabels.hannon }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/sophonisbe')">{{ footerBioLabels.sophonisbe }}</NuxtLink></li>
+            <li><NuxtLink :to="localePath('/armee')">{{ footerBioLabels.armee }}</NuxtLink></li>
+          </ul>
+        </div>
       </div>
       <div class="footer-bottom">
         <p>{{ t.footer.copyright }}</p>
@@ -33,7 +43,21 @@
 </template>
 
 <script setup>
-const { t, localePath } = useI18n()
+const { t, locale, localePath } = useI18n()
+
+const footerBioTitle = computed(() => {
+  const labels = { fr: 'Biographies', en: 'Biographies', ar: 'السير الذاتية' }
+  return labels[locale.value] || labels.fr
+})
+
+const footerBioLabels = computed(() => {
+  const labels = {
+    fr: { didon: 'Didon (Élyssa)', hamilcar: 'Hamilcar Barca', hannon: 'Hannon le Navigateur', sophonisbe: 'Sophonisbe', armee: 'L\'Armée Multinationale' },
+    en: { didon: 'Dido (Elissa)', hamilcar: 'Hamilcar Barca', hannon: 'Hanno the Navigator', sophonisbe: 'Sophonisba', armee: 'The Multinational Army' },
+    ar: { didon: 'ديدو (إليسا)', hamilcar: 'حملقار برقا', hannon: 'حنون الملاح', sophonisbe: 'صفنبعل', armee: 'الجيش المتعدد' }
+  }
+  return labels[locale.value] || labels.fr
+})
 </script>
 
 <style scoped>
@@ -46,7 +70,7 @@ const { t, localePath } = useI18n()
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 3rem;
 }
 
