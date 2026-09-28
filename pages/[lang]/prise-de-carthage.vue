@@ -44,6 +44,46 @@
       </div>
     </section>
 
+    <!-- Massinissa -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.massi.title }}</h2>
+        <p>{{ c.massi.intro }}</p>
+      </div>
+      <div class="cols cols-5-7 cols--flush">
+        <div class="massi-side">
+          <figure class="fig massi-fig">
+            <img src="/img/massinissa.jpg" :alt="c.massi.alt" loading="lazy">
+            <figcaption>{{ c.massi.caption }}</figcaption>
+          </figure>
+          <div class="tile tile--terra">
+            <span class="kicker">{{ c.massi.whyKicker }}</span>
+            <h3 class="h-card">{{ c.massi.whyTitle }}</h3>
+            <p class="body">{{ c.massi.why }}</p>
+          </div>
+        </div>
+        <div class="tile tile--xl tile--ink">
+          <span class="kicker">{{ c.massi.rowsKicker }}</span>
+          <div class="rows" style="--row-key:132px">
+            <div v-for="(r, i) in c.massi.rows" :key="i">
+              <span class="key">{{ r.k }}</span>
+              <span class="val">{{ r.v }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cols cols-2 cols--flush massi-foot">
+        <div class="tile tile--paper">
+          <span class="kicker">{{ c.massi.hannibalKicker }}</span>
+          <p class="body">{{ c.massi.hannibal }}</p>
+        </div>
+        <div class="tile tile--paper">
+          <span class="kicker">{{ c.massi.romeKicker }}</span>
+          <p class="body">{{ c.massi.rome }}</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Déroulé -->
     <section class="sec">
       <div class="tile tile--xl tile--ink">
@@ -225,6 +265,32 @@ const C = {
       text: "Rome a incendié et démantelé Carthage, massacré ou réduit en esclavage ses habitants. Mais le récit d'une ville « rasée » et stérilisée par le sel relève de la légende : les fouilles retrouvent la cité punique sous la ville romaine, et la culture punique a survécu des siècles.",
       cta: "L'histoire écrite par le vainqueur"
     },
+    massi: {
+      title: "Massinissa, l'autre artisan de la chute",
+      intro: "Rome a donné le coup final, mais c'est le roi numide Massinissa qui, pendant cinquante ans, a grignoté le territoire de Carthage et fourni à Rome son prétexte.",
+      alt: 'Monnaie de Massinissa, roi de Numidie',
+      caption: 'Monnaie de Massinissa — British Museum',
+      whyKicker: 'Pourquoi ?',
+      whyTitle: 'Des terres riches, une ville convoitée',
+      why: "Massinissa voulait bâtir un grand royaume numide sédentaire, avec des villes et des terres à blé. Or les plaines fertiles et les comptoirs les plus riches d'Afrique appartenaient à Carthage, dont la prospérité avait survécu à la défaite. Il savait qu'avec l'appui de Rome, chaque annexion resterait impunie.",
+      rowsKicker: 'Cinquante ans de pression, 206 – 148',
+      rows: [
+        { k: '212 – 206', v: "Formé à Carthage selon Appien, il combat pour elle en Hispanie contre les Scipions." },
+        { k: '206', v: "Carthage soutient son rival Syphax ; Massinissa passe dans le camp de Rome." },
+        { k: '202', v: "Sa cavalerie numide est décisive à Zama : elle revient frapper l'armée d'Hannibal dans le dos." },
+        { k: '201', v: "Le traité de paix l'autorise à réclamer « les terres de ses ancêtres », sans en fixer les limites, et interdit à Carthage toute guerre sans l'accord de Rome : Carthage ne peut plus se défendre seule." },
+        { k: '193', v: "Il s'empare d'une partie des Emporia, les riches comptoirs de la petite Syrte (Tite-Live). Rome envoie des arbitres qui ne tranchent pas." },
+        { k: '174 – 172', v: "Carthage se plaint à Rome : en deux ans, Massinissa lui aurait pris plus de 70 villes et forteresses (Tite-Live)." },
+        { k: '162 – 161', v: "Nouvelle annexion des Emporia ; Rome donne raison à Massinissa, et Carthage doit en plus lui verser 500 talents (Polybe)." },
+        { k: '153 – 152', v: "Il prend les Grandes Plaines et la région de Thugga, une cinquantaine de villes (Appien). L'ambassade romaine venue arbitrer, avec Caton, revient convaincue qu'il faut détruire Carthage." },
+        { k: '150', v: "À bout, Carthage lève environ 25 000 hommes sous Hasdrubal. Encerclée et affamée, l'armée capitule ; les cavaliers de Gulussa, fils de Massinissa, massacrent les prisonniers. Pour Rome, c'est la violation du traité de 201 qu'elle attendait." },
+        { k: '148', v: "Massinissa meurt à près de 90 ans, en plein siège de Carthage. Scipion Émilien partage son royaume entre ses fils." }
+      ],
+      hannibalKicker: "Sans Hannibal",
+      hannibal: "Carthage n'avait plus son meilleur défenseur : devenu suffète, Hannibal avait réformé l'État et rétabli les finances, mais ses ennemis l'avaient dénoncé à Rome. Il s'exile en 195 et meurt en 183, bien avant la dernière guerre.",
+      romeKicker: 'Un allié encombrant',
+      rome: "Rome s'est servie de Massinissa sans vouloir lui laisser Carthage. Plusieurs historiens modernes pensent que la destruction de la ville visait aussi à empêcher un royaume numide trop puissant de s'en emparer : à sa mort, son royaume est aussitôt divisé.",
+    },
     war: {
       title: 'Ce qui s\'est passé',
       cta: 'Toute la chronologie',
@@ -344,6 +410,32 @@ const C = {
       title: 'A real destruction, not an erasure',
       text: 'Rome burnt and dismantled Carthage, and killed or enslaved its people. But the tale of a city "razed" and sterilised with salt is legend: excavations find the Punic city beneath the Roman one, and Punic culture survived for centuries.',
       cta: 'History written by the victor'
+    },
+    massi: {
+      title: 'Masinissa, the other architect of the fall',
+      intro: "Rome struck the final blow, but it was the Numidian king Masinissa who, for fifty years, ate away at Carthage's territory and handed Rome its pretext.",
+      alt: 'Coin of Masinissa, king of Numidia',
+      caption: 'Coin of Masinissa — British Museum',
+      whyKicker: 'Why?',
+      whyTitle: 'Rich lands, a coveted city',
+      why: "Masinissa wanted to build a great settled Numidian kingdom, with towns and wheat-growing land. Yet the most fertile plains and the richest trading posts in Africa belonged to Carthage, whose prosperity had survived defeat. He knew that with Rome behind him, every annexation would go unpunished.",
+      rowsKicker: 'Fifty years of pressure, 206 – 148',
+      rows: [
+        { k: '212 – 206', v: 'Raised at Carthage according to Appian, he fights for the city in Hispania against the Scipios.' },
+        { k: '206', v: 'Carthage backs his rival Syphax; Masinissa goes over to Rome.' },
+        { k: '202', v: "His Numidian cavalry is decisive at Zama: it returns to strike Hannibal's army from behind." },
+        { k: '201', v: "The peace treaty lets him claim “the lands of his ancestors” without fixing any boundary, and forbids Carthage to wage any war without Rome's consent: Carthage can no longer defend itself alone." },
+        { k: '193', v: 'He seizes part of the Emporia, the rich trading posts of the Lesser Syrtis (Livy). Rome sends arbitrators who settle nothing.' },
+        { k: '174 – 172', v: 'Carthage complains to Rome that in two years Masinissa has taken more than 70 of its towns and forts (Livy).' },
+        { k: '162 – 161', v: 'The Emporia are annexed again; Rome rules for Masinissa, and Carthage must also pay him 500 talents (Polybius).' },
+        { k: '153 – 152', v: 'He takes the Great Plains and the Thugga region, some fifty towns (Appian). The Roman embassy sent to arbitrate, Cato among them, returns convinced that Carthage must be destroyed.' },
+        { k: '150', v: 'Pushed to the limit, Carthage raises some 25,000 men under Hasdrubal. Surrounded and starving, the army surrenders; the horsemen of Gulussa, Masinissa\'s son, massacre the prisoners. For Rome, this is the breach of the 201 treaty it had been waiting for.' },
+        { k: '148', v: 'Masinissa dies at nearly 90, in the middle of the siege of Carthage. Scipio Aemilianus divides his kingdom among his sons.' }
+      ],
+      hannibalKicker: 'Without Hannibal',
+      hannibal: 'Carthage had lost its best defender. As suffete, Hannibal had reformed the state and restored its finances, but his enemies denounced him to Rome. He went into exile in 195 and died in 183, long before the last war.',
+      romeKicker: 'An awkward ally',
+      rome: 'Rome used Masinissa without wanting to hand him Carthage. Several modern historians think the destruction of the city was also meant to stop an overly powerful Numidian kingdom from taking it: on his death, his kingdom was immediately divided.',
     },
     war: {
       title: 'What happened',
@@ -465,6 +557,32 @@ const C = {
       text: 'أحرقت روما قرطاج وفكّكتها، وقتلت سكانها أو استعبدتهم. لكن حكاية مدينة «سُوّيت بالأرض» وعُقّمت بالملح أسطورة: فالحفريات تجد المدينة البونية تحت المدينة الرومانية، وقد عاشت الثقافة البونية قرونًا بعدها.',
       cta: 'التاريخ الذي كتبه المنتصر'
     },
+    massi: {
+      title: 'ماسينيسا، الصانع الآخر للسقوط',
+      intro: 'وجّهت روما الضربة الأخيرة، لكن الملك النوميدي ماسينيسا هو من قضم أراضي قرطاج طوال خمسين عاماً وقدّم لروما ذريعتها.',
+      alt: 'قطعة نقدية لماسينيسا ملك نوميديا',
+      caption: 'قطعة نقدية لماسينيسا — المتحف البريطاني',
+      whyKicker: 'لماذا؟',
+      whyTitle: 'أراضٍ غنية ومدينة مشتهاة',
+      why: 'أراد ماسينيسا بناء مملكة نوميدية كبرى مستقرة، ذات مدن وأراضٍ للقمح. لكن أخصب السهول وأغنى المراكز التجارية في إفريقيا كانت لقرطاج التي نجا رخاؤها من الهزيمة. وكان يعلم أن كل ضمّ سيمرّ دون عقاب ما دامت روما تسانده.',
+      rowsKicker: 'خمسون عاماً من الضغط، 206 – 148',
+      rows: [
+        { k: '212 – 206', v: 'نشأ في قرطاج حسب أبيانوس، وقاتل من أجلها في هسبانيا ضد آل سكيبيو.' },
+        { k: '206', v: 'تساند قرطاج خصمه سيفاقس، فينتقل ماسينيسا إلى معسكر روما.' },
+        { k: '202', v: 'فرسانه النوميديون حاسمون في زاما: يعودون لضرب جيش حنبعل من الخلف.' },
+        { k: '201', v: 'تسمح له معاهدة السلام بالمطالبة بـ«أراضي أجداده» دون تحديد حدودها، وتمنع قرطاج من أي حرب دون موافقة روما: لم تعد قرطاج قادرة على الدفاع عن نفسها وحدها.' },
+        { k: '193', v: 'يستولي على جزء من الإمبوريا، المراكز التجارية الغنية في خليج السرت الصغير (تيتوس ليفيوس). وترسل روما محكّمين لا يحسمون شيئاً.' },
+        { k: '174 – 172', v: 'تشكو قرطاج إلى روما أن ماسينيسا انتزع منها في عامين أكثر من 70 مدينة وحصناً (تيتوس ليفيوس).' },
+        { k: '162 – 161', v: 'ضمّ جديد للإمبوريا؛ تحكم روما لصالح ماسينيسا، وتُلزَم قرطاج فوق ذلك بدفع 500 تالنت له (بوليبيوس).' },
+        { k: '153 – 152', v: 'يستولي على السهول الكبرى ومنطقة دقة، نحو خمسين مدينة (أبيانوس). وتعود البعثة الرومانية التي جاءت للتحكيم، وفيها كاتو، مقتنعة بوجوب تدمير قرطاج.' },
+        { k: '150', v: 'بعد أن ضاقت بها السبل، تجنّد قرطاج نحو 25 000 رجل بقيادة صدربعل. يُحاصَر الجيش ويُجوَّع فيستسلم، ويذبح فرسان غولوسا بن ماسينيسا الأسرى. وهذا هو خرق معاهدة 201 الذي كانت روما تنتظره.' },
+        { k: '148', v: 'يموت ماسينيسا في نحو التسعين من عمره في أثناء حصار قرطاج، ويقسّم سكيبيو إيميليانوس مملكته بين أبنائه.' }
+      ],
+      hannibalKicker: 'من دون حنبعل',
+      hannibal: 'فقدت قرطاج أفضل المدافعين عنها: فبعد أن أصبح حنبعل شفطاً أصلح الدولة وأعاد التوازن إلى ماليتها، لكن خصومه وشوا به إلى روما، فنُفي سنة 195 ومات سنة 183، قبل الحرب الأخيرة بزمن طويل.',
+      romeKicker: 'حليف مُربك',
+      rome: 'استعملت روما ماسينيسا دون أن تريد ترك قرطاج له. ويرى عدد من المؤرخين المحدثين أن تدمير المدينة كان يهدف أيضاً إلى منع مملكة نوميدية شديدة القوة من الاستيلاء عليها: فعند موته قُسّمت مملكته فوراً.',
+    },
     war: {
       title: 'ما حدث فعلًا',
       cta: 'التسلسل الزمني كاملًا',
@@ -567,6 +685,10 @@ useHead(() => ({
 </script>
 
 <style scoped>
+.massi-side { display: flex; flex-direction: column; gap: var(--gap); }
+.massi-fig { min-height: 320px; background: var(--white); }
+.massi-fig > img { object-fit: contain; padding: 20px; }
+.massi-foot { margin-top: var(--gap); }
 .stat-text { font: 500 15px/1.45 var(--font-body); margin-top: 10px; }
 
 .quote { margin: 0 0 20px; }
