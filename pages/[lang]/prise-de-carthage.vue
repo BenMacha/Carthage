@@ -193,7 +193,8 @@
           </div>
           <NuxtLink :to="localePath('/tunisie')" class="btn btn-outline">{{ c.cont.cta }} →</NuxtLink>
         </div>
-        <div class="cols cols-4 cols--flush">
+        <p class="body-lg cont-intro">{{ c.cont.intro }}</p>
+        <div class="cols cols-4 cols--flush cont-grid">
           <div v-for="(k, i) in c.cont.items" :key="i" class="cont">
             <div class="cont-key">{{ k.key }}</div>
             <h3 class="cont-h">{{ k.title }}</h3>
@@ -201,6 +202,7 @@
           </div>
         </div>
       </div>
+      <AltReading v-bind="c.cont.alt" />
     </section>
 
     <!-- Carthage aujourd'hui -->
@@ -356,13 +358,33 @@ const C = {
     },
     cont: {
       kicker: 'Après 146',
-      title: 'La continuité de Carthage',
+      title: "Carthage n'a pas disparu",
       cta: 'Carthage et la Tunisie',
+      intro: "La ville de 146 a bien brûlé : les fouilles de Byrsa et du quartier punique retrouvent la couche d'incendie, les maisons effondrées, les balles de fronde et les boulets de catapulte. Mais une civilisation ne tient pas dans une ville. La langue, les cultes, les institutions et les villes puniques ont continué à vivre pendant des siècles, et Carthage elle-même a été rebâtie sur le même site.",
+      alt: {
+        badge: "Une autre lecture — le point de vue de l'auteur du site",
+        title: 'Carthage prise par sabotage, pas détruite',
+        thesis: [
+          "Pour l'auteur de ce site, Carthage n'a pas été détruite : elle a été prise, par sabotage, au moment où Hannibal n'était plus là pour la défendre. Rome et Massinissa, jaloux de sa richesse, de son commerce et de ses réseaux, en ont profité pour en prendre le contrôle.",
+          "Selon cette lecture, le récit d'une ville rasée vient des livres romains, écrits par les vainqueurs pour grandir leur victoire."
+        ],
+        answerTitle: "Ce qu'en disent l'archéologie et les historiens",
+        answer: [
+          "Les fouilles de Byrsa et du quartier punique retrouvent la ville de 146 : couche de cendres, maisons effondrées, poutres brûlées, projectiles dans les rues. On peut encore voir ces vestiges à Carthage.",
+          "Le sel répandu sur les ruines et l'effacement total sont bien des inventions : la culture punique a survécu et Rome a rebâti sur le site.",
+          "Hannibal n'était pas absent en 149 : il était mort depuis 183. Carthage avait perdu son meilleur défenseur avec son exil en 195.",
+          "La jalousie et la peur de la richesse carthaginoise sont en revanche bien attestées : voir la page sur la richesse et Rome."
+        ]
+      },
       items: [
-        { key: 'Ve s.', title: 'La langue punique', desc: "Parlée jusqu'au Ve siècle apr. J.-C., près de six siècles après la prise de Carthage. Saint Augustin en témoigne." },
-        { key: '29 av. J.-C.', title: 'Carthage romaine', desc: "Refondée sur le même site, elle devient capitale de l'Afrique proconsulaire, avec amphithéâtre, cirque et thermes monumentaux." },
-        { key: 'Ifriqiya', title: 'Un nom qui demeure', desc: "Le nom arabe du pays, Ifriqiya, vient du latin Africa, qui désignait d'abord le territoire de Carthage." },
-        { key: '1979', title: 'UNESCO', desc: "Le site archéologique de Carthage est inscrit au patrimoine mondial de l'UNESCO." }
+        { key: 'Ve s.', title: 'La langue punique', desc: "Parlée jusqu'au Ve siècle apr. J.-C., près de six siècles après la prise de Carthage. Saint Augustin, né à Thagaste, en témoigne et cite des mots puniques." },
+        { key: 'Ier – IIe s.', title: 'Des inscriptions néopuniques', desc: "On grave encore en punique, dans une écriture dite néopunique, jusqu'aux Ier et IIe siècles, puis du punique en lettres latines jusqu'au IVe siècle." },
+        { key: 'Numidie', title: 'La langue des rois', desc: "Les rois numides, Massinissa compris, gouvernent et frappent monnaie en punique. À Dougga, les inscriptions officielles sont bilingues, libyque et punique." },
+        { key: 'Suffètes', title: 'Des institutions qui durent', desc: "Sous Rome, des villes d'Afrique comme Leptis Magna ou Mactar élisent encore des suffètes, les magistrats de la tradition carthaginoise, jusqu'aux Ier et IIe siècles." },
+        { key: 'Saturne', title: 'Les dieux changent de nom', desc: "Baal Hammon est vénéré comme Saturne africain et Tanit comme Caelestis, sur les mêmes sanctuaires et avec des stèles héritées du modèle punique." },
+        { key: 'Utique, Hadrumète', title: 'Les villes puniques restent', desc: "Utique, Hadrumète (Sousse), Leptis ou Kerkouane… plusieurs cités puniques traversent la guerre ; certaines, alliées de Rome en 149, gardent leur statut de villes libres." },
+        { key: '29 av. J.-C.', title: 'Carthage renaît', desc: "Décidée par César, la colonie est fondée sous Auguste sur le même site. Elle devient la capitale de l'Afrique proconsulaire et l'une des plus grandes villes de l'Empire." },
+        { key: '1979', title: 'Un nom et un patrimoine', desc: "Le nom Africa, puis Ifriqiya, vient du territoire de Carthage. Le site archéologique est inscrit au patrimoine mondial de l'UNESCO." }
       ]
     },
     today: {
@@ -502,13 +524,33 @@ const C = {
     },
     cont: {
       kicker: 'After 146',
-      title: 'The continuity of Carthage',
+      title: 'Carthage did not disappear',
       cta: 'Carthage and Tunisia',
+      intro: 'The city of 146 did burn: excavations on Byrsa and in the Punic quarter find the fire layer, collapsed houses, sling bullets and catapult balls. But a civilisation is more than a city. Punic language, cults, institutions and towns lived on for centuries, and Carthage itself was rebuilt on the same site.',
+      alt: {
+        badge: "Another reading — the site author's view",
+        title: 'Carthage taken by sabotage, not destroyed',
+        thesis: [
+          "For the author of this site, Carthage was not destroyed: it was taken, through sabotage, at a time when Hannibal was no longer there to defend it. Rome and Masinissa, jealous of its wealth, trade and networks, seized the chance to take control of it.",
+          'On this reading, the story of a razed city comes from Roman books, written by the victors to magnify their victory.'
+        ],
+        answerTitle: 'What archaeology and historians say',
+        answer: [
+          'Excavations on Byrsa and in the Punic quarter uncover the city of 146: an ash layer, collapsed houses, burned beams, projectiles in the streets. These remains can still be seen at Carthage.',
+          'The salt sown on the ruins and total erasure are indeed inventions: Punic culture survived and Rome rebuilt on the site.',
+          'Hannibal was not merely absent in 149: he had been dead since 183. Carthage lost its best defender when he went into exile in 195.',
+          "Jealousy and fear of Carthaginian wealth, however, are well attested: see the page on wealth and Rome."
+        ]
+      },
       items: [
-        { key: '5th c.', title: 'The Punic language', desc: 'Spoken until the 5th century AD, nearly six centuries after the capture of Carthage. Saint Augustine bears witness to it.' },
-        { key: '29 BC', title: 'Roman Carthage', desc: 'Refounded on the same site, it became the capital of Africa Proconsularis, with an amphitheatre, a circus and monumental baths.' },
-        { key: 'Ifriqiya', title: 'A name that endures', desc: 'The Arabic name of the country, Ifriqiya, comes from the Latin Africa, which first referred to the territory of Carthage.' },
-        { key: '1979', title: 'UNESCO', desc: 'The archaeological site of Carthage is inscribed on the UNESCO World Heritage List.' }
+        { key: '5th c.', title: 'The Punic language', desc: 'Spoken until the 5th century AD, nearly six centuries after the fall of Carthage. Saint Augustine, born in Thagaste, bears witness to it and quotes Punic words.' },
+        { key: '1st – 2nd c.', title: 'Neo-Punic inscriptions', desc: 'Punic was still carved, in a script called Neo-Punic, until the 1st and 2nd centuries, then written in Latin letters until the 4th century.' },
+        { key: 'Numidia', title: 'The language of kings', desc: 'The Numidian kings, Masinissa included, governed and minted coins in Punic. At Dougga, official inscriptions are bilingual, Libyan and Punic.' },
+        { key: 'Suffetes', title: 'Lasting institutions', desc: 'Under Rome, African towns such as Leptis Magna or Mactar still elected suffetes, the magistrates of the Carthaginian tradition, into the 1st and 2nd centuries.' },
+        { key: 'Saturn', title: 'The gods change their names', desc: 'Baal Hammon is worshipped as African Saturn and Tanit as Caelestis, at the same sanctuaries and with stelae inherited from the Punic model.' },
+        { key: 'Utica, Hadrumetum', title: 'Punic towns remain', desc: 'Utica, Hadrumetum (Sousse), Leptis, Kerkouane… several Punic cities came through the war; some, Rome\'s allies in 149, kept their status as free cities.' },
+        { key: '29 BC', title: 'Carthage reborn', desc: 'Decided by Caesar, the colony was founded under Augustus on the same site. It became the capital of Africa Proconsularis and one of the largest cities of the Empire.' },
+        { key: '1979', title: 'A name and a heritage', desc: 'The name Africa, then Ifriqiya, comes from the territory of Carthage. The archaeological site is a UNESCO World Heritage Site.' }
       ]
     },
     today: {
@@ -648,13 +690,33 @@ const C = {
     },
     cont: {
       kicker: 'بعد 146',
-      title: 'استمرارية قرطاج',
+      title: 'قرطاج لم تختفِ',
       cta: 'قرطاج وتونس',
+      intro: 'احترقت مدينة 146 فعلاً: فالحفريات في بيرصا والحي البونيقي تكشف طبقة الحريق والبيوت المنهارة وكرات المقلاع وقذائف المنجنيق. لكن الحضارة أكبر من مدينة. فقد عاشت اللغة البونيقية وعباداتها ومؤسساتها ومدنها قروناً، وأُعيد بناء قرطاج نفسها في الموقع ذاته.',
+      alt: {
+        badge: 'قراءة أخرى — رأي صاحب الموقع',
+        title: 'قرطاج أُخذت بالتخريب ولم تُدمَّر',
+        thesis: [
+          'يرى صاحب هذا الموقع أن قرطاج لم تُدمَّر، بل أُخذت بالتخريب في وقت لم يعد فيه حنبعل موجوداً للدفاع عنها. وقد استغلت روما وماسينيسا، غيرةً من ثرائها وتجارتها وشبكاتها، الفرصة للسيطرة عليها.',
+          'وحسب هذه القراءة، فإن رواية المدينة المسوّاة بالأرض مصدرها الكتب الرومانية التي كتبها المنتصرون لتضخيم نصرهم.'
+        ],
+        answerTitle: 'ما يقوله علم الآثار والمؤرخون',
+        answer: [
+          'تكشف الحفريات في بيرصا والحي البونيقي مدينة 146: طبقة رماد وبيوت منهارة وعوارض محترقة وقذائف في الشوارع، ولا تزال هذه البقايا ظاهرة في قرطاج.',
+          'أما الملح المنثور على الأنقاض والمحو التام فهما اختلاق فعلاً: فقد بقيت الثقافة البونيقية وأعادت روما البناء في الموقع.',
+          'لم يكن حنبعل غائباً فحسب سنة 149، بل كان قد مات منذ 183، وخسرت قرطاج أفضل المدافعين عنها بنفيه سنة 195.',
+          'في المقابل، فإن الغيرة والخوف من ثراء قرطاج ثابتان في المصادر: انظر صفحة الثروة وروما.'
+        ]
+      },
       items: [
-        { key: 'ق 5 م', title: 'اللغة البونية', desc: 'بقيت متداولة حتى القرن الخامس الميلادي، بعد نحو ستة قرون من الاستيلاء على قرطاج، ويشهد على ذلك القديس أوغسطين.' },
-        { key: '29 ق.م', title: 'قرطاج الرومانية', desc: 'أُعيد تأسيسها في الموقع نفسه، فصارت عاصمة إفريقيا البروقنصلية، بمدرّج وميدان سباق وحمامات ضخمة.' },
-        { key: 'إفريقية', title: 'اسم باقٍ', desc: 'الاسم العربي «إفريقية» مأخوذ من اللاتينية «أفريكا» التي كانت تدل أولًا على أرض قرطاج.' },
-        { key: '1979', title: 'اليونسكو', desc: 'أُدرج موقع قرطاج الأثري في قائمة التراث العالمي لليونسكو.' }
+        { key: 'ق 5 م', title: 'اللغة البونيقية', desc: 'ظلت متداولة حتى القرن الخامس الميلادي، بعد نحو ستة قرون من سقوط قرطاج. ويشهد بذلك القديس أوغسطين، ابن طاغست، ويورد كلمات بونيقية.' },
+        { key: 'ق 1 – 2 م', title: 'نقوش بونيقية حديثة', desc: 'ظلّ الناس ينقشون بالبونيقية، بخط يُسمّى البونيقي الحديث، حتى القرنين الأول والثاني، ثم كتبوها بحروف لاتينية حتى القرن الرابع.' },
+        { key: 'نوميديا', title: 'لغة الملوك', desc: 'حكم ملوك نوميديا، ومنهم ماسينيسا، وسكّوا نقودهم بالبونيقية. وفي دقة جاءت النقوش الرسمية مزدوجة اللغة، ليبية وبونيقية.' },
+        { key: 'الشفطون', title: 'مؤسسات باقية', desc: 'في ظل روما، ظلت مدن إفريقية مثل لبدة الكبرى ومكثر تنتخب شفطين، وهم قضاة التقليد القرطاجي، حتى القرنين الأول والثاني.' },
+        { key: 'ساتورن', title: 'الآلهة تغيّر أسماءها', desc: 'يُعبد بعل حمون باسم ساتورن الإفريقي وتانيت باسم كايليستيس، في المعابد نفسها وبنصب موروثة عن النموذج البونيقي.' },
+        { key: 'أوتيكا، حضرموت', title: 'المدن البونيقية باقية', desc: 'أوتيكا وحضرموت (سوسة) ولبدة وكركوان… عبرت عدة مدن بونيقية الحرب، واحتفظ بعضها، وقد حالف روما سنة 149، بمكانة المدن الحرة.' },
+        { key: '29 ق.م', title: 'قرطاج تولد من جديد', desc: 'قررها قيصر وأُسست المستعمرة في عهد أغسطس في الموقع ذاته، فصارت عاصمة إفريقيا البروقنصلية وإحدى كبرى مدن الإمبراطورية.' },
+        { key: '1979', title: 'اسم وتراث', desc: 'اسم «أفريكا» ثم «إفريقية» مأخوذ من أرض قرطاج. والموقع الأثري مسجّل في قائمة التراث العالمي لليونسكو.' }
       ]
     },
     today: {
@@ -689,6 +751,8 @@ useHead(() => ({
 .massi-fig { min-height: 320px; background: var(--white); }
 .massi-fig > img { object-fit: contain; padding: 20px; }
 .massi-foot { margin-top: var(--gap); }
+.cont-intro { max-width: 860px; margin-bottom: 32px; color: var(--navy-soft); }
+.cont-grid { row-gap: 28px; }
 .stat-text { font: 500 15px/1.45 var(--font-body); margin-top: 10px; }
 
 .quote { margin: 0 0 20px; }

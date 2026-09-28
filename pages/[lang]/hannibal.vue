@@ -169,6 +169,57 @@
       </NuxtLink>
     </div>
 
+    <!-- Devant Rome, 211 -->
+    <section id="devant-rome" class="sec sec--wide">
+      <div class="sec-head">
+        <div>
+          <span class="kicker">{{ c.gates.kicker }}</span>
+          <h2 class="h-section">{{ c.gates.title }}</h2>
+        </div>
+        <p>{{ c.gates.intro }}</p>
+      </div>
+      <div class="cols cols-7-5 cols--flush">
+        <div class="tile tile--xl tile--ink">
+          <span class="kicker">{{ c.gates.rowsKicker }}</span>
+          <div class="rows" style="--row-key:150px">
+            <div v-for="(r, i) in c.gates.rows" :key="i">
+              <span class="key">{{ r.k }}</span>
+              <span class="val">{{ r.v }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="gates-side">
+          <div class="tile tile--xl tile--paper tile--outline">
+            <span class="kicker">{{ c.gates.quoteKicker }}</span>
+            <blockquote class="gates-quote">
+              <p lang="la">« Vincere scis, Hannibal ; victoria uti nescis. »</p>
+            </blockquote>
+            <p class="body">{{ c.gates.quote }}</p>
+          </div>
+          <div class="tile tile--terra">
+            <span class="kicker">{{ c.gates.whyKicker }}</span>
+            <ul class="gates-list">
+              <li v-for="(w, i) in c.gates.why" :key="i">{{ w }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="cols cols-2 cols--flush gates-foot">
+        <div class="tile tile--sand">
+          <span class="kicker">{{ c.gates.fulviusKicker }}</span>
+          <h3 class="h-card">{{ c.gates.fulviusTitle }}</h3>
+          <p class="body">{{ c.gates.fulvius }}</p>
+        </div>
+        <div class="tile tile--navy">
+          <span class="kicker">{{ c.gates.sourcesKicker }}</span>
+          <h3 class="h-card">{{ c.gates.sourcesTitle }}</h3>
+          <p class="body">{{ c.gates.sources }}</p>
+          <NuxtLink :to="localePath('/histoire-des-vainqueurs')" class="btn btn-outline gates-btn">{{ c.gates.sourcesCta }} {{ locale === 'ar' ? '←' : '→' }}</NuxtLink>
+        </div>
+      </div>
+      <AltReading v-bind="c.gates.alt" />
+    </section>
+
     <!-- Zama -->
     <section class="sec">
       <div class="cols cols-5-7 cols--flush">
@@ -389,6 +440,51 @@ const C = {
       eleK: '37 éléphants · 218',
       eleT: 'Les éléphants et la traversée des Alpes'
     },
+    gates: {
+      kicker: '211 av. J.-C.',
+      title: "Pourquoi Hannibal n'est-il pas entré dans Rome ?",
+      intro: "Après Cannes, Rome semblait à sa merci. Cinq ans plus tard, il campe à ses portes. Pourtant, aucune source antique, même grecque, ne le fait entrer dans la ville. Voici ce que l'on sait.",
+      rowsKicker: 'Aux portes de Rome',
+      rows: [
+        { k: 'Août 216', v: "Après Cannes, Maharbal presse Hannibal de marcher sur Rome, à environ 400 km. Hannibal refuse : il veut d'abord détacher les alliés italiens de Rome." },
+        { k: '216 – 211', v: "Capoue, Tarente et une partie du Sud passent de son côté. Rome lève de nouvelles légions et reprend l'offensive : en 211, elle assiège Capoue." },
+        { k: 'Printemps 211', v: "Pour dégager Capoue, Hannibal marche sur Rome. Il campe sur l'Anio, à environ trois milles (4,5 km) des murailles." },
+        { k: 'Devant la porte Colline', v: "Avec 2 000 cavaliers, il s'approche jusqu'aux murs pour les observer (Tite-Live). Deux légions fraîchement levées sont dans la ville." },
+        { k: 'Deux jours', v: "Selon Tite-Live, les armées se rangent en bataille deux jours de suite, et deux fois un violent orage les sépare." },
+        { k: 'La retraite', v: "Rome n'a pas levé le siège de Capoue : la manœuvre a échoué. Hannibal repart vers le sud, et Capoue tombe peu après." }
+      ],
+      quoteKicker: 'Maharbal à Hannibal, après Cannes',
+      quote: "« Tu sais vaincre, Hannibal ; tu ne sais pas profiter de ta victoire » (Tite-Live, XXII, 51). Tite-Live ajoute que ce jour de retard sauva Rome. Beaucoup d'historiens modernes pensent au contraire qu'Hannibal avait raison de ne pas tenter le siège.",
+      whyKicker: 'Pourquoi il ne pouvait pas la prendre',
+      why: [
+        "Pas de machines de siège : son armée était faite pour la bataille rangée, pas pour assiéger une grande ville.",
+        "Des murailles de plus de 10 km et une population capable d'armer de nouvelles légions.",
+        "Une armée d'environ 40 000 hommes, loin de ses bases, sans renforts réguliers par mer.",
+        "Sa stratégie visait les alliances de Rome, pas la ville : il voulait une paix imposée, pas une conquête."
+      ],
+      fulviusKicker: 'Un général condamné',
+      fulviusTitle: "Le procès de Cnaeus Fulvius",
+      fulvius: "On évoque parfois un général romain puni « après l'arrivée d'Hannibal ». Il s'agit sans doute du préteur Cnaeus Fulvius Flaccus, battu par Hannibal à Herdonea, en Apulie, et poursuivi en 211 : il s'exile avant le verdict (Tite-Live, XXVI, 2-3). Il était jugé pour la perte de son armée, pas pour la chute de Rome. À l'inverse, le consul Varron, vaincu à Cannes, fut remercié par le Sénat pour « ne pas avoir désespéré de la République ».",
+      sourcesKicker: 'Les limites des sources',
+      sourcesTitle: 'Un récit écrit par Rome',
+      sources: "Notre récit vient de Polybe, ami des Scipions, et de Tite-Live, historien de la gloire romaine ; les historiens d'Hannibal, Silènos et Sosylos, sont perdus. Il faut donc lire ces textes avec prudence. Mais une prise de Rome aurait laissé des traces impossibles à effacer : les consuls, le Sénat et les comices fonctionnent sans interruption pendant toute la guerre.",
+      sourcesCta: "L'histoire écrite par le vainqueur",
+      alt: {
+        badge: "Une autre lecture — le point de vue de l'auteur du site",
+        title: 'Et si Hannibal était entré dans Rome ?',
+        thesis: [
+          "Pour l'auteur de ce site, Hannibal est bien entré dans Rome, sans combat et sans destruction, avec ses éléphants. Ce sont des habitants de la ville, qui l'estimaient, qui lui en auraient ouvert l'accès.",
+          "L'argument principal : un général romain a été condamné après l'arrivée d'Hannibal. Si Rome avait vraiment résisté, pourquoi punir l'un de ses chefs ? Selon cette lecture, les historiens romains auraient inversé le récit pour effacer une humiliation."
+        ],
+        answerTitle: "Ce qu'en disent les sources et les historiens",
+        answer: [
+          "Aucun texte antique, pas même les historiens grecs favorables à Hannibal, ne le fait entrer dans Rome.",
+          "En 211, Hannibal n'a presque plus d'éléphants en Italie : selon Polybe, un seul avait survécu à l'hiver 218.",
+          "Le général condamné, Cnaeus Fulvius, était jugé pour sa défaite à Herdonea, en Apulie. Rome poursuivait souvent ses généraux vaincus, sans que la ville soit tombée.",
+          "Consuls, Sénat et élections fonctionnent sans interruption de 218 à 201 : une prise de Rome aurait brisé cette continuité."
+        ]
+      }
+    },
     zama: {
       alt: 'La bataille de Zama',
       caption: 'Cornelis Cort, d’après Giulio Romano — La bataille de Zama',
@@ -552,6 +648,51 @@ const C = {
       tactT: 'See Cannae, the Trebia and Zama move by move',
       eleK: '37 elephants · 218',
       eleT: 'The elephants and the Alpine crossing'
+    },
+    gates: {
+      kicker: '211 BC',
+      title: "Why didn't Hannibal enter Rome?",
+      intro: 'After Cannae, Rome seemed at his mercy. Five years later he camped at its gates. Yet no ancient source, not even a Greek one, has him enter the city. Here is what we know.',
+      rowsKicker: 'At the gates of Rome',
+      rows: [
+        { k: 'Aug. 216', v: "After Cannae, Maharbal urges Hannibal to march on Rome, some 400 km away. Hannibal refuses: he first wants to detach Rome's Italian allies." },
+        { k: '216 – 211', v: 'Capua, Tarentum and part of the South go over to him. Rome raises new legions and goes back on the offensive: in 211 it besieges Capua.' },
+        { k: 'Spring 211', v: 'To relieve Capua, Hannibal marches on Rome. He camps on the Anio, about three miles (4.5 km) from the walls.' },
+        { k: 'At the Colline Gate', v: 'With 2,000 horsemen he rides up to the walls to observe them (Livy). Two newly raised legions are inside the city.' },
+        { k: 'Two days', v: 'According to Livy, the armies draw up for battle on two consecutive days, and twice a violent storm separates them.' },
+        { k: 'The retreat', v: 'Rome has not lifted the siege of Capua: the manoeuvre has failed. Hannibal heads back south, and Capua falls soon after.' }
+      ],
+      quoteKicker: 'Maharbal to Hannibal, after Cannae',
+      quote: '“You know how to win, Hannibal; you do not know how to use your victory” (Livy XXII.51). Livy adds that this day of delay saved Rome. Many modern historians think, on the contrary, that Hannibal was right not to attempt a siege.',
+      whyKicker: 'Why he could not take it',
+      why: [
+        'No siege engines: his army was built for pitched battle, not for besieging a great city.',
+        'Walls over 10 km long, and a population able to arm new legions.',
+        'An army of about 40,000 men, far from its bases, with no regular reinforcements by sea.',
+        "His strategy targeted Rome's alliances, not the city: he wanted an imposed peace, not a conquest."
+      ],
+      fulviusKicker: 'A condemned general',
+      fulviusTitle: 'The trial of Gnaeus Fulvius',
+      fulvius: 'People sometimes mention a Roman general punished “after Hannibal arrived”. This is probably the praetor Gnaeus Fulvius Flaccus, beaten by Hannibal at Herdonea in Apulia and prosecuted in 211: he went into exile before the verdict (Livy XXVI.2–3). He was tried for losing his army, not for the fall of Rome. By contrast, the consul Varro, defeated at Cannae, was thanked by the Senate for “not despairing of the Republic”.',
+      sourcesKicker: 'The limits of the sources',
+      sourcesTitle: 'A story written by Rome',
+      sources: "Our account comes from Polybius, a friend of the Scipios, and from Livy, the historian of Roman glory; Hannibal's own historians, Silenus and Sosylus, are lost. These texts must be read with care. But a capture of Rome would have left traces impossible to erase: the consuls, the Senate and the assemblies function without interruption throughout the war.",
+      sourcesCta: "The victors' history",
+      alt: {
+        badge: "Another reading — the site author's view",
+        title: 'What if Hannibal did enter Rome?',
+        thesis: [
+          "For the author of this site, Hannibal did enter Rome, without fighting and without destruction, with his elephants. People in the city, who held him in high esteem, are said to have let him in.",
+          "The main argument: a Roman general was condemned after Hannibal's arrival. If Rome had really held out, why punish one of its commanders? On this reading, Roman historians reversed the story to erase a humiliation."
+        ],
+        answerTitle: 'What the sources and historians say',
+        answer: [
+          'No ancient text, not even the Greek historians sympathetic to Hannibal, has him enter Rome.',
+          'By 211, Hannibal had almost no elephants left in Italy: according to Polybius, only one survived the winter of 218.',
+          'The condemned general, Gnaeus Fulvius, was tried for his defeat at Herdonea in Apulia. Rome often prosecuted defeated generals without the city having fallen.',
+          'Consuls, Senate and elections function without interruption from 218 to 201: a capture of Rome would have broken that continuity.'
+        ]
+      }
     },
     zama: {
       alt: 'The Battle of Zama',
@@ -717,6 +858,51 @@ const C = {
       eleK: '37 فيلًا · 218',
       eleT: 'الفيلة وعبور الألب'
     },
+    gates: {
+      kicker: '211 ق.م',
+      title: 'لماذا لم يدخل حنبعل روما؟',
+      intro: 'بعد كاناي بدت روما تحت رحمته، وبعد خمس سنوات عسكر عند أبوابها. ومع ذلك لا يذكر أي مصدر قديم، ولا حتى المصادر الإغريقية، أنه دخل المدينة. وهذا ما نعرفه.',
+      rowsKicker: 'على أبواب روما',
+      rows: [
+        { k: 'أغسطس 216', v: 'بعد كاناي، يلحّ مهربعل على حنبعل أن يزحف إلى روما التي تبعد نحو 400 كم. فيرفض حنبعل: يريد أولاً فصل الحلفاء الإيطاليين عن روما.' },
+        { k: '216 – 211', v: 'تنضم إليه كابوا وتارنتوم وجزء من الجنوب. وتجنّد روما فيالق جديدة وتستعيد المبادرة، فتحاصر كابوا سنة 211.' },
+        { k: 'ربيع 211', v: 'لفكّ الحصار عن كابوا يزحف حنبعل إلى روما، ويعسكر على نهر الأنيو على بعد نحو ثلاثة أميال (4,5 كم) من الأسوار.' },
+        { k: 'أمام باب كولينا', v: 'يقترب مع 2 000 فارس حتى الأسوار ليستطلعها (تيتوس ليفيوس). وفي المدينة فيلقان جُنّدا حديثاً.' },
+        { k: 'يومان', v: 'حسب تيتوس ليفيوس، يصطفّ الجيشان للقتال يومين متتاليين، وفي كل مرة تفرّق بينهما عاصفة عنيفة.' },
+        { k: 'الانسحاب', v: 'لم ترفع روما الحصار عن كابوا ففشلت المناورة. يعود حنبعل جنوباً، وتسقط كابوا بعد قليل.' }
+      ],
+      quoteKicker: 'مهربعل لحنبعل بعد كاناي',
+      quote: '«أنت تعرف كيف تنتصر يا حنبعل، لكنك لا تعرف كيف تستثمر نصرك» (تيتوس ليفيوس، 22، 51). ويضيف ليفيوس أن ذلك اليوم من التأخير أنقذ روما. أما كثير من المؤرخين المحدثين فيرون أن حنبعل كان محقاً في عدم محاولة الحصار.',
+      whyKicker: 'لماذا لم يكن بوسعه أخذها',
+      why: [
+        'لا آلات حصار: كان جيشه مُعدّاً للمعارك المفتوحة لا لحصار مدينة كبرى.',
+        'أسوار يتجاوز طولها 10 كم، وسكان قادرون على تسليح فيالق جديدة.',
+        'جيش من نحو 40 000 رجل، بعيد عن قواعده، بلا إمدادات منتظمة عبر البحر.',
+        'كانت استراتيجيته تستهدف تحالفات روما لا المدينة: أراد سلماً مفروضاً لا فتحاً.'
+      ],
+      fulviusKicker: 'قائد مُدان',
+      fulviusTitle: 'محاكمة غنايوس فولفيوس',
+      fulvius: 'يُذكر أحياناً قائد روماني عوقب «بعد وصول حنبعل». والمقصود على الأرجح البريتور غنايوس فولفيوس فلاكوس الذي هزمه حنبعل في هيردونيا في أبوليا، وحوكم سنة 211 فنفى نفسه قبل صدور الحكم (تيتوس ليفيوس، 26، 2-3). كان يُحاكَم على خسارة جيشه لا على سقوط روما. وعلى العكس، شكر مجلس الشيوخ القنصل فارّو المهزوم في كاناي لأنه «لم ييأس من الجمهورية».',
+      sourcesKicker: 'حدود المصادر',
+      sourcesTitle: 'رواية كتبتها روما',
+      sources: 'تأتي روايتنا من بوليبيوس، صديق آل سكيبيو، ومن تيتوس ليفيوس مؤرخ المجد الروماني؛ أما مؤرخا حنبعل، سيلينوس وسوسيلوس، فقد ضاعت كتاباتهما. لذا يجب قراءة هذه النصوص بحذر. لكن سقوط روما كان سيترك آثاراً يستحيل محوها: فالقناصل ومجلس الشيوخ والمجالس الشعبية ظلت تعمل دون انقطاع طوال الحرب.',
+      sourcesCta: 'تاريخ المنتصرين',
+      alt: {
+        badge: 'قراءة أخرى — رأي صاحب الموقع',
+        title: 'ماذا لو دخل حنبعل روما؟',
+        thesis: [
+          'يرى صاحب هذا الموقع أن حنبعل دخل روما فعلاً، دون قتال ودون تدمير، ومعه فيلته، وأن سكاناً من المدينة كانوا يقدّرونه هم من فتحوا له الطريق.',
+          'والحجة الأساسية: أُدين قائد روماني بعد وصول حنبعل. فلو صمدت روما حقاً، فلماذا تعاقب أحد قادتها؟ وحسب هذه القراءة، قلب المؤرخون الرومان الرواية لمحو إهانة.'
+        ],
+        answerTitle: 'ما تقوله المصادر والمؤرخون',
+        answer: [
+          'لا يذكر أي نص قديم، ولا حتى المؤرخون الإغريق المتعاطفون مع حنبعل، أنه دخل روما.',
+          'في سنة 211 لم يعد لحنبعل تقريباً أي فيلة في إيطاليا: فحسب بوليبيوس لم ينجُ إلا فيل واحد من شتاء 218.',
+          'القائد المُدان، غنايوس فولفيوس، حوكم على هزيمته في هيردونيا في أبوليا. وكثيراً ما حاكمت روما قادتها المهزومين دون أن تسقط المدينة.',
+          'ظل القناصل ومجلس الشيوخ والانتخابات تعمل دون انقطاع من 218 إلى 201، وسقوط روما كان سيقطع هذه الاستمرارية.'
+        ]
+      }
+    },
     zama: {
       alt: 'معركة زاما',
       caption: 'كورنيليس كورت، عن جوليو رومانو — معركة زاما',
@@ -791,6 +977,13 @@ useHead(() => ({
 </script>
 
 <style scoped>
+.gates-side { display: flex; flex-direction: column; gap: var(--gap); }
+.gates-quote p { font: 800 clamp(22px, 2.2vw, 30px)/1.15 var(--font-display); margin: 4px 0 14px; }
+.gates-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.gates-list li { position: relative; padding-inline-start: 22px; font: 500 15px/1.45 var(--font-body); color: var(--terra-soft); }
+.gates-list li::before { content: ''; position: absolute; inset-inline-start: 0; top: 0.55em; width: 10px; height: 10px; border-radius: 50%; background: var(--gold-light); }
+.gates-foot { margin-top: var(--gap); }
+.gates-btn { margin-top: 18px; }
 .hero-title { font-size: clamp(52px, 8.4vw, 124px); line-height: 0.86; }
 .epithet {
   margin-top: 14px;

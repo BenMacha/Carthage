@@ -57,6 +57,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px; /* ancres sous la barre de navigation collante */
   -webkit-text-size-adjust: 100%;
 }
 
