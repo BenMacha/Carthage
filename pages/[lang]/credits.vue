@@ -25,7 +25,17 @@
     </section>
 
     <section class="sec">
-      <div class="cols cols-2 cols--flush">
+      <div class="cols cols-3 cols--flush">
+        <div class="tile tile--paper">
+          <h2 class="h-card">{{ c.textTitle }}</h2>
+          <p class="body">{{ c.textText }}</p>
+          <p class="body wiki-links">
+            <a href="https://fr.wikipedia.org/wiki/Carthage" target="_blank" rel="noopener">Wikipédia — Carthage</a><br>
+            <a href="https://fr.wikipedia.org/wiki/Civilisation_carthaginoise" target="_blank" rel="noopener">Wikipédia — Civilisation carthaginoise</a><br>
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>
+          </p>
+          <NuxtLink :to="localePath('/bibliographie')" class="btn btn-outline biblio-btn">{{ c.biblioCta }}</NuxtLink>
+        </div>
         <div class="tile tile--paper">
           <h2 class="h-card">{{ c.dataTitle }}</h2>
           <p class="body">{{ c.dataText }}</p>
@@ -42,7 +52,7 @@
 <script setup>
 import CREDITS from '~/assets/data/credits.json'
 
-const { locale } = useI18n()
+const { locale, localePath } = useI18n()
 
 const C = {
   fr: {
@@ -51,6 +61,9 @@ const C = {
     lede: "Les images du site proviennent de Wikimedia Commons. Merci aux photographes, musées et contributeurs qui les ont placées sous licence libre.",
     imagesTitle: 'Images',
     imagesText: "Chaque image est publiée par son auteur sous la licence indiquée (domaine public, CC BY, CC BY-SA ou Licence Art Libre). Les images ont été redimensionnées et recompressées pour le web.",
+    textTitle: 'Textes',
+    textText: "Les pages s'appuient sur les auteurs antiques, les travaux des historiens et archéologues (voir la bibliographie) et sur les articles de Wikipédia en français, sous licence CC BY-SA 4.0, dont les informations ont été reformulées et vérifiées.",
+    biblioCta: 'Sources et bibliographie',
     dataTitle: 'Fond de carte',
     dataText: "Carte animée : contours Natural Earth (domaine public) via world-atlas, rendus avec D3. Les frontières antiques sont des zones d'influence approximatives.",
     fontsTitle: 'Typographies',
@@ -63,6 +76,9 @@ const C = {
     lede: 'The images on this site come from Wikimedia Commons. Thanks to the photographers, museums and contributors who released them under free licences.',
     imagesTitle: 'Images',
     imagesText: 'Each image is published by its author under the licence shown (public domain, CC BY, CC BY-SA or Free Art License). Images were resized and recompressed for the web.',
+    textTitle: 'Texts',
+    textText: 'The pages draw on ancient authors, the work of historians and archaeologists (see the bibliography) and French Wikipedia articles, licensed CC BY-SA 4.0, whose information has been rewritten and checked.',
+    biblioCta: 'Sources and bibliography',
     dataTitle: 'Base map',
     dataText: 'Animated map: Natural Earth outlines (public domain) via world-atlas, rendered with D3. Ancient borders are approximate spheres of influence.',
     fontsTitle: 'Typefaces',
@@ -75,6 +91,9 @@ const C = {
     lede: 'صور هذا الموقع مأخوذة من ويكيميديا كومنز. شكراً للمصورين والمتاحف والمساهمين الذين نشروها برخص حرة.',
     imagesTitle: 'الصور',
     imagesText: 'كل صورة منشورة من قِبل صاحبها بالرخصة المذكورة (ملك عام، CC BY، CC BY-SA أو رخصة الفن الحر). وقد أُعيد تحجيم الصور وضغطها للويب.',
+    textTitle: 'النصوص',
+    textText: 'تستند الصفحات إلى المؤلفين القدامى وأعمال المؤرخين وعلماء الآثار (انظر قائمة المراجع) وإلى مقالات ويكيبيديا الفرنسية المنشورة برخصة CC BY-SA 4.0، بعد إعادة صياغة معلوماتها والتحقق منها.',
+    biblioCta: 'المصادر والمراجع',
     dataTitle: 'خلفية الخريطة',
     dataText: 'الخريطة المتحركة: حدود Natural Earth (ملك عام) عبر world-atlas، مرسومة بمكتبة D3. الحدود القديمة مناطق نفوذ تقريبية.',
     fontsTitle: 'الخطوط',
@@ -93,6 +112,8 @@ useHead(() => ({
 
 <style scoped>
 .head { margin-top: 48px; }
+.wiki-links { margin-top: 12px; line-height: 1.9; }
+.biblio-btn { margin-top: 16px; }
 .intro { margin: 12px 0 24px; max-width: 760px; }
 
 .credits {

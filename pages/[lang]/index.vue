@@ -331,7 +331,7 @@ const C = {
       next: 'Objet suivant',
       items: [
         { name: 'Stèle au signe de Tanit', meta: 'Calcaire · MBA Lyon', alt: 'Stèle punique gravée du signe de Tanit' },
-        { name: 'Masque grimaçant', meta: 'Terre cuite · Musée de Carthage', alt: 'Masque punique grimaçant en terre cuite' },
+        { name: 'Masque grimaçant', meta: 'Terre cuite · Musée du Bardo', alt: 'Masque punique grimaçant en terre cuite' },
         { name: "Shekel à l'éléphant", meta: 'Argent · 213–210 av. J.-C. · British Museum', alt: "Monnaie carthaginoise d'argent à l'éléphant" },
         { name: 'Stèles du tophet', meta: 'Calcaire · Musée du Louvre', alt: 'Stèles votives du tophet de Carthage' },
         { name: 'Tanit en mosaïque', meta: 'Sol punique · Kerkouane, UNESCO', alt: 'Signe de Tanit dans un sol punique de Kerkouane' }
@@ -425,7 +425,7 @@ const C = {
       next: 'Next object',
       items: [
         { name: 'Stele with the sign of Tanit', meta: 'Limestone · MBA Lyon', alt: 'Punic stele engraved with the sign of Tanit' },
-        { name: 'Grimacing mask', meta: 'Terracotta · Carthage Museum', alt: 'Punic grimacing terracotta mask' },
+        { name: 'Grimacing mask', meta: 'Terracotta · Bardo Museum', alt: 'Punic grimacing terracotta mask' },
         { name: 'Elephant shekel', meta: 'Silver · 213–210 BC · British Museum', alt: 'Carthaginian silver coin with an elephant' },
         { name: 'Tophet stelae', meta: 'Limestone · Louvre Museum', alt: 'Votive stelae from the tophet of Carthage' },
         { name: 'Tanit in mosaic', meta: 'Punic floor · Kerkouane, UNESCO', alt: 'Sign of Tanit in a Punic floor at Kerkouane' }
@@ -519,7 +519,7 @@ const C = {
       next: 'القطعة التالية',
       items: [
         { name: 'نصب عليه علامة تانيت', meta: 'حجر جيري · متحف الفنون الجميلة بليون', alt: 'نصب بونيقي منقوش بعلامة تانيت' },
-        { name: 'قناع متجهّم', meta: 'فخار · متحف قرطاج', alt: 'قناع بونيقي متجهّم من الفخار' },
+        { name: 'قناع متجهّم', meta: 'فخار · متحف باردو', alt: 'قناع بونيقي متجهّم من الفخار' },
         { name: 'شيكل الفيل', meta: 'فضة · 213–210 ق.م · المتحف البريطاني', alt: 'عملة قرطاجية فضية عليها فيل' },
         { name: 'أنصاب التوفيت', meta: 'حجر جيري · متحف اللوفر', alt: 'أنصاب نذرية من توفيت قرطاج' },
         { name: 'تانيت في الفسيفساء', meta: 'أرضية بونيقية · كركوان، يونسكو', alt: 'علامة تانيت في أرضية بونيقية بكركوان' }

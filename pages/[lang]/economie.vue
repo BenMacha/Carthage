@@ -154,6 +154,67 @@
       </div>
     </section>
 
+    <!-- Commerce : importations, exportations, exploration -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.trade.title }}</h2>
+        <p>{{ c.trade.aside }}</p>
+      </div>
+    </section>
+    <div class="cols cols-5-7">
+      <div class="tile tile--xl tile--paper tile--outline tile--stack">
+        <div>
+          <span class="kicker">{{ c.trade.quoteK }}</span>
+          <p class="trade-quote">{{ c.trade.quote }}</p>
+          <p class="body-lg mt">{{ c.trade.quoteD }}</p>
+        </div>
+        <p class="src">{{ c.trade.quoteSrc }}</p>
+      </div>
+      <div class="tile tile--xl">
+        <span class="kicker">{{ c.trade.kicker }}</span>
+        <h3 class="h-block">{{ c.trade.t }}</h3>
+        <div class="rows trade-rows" style="--row-key:130px">
+          <div v-for="r in c.trade.rows" :key="r.k">
+            <span class="key">{{ r.k }}</span>
+            <span class="val">{{ r.v }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cols cols-3 gap-top">
+      <div v-for="(b, i) in c.trade.blocks" :key="b.t" class="tile tile--stack" :class="tradeTones[i]">
+        <div>
+          <span class="kicker">{{ b.k }}</span>
+          <h3 class="h-card">{{ b.t }}</h3>
+          <p class="body">{{ b.d }}</p>
+        </div>
+        <div class="chips">
+          <span v-for="g in b.tags" :key="g" class="chip" :class="i === 1 ? 'chip--glass' : 'chip--white'">{{ g }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pêche et produits de la mer -->
+    <section class="sec">
+      <div class="tile tile--xl tile--navy sea-tile">
+        <div class="sec-head sea-head">
+          <div>
+            <span class="kicker">{{ c.sea.kicker }}</span>
+            <h2 class="h-section">{{ c.sea.title }}</h2>
+          </div>
+          <p>{{ c.sea.aside }}</p>
+        </div>
+        <div class="cols cols-4 cols--flush">
+          <div v-for="s in c.sea.items" :key="s.t" class="sea-item">
+            <span class="sea-k">{{ s.k }}</span>
+            <h3 class="h-card">{{ s.t }}</h3>
+            <p class="body">{{ s.d }}</p>
+          </div>
+        </div>
+        <p class="note sea-note">{{ c.sea.note }}</p>
+      </div>
+    </section>
+
     <!-- Monnaie -->
     <section class="sec sec--wide">
       <div class="sec-head">
@@ -290,6 +351,7 @@
 const { locale, localePath } = useI18n()
 
 const pillarTones = ['tile--navy', '', '', 'tile--terra']
+const tradeTones = ['', 'tile--terra', 'tile--gold']
 
 const C = {
   fr: {
@@ -371,6 +433,40 @@ const C = {
         { n: 'Ag', t: "L'argent d'Espagne", d: "Après 237, les Barcides exploitent les mines du sud de l'Espagne. Selon Pline, le seul puits de Baebelo rapportait à Hannibal 300 livres d'argent par jour. Un siècle plus tard, Polybe compte 40 000 mineurs autour de Carthagène." },
         { n: 'Au', t: "L'or et le cuivre", d: "Or d'Afrique par le commerce atlantique et saharien, or et cuivre d'Ibérie : de quoi frapper monnaie et payer les armées de mercenaires pendant la guerre contre Rome." }
       ]
+    },
+    trade: {
+      title: 'Acheter, vendre, explorer',
+      aside: 'Comme Tyr avant elle, Carthage vivait du négoce des métaux et des objets de prix.',
+      quoteK: 'Pline l’Ancien',
+      quote: '« Les Puniques ont inventé le commerce. »',
+      quoteD: "Héritiers des Phéniciens, les Carthaginois passaient dans l'Antiquité pour des marins et des marchands hors pair.",
+      quoteSrc: 'Pline, Histoire naturelle, VII — cité par F. Decret (1977)',
+      kicker: 'Repères',
+      t: 'Les étapes du négoce',
+      rows: [
+        { k: 'Tartessos', v: "Au sud de l'Hispanie, argent, cuivre et étain se trouvaient dans des mines faciles d'accès et d'exploitation : la base de la fortune phénicienne, puis carthaginoise." },
+        { k: 'VIIe s.', v: 'Carthage importe et redistribue de petits objets manufacturés : céramiques grecques et étrusques, amulettes et objets égyptiens.' },
+        { k: "Jusqu'au VIe s.", v: "Les Phénico-Puniques tiennent un quasi-monopole de la navigation en Méditerranée occidentale : libre accès aux métaux, exportés bruts vers l'Orient, et aux ressources de régions entières." },
+        { k: 'Vers 540', v: "Au large d'Alalia, en Corse, Carthaginois et Étrusques affrontent les Phocéens, qui quittent ensuite l'île (Hérodote, I, 166)." },
+        { k: '509 et 348', v: "Deux traités avec Rome partagent les mers : les Romains ne naviguent pas au-delà du « Beau Promontoire » et, en Afrique comme en Sardaigne, ne commercent qu'en présence d'un magistrat (Polybe, III, 22-24)." }
+      ],
+      blocks: [
+        { k: 'Importations', t: 'Ce qui arrivait à Carthage', d: "D'abord des matières premières — argent, cuivre, étain d'Hispanie et des îles Cassitérides —, ensuite des objets : vases grecs et étrusques, dont le musée du Bardo conserve des vitrines entières, et amulettes égyptiennes.", tags: ['Argent', 'Cuivre', 'Étain', 'Vases grecs', 'Amulettes'] },
+        { k: 'Exportations', t: 'Ce que vendait Carthage', d: "Verre, spécialité phénicienne, bijoux, céramiques, étoffes teintes de pourpre, placages d'ivoire, d'or ou d'argent. Les tissus, pourtant réputés, ont presque disparu : seuls les amas de murex et les poids de métiers à tisser en gardent la trace.", tags: ['Verre', 'Bijoux', 'Ivoire', 'Étoffes'] },
+        { k: 'Par la terre', t: 'Caravanes et exploration', d: "Le négoce suivait aussi des pistes caravanières, plus incertaines et plus dangereuses, qui expliquent des établissements en Libye et dans le sud de la Tunisie. Les voyages d'exploration visaient les mêmes buts : minerais — étain, or du Maghreb — et nouveaux débouchés.", tags: ['Libye', 'Sud tunisien', 'Or'] }
+      ]
+    },
+    sea: {
+      kicker: 'Pêche et produits de la mer',
+      title: 'La mer nourricière',
+      aside: 'Pêche, salaisons et sauces de poisson : une industrie que Rome reprendra à grande échelle.',
+      items: [
+        { k: 'Sauce', t: 'Le garum', d: "Sauce de poissons gras, utilisée en cuisine et comme remède. Ce sont les Phénico-Puniques qui en ont répandu l'usage en Méditerranée ; on la fabriquait en grand dans des installations retrouvées sur plusieurs sites (Krings et Lipinski)." },
+        { k: 'Conserves', t: 'Les salaisons', d: 'Poissons salés, conditionnés en amphores, voyageaient avec les autres produits de la mer dans tout le bassin méditerranéen.' },
+        { k: 'Gadès', t: 'Le thon', d: "Les monnaies de Gadès, l'actuelle Cadix, portent des thons : signe du poids de cette pêche dans l'économie de la cité phénicienne." },
+        { k: 'Coquillages', t: 'Le murex', d: 'Pêché pour la pourpre, il s’accumule en amas de coquilles broyées près des ateliers de teinture.' }
+      ],
+      note: "Production et commerce du garum se poursuivent largement sous Rome : les fabriques de salaison les mieux conservées, comme celle de Baelo Claudia près de Cadix, datent de l'époque romaine."
     },
     coins: {
       title: 'Monnaie et finances',
@@ -522,6 +618,40 @@ const C = {
         { n: 'Au', t: 'Gold and copper', d: 'African gold through Atlantic and Saharan trade, Iberian gold and copper: enough to strike coins and pay mercenary armies during the war against Rome.' }
       ]
     },
+    trade: {
+      title: 'Buying, selling, exploring',
+      aside: 'Like Tyre before it, Carthage lived by trading metals and valuable goods.',
+      quoteK: 'Pliny the Elder',
+      quote: '“The Punic people invented trade.”',
+      quoteD: 'Heirs of the Phoenicians, the Carthaginians were known in antiquity as outstanding sailors and merchants.',
+      quoteSrc: 'Pliny, Natural History, VII — cited by F. Decret (1977)',
+      kicker: 'Landmarks',
+      t: 'Stages of trade',
+      rows: [
+        { k: 'Tartessos', v: 'In southern Iberia, silver, copper and tin lay in mines that were easy to reach and to work: the basis of Phoenician, then Carthaginian, wealth.' },
+        { k: '7th c.', v: 'Carthage imports and redistributes small manufactured goods: Greek and Etruscan pottery, Egyptian amulets and objects.' },
+        { k: 'Until the 6th c.', v: 'The Phoenicio-Punic world held a near-monopoly on shipping in the western Mediterranean: free access to metals, shipped raw to the East, and to the resources of whole regions.' },
+        { k: 'c. 540', v: 'Off Alalia, in Corsica, Carthaginians and Etruscans fought the Phocaeans, who then left the island (Herodotus, I, 166).' },
+        { k: '509 and 348', v: 'Two treaties with Rome divided the seas: Romans were not to sail beyond the "Fair Promontory" and, in Africa and Sardinia, could trade only in the presence of an official (Polybius, III, 22-24).' }
+      ],
+      blocks: [
+        { k: 'Imports', t: 'What came into Carthage', d: 'Raw materials first — silver, copper, tin from Iberia and the Cassiterides — then objects: Greek and Etruscan vases, which fill whole cases at the Bardo Museum, and Egyptian amulets.', tags: ['Silver', 'Copper', 'Tin', 'Greek vases', 'Amulets'] },
+        { k: 'Exports', t: 'What Carthage sold', d: 'Glass, a Phoenician speciality, jewellery, pottery, purple-dyed cloth, ivory, gold or silver inlays. The textiles, though famous, have almost vanished: only heaps of murex shells and loom weights still bear witness to them.', tags: ['Glass', 'Jewellery', 'Ivory', 'Cloth'] },
+        { k: 'Overland', t: 'Caravans and exploration', d: 'Trade also followed caravan tracks, more uncertain and more dangerous, which explain settlements in Libya and southern Tunisia. Voyages of exploration pursued the same goals: ores — tin, gold from the Maghreb — and new markets.', tags: ['Libya', 'Southern Tunisia', 'Gold'] }
+      ]
+    },
+    sea: {
+      kicker: 'Fishing and sea products',
+      title: 'The bountiful sea',
+      aside: 'Fishing, salting and fish sauces: an industry Rome would take over on a large scale.',
+      items: [
+        { k: 'Sauce', t: 'Garum', d: 'A sauce made from oily fish, used in cooking and as a remedy. It was the Phoenicio-Punic world that spread its use around the Mediterranean; it was made on a large scale in installations found at several sites (Krings and Lipinski).' },
+        { k: 'Preserves', t: 'Salted fish', d: 'Salted fish, packed in amphorae, travelled with the other sea products throughout the Mediterranean basin.' },
+        { k: 'Gades', t: 'Tuna', d: 'The coins of Gades, today’s Cádiz, bear tuna: a sign of how much this fishery weighed in the Phoenician city’s economy.' },
+        { k: 'Shellfish', t: 'The murex', d: 'Gathered for purple dye, it piles up in heaps of crushed shells near the dye works.' }
+      ],
+      note: 'Garum production and trade continued on a large scale under Rome: the best-preserved salting factories, such as the one at Baelo Claudia near Cádiz, date from the Roman period.'
+    },
     coins: {
       title: 'Coinage and finance',
       aside: 'Carthage minted coins late, but on a large scale, above all to pay its armies.',
@@ -671,6 +801,40 @@ const C = {
         { n: 'Ag', t: 'فضة إسبانيا', d: 'بعد سنة 237 استغلّ البرقيون مناجم جنوب إسبانيا. وحسب بلينيوس كانت بئر بايبيلو وحدها تدرّ على حنبعل 300 رطل من الفضة يوميًا. وبعد قرن أحصى بوليبيوس 40 ألف عامل منجم حول قرطاجنة.' },
         { n: 'Au', t: 'الذهب والنحاس', d: 'ذهب إفريقيا عبر التجارة الأطلسية والصحراوية، وذهب إيبيريا ونحاسها: ما يكفي لسكّ النقود ودفع أجور جيوش المرتزقة خلال الحرب ضد روما.' }
       ]
+    },
+    trade: {
+      title: 'الشراء والبيع والاستكشاف',
+      aside: 'على غرار صور من قبلها، عاشت قرطاج من تجارة المعادن والسلع النفيسة.',
+      quoteK: 'بلينيوس الأكبر',
+      quote: '«البونيقيون هم من اخترع التجارة.»',
+      quoteD: 'عُرف القرطاجيون، ورثة الفينيقيين، في العصور القديمة بأنهم بحارة وتجار لا يُضاهَون.',
+      quoteSrc: 'بلينيوس، التاريخ الطبيعي، الكتاب 7 — نقلًا عن ف. ديكري (1977)',
+      kicker: 'معالم',
+      t: 'مراحل التجارة',
+      rows: [
+        { k: 'طرطيسوس', v: 'في جنوب إيبيريا، كانت الفضة والنحاس والقصدير في مناجم سهلة البلوغ والاستغلال: أساس ثروة الفينيقيين ثم القرطاجيين.' },
+        { k: 'ق. 7', v: 'تستورد قرطاج وتعيد توزيع مصنوعات صغيرة: فخار إغريقي وإتروسكي، وتمائم وأدوات مصرية.' },
+        { k: 'حتى ق. 6', v: 'احتكر الفينيقيون البونيقيون تقريبًا الملاحة في غرب المتوسط: وصول حرّ إلى المعادن التي تُصدَّر خامًا إلى المشرق، وإلى موارد مناطق بأكملها.' },
+        { k: 'نحو 540', v: 'قبالة ألاليا في كورسيكا، واجه القرطاجيون والإتروسكيون الفوكيين الذين غادروا الجزيرة بعد ذلك (هيرودوت، 1، 166).' },
+        { k: '509 و348', v: 'قسّمت معاهدتان مع روما البحار: لا يبحر الرومان وراء «الرأس الجميل»، ولا يتاجرون في إفريقيا وسردينيا إلا بحضور موظف رسمي (بوليبيوس، 3، 22-24).' }
+      ],
+      blocks: [
+        { k: 'الواردات', t: 'ما كان يصل إلى قرطاج', d: 'المواد الخام أولًا — الفضة والنحاس والقصدير من إيبيريا وجزر الكاسيتريد — ثم المصنوعات: أوانٍ إغريقية وإتروسكية تملأ خزائن كاملة في متحف باردو، وتمائم مصرية.', tags: ['الفضة', 'النحاس', 'القصدير', 'أوانٍ إغريقية', 'تمائم'] },
+        { k: 'الصادرات', t: 'ما كانت تبيعه قرطاج', d: 'الزجاج، وهو اختصاص فينيقي، والحلي والفخار والأقمشة المصبوغة بالأرجوان وتطعيمات العاج والذهب والفضة. أما المنسوجات، على شهرتها، فقد اندثرت تقريبًا: لا يشهد عليها إلا أكوام أصداف الموريكس وأثقال أنوال النسيج.', tags: ['الزجاج', 'الحلي', 'العاج', 'الأقمشة'] },
+        { k: 'برًّا', t: 'القوافل والاستكشاف', d: 'سلكت التجارة أيضًا مسالك القوافل، وهي أقل ضمانًا وأكثر خطرًا، وتفسّر بعض المستوطنات في ليبيا وجنوب تونس. وكانت رحلات الاستكشاف تسعى إلى الأهداف نفسها: المعادن — القصدير وذهب المغرب — وأسواق جديدة.', tags: ['ليبيا', 'الجنوب التونسي', 'الذهب'] }
+      ]
+    },
+    sea: {
+      kicker: 'الصيد ومنتجات البحر',
+      title: 'البحر المُطعِم',
+      aside: 'صيد وتمليح وصلصات سمك: صناعة ستتبناها روما على نطاق واسع.',
+      items: [
+        { k: 'صلصة', t: 'الغاروم', d: 'صلصة من الأسماك الدهنية تُستعمل في الطبخ وللتداوي. والفينيقيون البونيقيون هم من نشر استعمالها في المتوسط؛ وكانت تُصنع بكميات كبيرة في منشآت عُثر عليها في عدة مواقع (كرينغز وليبينسكي).' },
+        { k: 'مصبّرات', t: 'السمك المملّح', d: 'كانت الأسماك المملحة، المعبأة في الجرار، تسافر مع سائر منتجات البحر في كامل حوض المتوسط.' },
+        { k: 'قادس', t: 'التونة', d: 'تحمل نقود قادس، كاديث الحالية، صور أسماك التونة: دليل على وزن هذا الصيد في اقتصاد المدينة الفينيقية.' },
+        { k: 'أصداف', t: 'الموريكس', d: 'يُصطاد من أجل الأرجوان، وتتراكم أصدافه المسحوقة أكوامًا قرب مصابغ الأقمشة.' }
+      ],
+      note: 'استمر إنتاج الغاروم وتجارته على نطاق واسع في العهد الروماني: فأفضل مصانع التمليح حفظًا، مثل مصنع بايلو كلاوديا قرب قادس، تعود إلى العصر الروماني.'
     },
     coins: {
       title: 'النقود والمالية',
@@ -842,6 +1006,20 @@ useHead(() => ({
 .metals-head p { color: var(--on-dark); }
 .metal { border-top: 3px solid var(--gold-light); padding-top: 18px; }
 .metal-n { font: 900 44px/1 var(--font-display); color: var(--gold-light); margin-bottom: 12px; }
+
+/* Commerce */
+.trade-quote { font: 800 clamp(26px, 2.8vw, 40px)/1.1 var(--font-display); margin-top: 14px; }
+.trade-rows { margin-top: 22px; }
+.trade-rows .key { font-size: clamp(16px, 1.5vw, 20px); color: var(--purple); }
+.trade-rows .val { font-size: 15px; }
+
+/* Mer */
+.sea-head { margin-bottom: 28px; }
+.sea-head .h-section { color: var(--white); }
+.sea-head p { color: var(--navy-soft); }
+.sea-item { border-top: 3px solid var(--gold-light); padding-top: 16px; }
+.sea-k { display: block; font: 700 12px/1 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; }
+.sea-note { color: var(--navy-soft); margin-top: 24px; }
 
 /* Monnaie */
 .coin-stack { display: flex; flex-direction: column; gap: var(--gap); }

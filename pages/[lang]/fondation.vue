@@ -94,6 +94,72 @@
       </div>
     </section>
 
+    <!-- Avant Carthage : le réseau phénicien -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.network.title }}</h2>
+        <p>{{ c.network.subtitle }}</p>
+      </div>
+    </section>
+    <div class="cols cols-4">
+      <div v-for="(s, i) in c.network.sites" :key="s.name" class="tile tile--stack site" :class="siteTones[i]">
+        <div>
+          <span class="kicker">{{ s.where }}</span>
+          <div class="site-date" dir="auto">{{ s.date }}</div>
+          <h3 class="h-card">{{ s.name }}</h3>
+        </div>
+        <p class="body">{{ s.text }}</p>
+      </div>
+    </div>
+
+    <!-- Substrat libyen -->
+    <section class="sec">
+      <div class="cols cols-7-5 cols--flush">
+        <div class="tile tile--xl tile--terra">
+          <span class="kicker">{{ c.libyans.kicker }}</span>
+          <h2 class="h-section legend-title">{{ c.libyans.title }}</h2>
+          <div class="legend-text">
+            <p v-for="(p, i) in c.libyans.paragraphs" :key="i" class="body-lg">{{ p }}</p>
+          </div>
+        </div>
+        <div class="tile tile--xl tile--sand">
+          <span class="kicker">{{ c.libyans.lpKicker }}</span>
+          <h3 class="h-block lp-title">{{ c.libyans.lpTitle }}</h3>
+          <p class="body">{{ c.libyans.lpText }}</p>
+          <div class="rows lp-rows" style="--row-key:120px">
+            <div v-for="r in c.libyans.lpRows" :key="r.key">
+              <span class="key">{{ r.key }}</span>
+              <span class="val">{{ r.val }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carthage, ville principale -->
+    <section class="sec">
+      <div class="cols cols-7-5 cols--flush">
+        <div class="tile tile--xl tile--ink">
+          <span class="kicker">{{ c.capital.kicker }}</span>
+          <h2 class="h-block arch-title">{{ c.capital.title }}</h2>
+          <div class="rows" style="--row-key:170px">
+            <div v-for="r in c.capital.rows" :key="r.key">
+              <span class="key">{{ r.key }}</span>
+              <span class="val">{{ r.val }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="tile tile--xl tile--purple tile--stack">
+          <div>
+            <span class="kicker">{{ c.capital.k2 }}</span>
+            <h3 class="h-block lp-title">{{ c.capital.t2 }}</h3>
+            <p v-for="(p, i) in c.capital.d2" :key="i" class="body-lg cosmo-p">{{ p }}</p>
+          </div>
+          <NuxtLink :to="localePath('/afrique')" class="btn btn-outline cosmo-btn">{{ c.capital.cta }} →</NuxtLink>
+        </div>
+      </div>
+    </section>
+
     <!-- La cité -->
     <section class="sec sec--wide">
       <div class="sec-head">
@@ -198,6 +264,7 @@
 const { locale, localePath } = useI18n()
 
 const stepTones = ['tile--gold', 'tile--terra', 'tile--purple', 'tile--ink']
+const siteTones = ['tile--sand', '', 'tile--navy', 'tile--ink']
 
 const C = {
   fr: {
@@ -250,6 +317,8 @@ const C = {
       title: 'Ce que disent les fouilles',
       rows: [
         { key: '814 / 813', val: "Date de fondation donnée par l'historien grec Timée de Tauroménion (IVe–IIIe s. av. J.-C.), reprise par la tradition." },
+        { key: 'Appien', val: "Une autre tradition antique, suivie par Appien (Libyca, I, 1), faisait remonter Carthage à l'époque de la guerre de Troie, vers le XIIe siècle av. J.-C. Les fouilles n'ont rien livré d'aussi ancien." },
+        { key: 'Hypothèses', val: "Certains ont proposé une fondation vers 670, ou une fondation en deux temps — un comptoir d'abord, la cité ensuite (Pierre Cintas). Les chercheurs récents, s'appuyant sur les annales de Tyr connues par Ménandre d'Éphèse et Flavius Josèphe, retiennent le dernier quart du IXe siècle." },
         { key: 'VIIIe s.', val: "Les plus anciens niveaux fouillés — céramiques, premières offrandes du tophet de Salammbô — remontent à la seconde moitié du VIIIe siècle av. J.-C. : la légende n'est pas loin de la vérité." },
         { key: 'Byrsa', val: "Le nom grec « byrsa » (la peau) est sans doute une réinterprétation d'un mot sémitique désignant la citadelle : la ruse de la peau de bœuf serait née de ce jeu de mots." },
         { key: 'VIe s.', val: "Carthage prend la tête des cités phéniciennes d'Occident, tandis que Tyr passe sous domination babylonienne puis perse." }
@@ -259,14 +328,64 @@ const C = {
     name: {
       kicker: 'Un nom',
       title: 'Qart Hadasht, la « Ville Nouvelle »',
-      text: "En phénicien, qart signifie « ville » et hadasht « nouvelle » : une nouvelle Tyr en Afrique. Les Grecs en firent Karchēdōn, les Romains Carthago — et le nom vit toujours en Tunisie.",
+      text: "En phénicien, qart signifie « ville » et hadasht « nouvelle » : une nouvelle Tyr en Afrique. Les Grecs en firent Karchēdōn, les Romains Carthago — et le nom vit toujours en Tunisie. Carthagène, en Espagne, porta le même nom de Qart Hadasht.",
       cta: 'Carthage et la Tunisie'
+    },
+    network: {
+      title: "Avant Carthage : le réseau phénicien d'Occident",
+      subtitle: "Pour les Phéniciens, l'Afrique du Nord fut d'abord une escale sur la route des métaux d'Espagne. Carthage rejoint un réseau déjà ancien.",
+      sites: [
+        { where: 'Tunisie', date: '1101', name: 'Utique', text: "Pour Pline l'Ancien (Histoire naturelle, XVI, 216), la première fondation phénicienne d'Afrique, près de trois siècles avant Carthage. C'est une date traditionnelle : les plus anciens vestiges retrouvés sont nettement plus récents." },
+        { where: 'Maroc atlantique', date: 'XIIe s.', name: 'Lixus', text: "Au-delà du détroit de Gibraltar, près de l'actuelle Larache. Pline (XIX, 63) la compte parmi les plus anciens établissements phéniciens ; elle passera plus tard dans l'orbite de Carthage." },
+        { where: 'Espagne', date: 'v. 1100', name: 'Gadès (Gadir)', text: "L'actuelle Cadix, sur une île. Velleius Paterculus (I, 2, 3) place sa fondation par les Tyriens peu après la guerre de Troie. Elle ouvre l'accès à l'argent et à l'étain de la péninsule Ibérique." },
+        { where: 'Tête de réseau', date: 'VIe s.', name: "Une confédération plutôt qu'un empire", text: "Quand Tyr décline, Carthage prend la tête des colonies phéniciennes d'Occident et se charge de la défense commune et de la politique extérieure. Sabatino Moscati voyait dans cette structure lâche l'une des causes de sa défaite finale." }
+      ]
+    },
+    libyans: {
+      kicker: 'Le substrat libyen',
+      title: 'Une terre déjà peuplée',
+      paragraphs: [
+        "Les Phéniciens n'abordent pas une terre vide. L'Afrique du Nord est peuplée de Libyens, que les textes égyptiens nomment Lebou dès la fin du IIe millénaire av. J.-C. Pour Gabriel Camps, ce sont les ancêtres des Berbères ; ils ne forment pas un peuple unifié mais une mosaïque de tribus.",
+        "L'installation se négocie. Dans la légende, Élyssa obtient son terrain du roi libyque Iarbas ; selon Justin (XVIII, 5), Carthage verse ensuite aux Africains un loyer annuel pour le sol de la ville. Elle n'en est libérée qu'au Ve siècle av. J.-C., lorsque les Magonides soumettent l'arrière-pays par les armes (Justin, XIX, 1-2).",
+        "Le rapport s'inverse alors : les Libyens des campagnes deviennent des sujets astreints à un lourd tribut, en grain surtout (Polybe, I, 71-72). Leurs révoltes jalonnent l'histoire de la cité, jusqu'à la guerre des Mercenaires (241–238).",
+        "On a longtemps pensé que la défaite d'Himère (480) avait poussé Carthage à se tourner vers l'Afrique (Decret). Des historiens y voient plutôt une extension progressive, nécessaire pour nourrir une population en croissance.",
+        "Les alliances matrimoniales entre l'aristocratie punique et des familles princières africaines sont courantes — Hamilcar Barca promet sa fille au prince numide Naravas (Polybe, I, 78) — sans que l'État carthaginois perde son caractère phénicien."
+      ],
+      lpKicker: 'Les Libyphéniciens',
+      lpTitle: "Des Phéniciens d'Afrique",
+      lpText: "Du mélange des colons et des Libyens naît une population que les Grecs appellent « Libyphéniciens ». Les auteurs anciens ne s'accordent ni sur leur statut ni sur leur territoire, sans doute au sud de Carthage. Ils servent de passeurs entre culture punique et monde berbère.",
+      lpRows: [
+        { key: 'Hécatée', val: "Première mention, au VIe siècle av. J.-C., connue par Étienne de Byzance." },
+        { key: 'Polybe', val: 'Des sujets de Carthage, soumis aux mêmes lois que les Carthaginois.' },
+        { key: 'Diodore', val: "Les habitants des cités côtières qui avaient le droit de mariage (conubium) avec Carthage (XX, 55, 4)." },
+        { key: 'Tite-Live', val: "Un mélange de Puniques et d'Africains." },
+        { key: 'Strabon, Pline', val: "Entre le littoral carthaginois et la Gétulie (Strabon, XVII, 3, 19) ; dans le Byzacium (Pline, V, 24)." }
+      ]
+    },
+    capital: {
+      kicker: 'Ville principale',
+      title: 'Un site idéal, une ville planifiée',
+      rows: [
+        { key: 'Le site', val: "Une presqu'île entre lagunes et golfe, facile à défendre et ouverte sur les routes maritimes. Strabon la comparait à un « navire à l'ancre »." },
+        { key: 'Byrsa', val: "Le noyau légendaire : citadelle et centre religieux, couronnée par le temple d'Eshmoun." },
+        { key: 'La plaine', val: "Des rues droites se coupant à angle droit, avec des escaliers là où le relief l'impose. Pour M. H. Fantar, Carthage montre que les Grecs n'ont pas eu le monopole du plan orthogonal." },
+        { key: 'Mégara', val: "Le faubourg du nord, vers l'actuelle La Marsa, bâti de façon plus lâche : peut-être le quartier le plus récent." },
+        { key: 'Quartier Magon', val: "Près du rivage, les fouilles allemandes de Friedrich Rakob suivent sur plusieurs siècles l'évolution de la muraille maritime et de l'habitat." },
+        { key: 'Les maisons', val: "Sols en mortier mêlé de tessons, escaliers de bois vers les étages, citernes remplies par l'eau de pluie recueillie dans la cour." }
+      ],
+      k2: 'Cosmopolite',
+      t2: 'Une ville de nombreux peuples',
+      d2: [
+        "Colons phéniciens, Libyens, Grecs, Ibères et gens venus de tout l'espace punique se côtoient à Carthage, et les mariages mixtes y sont fréquents.",
+        "Dès les premiers temps de la colonisation, l'archéologie révèle des communautés mêlées : de ce brassage naît une civilisation originale."
+      ],
+      cta: "L'identité africaine de Carthage"
     },
     city: {
       title: 'La cité de Carthage',
       subtitle: 'Une métropole à la pointe de son époque.',
       features: [
-        { kick: 'Urbanisme', title: 'Des maisons à étages', desc: "Selon Appien, trois rues bordées de maisons de six étages montaient de l'agora vers Byrsa. Les fouilles ont retrouvé des rues planifiées, des égouts et des maisons dotées de salles d'eau.", cls: '' },
+        { kick: 'Urbanisme', title: 'Des maisons à étages', desc: "Selon Appien, trois rues bordées de maisons de six étages montaient de l'agora vers Byrsa. Les fouilles ont retrouvé des rues planifiées, des citernes, des rigoles et des puisards pour les eaux usées, et des maisons dotées de salles d'eau.", cls: '' },
         { kick: 'Marine', title: 'Le double port', desc: "Un port de commerce rectangulaire et un port militaire circulaire, le Cothon, capable d'abriter 220 navires de guerre dans des cales individuelles.", cls: 'tile--navy' },
         { kick: 'Religion', title: 'Temples et tophet', desc: "Le temple d'Eshmoun couronnait la colline de Byrsa. Près des ports, le tophet de Salammbô, sanctuaire à ciel ouvert dédié à Baal Hammon et Tanit, a livré des milliers de stèles.", cls: '', link: { to: '/religion', label: 'Les dieux de Carthage' } },
         { kick: 'Industrie', title: 'Artisanat et pourpre', desc: "Ateliers de poterie, de verrerie et d'orfèvrerie. Production de la pourpre tyrienne, extraite d'un coquillage marin, le murex.", cls: 'tile--sand', link: { to: '/economie', label: "L'économie" } },
@@ -371,6 +490,8 @@ const C = {
       title: 'What the excavations say',
       rows: [
         { key: '814 / 813', val: 'Foundation date given by the Greek historian Timaeus of Tauromenium (4th–3rd c. BC) and taken up by tradition.' },
+        { key: 'Appian', val: "Another ancient tradition, followed by Appian (Libyca, I, 1), dated Carthage to the time of the Trojan War, around the 12th century BC. Excavation has found nothing that old." },
+        { key: 'Hypotheses', val: "Some scholars proposed a foundation around 670, or a two-stage one — first a trading post, then the city proper (Pierre Cintas). Recent historians, relying on the annals of Tyre known through Menander of Ephesus and Flavius Josephus, favour the last quarter of the 9th century." },
         { key: '8th c.', val: 'The oldest excavated layers — pottery, the first offerings in the tophet of Salammbô — date to the second half of the 8th century BC: the legend is not far from the truth.' },
         { key: 'Byrsa', val: 'The Greek name "byrsa" (hide) is probably a reinterpretation of a Semitic word for the citadel: the oxhide trick may have grown out of this pun.' },
         { key: '6th c.', val: 'Carthage takes the lead of the western Phoenician cities, while Tyre falls under Babylonian, then Persian rule.' }
@@ -380,14 +501,64 @@ const C = {
     name: {
       kicker: 'A name',
       title: 'Qart Hadasht, the "New City"',
-      text: 'In Phoenician, qart means "city" and hadasht "new": a new Tyre in Africa. The Greeks made it Karchēdōn, the Romans Carthago — and the name still lives on in Tunisia.',
+      text: 'In Phoenician, qart means "city" and hadasht "new": a new Tyre in Africa. The Greeks made it Karchēdōn, the Romans Carthago — and the name still lives on in Tunisia. Cartagena, in Spain, bore the same name, Qart Hadasht.',
       cta: 'Carthage and Tunisia'
+    },
+    network: {
+      title: 'Before Carthage: the western Phoenician network',
+      subtitle: "For the Phoenicians, North Africa was at first a stopover on the route to the metals of Spain. Carthage joined a network that was already old.",
+      sites: [
+        { where: 'Tunisia', date: '1101', name: 'Utica', text: "According to Pliny the Elder (Natural History, XVI, 216), the first Phoenician foundation in Africa, almost three centuries before Carthage. This is a traditional date: the oldest remains found are considerably later." },
+        { where: 'Atlantic Morocco', date: '12th c.', name: 'Lixus', text: 'Beyond the Strait of Gibraltar, near modern Larache. Pliny (XIX, 63) counts it among the oldest Phoenician settlements; it later came into the orbit of Carthage.' },
+        { where: 'Spain', date: 'c. 1100', name: 'Gades (Gadir)', text: 'Modern Cádiz, on an island. Velleius Paterculus (I, 2, 3) dates its foundation by the Tyrians shortly after the Trojan War. It opened access to the silver and tin of the Iberian Peninsula.' },
+        { where: 'Head of the network', date: '6th c.', name: 'A confederation rather than an empire', text: "As Tyre declined, Carthage took the lead of the western Phoenician colonies and handled their common defence and foreign policy. Sabatino Moscati saw this loose structure as one of the causes of its final defeat." }
+      ]
+    },
+    libyans: {
+      kicker: 'The Libyan substratum',
+      title: 'A land already inhabited',
+      paragraphs: [
+        'The Phoenicians did not land on empty ground. North Africa was home to the Libyans, whom Egyptian texts already call Libu at the end of the 2nd millennium BC. For Gabriel Camps they are the ancestors of the Berbers; they were not a single people but a patchwork of tribes.',
+        "Settlement was negotiated. In the legend, Elissa obtains her land from the Libyan king Iarbas; according to Justin (XVIII, 5), Carthage then paid the Africans a yearly rent for the ground of the city. It was freed from it only in the 5th century BC, when the Magonids subdued the hinterland by force (Justin, XIX, 1-2).",
+        'The relationship was then reversed: the rural Libyans became subjects owing a heavy tribute, mostly in grain (Polybius, I, 71-72). Their revolts punctuate the history of the city, up to the Mercenary War (241–238).',
+        'It was long thought that the defeat at Himera (480) pushed Carthage to turn towards Africa (Decret). Some historians rather see a gradual expansion, needed to feed a growing population.',
+        "Marriage alliances between the Punic aristocracy and African princely families were common — Hamilcar Barca promised his daughter to the Numidian prince Naravas (Polybius, I, 78) — without the Carthaginian state losing its Phoenician character."
+      ],
+      lpKicker: 'The Libyphoenicians',
+      lpTitle: 'Phoenicians of Africa',
+      lpText: 'From the mixing of settlers and Libyans came a population the Greeks called “Libyphoenicians”. Ancient authors disagree about their status and territory, probably south of Carthage. They acted as go-betweens between Punic culture and the Berber world.',
+      lpRows: [
+        { key: 'Hecataeus', val: 'First mention, in the 6th century BC, known through Stephanus of Byzantium.' },
+        { key: 'Polybius', val: 'Subjects of Carthage, living under the same laws as the Carthaginians.' },
+        { key: 'Diodorus', val: 'The inhabitants of the coastal towns who had the right of marriage (conubium) with Carthage (XX, 55, 4).' },
+        { key: 'Livy', val: 'A mixture of Punic people and Africans.' },
+        { key: 'Strabo, Pliny', val: 'Between the Carthaginian coast and Gaetulia (Strabo, XVII, 3, 19); in Byzacium (Pliny, V, 24).' }
+      ]
+    },
+    capital: {
+      kicker: 'The main city',
+      title: 'An ideal site, a planned city',
+      rows: [
+        { key: 'The site', val: 'A peninsula between lagoons and gulf, easy to defend and open to the sea lanes. Strabo compared it to “a ship at anchor”.' },
+        { key: 'Byrsa', val: 'The legendary core: citadel and religious centre, crowned by the temple of Eshmun.' },
+        { key: 'The plain', val: 'Straight streets crossing at right angles, with stairs where the slope required. For M. H. Fantar, Carthage shows that the Greeks had no monopoly on the grid plan.' },
+        { key: 'Megara', val: 'The northern suburb, towards modern La Marsa, more loosely built: perhaps the most recent district.' },
+        { key: 'Mago quarter', val: "Near the shore, Friedrich Rakob's German excavations trace the evolution of the sea wall and of housing over several centuries." },
+        { key: 'Houses', val: 'Floors of mortar mixed with potsherds, wooden stairs to the upper storeys, cisterns filled with rainwater collected in the courtyard.' }
+      ],
+      k2: 'Cosmopolitan',
+      t2: 'A city of many peoples',
+      d2: [
+        'Phoenician settlers, Libyans, Greeks, Iberians and people from all over the Punic world lived side by side in Carthage, and mixed marriages were frequent.',
+        'From the earliest days of colonisation, archaeology reveals mixed communities: out of this blend grew an original civilisation.'
+      ],
+      cta: "Carthage's African identity"
     },
     city: {
       title: 'The city of Carthage',
       subtitle: 'A metropolis at the forefront of its age.',
       features: [
-        { kick: 'Town planning', title: 'Multi-storey houses', desc: 'According to Appian, three streets lined with six-storey houses climbed from the agora to Byrsa. Excavations have found planned streets, drains and houses with bathrooms.', cls: '' },
+        { kick: 'Town planning', title: 'Multi-storey houses', desc: 'According to Appian, three streets lined with six-storey houses climbed from the agora to Byrsa. Excavations have found planned streets, cisterns, gutters and soakaway pits for waste water, and houses with bathrooms.', cls: '' },
         { kick: 'Navy', title: 'The twin harbour', desc: 'A rectangular commercial harbour and a circular naval harbour, the Cothon, able to shelter 220 warships in individual sheds.', cls: 'tile--navy' },
         { kick: 'Religion', title: 'Temples and tophet', desc: 'The temple of Eshmun crowned the hill of Byrsa. Near the harbours, the tophet of Salammbô, an open-air sanctuary to Baal Hammon and Tanit, has yielded thousands of stelae.', cls: '', link: { to: '/religion', label: 'The gods of Carthage' } },
         { kick: 'Industry', title: 'Crafts and purple', desc: 'Pottery, glass and goldsmith workshops. Production of Tyrian purple, extracted from a sea snail, the murex.', cls: 'tile--sand', link: { to: '/economie', label: 'The economy' } },
@@ -492,6 +663,8 @@ const C = {
       title: 'ما تقوله الحفريات',
       rows: [
         { key: '814 / 813', val: 'تاريخ التأسيس الذي أورده المؤرخ الإغريقي تيمايوس التاورميني (القرنان 4–3 ق.م)، وأخذت به الرواية التقليدية.' },
+        { key: 'أبيانوس', val: 'رواية قديمة أخرى، أخذ بها أبيانوس (الليبيكا، 1، 1)، كانت ترجع قرطاج إلى زمن حرب طروادة، نحو القرن الثاني عشر ق.م. ولم تكشف الحفريات عن شيء بهذا القِدم.' },
+        { key: 'فرضيات', val: 'اقترح بعضهم تأسيسًا نحو 670 ق.م، أو تأسيسًا على مرحلتين — مركز تجاري أولًا ثم المدينة بمعناها الحقيقي (بيار سانتاس). أما المؤرخون المحدثون، فاستنادًا إلى حوليات صور التي نقلها ميناندر الأفسسي وفلافيوس يوسيفوس، يرجّحون الربع الأخير من القرن التاسع ق.م.' },
         { key: 'ق 8', val: 'تعود أقدم الطبقات المكتشفة — خزف، وأولى القرابين في توفة صلامبو — إلى النصف الثاني من القرن الثامن ق.م: الأسطورة ليست بعيدة عن الحقيقة.' },
         { key: 'بيرصا', val: 'الاسم الإغريقي «بيرصا» (الجلد) هو على الأرجح إعادة تأويل لكلمة سامية تعني القلعة: وربما وُلدت حيلة جلد الثور من هذا التلاعب اللفظي.' },
         { key: 'ق 6', val: 'تتصدر قرطاج المدن الفينيقية في الغرب، بينما تقع صور تحت الحكم البابلي ثم الفارسي.' }
@@ -501,14 +674,64 @@ const C = {
     name: {
       kicker: 'اسم',
       title: 'قرت حدشت، «المدينة الجديدة»',
-      text: 'في الفينيقية تعني «قرت» المدينة و«حدشت» الجديدة: صور جديدة في إفريقيا. جعلها الإغريق «كارخيدون» والرومان «كارتاغو» — وما يزال الاسم حيًّا في تونس.',
+      text: 'في الفينيقية تعني «قرت» المدينة و«حدشت» الجديدة: صور جديدة في إفريقيا. جعلها الإغريق «كارخيدون» والرومان «كارتاغو» — وما يزال الاسم حيًّا في تونس. وقد حملت قرطاجنة في إسبانيا الاسم نفسه: قرت حدشت.',
       cta: 'قرطاج وتونس'
+    },
+    network: {
+      title: 'قبل قرطاج: الشبكة الفينيقية في الغرب',
+      subtitle: 'كانت إفريقيا الشمالية بالنسبة للفينيقيين في البداية محطة على طريق معادن إسبانيا. وانضمت قرطاج إلى شبكة قديمة قائمة.',
+      sites: [
+        { where: 'تونس', date: '1101', name: 'أوتيكا', text: 'حسب بلينيوس الأكبر (التاريخ الطبيعي، 16، 216)، هي أول تأسيس فينيقي في إفريقيا، قبل قرطاج بنحو ثلاثة قرون. غير أنه تاريخ تقليدي: فأقدم البقايا المكتشفة أحدث منه بكثير.' },
+        { where: 'المغرب الأطلسي', date: 'ق 12', name: 'ليكسوس', text: 'وراء مضيق جبل طارق، قرب العرائش الحالية. يعدّها بلينيوس (19، 63) من أقدم المستوطنات الفينيقية، ثم دخلت لاحقًا في فلك قرطاج.' },
+        { where: 'إسبانيا', date: 'نحو 1100', name: 'قادس (جادير)', text: 'قادش الحالية، على جزيرة. يضع فيليوس باتركولوس (1، 2، 3) تأسيسها على يد الصوريين بعد حرب طروادة بقليل. وقد فتحت الطريق إلى فضة شبه الجزيرة الإيبيرية وقصديرها.' },
+        { where: 'رأس الشبكة', date: 'ق 6', name: 'اتحاد أكثر منه إمبراطورية', text: 'مع تراجع صور، تصدّرت قرطاج المستعمرات الفينيقية في الغرب وتولّت الدفاع المشترك والسياسة الخارجية. ورأى سباتينو موسكاتي في هذا البناء الرخو أحد أسباب هزيمتها النهائية.' }
+      ]
+    },
+    libyans: {
+      kicker: 'الأساس الليبي',
+      title: 'أرض مأهولة من قبل',
+      paragraphs: [
+        'لم ينزل الفينيقيون أرضًا خالية. فقد كانت إفريقيا الشمالية موطن الليبيين، الذين تسميهم النصوص المصرية «ليبو» منذ أواخر الألف الثاني ق.م. ويرى غابرييل كامب أنهم أسلاف الأمازيغ؛ ولم يكونوا شعبًا موحدًا بل فسيفساء من القبائل.',
+        'جرى الاستقرار بالتفاوض. ففي الأسطورة تحصل عليسة على أرضها من الملك الليبي يارباس؛ وحسب يوستينوس (18، 5) دفعت قرطاج بعد ذلك للأفارقة إتاوة سنوية مقابل أرض المدينة. ولم تتحرر منها إلا في القرن الخامس ق.م، حين أخضع الماغونيون الداخل بقوة السلاح (يوستينوس، 19، 1-2).',
+        'عندها انقلبت العلاقة: صار ليبيو الأرياف رعايا تُفرض عليهم ضريبة ثقيلة، من الحبوب أساسًا (بوليبيوس، 1، 71-72). وتتخلل ثوراتهم تاريخ المدينة، حتى حرب المرتزقة (241–238).',
+        'ساد طويلًا الاعتقاد بأن هزيمة هيميرا (480) دفعت قرطاج إلى التوجه نحو إفريقيا (ديكريه). ويرى مؤرخون بالأحرى توسعًا تدريجيًا اقتضته تغذية سكان يتزايدون.',
+        'كانت المصاهرات بين الأرستقراطية البونية والأسر الأميرية الإفريقية شائعة — فقد وعد حملقار برقة الأمير النوميدي نارافاس بابنته (بوليبيوس، 1، 78) — من غير أن تفقد الدولة القرطاجية طابعها الفينيقي.'
+      ],
+      lpKicker: 'الليبيون الفينيقيون',
+      lpTitle: 'فينيقيو إفريقيا',
+      lpText: 'من امتزاج المستوطنين بالليبيين نشأ سكان سمّاهم الإغريق «الليبيين الفينيقيين». ولا يتفق المؤلفون القدامى على وضعهم ولا على إقليمهم، الواقع على الأرجح جنوب قرطاج. وقد أدّوا دور الوسيط بين الثقافة البونية والعالم الأمازيغي.',
+      lpRows: [
+        { key: 'هيكاتيوس', val: 'أول ذكر لهم، في القرن السادس ق.م، وصلنا عن طريق إسطفانوس البيزنطي.' },
+        { key: 'بوليبيوس', val: 'رعايا لقرطاج يخضعون للقوانين نفسها التي يخضع لها القرطاجيون.' },
+        { key: 'ديودوروس', val: 'سكان المدن الساحلية الذين كان لهم حق التزاوج مع قرطاج (20، 55، 4).' },
+        { key: 'تيتوس ليفيوس', val: 'خليط من البونيين والأفارقة.' },
+        { key: 'سترابون، بلينيوس', val: 'بين الساحل القرطاجي وجيتوليا (سترابون، 17، 3، 19)؛ وفي بيزاكيوم (بلينيوس، 5، 24).' }
+      ]
+    },
+    capital: {
+      kicker: 'المدينة الأم',
+      title: 'موقع مثالي ومدينة مخططة',
+      rows: [
+        { key: 'الموقع', val: 'شبه جزيرة بين البحيرات والخليج، سهلة الدفاع ومفتوحة على الطرق البحرية. وقد شبّهها سترابون بـ«سفينة راسية».' },
+        { key: 'بيرصا', val: 'النواة الأسطورية: قلعة ومركز ديني، يتوّجها معبد أشمون.' },
+        { key: 'السهل', val: 'شوارع مستقيمة تتقاطع بزوايا قائمة، مع درجات حيث يفرض ذلك الانحدار. ويرى محمد حسين فنطر أن قرطاج تُثبت أن الإغريق لم يحتكروا التخطيط الشبكي.' },
+        { key: 'ميغارا', val: 'الضاحية الشمالية، نحو المرسى الحالية، وبناؤها أقل انتظامًا: ولعلها أحدث الأحياء.' },
+        { key: 'حي ماغون', val: 'قرب الشاطئ، تتتبع الحفريات الألمانية بقيادة فريدريش راكوب تطور السور البحري والمساكن على مدى قرون.' },
+        { key: 'البيوت', val: 'أرضيات من ملاط ممزوج بكسر الفخار، وسلالم خشبية إلى الطوابق، وصهاريج تملؤها مياه الأمطار المجموعة في الفناء.' }
+      ],
+      k2: 'مدينة كوسموبوليتية',
+      t2: 'مدينة شعوب كثيرة',
+      d2: [
+        'تجاور في قرطاج المستوطنون الفينيقيون والليبيون والإغريق والإيبيريون وأناس من كل أنحاء العالم البوني، وكان الزواج المختلط شائعًا.',
+        'منذ الأيام الأولى للاستيطان يكشف علم الآثار عن مجتمعات مختلطة: ومن هذا الامتزاج وُلدت حضارة أصيلة.'
+      ],
+      cta: 'الهوية الإفريقية لقرطاج'
     },
     city: {
       title: 'مدينة قرطاج',
       subtitle: 'حاضرة في طليعة عصرها.',
       features: [
-        { kick: 'العمران', title: 'بيوت متعددة الطوابق', desc: 'حسب أبيانوس، كانت ثلاثة شوارع تصطف على جانبيها بيوت من ستة طوابق تصعد من الساحة العامة نحو بيرصا. وكشفت الحفريات شوارع مخططة وقنوات صرف وبيوتًا مزودة بحمّامات.', cls: '' },
+        { kick: 'العمران', title: 'بيوت متعددة الطوابق', desc: 'حسب أبيانوس، كانت ثلاثة شوارع تصطف على جانبيها بيوت من ستة طوابق تصعد من الساحة العامة نحو بيرصا. وكشفت الحفريات شوارع مخططة وصهاريج وسواقي وآبار لتصريف المياه المستعملة، وبيوتًا مزودة بحمّامات.', cls: '' },
         { kick: 'البحرية', title: 'الميناء المزدوج', desc: 'ميناء تجاري مستطيل وميناء عسكري دائري، الكوثون، يتسع لـ220 سفينة حربية في أحواض فردية.', cls: 'tile--navy' },
         { kick: 'الدين', title: 'المعابد والتوفة', desc: 'كان معبد إشمون يتوّج تلة بيرصا. وقرب الموانئ، كشفت توفة صلامبو، وهي حرم مكشوف مكرّس لبعل حمون وتانيت، عن آلاف النصب.', cls: '', link: { to: '/religion', label: 'آلهة قرطاج' } },
         { kick: 'الصناعة', title: 'الحِرف والأرجوان', desc: 'ورشات للخزف والزجاج والصياغة، وإنتاج الأرجوان الصوري المستخرج من صدفة بحرية هي الموريكس.', cls: 'tile--sand', link: { to: '/economie', label: 'الاقتصاد' } },
@@ -601,6 +824,15 @@ useHead(() => ({
 .arch-cta { margin-top: 26px; }
 .name-phoen { font-size: clamp(34px, 3.4vw, 48px); margin: 6px 0 18px; color: var(--purple); }
 
+.site { min-height: 280px; }
+.site-date { font: 900 clamp(34px, 3.4vw, 48px)/1 var(--font-display); letter-spacing: -0.02em; margin: 10px 0 8px; }
+.lp-title { margin: 6px 0 12px; }
+.lp-rows { margin-top: 20px; }
+.lp-rows .key { font-size: 17px; }
+.lp-rows .val { font-size: 15px; }
+.cosmo-p + .cosmo-p { margin-top: 12px; }
+.cosmo-btn { align-self: flex-start; }
+
 .feat-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 6px; font-weight: 600; }
 .tile--navy .feat-link, .tile--terra .feat-link, .tile--purple .feat-link { color: var(--white); }
 
@@ -629,6 +861,7 @@ useHead(() => ({
   .craft-fig { min-height: 360px; }
   .port-fig { min-height: 360px; }
   .step { min-height: 200px; }
+  .site { min-height: 0; }
 }
 
 @media (max-width: 640px) {

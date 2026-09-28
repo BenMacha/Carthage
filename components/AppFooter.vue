@@ -37,19 +37,19 @@ const FOOT = {
   fr: {
     note: 'Qart-Ḥadasht · 814 – 146 av. J.-C.',
     credits: 'Crédits des images', plan: 'Plan du site', legal: 'Informations sur le site',
-    explore: 'Explorer', periods: 'Époques', people: 'Personnages',
+    explore: 'Explorer', periods: 'Époques', civ: 'Civilisation', people: 'Personnages', biblio: 'Sources et bibliographie', apres: 'Carthage après 146', institutions: 'Institutions et société', art: 'Art et artisanat', langue: 'Langue et écriture',
     tunisie: 'Carthage vit en Tunisie', carte: 'Carte animée', sources: 'Histoire des vainqueurs', tactiques: "Les tactiques d'Hannibal", richesse: 'La richesse et Rome', lieux: 'Lieux historiques', religion: 'Religion', agriculture: 'Agriculture', armee: "L'armée", bios: 'Toutes les biographies', didon: 'Élissa / Didon', hamilcar: 'Hamilcar Barca', hannon: 'Hannon le Navigateur', sophonisbe: 'Sophonisbe'
   },
   en: {
     note: 'Qart-Ḥadasht · 814 – 146 BC',
     credits: 'Image credits', plan: 'Site map', legal: 'Site information',
-    explore: 'Explore', periods: 'Eras', people: 'People',
+    explore: 'Explore', periods: 'Eras', civ: 'Civilisation', people: 'People', biblio: 'Sources and bibliography', apres: 'Carthage after 146', institutions: 'Institutions and society', art: 'Art and crafts', langue: 'Language and writing',
     tunisie: 'Carthage lives in Tunisia', carte: 'Animated map', sources: "The victors' history", tactiques: "Hannibal's tactics", richesse: 'Wealth and Rome', lieux: 'Historic places', religion: 'Religion', agriculture: 'Agriculture', armee: 'The army', bios: 'All biographies', didon: 'Elissa / Dido', hamilcar: 'Hamilcar Barca', hannon: 'Hanno the Navigator', sophonisbe: 'Sophonisba'
   },
   ar: {
     note: 'قرت حدشت · 814 – 146 ق.م',
     credits: 'حقوق الصور', plan: 'خريطة الموقع', legal: 'معلومات الموقع',
-    explore: 'استكشف', periods: 'الحقب', people: 'الشخصيات',
+    explore: 'استكشف', periods: 'الحقب', civ: 'الحضارة', people: 'الشخصيات', biblio: 'المصادر والمراجع', apres: 'قرطاج بعد 146', institutions: 'المؤسسات والمجتمع', art: 'الفن والحِرف', langue: 'اللغة والكتابة',
     tunisie: 'قرطاج تحيا في تونس', carte: 'الخريطة المتحركة', sources: 'تاريخ المنتصرين', tactiques: 'تكتيكات حنبعل', richesse: 'الثروة وروما', lieux: 'أماكن تاريخية', religion: 'الديانة', agriculture: 'الفلاحة', armee: 'الجيش', bios: 'كل السير', didon: 'عليسة / ديدون', hamilcar: 'حملقار برقا', hannon: 'حنون الملاح', sophonisbe: 'صفنبعل'
   }
 }
@@ -64,12 +64,9 @@ const cols = computed(() => [
       { to: '/carte', label: F.value.carte },
       { to: '/chronologie', label: t.value.footer.timeline },
       { to: '/histoire-des-vainqueurs', label: F.value.sources },
-      { to: '/religion', label: F.value.religion },
-      { to: '/agriculture', label: F.value.agriculture },
-      { to: '/economie', label: t.value.footer.economy },
-      { to: '/richesse-rome', label: F.value.richesse },
       { to: '/lieux', label: F.value.lieux },
-      { to: '/afrique', label: t.value.footer.africa }
+      { to: '/afrique', label: t.value.footer.africa },
+      { to: '/bibliographie', label: F.value.biblio }
     ]
   },
   {
@@ -79,8 +76,21 @@ const cols = computed(() => [
       { to: '/guerres-puniques', label: t.value.footer.punicWars },
       { to: '/elephants', label: t.value.footer.elephantPassage },
       { to: '/tactiques', label: F.value.tactiques },
-      { to: '/armee', label: F.value.armee },
-      { to: '/prise-de-carthage', label: t.value.footer.fall }
+      { to: '/richesse-rome', label: F.value.richesse },
+      { to: '/prise-de-carthage', label: t.value.footer.fall },
+      { to: '/apres-146', label: F.value.apres }
+    ]
+  },
+  {
+    title: F.value.civ,
+    items: [
+      { to: '/institutions', label: F.value.institutions },
+      { to: '/economie', label: t.value.footer.economy },
+      { to: '/agriculture', label: F.value.agriculture },
+      { to: '/religion', label: F.value.religion },
+      { to: '/art-et-artisanat', label: F.value.art },
+      { to: '/langue-ecriture', label: F.value.langue },
+      { to: '/armee', label: F.value.armee }
     ]
   },
   {
@@ -145,8 +155,8 @@ const cols = computed(() => [
 
 .f-cols {
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 32px 48px;
+  grid-template-columns: repeat(4, auto);
+  gap: 32px 40px;
 }
 
 .f-col h4 {
@@ -192,7 +202,6 @@ const cols = computed(() => [
 
 @media (max-width: 640px) {
   .f-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
-  .f-col:last-child { grid-column: 1 / -1; }
   .f-col a { padding: 9px 0; }
 }
 </style>

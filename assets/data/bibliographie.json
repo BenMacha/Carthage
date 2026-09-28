@@ -1,0 +1,1280 @@
+{
+ "meta": {
+  "sources": [
+   {
+    "title": "Carthage",
+    "url": "https://fr.wikipedia.org/wiki/Carthage"
+   },
+   {
+    "title": "Civilisation carthaginoise",
+    "url": "https://fr.wikipedia.org/wiki/Civilisation_carthaginoise"
+   }
+  ],
+  "license": "CC BY-SA 4.0",
+  "generatedBy": "gen_biblio.py (sections « Bibliographie » des deux articles, dédoublonnées)"
+ },
+ "categories": [
+  {
+   "key": "ancient",
+   "fr": "Sources antiques",
+   "en": "Ancient sources",
+   "ar": "المصادر القديمة"
+  },
+  {
+   "key": "general",
+   "fr": "Généralités",
+   "en": "General works",
+   "ar": "مؤلفات عامة"
+  },
+  {
+   "key": "carthage",
+   "fr": "Carthage",
+   "en": "Carthage",
+   "ar": "قرطاج"
+  },
+  {
+   "key": "art",
+   "fr": "Art et catalogues d'expositions",
+   "en": "Art and exhibition catalogues",
+   "ar": "الفن وفهارس المعارض"
+  },
+  {
+   "key": "archaeology",
+   "fr": "Archéologie",
+   "en": "Archaeology",
+   "ar": "علم الآثار"
+  },
+  {
+   "key": "further",
+   "fr": "Lectures complémentaires",
+   "en": "Further reading",
+   "ar": "قراءات إضافية"
+  }
+ ],
+ "ancient": [
+  {
+   "id": "a01",
+   "author": {
+    "fr": "Polybe",
+    "en": "Polybius",
+    "ar": "بوليبيوس"
+   },
+   "title": {
+    "fr": "Histoires",
+    "en": "Histories",
+    "ar": "التواريخ"
+   },
+   "date": {
+    "fr": "IIe s. av. J.-C., grec",
+    "en": "2nd c. BC, Greek",
+    "ar": "القرن 2 ق.م، باليونانية"
+   },
+   "desc": {
+    "fr": "La source majeure sur les deux premières guerres puniques et la guerre des Mercenaires, avec le texte des traités entre Rome et Carthage ; Polybe a assisté à la chute de 146. Méthodique, mais proche des Scipions et du point de vue romain.",
+    "en": "The main source for the first two Punic Wars and the Mercenary War, preserving the treaties between Rome and Carthage; Polybius witnessed the fall of 146. Methodical, but close to the Scipios and to the Roman viewpoint.",
+    "ar": "المصدر الرئيسي للحربين البونيقيتين الأولى والثانية ولحرب المرتزقة، ويحفظ نصوص المعاهدات بين روما وقرطاج؛ وقد شهد بوليبيوس سقوط المدينة سنة 146. منهجي، لكنه قريب من آل سكيبيو ومن وجهة النظر الرومانية."
+   }
+  },
+  {
+   "id": "a02",
+   "author": {
+    "fr": "Tite-Live",
+    "en": "Livy",
+    "ar": "تيتوس ليفيوس"
+   },
+   "title": {
+    "fr": "Histoire romaine (livres XXI–XXX)",
+    "en": "History of Rome (books 21–30)",
+    "ar": "تاريخ روما (الكتب 21–30)"
+   },
+   "date": {
+    "fr": "Fin du Ier s. av. J.-C., latin",
+    "en": "Late 1st c. BC, Latin",
+    "ar": "أواخر القرن 1 ق.م، باللاتينية"
+   },
+   "desc": {
+    "fr": "Le récit continu le plus détaillé de la deuxième guerre punique, de Sagonte à Zama. Écrit sous Auguste pour exalter Rome : dramatisation, discours recomposés, portrait hostile d'Hannibal (« perfidie punique »).",
+    "en": "The most detailed continuous account of the Second Punic War, from Saguntum to Zama. Written under Augustus to glorify Rome: dramatised scenes, reconstructed speeches and a hostile portrait of Hannibal (\"Punic perfidy\").",
+    "ar": "أوفى سرد متصل للحرب البونيقية الثانية، من ساغونتوم إلى زاما. كُتب في عهد أغسطس لتمجيد روما: مشاهد مسرحية وخطب معاد صياغتها وصورة معادية لحنبعل («الغدر البوني»)."
+   }
+  },
+  {
+   "id": "a03",
+   "author": {
+    "fr": "Appien d'Alexandrie",
+    "en": "Appian of Alexandria",
+    "ar": "أبيانوس السكندري"
+   },
+   "title": {
+    "fr": "Libyca (Le Livre africain)",
+    "en": "Libyca (The African Book)",
+    "ar": "ليبيكا (الكتاب الإفريقي)"
+   },
+   "date": {
+    "fr": "IIe s. apr. J.-C., grec",
+    "en": "2nd c. AD, Greek",
+    "ar": "القرن 2 م، باليونانية"
+   },
+   "desc": {
+    "fr": "Seul récit suivi de la troisième guerre punique et du siège de Carthage, qui reprend sans doute des livres perdus de Polybe. Tardif et de seconde main : chiffres et scènes à prendre avec prudence.",
+    "en": "The only connected narrative of the Third Punic War and the siege of Carthage, probably drawing on lost books of Polybius. Late and second-hand: its figures and set scenes need caution.",
+    "ar": "السرد المتصل الوحيد للحرب البونيقية الثالثة ولحصار قرطاج، ويعتمد على الأرجح على كتب مفقودة لبوليبيوس. متأخر ومنقول: ينبغي الحذر من أرقامه ومشاهده."
+   }
+  },
+  {
+   "id": "a04",
+   "author": {
+    "fr": "Diodore de Sicile",
+    "en": "Diodorus Siculus",
+    "ar": "ديودوروس الصقلي"
+   },
+   "title": {
+    "fr": "Bibliothèque historique",
+    "en": "Library of History",
+    "ar": "المكتبة التاريخية"
+   },
+   "date": {
+    "fr": "Ier s. av. J.-C., grec",
+    "en": "1st c. BC, Greek",
+    "ar": "القرن 1 ق.م، باليونانية"
+   },
+   "desc": {
+    "fr": "Irremplaçable pour les guerres de Carthage en Sicile (Himère, Denys de Syracuse, Agathocle en Afrique). Compilation qui suit des historiens grecs de Sicile comme Timée, souvent hostiles aux Carthaginois.",
+    "en": "Irreplaceable for Carthage's wars in Sicily (Himera, Dionysius of Syracuse, Agathocles in Africa). A compilation following Sicilian Greek historians such as Timaeus, often hostile to the Carthaginians.",
+    "ar": "لا غنى عنه لحروب قرطاج في صقلية (هيميرا، ديونيسيوس السرقوسي، أغاثوكليس في إفريقيا). مؤلَّف جامع يتبع مؤرخين إغريقًا صقليين مثل طيمايوس، كثيرًا ما كانوا معادين للقرطاجيين."
+   }
+  },
+  {
+   "id": "a05",
+   "author": {
+    "fr": "Plutarque",
+    "en": "Plutarch",
+    "ar": "بلوتارخ"
+   },
+   "title": {
+    "fr": "Vies parallèles (Timoléon, Fabius Maximus, Marcellus, Caton l'Ancien)",
+    "en": "Parallel Lives (Timoleon, Fabius Maximus, Marcellus, Cato the Elder)",
+    "ar": "السير المتوازية (تيموليون، فابيوس مكسيموس، مارسيلوس، كاتو الأكبر)"
+   },
+   "date": {
+    "fr": "Ier–IIe s. apr. J.-C., grec",
+    "en": "1st–2nd c. AD, Greek",
+    "ar": "القرنان 1–2 م، باليونانية"
+   },
+   "desc": {
+    "fr": "Éclaire Carthage à travers ses adversaires : guerre de Timoléon en Sicile, stratégie de Fabius face à Hannibal, Caton et la figue de Carthage. Biographe moraliste, plus soucieux du caractère que de la chronologie.",
+    "en": "Sheds light on Carthage through its opponents: Timoleon's war in Sicily, Fabius' strategy against Hannibal, Cato and the Carthaginian fig. A moralising biographer, more interested in character than chronology.",
+    "ar": "يلقي الضوء على قرطاج من خلال خصومها: حرب تيموليون في صقلية، واستراتيجية فابيوس في مواجهة حنبعل، وكاتو وتينة قرطاج. كاتب سير أخلاقي يهتم بالطباع أكثر من التسلسل الزمني."
+   }
+  },
+  {
+   "id": "a06",
+   "author": {
+    "fr": "Justin",
+    "en": "Justin",
+    "ar": "يوستينوس"
+   },
+   "title": {
+    "fr": "Abrégé des Histoires philippiques de Trogue Pompée (livres XVIII–XIX)",
+    "en": "Epitome of Pompeius Trogus' Philippic Histories (books 18–19)",
+    "ar": "مختصر التواريخ الفيليبية لتروغوس بومبيوس (الكتابان 18–19)"
+   },
+   "date": {
+    "fr": "Date discutée (IIe–IVe s. apr. J.-C.), latin",
+    "en": "Date debated (2nd–4th c. AD), Latin",
+    "ar": "تاريخ مختلف فيه (القرون 2–4 م)، باللاتينية"
+   },
+   "desc": {
+    "fr": "Principal récit de la fondation par Élissa et des débuts de Carthage (Malchus, les Magonides). Résumé tardif d'une œuvre perdue du temps d'Auguste : légende et histoire y sont mêlées.",
+    "en": "The main account of the foundation by Elissa and of early Carthage (Malchus, the Magonids). A late summary of a lost Augustan-era work, in which legend and history are intertwined.",
+    "ar": "الرواية الرئيسية لتأسيس عليسة لقرطاج ولبداياتها (مالخوس، الماغونيون). تلخيص متأخر لعمل مفقود من عصر أغسطس، تختلط فيه الأسطورة بالتاريخ."
+   }
+  },
+  {
+   "id": "a07",
+   "author": {
+    "fr": "Cornelius Nepos",
+    "en": "Cornelius Nepos",
+    "ar": "كورنيليوس نيبوس"
+   },
+   "title": {
+    "fr": "Vies d'Hamilcar et d'Hannibal",
+    "en": "Lives of Hamilcar and Hannibal",
+    "ar": "سيرتا هملقار وحنبعل"
+   },
+   "date": {
+    "fr": "Ier s. av. J.-C., latin",
+    "en": "1st c. BC, Latin",
+    "ar": "القرن 1 ق.م، باللاتينية"
+   },
+   "desc": {
+    "fr": "Les seules biographies antiques conservées de généraux carthaginois, plutôt admiratives envers Hannibal. Très brèves, rapides sur les détails et parfois inexactes.",
+    "en": "The only surviving ancient biographies of Carthaginian generals, rather admiring of Hannibal. Very short, sketchy on details and sometimes inaccurate.",
+    "ar": "السيرتان القديمتان الوحيدتان الباقيتان لقادة قرطاجيين، وفيهما إعجاب واضح بحنبعل. قصيرتان جدًا، مقتضبتان في التفاصيل وغير دقيقتين أحيانًا."
+   }
+  },
+  {
+   "id": "a08",
+   "author": {
+    "fr": "Aristote",
+    "en": "Aristotle",
+    "ar": "أرسطو"
+   },
+   "title": {
+    "fr": "Politique (livre II)",
+    "en": "Politics (book 2)",
+    "ar": "السياسة (الكتاب 2)"
+   },
+   "date": {
+    "fr": "IVe s. av. J.-C., grec",
+    "en": "4th c. BC, Greek",
+    "ar": "القرن 4 ق.م، باليونانية"
+   },
+   "desc": {
+    "fr": "Seule analyse contemporaine des institutions carthaginoises (suffètes, Conseil, Cent-Quatre, assemblée du peuple), louées comme une constitution mixte et stable. Regard de philosophe grec, qui juge Carthage à l'aune de Sparte et de la Crète.",
+    "en": "The only contemporary analysis of Carthage's institutions (sufetes, Council, the Hundred and Four, popular assembly), praised as a stable mixed constitution. A Greek philosopher's view, measuring Carthage against Sparta and Crete.",
+    "ar": "التحليل المعاصر الوحيد لمؤسسات قرطاج (الشُّفطيم، المجلس، مجلس المئة وأربعة، مجلس الشعب)، وقد أثنى عليها كدستور مختلط مستقر. نظرة فيلسوف إغريقي يقيس قرطاج على إسبرطة وكريت."
+   }
+  },
+  {
+   "id": "a09",
+   "author": {
+    "fr": "Pline l'Ancien",
+    "en": "Pliny the Elder",
+    "ar": "بلينيوس الأكبر"
+   },
+   "title": {
+    "fr": "Histoire naturelle",
+    "en": "Natural History",
+    "ar": "التاريخ الطبيعي"
+   },
+   "date": {
+    "fr": "Ier s. apr. J.-C., latin",
+    "en": "1st c. AD, Latin",
+    "ar": "القرن 1 م، باللاتينية"
+   },
+   "desc": {
+    "fr": "Conserve des bribes précieuses : le traité d'agronomie de Magon traduit en latin sur ordre du Sénat, les voyages d'Hannon et d'Himilcon, la figue de Caton. Encyclopédie qui accumule les notices sans les critiquer.",
+    "en": "Preserves precious fragments: Mago's farming treatise translated into Latin by order of the Senate, the voyages of Hanno and Himilco, Cato's fig. An encyclopedia that piles up information without criticism.",
+    "ar": "يحفظ شذرات ثمينة: كتاب ماغون في الزراعة الذي تُرجم إلى اللاتينية بأمر من مجلس الشيوخ، ورحلتا حنون وحِملكون، وتينة كاتو. موسوعة تجمع المعلومات دون نقد."
+   }
+  },
+  {
+   "id": "a10",
+   "author": {
+    "fr": "Strabon",
+    "en": "Strabo",
+    "ar": "سترابون"
+   },
+   "title": {
+    "fr": "Géographie (livre XVII)",
+    "en": "Geography (book 17)",
+    "ar": "الجغرافيا (الكتاب 17)"
+   },
+   "date": {
+    "fr": "Ier s. av. – Ier s. apr. J.-C., grec",
+    "en": "1st c. BC – 1st c. AD, Greek",
+    "ar": "القرن 1 ق.م – القرن 1 م، باليونانية"
+   },
+   "desc": {
+    "fr": "Décrit le site de Carthage, la Byrsa et les ports, et avance des chiffres (700 000 habitants, 300 villes en Libye) sans doute gonflés. Géographe travaillant de seconde main, après la destruction.",
+    "en": "Describes the site of Carthage, the Byrsa and the harbours, and gives figures (700,000 inhabitants, 300 towns in Libya) that are probably inflated. A geographer writing second-hand, after the destruction.",
+    "ar": "يصف موقع قرطاج وبيرصا والموانئ، ويورد أرقامًا (700 ألف ساكن و300 مدينة في ليبيا) مبالغًا فيها على الأرجح. جغرافي ينقل عن غيره، وقد كتب بعد التدمير."
+   }
+  },
+  {
+   "id": "a11",
+   "author": {
+    "fr": "Silius Italicus",
+    "en": "Silius Italicus",
+    "ar": "سيليوس إيتاليكوس"
+   },
+   "title": {
+    "fr": "Punica (poème épique)",
+    "en": "Punica (epic poem)",
+    "ar": "البونيقيات (ملحمة شعرية)"
+   },
+   "date": {
+    "fr": "Ier s. apr. J.-C., latin",
+    "en": "1st c. AD, Latin",
+    "ar": "القرن 1 م، باللاتينية"
+   },
+   "desc": {
+    "fr": "Épopée en dix-sept chants sur la deuxième guerre punique, le plus long poème latin conservé. Œuvre littéraire, non source historique : dieux, songes et combats héroïques à la manière de Virgile.",
+    "en": "A seventeen-book epic on the Second Punic War, the longest surviving Latin poem. A literary work rather than a historical source: gods, dreams and heroic duels in the manner of Virgil.",
+    "ar": "ملحمة في سبعة عشر نشيدًا عن الحرب البونيقية الثانية، وهي أطول قصيدة لاتينية وصلتنا. عمل أدبي لا مصدر تاريخي: آلهة وأحلام ومبارزات بطولية على طريقة فرجيل."
+   }
+  },
+  {
+   "id": "a12",
+   "author": {
+    "fr": "Anonyme",
+    "en": "Anonymous",
+    "ar": "مجهول المؤلف"
+   },
+   "title": {
+    "fr": "Périple d'Hannon",
+    "en": "Periplus of Hanno",
+    "ar": "رحلة حنون"
+   },
+   "date": {
+    "fr": "Texte grec (manuscrit de Heidelberg)",
+    "en": "Greek text (Heidelberg manuscript)",
+    "ar": "نص يوناني (مخطوط هايدلبرغ)"
+   },
+   "desc": {
+    "fr": "Se présente comme la traduction d'une inscription dédiée par Hannon dans un temple de Carthage, relatant une expédition le long de la côte atlantique de l'Afrique. Seul texte d'origine carthaginoise de ce genre ; date, itinéraire et fidélité de la traduction restent débattus.",
+    "en": "Presents itself as the translation of an inscription dedicated by Hanno in a temple at Carthage, recounting an expedition along Africa's Atlantic coast. The only text of its kind of Carthaginian origin; its date, route and the faithfulness of the translation remain debated.",
+    "ar": "يقدّم نفسه على أنه ترجمة لنقش كرّسه حنون في معبد بقرطاج، يروي رحلة على طول الساحل الأطلسي لإفريقيا. النص الوحيد من نوعه ذو الأصل القرطاجي؛ ولا يزال تاريخه ومساره ودقة ترجمته محل نقاش."
+   }
+  }
+ ],
+ "references": [
+  {
+   "type": "book",
+   "authors": [
+    "Maria Giulia Amadasi Guzzo"
+   ],
+   "title": "Carthage",
+   "publisher": "Presses universitaires de France",
+   "place": "Paris",
+   "year": "2007",
+   "collection": "Que sais-je ?",
+   "pages": "127",
+   "isbn": "978-2130539629",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r01"
+  },
+  {
+   "type": "chapter",
+   "authors": [
+    "Samir Aounallah"
+   ],
+   "title": "Carthage punique : la cité d'Élissa (814-146 avant J.-C.)",
+   "in": "Carthage : histoire et archéologie d'une métropole méditerranéenne 814 avant J.-C. – 1270 après J.-C.",
+   "publisher": "CNRS Éditions",
+   "place": "Paris",
+   "year": "2020",
+   "collection": "L'Esprit des lieux",
+   "passage": "11-109",
+   "url": "https://shs.cairn.info/carthage--9782271134714-page-11",
+   "isbn": "978-2271134714",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r02"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Azedine Beschaouch"
+   ],
+   "title": "La légende de Carthage",
+   "publisher": "Éditions Gallimard",
+   "place": "Paris",
+   "year": "1993",
+   "collection": "Découvertes Gallimard",
+   "pages": "176",
+   "isbn": "978-2070532124",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation",
+    "carthage"
+   ],
+   "id": "r03"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Gilbert Charles-Picard",
+    "Colette Picard"
+   ],
+   "title": "La Vie quotidienne à Carthage au temps d'Hannibal",
+   "publisher": "Hachette",
+   "place": "Paris",
+   "year": "1958",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r04"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Pierre Cintas"
+   ],
+   "title": "Manuel d'archéologie punique",
+   "subtitle": "histoire et archéologie comparées",
+   "publisher": "Picard",
+   "place": "Paris",
+   "year": "1970-1976",
+   "pages": "928",
+   "cats": [
+    "archaeology"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r05"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "François Decret"
+   ],
+   "title": "Carthage ou l'empire de la mer",
+   "publisher": "Éditions du Seuil",
+   "place": "Paris",
+   "year": "1977",
+   "collection": "Points Histoire",
+   "pages": "251",
+   "isbn": "978-2020047128",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r06"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Jean-Gabriel Demerliac",
+    "Jean Meirat"
+   ],
+   "title": "Hannon ou l'empire punique",
+   "publisher": "Les Belles Lettres",
+   "place": "Paris",
+   "year": "1983",
+   "pages": "359",
+   "isbn": "978-2251334172",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r07"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Hédi Dridi"
+   ],
+   "title": "Carthage et le monde punique",
+   "publisher": "Les Belles Lettres",
+   "place": "Paris",
+   "year": "2006",
+   "pages": "287",
+   "isbn": "978-2251410333",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r08"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Josette Elayi"
+   ],
+   "title": "Histoire de la Phénicie",
+   "publisher": "Éditions Perrin",
+   "place": "Paris",
+   "year": "2013",
+   "pages": "341",
+   "isbn": "978-2262036621",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r09"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Abdelmajid Ennabli"
+   ],
+   "title": "Pour sauver Carthage",
+   "subtitle": "exploration et conservation de la cité punique, romaine et byzantine",
+   "publisher": "Unesco/Institut national d'archéologie et d'art",
+   "place": "Paris/Tunis",
+   "year": "1992",
+   "pages": "251",
+   "isbn": "978-9232027825",
+   "cats": [
+    "archaeology"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r10"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Abdelmajid Ennabli",
+    "Alain Rebourg",
+    "Helmuth Nils Loose"
+   ],
+   "title": "Carthage",
+   "subtitle": "le site archéologique",
+   "publisher": "Cérès",
+   "place": "Tunis",
+   "year": "1993",
+   "pages": "91",
+   "isbn": "978-9973700834",
+   "cats": [
+    "archaeology"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r11"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Abdelmajid Ennabli",
+    "Jacques Pérez"
+   ],
+   "title": "Carthage retrouvée",
+   "publisher": "Herscher",
+   "place": "Paris",
+   "year": "1995",
+   "pages": "151",
+   "isbn": "978-9973190550",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "carthage"
+   ],
+   "id": "r12"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "M'hamed Hassine Fantar"
+   ],
+   "title": "De Carthage à Kairouan",
+   "subtitle": "2000 ans d'art et d'histoire en Tunisie, Musée du Petit Palais de la Ville de Paris, 20 octobre 1982-27 février 1983",
+   "publisher": "Association française d'action artistique",
+   "place": "Paris",
+   "year": "1982",
+   "pages": "280",
+   "isbn": "978-2865450152",
+   "cats": [
+    "art"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r13"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "M'hamed Hassine Fantar"
+   ],
+   "title": "Carthage, approche d'une civilisation",
+   "publisher": "Alif",
+   "place": "Tunis",
+   "year": "1993",
+   "pages": "762",
+   "isbn": "978-2271050281",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r14"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "M'hamed Hassine Fantar"
+   ],
+   "title": "Kerkouane",
+   "subtitle": "cité punique au pays berbère de Tamezrat, VIe-IIIe siècle avant J.-C.",
+   "publisher": "Alif",
+   "place": "Tunis",
+   "year": "2005",
+   "pages": "125",
+   "isbn": "978-9973221209",
+   "cats": [
+    "archaeology"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r15"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "M'hamed Hassine Fantar"
+   ],
+   "title": "Carthage la cité punique",
+   "publisher": "Alif",
+   "place": "Tunis",
+   "year": "2007",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "carthage"
+   ],
+   "id": "r16"
+  },
+  {
+   "type": "article",
+   "authors": [
+    "M'hamed Hassine Fantar",
+    "Moez Achour",
+    "Lorenzo Nigro",
+    "Federico Cappella"
+   ],
+   "title": "Carthage entre mémoire funéraire et développement urbain : résultats préliminaires de la cinquième campagne de fouilles, étude et valorisation (2025) à Carthage par la mission tuniso-italienne INP-Sapienza",
+   "journal": "Vicino Oriente",
+   "date": "2025",
+   "issn": "2724-587X",
+   "doi": "10.53131/VO2724-587X2025_6",
+   "volume": "XXX",
+   "passage": "95–145",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r17"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Michel Fauquier"
+   ],
+   "title": "Rome et Carthage",
+   "subtitle": "509-29 av. J.-C.",
+   "publisher": "Armand Colin",
+   "place": "Paris",
+   "year": "2020",
+   "collection": "Cursus",
+   "pages": "256",
+   "doi": "10.3917/arco.fauqu.2020.01",
+   "url": "https://shs.cairn.info/rome-et-carthage--9782200630133",
+   "isbn": "978-2200630133",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r18"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Élisabeth Fontan",
+    "Hélène Le Meaux (dir.)"
+   ],
+   "title": "La Méditerranée des Phéniciens",
+   "subtitle": "de Tyr à Carthage",
+   "publisher": "Somogy",
+   "place": "Paris",
+   "year": "2007",
+   "pages": "407",
+   "isbn": "978-2757201305",
+   "cats": [
+    "art"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r19"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Michel Gras",
+    "Pierre Rouillard",
+    "Javier Teixidor"
+   ],
+   "title": "L'Univers phénicien",
+   "publisher": "Arthaud",
+   "place": "Paris",
+   "year": "1989",
+   "pages": "283",
+   "isbn": "978-2700307320",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r20"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Stéphane Gsell"
+   ],
+   "title": "Histoire ancienne de l'Afrique du Nord",
+   "publisher": "Hachette",
+   "place": "Paris",
+   "year": "1920",
+   "volume": "IV",
+   "volumeTitle": "La civilisation carthaginoise",
+   "pages": "515",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r21"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Madeleine Hours-Miédan"
+   ],
+   "title": "Carthage",
+   "publisher": "Presses universitaires de France",
+   "place": "Paris",
+   "year": "1982",
+   "pages": "126",
+   "url": "https://gallica.bnf.fr/ark:/12148/bpt6k4807341v",
+   "isbn": "978-2130374893",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r22"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Pierre Hubac"
+   ],
+   "title": "Carthage",
+   "publisher": "Éditions Marcel Daubin",
+   "place": "Paris",
+   "collection": "La Vie dans l'histoire",
+   "pages": "291",
+   "nature": "roman historique",
+   "reprint": "Éditions Bellenand, 1952",
+   "cats": [
+    "further"
+   ],
+   "src": [
+    "carthage"
+   ],
+   "id": "r23"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Véronique Krings (dir.)"
+   ],
+   "title": "La civilisation phénicienne et punique",
+   "subtitle": "manuel de recherches",
+   "publisher": "Éditions Brill",
+   "place": "Leyde",
+   "year": "1995",
+   "pages": "923",
+   "isbn": "978-9004100688",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r24"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Serge Lancel"
+   ],
+   "title": "Carthage",
+   "publisher": "Fayard",
+   "place": "Paris",
+   "year": "1992",
+   "pages": "643",
+   "isbn": "978-9973194206",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation",
+    "carthage"
+   ],
+   "id": "r25"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Yann Le Bohec"
+   ],
+   "title": "Histoire militaire des guerres puniques",
+   "subtitle": "264-146",
+   "publisher": "Éditions du Rocher",
+   "place": "Monaco",
+   "year": "2003",
+   "pages": "337",
+   "isbn": "978-2268021478",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r26"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Yann Le Bohec"
+   ],
+   "title": "Histoire des guerres romaines",
+   "subtitle": "milieu du VIIIe siècle avant J.-C. – 410 après J.-C.",
+   "publisher": "Éditions Tallandier",
+   "place": "Paris",
+   "year": "2017",
+   "collection": "L'art de la guerre",
+   "pages": "608",
+   "doi": "10.3917/talla.leboh.2017.01",
+   "url": "https://shs.cairn.info/histoire-des-guerres-romaines--9791021023000",
+   "isbn": "979-1021023000",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r27"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Edward Lipinski (dir.)"
+   ],
+   "title": "Dictionnaire de la civilisation phénicienne et punique",
+   "publisher": "Brepols",
+   "place": "Turnhout",
+   "year": "1992",
+   "pages": "502",
+   "isbn": "978-2503500331",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r28"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Khaled Melliti"
+   ],
+   "title": "Carthage",
+   "subtitle": "histoire d'une métropole méditerranéenne",
+   "publisher": "Éditions Perrin",
+   "place": "Paris",
+   "year": "2023",
+   "collection": "Tempus",
+   "pages": "768",
+   "doi": "10.3917/perri.melli.2023.01",
+   "url": "https://shs.cairn.info/carthage--9782262103064",
+   "isbn": "978-2262103064",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r29"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Jean-Paul Morel (dir.)"
+   ],
+   "title": "La Tunisie, carrefour du monde antique",
+   "publisher": "Éditions Faton",
+   "place": "Dijon",
+   "year": "1995",
+   "pages": "135",
+   "isbn": "978-2878440201",
+   "cats": [
+    "archaeology"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r30"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Sabatino Moscati"
+   ],
+   "title": "L'épopée des Phéniciens",
+   "publisher": "Fayard",
+   "place": "Paris",
+   "year": "1971",
+   "pages": "370",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r31"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Sabatino Moscati",
+    "Pierre Amiet"
+   ],
+   "title": "Les Phéniciens",
+   "publisher": "Le Chemin vert",
+   "place": "Paris",
+   "year": "1989",
+   "pages": "590",
+   "isbn": "978-2714423788",
+   "cats": [
+    "art"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r32"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Claude Nicolet (dir.)"
+   ],
+   "title": "Rome et la conquête du monde méditerranéen",
+   "publisher": "Presses universitaires de France",
+   "place": "Paris",
+   "year": "1997",
+   "collection": "Nouvelle Clio",
+   "volume": "2",
+   "volumeTitle": "Genèse d'un empire (264-27 av. J.-C.)",
+   "pages": "502",
+   "url": "https://shs.cairn.info/rome-et-la-conquete-du-monde-mediterraneen-tome-2--9782130439134",
+   "isbn": "978-2130439134",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r33"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "André Parrot",
+    "Maurice H. Chéhab",
+    "Sabatino Moscati"
+   ],
+   "title": "Les Phéniciens",
+   "publisher": "Éditions Gallimard",
+   "place": "Paris",
+   "year": "2007",
+   "collection": "L'Univers des formes",
+   "pages": "348",
+   "isbn": "978-2070118977",
+   "cats": [
+    "art"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r34"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Colette Picard"
+   ],
+   "title": "Carthage",
+   "publisher": "Les Belles Lettres",
+   "place": "Paris",
+   "year": "1951",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r35"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "André Piganiol"
+   ],
+   "title": "La conquête romaine",
+   "publisher": "Presses universitaires de France",
+   "place": "Paris",
+   "year": "1995",
+   "collection": "Dito",
+   "pages": "704",
+   "doi": "10.3917/puf.piga.1995.01",
+   "url": "https://shs.cairn.info/la-conquete-romaine--9782130470656",
+   "isbn": "978-2130470656",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r36"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Daniel Rondeau"
+   ],
+   "title": "Carthage",
+   "publisher": "NiL",
+   "place": "Paris",
+   "year": "2008",
+   "pages": "192",
+   "isbn": "978-2841113927",
+   "cats": [
+    "further"
+   ],
+   "src": [
+    "carthage"
+   ],
+   "id": "r37"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Skandar Sayedi"
+   ],
+   "title": "Carthage, 1895-1930",
+   "subtitle": "à travers les cartes postales",
+   "publisher": "Alif",
+   "place": "Tunis",
+   "year": "2007",
+   "pages": "150",
+   "isbn": "978-9973222350",
+   "cats": [
+    "further"
+   ],
+   "src": [
+    "carthage"
+   ],
+   "id": "r38"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Hédi Slim",
+    "Nicolas Fauqué"
+   ],
+   "title": "La Tunisie antique",
+   "subtitle": "de Hannibal à saint Augustin",
+   "publisher": "Mengès",
+   "place": "Paris",
+   "year": "2001",
+   "pages": "259",
+   "url": "https://archive.org/details/la-tunisie-antique-de-hannibal-a-saint-augustin-hedi-slim-nicolas-fauque-septemb/mode/2up",
+   "isbn": "978-2856204214",
+   "cats": [
+    "archaeology"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r39"
+  },
+  {
+   "type": "chapter",
+   "authors": [
+    "Maurice Sznycer"
+   ],
+   "title": "Carthage et la civilisation punique",
+   "in": "Rome et la conquête du monde méditerranéen",
+   "inAuthors": "Claude Nicolet (dir.)",
+   "publisher": "Presses universitaires de France",
+   "place": "Paris",
+   "year": "1978",
+   "volume": "2",
+   "volumeTitle": "Genèse d'un empire",
+   "passage": "545–593",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r40"
+  },
+  {
+   "type": "chapter",
+   "authors": [
+    "Éric Teyssier"
+   ],
+   "title": "Rome et Carthage, l'éléphant face à la baleine : Italie du Sud, 264 av. J.-C.",
+   "in": "Les secrets de la Rome antique",
+   "publisher": "Éditions Perrin",
+   "place": "Paris",
+   "year": "2015",
+   "collection": "Synthèses Historiques",
+   "passage": "55-80",
+   "url": "https://shs.cairn.info/les-secrets-de-la-rome-antique--9782262051297-page-55",
+   "isbn": "978-2262051297",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r41"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Salah-Eddine Tlatli"
+   ],
+   "title": "La Carthage punique",
+   "subtitle": "étude urbaine, la ville, ses fonctions, son rayonnement",
+   "publisher": "Adrien Maisonneuve",
+   "place": "Paris",
+   "year": "1978",
+   "pages": "302",
+   "cats": [
+    "carthage"
+   ],
+   "src": [
+    "carthage"
+   ],
+   "id": "r42"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Aude de Tocqueville",
+    "Karin Doering-Froger"
+   ],
+   "title": "Atlas des cités perdues",
+   "publisher": "Arthaud",
+   "place": "Paris",
+   "year": "2014",
+   "pages": "143",
+   "isbn": "978-2081314689",
+   "cats": [
+    "further"
+   ],
+   "src": [
+    "carthage"
+   ],
+   "id": "r43"
+  },
+  {
+   "type": "article",
+   "authors": [
+    "Collectif"
+   ],
+   "title": "Carthage, sa naissance, sa grandeur",
+   "journal": "Archéologie vivante",
+   "issue": "2",
+   "date": "1968-1969",
+   "volume": "1",
+   "cats": [
+    "archaeology"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r44"
+  },
+  {
+   "type": "book",
+   "authors": [
+    "Collectif"
+   ],
+   "title": "Carthage",
+   "subtitle": "l'histoire, sa trace et son écho",
+   "publisher": "Paris Musées",
+   "place": "Paris",
+   "year": "1995",
+   "pages": "319",
+   "isbn": "978-2879001968",
+   "cats": [
+    "art"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r45"
+  },
+  {
+   "type": "article",
+   "authors": [],
+   "title": "Carthage, la cité qui fit trembler Rome",
+   "journal": "Les Cahiers de Science et Vie",
+   "issue": "104",
+   "date": "avril-mai 2008",
+   "issn": "1157-4887",
+   "cats": [
+    "general"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r46"
+  },
+  {
+   "type": "article",
+   "authors": [
+    "Collectif"
+   ],
+   "title": "La Méditerranée des Phéniciens",
+   "journal": "Connaissance des arts",
+   "issue": "344",
+   "date": "octobre 2007",
+   "issn": "0293-9274",
+   "cats": [
+    "art"
+   ],
+   "src": [
+    "civilisation"
+   ],
+   "id": "r47"
+  }
+ ]
+}

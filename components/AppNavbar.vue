@@ -68,30 +68,30 @@ const openDd = ref(null)
 
 const LABELS = {
   fr: {
-    home: 'Accueil', menu: 'Menu', lang: 'Langue', hannibal: 'Hannibal', carthage: 'Carthage',
+    home: 'Accueil', menu: 'Menu', lang: 'Langue', hannibal: 'Hannibal', carthage: 'Carthage', civ: 'Civilisation',
     tunisie: 'Tunisie', carte: 'Carte', persos: 'Personnages',
     items: {
       hannibal: 'Hannibal Barca', tactiques: 'Les tactiques', elephants: 'Les éléphants et les Alpes', guerres: 'Les guerres puniques', armee: "L'armée de Carthage",
       fondation: 'La fondation', chronologie: 'Chronologie', richesse: 'La richesse et Rome', lieux: 'Lieux historiques', economie: 'Économie', agriculture: 'Agriculture', religion: 'Religion',
-      sources: 'Histoire des vainqueurs', prise: 'La prise de Carthage', afrique: "L'Afrique et son nom"
+      sources: 'Histoire des vainqueurs', prise: 'La prise de Carthage', apres: 'Carthage après 146', afrique: "L'Afrique et son nom", institutions: 'Institutions et société', art: 'Art et artisanat', langue: 'Langue et écriture'
     }
   },
   en: {
-    home: 'Home', menu: 'Menu', lang: 'Language', hannibal: 'Hannibal', carthage: 'Carthage',
+    home: 'Home', menu: 'Menu', lang: 'Language', hannibal: 'Hannibal', carthage: 'Carthage', civ: 'Civilisation',
     tunisie: 'Tunisia', carte: 'Map', persos: 'People',
     items: {
       hannibal: 'Hannibal Barca', tactiques: 'Tactics', elephants: 'Elephants and the Alps', guerres: 'The Punic Wars', armee: "Carthage's army",
       fondation: 'The founding', chronologie: 'Timeline', richesse: 'Wealth and Rome', lieux: 'Historic places', economie: 'Economy', agriculture: 'Agriculture', religion: 'Religion',
-      sources: "The victors' history", prise: 'The fall of Carthage', afrique: 'Africa and its name'
+      sources: "The victors' history", prise: 'The fall of Carthage', apres: 'Carthage after 146', afrique: 'Africa and its name', institutions: 'Institutions and society', art: 'Art and crafts', langue: 'Language and writing'
     }
   },
   ar: {
-    home: 'الرئيسية', menu: 'القائمة', lang: 'اللغة', hannibal: 'حنبعل', carthage: 'قرطاج',
+    home: 'الرئيسية', menu: 'القائمة', lang: 'اللغة', hannibal: 'حنبعل', carthage: 'قرطاج', civ: 'الحضارة',
     tunisie: 'تونس', carte: 'الخريطة', persos: 'الشخصيات',
     items: {
       hannibal: 'حنبعل برقا', tactiques: 'التكتيكات', elephants: 'الفيلة وجبال الألب', guerres: 'الحروب البونيقية', armee: 'جيش قرطاج',
       fondation: 'التأسيس', chronologie: 'التسلسل الزمني', richesse: 'الثروة وروما', lieux: 'أماكن تاريخية', economie: 'الاقتصاد', agriculture: 'الفلاحة', religion: 'الديانة',
-      sources: 'تاريخ المنتصرين', prise: 'سقوط قرطاج', afrique: 'إفريقيا واسمها'
+      sources: 'تاريخ المنتصرين', prise: 'سقوط قرطاج', apres: 'قرطاج بعد 146', afrique: 'إفريقيا واسمها', institutions: 'المؤسسات والمجتمع', art: 'الفن والحِرف', langue: 'اللغة والكتابة'
     }
   }
 }
@@ -117,13 +117,23 @@ const groups = computed(() => [
       { to: '/fondation', label: L.value.items.fondation },
       { to: '/chronologie', label: L.value.items.chronologie },
       { to: '/richesse-rome', label: L.value.items.richesse },
+      { to: '/prise-de-carthage', label: L.value.items.prise },
+      { to: '/apres-146', label: L.value.items.apres },
+      { to: '/histoire-des-vainqueurs', label: L.value.items.sources },
       { to: '/lieux', label: L.value.items.lieux },
+      { to: '/afrique', label: L.value.items.afrique }
+    ]
+  },
+  {
+    key: 'civ',
+    label: L.value.civ,
+    items: [
+      { to: '/institutions', label: L.value.items.institutions },
       { to: '/economie', label: L.value.items.economie },
       { to: '/agriculture', label: L.value.items.agriculture },
       { to: '/religion', label: L.value.items.religion },
-      { to: '/histoire-des-vainqueurs', label: L.value.items.sources },
-      { to: '/prise-de-carthage', label: L.value.items.prise },
-      { to: '/afrique', label: L.value.items.afrique }
+      { to: '/art-et-artisanat', label: L.value.items.art },
+      { to: '/langue-ecriture', label: L.value.items.langue }
     ]
   }
 ])
@@ -443,11 +453,11 @@ onBeforeUnmount(() => {
 .drawer-enter-from, .drawer-leave-to { opacity: 0; }
 .drawer-enter-from .drawer-panel, .drawer-leave-to .drawer-panel { transform: translateY(-12px); }
 
-@media (max-width: 1180px) {
+@media (max-width: 1320px) {
   .lk { padding: 12px 10px; font-size: 14px; }
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 1180px) {
   .links, .langs { display: none; }
   .lang-mobile, .burger { display: inline-flex; }
   .nav { padding: 6px 6px 6px 18px; }

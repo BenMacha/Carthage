@@ -116,6 +116,57 @@
       </div>
     </section>
 
+    <!-- Civilisation métissée -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.mixed.title }}</h2>
+        <p>{{ c.mixed.aside }}</p>
+      </div>
+    </section>
+    <div class="cols cols-2">
+      <article v-for="(m, i) in c.mixed.items" :key="m.title" class="tile mixed-tile" :class="mixedTones[i]">
+        <span class="kicker">{{ m.kicker }}</span>
+        <h3 class="h-card">{{ m.title }}</h3>
+        <p v-for="p in m.paras" :key="p" class="body mixed-p">{{ p }}</p>
+      </article>
+    </div>
+
+    <!-- Génétique et anthropologie -->
+    <section class="sec">
+      <div class="cols cols-7-5 cols--flush">
+        <div class="tile tile--xl tile--ink">
+          <span class="kicker">{{ c.dna.kicker }}</span>
+          <h2 class="h-block id-title">{{ c.dna.title }}</h2>
+          <p class="body-lg dna-lede">{{ c.dna.lede }}</p>
+          <div class="rows dna-rows" style="--row-key:140px">
+            <div v-for="r in c.dna.rows" :key="r.title">
+              <span class="key">{{ r.key }}</span>
+              <span class="val"><strong class="dna-name">{{ r.title }}</strong> {{ r.text }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="dna-side">
+          <div class="tile tile--xl tile--gold">
+            <span class="kicker">{{ c.dna.sumK }}</span>
+            <h3 class="h-card">{{ c.dna.sumT }}</h3>
+            <ul class="bullets">
+              <li v-for="it in c.dna.sum" :key="it">{{ it }}</li>
+            </ul>
+          </div>
+          <div class="tile tile--xl tile--paper tile--outline">
+            <span class="kicker">{{ c.dna.anthK }}</span>
+            <h3 class="h-card">{{ c.dna.anthT }}</h3>
+            <div class="rows anth-rows" style="--row-key:90px">
+              <div v-for="r in c.dna.anth" :key="r.key">
+                <span class="key">{{ r.key }}</span>
+                <span class="val">{{ r.val }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Héritage -->
     <section class="sec sec--wide">
       <div class="sec-head">
@@ -168,6 +219,7 @@
 const { locale, localePath } = useI18n()
 
 const factTones = ['', 'tile--navy', '', '', '', 'tile--purple']
+const mixedTones = ['tile--sand', '', 'tile--purple', 'tile--terra']
 
 const C = {
   fr: {
@@ -234,6 +286,54 @@ const C = {
         { title: 'Architecture', text: "Appien décrit, près de Byrsa, des maisons de six étages ; l'urbanisme punique s'adapte au site et au climat africains." },
         { title: 'Une armée de peuples', text: "Libyens, Numides, Maures combattent aux côtés des Ibères, Baléares et Gaulois : l'armée reflète l'ancrage africain de Carthage.", link: '/armee', linkLabel: "L'armée →" },
         { title: 'Savoir agricole', text: "Le savoir phénicien et la connaissance locale des sols donnent l'une des agricultures les plus productives de l'Antiquité.", link: '/agriculture', linkLabel: "L'agriculture →" }
+      ]
+    },
+    mixed: {
+      title: 'Une civilisation métissée',
+      aside: "Culture venue d'Orient, enracinée en Afrique, ouverte à la Grèce et à l'Égypte : Carthage est un carrefour.",
+      items: [
+        { kicker: 'Persistances orientales', title: 'Des racines cananéennes', paras: [
+          "La culture phénicienne se dégage du monde cananéen après les bouleversements des « Peuples de la mer », vers 1200 av. J.-C. Elle a absorbé très tôt des influences égyptiennes, puis grecques. Carthage hérite de ce mélange et le porte en Occident.",
+          "Selon Augustin, des paysans d'Afrique se disaient encore « Chanani », Cananéens, plus de cinq siècles après 146. Le témoignage est discuté : Josephine Quinn y voit une tournure rhétorique, et Gabriel Camps un parler libyque, punicus signifiant souvent alors « africain »."
+        ] },
+        { kicker: 'Égypte et Grèce', title: 'Des œuvres à double culture', paras: [
+          "Petits masques de verre placés dans les tombes pour écarter les démons, motif du lotus : l'Égypte est partout. À partir du IVe siècle av. J.-C., les influences grecques s'y superposent.",
+          "L'éphèbe de Motyé, marbre du Ve siècle découvert en 1979, résume le problème : Melqart hellénisé, prise de guerre grecque ou commande punique à un sculpteur de Sicile ? Pour Serge Lancel, Carthage fut avant tout une plaque tournante, très perméable aux apports extérieurs."
+        ] },
+        { kicker: 'Apports africains', title: 'Libyque et punique mêlés', paras: [
+          "Le mausolée libyco-punique de Dougga (IIe siècle av. J.-C.) marie traditions égyptiennes et apports grecs sur une terre numide. À El Hofra, près de Cirta (Constantine), le plus important sanctuaire néo-punique fouillé mêle éléments libyques et puniques.",
+          "Dans les cités de l'Afrique romaine, les suffètes sont parfois trois au lieu de deux : certains spécialistes y voient un apport berbère."
+        ] },
+        { kicker: 'Après 146', title: 'Une identité qui survit', paras: [
+          "Des suffètes administrent encore des villes d'Afrique romaine au IIe siècle ap. J.-C. L'opus africanum de Kerkouane se retrouve au Capitole de Dougga. Baal Hammon devient le Saturne africain, honoré jusqu'au IVe siècle, et Tanit la Caelestis des Romains (Marcel Le Glay).",
+          "Selon Pline (XVIII, 22), les livres des bibliothèques de Carthage furent remis aux rois numides. Pour Stéphane Gsell puis M. H. Fantar, la survie d'une langue sémitique a pu faciliter, bien plus tard, l'arabisation du Maghreb."
+        ] }
+      ]
+    },
+    dna: {
+      kicker: 'Génétique et anthropologie',
+      title: "Ce que dit l'ADN ancien",
+      lede: "Depuis une dizaine d'années, l'ADN ancien interroge les origines des habitants du monde punique. Les résultats, fondés sur des échantillons encore limités, remettent en cause l'image d'une population venue en masse du Levant.",
+      rows: [
+        { key: '2016', title: 'Le jeune homme de Byrsa.', text: "Inhumé à la fin du VIe siècle av. J.-C. et découvert sur la colline de Byrsa, il porte un ADN mitochondrial (lignée maternelle) du rare haplogroupe U5b2c1, d'origine européenne (Matisoo-Smith et al.). Un seul individu : un indice de brassage précoce, pas le portrait d'une population." },
+        { key: '2019–2021', title: 'Ibérie, Ibiza, Sardaigne.', text: "Plusieurs études (Olalde, Marcus, Sarno, De Angelis) relèvent une ascendance nord-africaine chez des individus puniques : de 20 à 35 % à Villamar, en Sardaigne, contre très peu à Monte Sirai, fondé plus tôt par les Phéniciens ; un défunt d'un hypogée punique d'Ibiza (361–178 av. J.-C.) se distingue nettement de ses contemporains baléares." },
+        { key: '2022', title: 'Kerkouane.', text: "Les douze individus étudiés (Moots et al.) sont très divers : sept proches des Siciliens de l'âge du bronze, quatre dans la continuité des agriculteurs néolithiques du Maghreb, un proche des Marocains et Mozabites actuels. Aucune ascendance levantine notable : les auteurs évoquent l'incinération des premiers colons ou leur petit nombre." },
+        { key: '2025', title: 'Deux cents génomes.', text: "Une étude de l'institut Max-Planck et de Harvard (Ringbauer et al., Nature) porte sur environ 200 individus de 14 sites. Presque aucune ascendance levantine : les Puniques descendent surtout de populations proches de la Sicile et de l'Égée, le reste venant en grande partie d'Afrique du Nord. À Carthage, 14 des 17 individus ont moins de 15 % d'ascendance nord-africaine, les trois autres entre 20 et 50 %." }
+      ],
+      sumK: 'À retenir',
+      sumT: "Une culture qui voyage plus que les gènes",
+      sum: [
+        "La culture phénicienne s'est diffusée surtout par le commerce, les contacts et l'assimilation, non par une migration massive.",
+        "Les populations nord-africaines ont contribué de façon substantielle aux villes puniques, dans une proportion variable selon les lieux.",
+        "Prudence : peu d'individus par site, et l'incinération pratiquée aux premiers siècles prive les généticiens des premiers colons.",
+        "L'ADN ne dit ni la langue, ni la religion, ni l'identité : les Carthaginois parlaient phénicien et honoraient les dieux de Tyr."
+      ],
+      anthK: 'Anthropologie biologique',
+      anthT: 'Crânes et dents',
+      anth: [
+        { key: 'Dents', val: "La morphologie dentaire des Carthaginois les rapproche de populations nord-africaines, notamment des Guanches des Canaries (Guatelli-Steinberg, Irish, Lukacs)." },
+        { key: 'Crânes', val: "L'étude de M.-C. Chamla et D. Ferembach, reprise par S. O. Y. Keita, rapproche la série carthaginoise d'Algériens protohistoriques, puis de Romains de Tarragone." },
+        { key: '2018', val: "Pour Keita, douze crânes carthaginois antérieurs à Hannibal se placent entre séries phéniciennes et maghrébines, plus près de ces dernières : le signe d'un mélange." }
       ]
     },
     legacy: {
@@ -332,6 +432,54 @@ const C = {
         { title: 'Farming know-how', text: 'Phoenician skills combined with local knowledge of soils produced one of the most productive agricultures of antiquity.', link: '/agriculture', linkLabel: 'Agriculture →' }
       ]
     },
+    mixed: {
+      title: 'A mixed civilisation',
+      aside: 'A culture from the East, rooted in Africa, open to Greece and Egypt: Carthage was a crossroads.',
+      items: [
+        { kicker: 'Eastern survivals', title: 'Canaanite roots', paras: [
+          'Phoenician culture emerged from the Canaanite world after the upheavals of the “Sea Peoples”, around 1200 BC. It absorbed Egyptian and later Greek influences early on. Carthage inherited this blend and carried it west.',
+          "According to Augustine, African peasants still called themselves “Chanani”, Canaanites, more than five centuries after 146. The testimony is debated: Josephine Quinn sees a rhetorical turn of phrase, and Gabriel Camps a Libyan dialect, since punicus then often meant “African”."
+        ] },
+        { kicker: 'Egypt and Greece', title: 'Works of two cultures', paras: [
+          'Small glass masks placed in tombs to ward off demons, the lotus motif: Egypt is everywhere. From the 4th century BC, Greek influences were layered on top.',
+          'The Motya youth, a 5th-century marble found in 1979, sums up the problem: a Hellenised Melqart, Greek war booty, or a Punic commission from a Sicilian sculptor? For Serge Lancel, Carthage was above all a hub, highly open to outside influences.'
+        ] },
+        { kicker: 'African contributions', title: 'Libyan and Punic combined', paras: [
+          'The Libyco-Punic mausoleum of Dougga (2nd century BC) blends Egyptian traditions and Greek contributions on Numidian soil. At El Hofra, near Cirta (Constantine), the most important Neo-Punic sanctuary excavated combines Libyan and Punic elements.',
+          'In the towns of Roman Africa, there were sometimes three suffetes instead of two: some specialists see this as a Berber contribution.'
+        ] },
+        { kicker: 'After 146', title: 'An identity that survived', paras: [
+          'Suffetes still governed towns of Roman Africa in the 2nd century AD. The opus africanum of Kerkouane reappears in the Capitol of Dougga. Baal Hammon became the African Saturn, worshipped until the 4th century, and Tanit the Roman Caelestis (Marcel Le Glay).',
+          "According to Pliny (XVIII, 22), the books of Carthage's libraries were handed to the Numidian kings. For Stéphane Gsell and later M. H. Fantar, the survival of a Semitic language may have eased, much later, the Arabisation of the Maghreb."
+        ] }
+      ]
+    },
+    dna: {
+      kicker: 'Genetics and anthropology',
+      title: 'What ancient DNA says',
+      lede: 'For about a decade, ancient DNA has been used to question the origins of the people of the Punic world. The results, based on still limited samples, challenge the picture of a population that came en masse from the Levant.',
+      rows: [
+        { key: '2016', title: 'The Young Man of Byrsa.', text: "Buried at the end of the 6th century BC and found on Byrsa hill, he carries mitochondrial DNA (maternal line) of the rare haplogroup U5b2c1, of European origin (Matisoo-Smith et al.). A single individual: a hint of early mixing, not the portrait of a population." },
+        { key: '2019–2021', title: 'Iberia, Ibiza, Sardinia.', text: 'Several studies (Olalde, Marcus, Sarno, De Angelis) find North African ancestry in Punic individuals: 20 to 35% at Villamar in Sardinia, against very little at Monte Sirai, founded earlier by the Phoenicians; a man from a Punic hypogeum on Ibiza (361–178 BC) clearly stands apart from his Balearic contemporaries.' },
+        { key: '2022', title: 'Kerkouane.', text: 'The twelve individuals studied (Moots et al.) are highly diverse: seven close to Bronze Age Sicilians, four continuous with the Neolithic farmers of the Maghreb, one close to present-day Moroccans and Mozabites. No notable Levantine ancestry: the authors suggest the cremation of the first settlers or their small numbers.' },
+        { key: '2025', title: 'Two hundred genomes.', text: 'A study by the Max Planck Institute and Harvard (Ringbauer et al., Nature) covers about 200 individuals from 14 sites. Almost no Levantine ancestry: Punic people descend mainly from populations close to Sicily and the Aegean, the rest largely from North Africa. At Carthage, 14 of 17 individuals have less than 15% North African ancestry, the other three between 20 and 50%.' }
+      ],
+      sumK: 'Key points',
+      sumT: 'A culture that travelled more than genes',
+      sum: [
+        'Phoenician culture spread mainly through trade, contact and assimilation, not through mass migration.',
+        'North African populations contributed substantially to Punic towns, in proportions that vary from place to place.',
+        'Caution: few individuals per site, and the cremation practised in the early centuries deprives geneticists of the first settlers.',
+        'DNA tells us nothing of language, religion or identity: the Carthaginians spoke Phoenician and worshipped the gods of Tyre.'
+      ],
+      anthK: 'Biological anthropology',
+      anthT: 'Skulls and teeth',
+      anth: [
+        { key: 'Teeth', val: 'The dental morphology of the Carthaginians places them close to North African populations, notably the Guanches of the Canary Islands (Guatelli-Steinberg, Irish, Lukacs).' },
+        { key: 'Skulls', val: 'The study by M.-C. Chamla and D. Ferembach, taken up by S. O. Y. Keita, links the Carthaginian series to protohistoric Algerians, then to Romans from Tarragona.' },
+        { key: '2018', val: 'For Keita, twelve Carthaginian skulls from before Hannibal fall between Phoenician and Maghrebi series, nearer the latter: a sign of mixing.' }
+      ]
+    },
     legacy: {
       title: "Carthage's legacy in Africa",
       aside: 'What Carthage bequeathed to the continent.',
@@ -426,6 +574,54 @@ const C = {
         { title: 'العمارة', text: 'يصف أبيان بيوتًا من ستة طوابق قرب بيرصا؛ وتكيّف العمران البوني مع الموقع والمناخ الإفريقيين.' },
         { title: 'جيش من الشعوب', text: 'قاتل الليبيون والنوميديون والموريون إلى جانب الإيبيريين والبليار والغاليين: جيش يعكس تجذّر قرطاج في إفريقيا.', link: '/armee', linkLabel: 'الجيش ←' },
         { title: 'خبرة زراعية', text: 'أنتج امتزاج الخبرة الفينيقية بالمعرفة المحلية للتربة واحدة من أكثر الزراعات إنتاجًا في العصور القديمة.', link: '/agriculture', linkLabel: 'الزراعة ←' }
+      ]
+    },
+    mixed: {
+      title: 'حضارة ممتزجة',
+      aside: 'ثقافة قادمة من المشرق، متجذرة في إفريقيا، ومنفتحة على بلاد الإغريق ومصر: كانت قرطاج ملتقى طرق.',
+      items: [
+        { kicker: 'بقايا مشرقية', title: 'جذور كنعانية', paras: [
+          'تبلورت الثقافة الفينيقية من العالم الكنعاني بعد اضطرابات «شعوب البحر» نحو 1200 ق.م. واستوعبت مبكرًا تأثيرات مصرية ثم إغريقية. ورثت قرطاج هذا المزيج وحملته إلى الغرب.',
+          'حسب أوغسطين، كان فلاحون أفارقة لا يزالون يسمّون أنفسهم «خناني»، أي كنعانيين، بعد أكثر من خمسة قرون من 146. والشهادة موضع نقاش: ترى فيها جوزفين كوين صيغة بلاغية، ويرى غابرييل كامب لهجة ليبية، إذ كانت كلمة punicus تعني حينها غالبًا «إفريقي».'
+        ] },
+        { kicker: 'مصر وبلاد الإغريق', title: 'أعمال بثقافتين', paras: [
+          'أقنعة زجاجية صغيرة توضع في القبور لطرد الشياطين، وزخرفة زهرة اللوتس: مصر حاضرة في كل مكان. ومنذ القرن الرابع ق.م تتراكب فوقها التأثيرات الإغريقية.',
+          'يلخّص فتى موتيا، وهو تمثال رخامي من القرن الخامس اكتُشف سنة 1979، المسألة كلها: ملقرت مُهلَّن، أم غنيمة حرب إغريقية، أم طلبية بونية من نحّات صقلي؟ ويرى سيرج لانسيل أن قرطاج كانت قبل كل شيء محورًا شديد الانفتاح على التأثيرات الخارجية.'
+        ] },
+        { kicker: 'إسهامات إفريقية', title: 'الليبي والبوني ممتزجان', paras: [
+          'يجمع الضريح الليبي البوني في دقة (القرن الثاني ق.م) بين التقاليد المصرية والإسهامات الإغريقية على أرض نوميدية. وفي الحفرة قرب سيرتا (قسنطينة)، يمزج أهم معبد بوني جديد جرى التنقيب فيه بين عناصر ليبية وبونية.',
+          'في مدن إفريقيا الرومانية، كان عدد الشفطين أحيانًا ثلاثة بدل اثنين: ويرى بعض المختصين في ذلك إسهامًا أمازيغيًا.'
+        ] },
+        { kicker: 'بعد 146', title: 'هوية تبقى', paras: [
+          'ظل شفطون يديرون مدنًا في إفريقيا الرومانية حتى القرن الثاني م. ونجد البناء الإفريقي (opus africanum) في كركوان كما في الكابيتول بدقة. وصار بعل حمون زحلَ الإفريقي المعبود حتى القرن الرابع، وتانيت «كايليستيس» الرومانية (مارسيل لوغلاي).',
+          'حسب بلينيوس (18، 22)، سُلّمت كتب مكتبات قرطاج إلى الملوك النوميديين. ويرى ستيفان غزال ثم محمد حسين فنطر أن بقاء لغة سامية ربما سهّل، بعد ذلك بزمن طويل، تعريب المغرب.'
+        ] }
+      ]
+    },
+    dna: {
+      kicker: 'علم الوراثة والأنثروبولوجيا',
+      title: 'ماذا يقول الحمض النووي القديم',
+      lede: 'منذ نحو عشر سنوات يُستخدم الحمض النووي القديم لمساءلة أصول سكان العالم البوني. والنتائج، المبنية على عينات لا تزال محدودة، تشكّك في صورة سكان قدموا بأعداد كبيرة من المشرق.',
+      rows: [
+        { key: '2016', title: 'فتى بيرصا.', text: 'دُفن في أواخر القرن السادس ق.م واكتُشف على تلة بيرصا، ويحمل حمضًا نوويًا ميتوكوندريًا (سلالة الأم) من المجموعة النادرة U5b2c1 ذات الأصل الأوروبي (ماتيسو-سميث وزملاؤها). فرد واحد فقط: مؤشر على اختلاط مبكر، لا صورة لشعب بأكمله.' },
+        { key: '2019–2021', title: 'إيبيريا وإيبيزا وسردينيا.', text: 'تكشف عدة دراسات (أولالدي، ماركوس، سارنو، دي أنجليس) عن أصول شمال إفريقية لدى أفراد بونيين: من 20 إلى 35% في فيلامار بسردينيا، مقابل نسبة ضئيلة جدًا في مونتي سيراي التي أسسها الفينيقيون قبل ذلك؛ ويتميز متوفى من مدفن بوني في إيبيزا (361–178 ق.م) بوضوح عن معاصريه في جزر البليار.' },
+        { key: '2022', title: 'كركوان.', text: 'الأفراد الاثنا عشر المدروسون (موتس وزملاؤها) شديدو التنوع: سبعة قريبون من صقليي العصر البرونزي، وأربعة في استمرارية مع مزارعي العصر الحجري الحديث في المغرب، وواحد قريب من المغاربة والمزابيين الحاليين. ولا أثر يُذكر لأصول مشرقية: ويشير الباحثون إلى حرق جثث المستوطنين الأوائل أو إلى قلة عددهم.' },
+        { key: '2025', title: 'مئتا جينوم.', text: 'دراسة لمعهد ماكس بلانك وجامعة هارفارد (رينغباور وزملاؤه، مجلة Nature) شملت نحو 200 فرد من 14 موقعًا. تكاد الأصول المشرقية تنعدم: ينحدر البونيون أساسًا من سكان قريبين من صقلية وبحر إيجه، والباقي في معظمه من شمال إفريقيا. وفي قرطاج، لدى 14 من أصل 17 فردًا أقل من 15% من الأصول الشمال إفريقية، ولدى الثلاثة الآخرين بين 20 و50%.' }
+      ],
+      sumK: 'الخلاصة',
+      sumT: 'ثقافة سافرت أكثر من الجينات',
+      sum: [
+        'انتشرت الثقافة الفينيقية أساسًا عبر التجارة والاحتكاك والاندماج، لا عبر هجرة جماعية.',
+        'أسهم سكان شمال إفريقيا إسهامًا كبيرًا في سكان المدن البونية، بنسب تتفاوت من موقع إلى آخر.',
+        'الحذر واجب: عدد قليل من الأفراد في كل موقع، وحرق الجثث في القرون الأولى يحرم الباحثين من المستوطنين الأوائل.',
+        'لا يخبرنا الحمض النووي بشيء عن اللغة أو الدين أو الهوية: فقد تكلم القرطاجيون الفينيقية وعبدوا آلهة صور.'
+      ],
+      anthK: 'الأنثروبولوجيا البيولوجية',
+      anthT: 'جماجم وأسنان',
+      anth: [
+        { key: 'الأسنان', val: 'تقرّب مورفولوجيا أسنان القرطاجيين بينهم وبين سكان شمال إفريقيا، ولا سيما الغوانش في جزر الكناري (غواتيلي-ستاينبرغ، آيرش، لوكاكس).' },
+        { key: 'الجماجم', val: 'تقرّب دراسة م.-ك. شاملا ود. فيرمباخ، التي تبنّاها س. أ. ي. كيتا، السلسلة القرطاجية من جزائريي فجر التاريخ، ثم من رومان طراغونة.' },
+        { key: '2018', val: 'يرى كيتا أن اثنتي عشرة جمجمة قرطاجية سابقة لعهد حنبعل تقع بين السلاسل الفينيقية والمغاربية، وأقرب إلى الأخيرة: علامة على الاختلاط.' }
       ]
     },
     legacy: {
@@ -567,6 +763,20 @@ useHead(() => ({
 }
 
 .dame-fig { min-height: 520px; }
+
+/* Métissage */
+.mixed-tile .h-card { margin: 4px 0 4px; }
+.mixed-p { margin-top: 12px; }
+
+/* Génétique */
+.dna-lede { margin-bottom: 24px; }
+.dna-rows .key { font-size: clamp(18px, 1.7vw, 22px); }
+.dna-rows .val { font-size: 15px; color: var(--on-dark); }
+.dna-name { font: 800 17px/1.2 var(--font-display); color: var(--white); }
+.dna-side { display: flex; flex-direction: column; gap: var(--gap); }
+.anth-rows { margin-top: 14px; }
+.anth-rows .key { font-size: 16px; }
+.anth-rows .val { font-size: 14px; }
 
 /* Héritage */
 .legacy-tile.with-img {

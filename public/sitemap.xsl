@@ -163,7 +163,7 @@
       </section>
       <section class="group">
         <header class="group-head" style="background:#B8492A;color:#FFFFFF">
-          <span class="count">6 pages</span>
+          <span class="count">7 pages</span>
           <h2>Histoire</h2>
           <span class="alt">History · <span dir="rtl" lang="ar">التاريخ</span></span>
         </header>
@@ -201,6 +201,20 @@
               <div class="row-main">
                 <a class="row-title" href="{s:loc}">La prise de Carthage</a>
                 <span class="row-sub">The fall of Carthage · <span dir="rtl" lang="ar">سقوط قرطاج</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/apres-146']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">Carthage après 146</a>
+                <span class="row-sub">Carthage after 146 · <span dir="rtl" lang="ar">قرطاج بعد 146</span></span>
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
@@ -321,11 +335,25 @@
       </section>
       <section class="group">
         <header class="group-head" style="background:#D6A23E;color:#16130F">
-          <span class="count">3 pages</span>
+          <span class="count">6 pages</span>
           <h2>Civilisation</h2>
           <span class="alt">Civilisation · <span dir="rtl" lang="ar">الحضارة</span></span>
         </header>
         <ul class="rows">
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/institutions']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">Institutions et société</a>
+                <span class="row-sub">Institutions and society · <span dir="rtl" lang="ar">المؤسسات والمجتمع</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
           <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/economie']">
             <li class="row">
               <div class="row-main">
@@ -359,6 +387,34 @@
               <div class="row-main">
                 <a class="row-title" href="{s:loc}">Religion</a>
                 <span class="row-sub">Religion · <span dir="rtl" lang="ar">الديانة</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/art-et-artisanat']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">Art et artisanat</a>
+                <span class="row-sub">Art and crafts · <span dir="rtl" lang="ar">الفن والحِرف</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/langue-ecriture']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">Langue et écriture</a>
+                <span class="row-sub">Language and writing · <span dir="rtl" lang="ar">اللغة والكتابة</span></span>
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
@@ -493,7 +549,7 @@
       </section>
       <section class="group">
         <header class="group-head" style="background:#E6DED1;color:#16130F">
-          <span class="count">2 pages</span>
+          <span class="count">3 pages</span>
           <h2>À propos du site</h2>
           <span class="alt">About the site · <span dir="rtl" lang="ar">عن الموقع</span></span>
         </header>
@@ -503,6 +559,20 @@
               <div class="row-main">
                 <a class="row-title" href="{s:loc}">Plan du site</a>
                 <span class="row-sub">Site map · <span dir="rtl" lang="ar">خريطة الموقع</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/bibliographie']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">Sources et bibliographie</a>
+                <span class="row-sub">Sources and bibliography · <span dir="rtl" lang="ar">المصادر والمراجع</span></span>
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">

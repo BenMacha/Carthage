@@ -242,6 +242,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://carthage.benmacha.tn/fr/apres-146</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/apres-146"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/apres-146"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/apres-146"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/apres-146"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/en/apres-146</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/apres-146"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/apres-146"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/apres-146"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/apres-146"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/ar/apres-146</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/apres-146"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/apres-146"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/apres-146"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/apres-146"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://carthage.benmacha.tn/fr/richesse-rome</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/richesse-rome"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/richesse-rome"/>
@@ -452,6 +482,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://carthage.benmacha.tn/fr/institutions</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/institutions"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/institutions"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/institutions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/institutions"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/en/institutions</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/institutions"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/institutions"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/institutions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/institutions"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/ar/institutions</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/institutions"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/institutions"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/institutions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/institutions"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://carthage.benmacha.tn/fr/economie</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/economie"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/economie"/>
@@ -537,6 +597,66 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/religion"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/religion"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/religion"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/fr/art-et-artisanat</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/art-et-artisanat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/art-et-artisanat"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/art-et-artisanat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/art-et-artisanat"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/en/art-et-artisanat</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/art-et-artisanat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/art-et-artisanat"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/art-et-artisanat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/art-et-artisanat"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/ar/art-et-artisanat</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/art-et-artisanat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/art-et-artisanat"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/art-et-artisanat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/art-et-artisanat"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/fr/langue-ecriture</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/langue-ecriture"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/langue-ecriture"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/langue-ecriture"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/langue-ecriture"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/en/langue-ecriture</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/langue-ecriture"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/langue-ecriture"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/langue-ecriture"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/langue-ecriture"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/ar/langue-ecriture</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/langue-ecriture"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/langue-ecriture"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/langue-ecriture"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/langue-ecriture"/>
     <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -810,6 +930,36 @@
     <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/fr/bibliographie</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/bibliographie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/bibliographie"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/bibliographie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/bibliographie"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/en/bibliographie</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/bibliographie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/bibliographie"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/bibliographie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/bibliographie"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carthage.benmacha.tn/ar/bibliographie</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://carthage.benmacha.tn/fr/bibliographie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://carthage.benmacha.tn/en/bibliographie"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://carthage.benmacha.tn/ar/bibliographie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://carthage.benmacha.tn/fr/bibliographie"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://carthage.benmacha.tn/fr/credits</loc>

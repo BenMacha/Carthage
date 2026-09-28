@@ -23,6 +23,49 @@
       </div>
     </div>
 
+    <!-- Avant Rome : la Sicile et les traités -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <div>
+          <span class="kicker">{{ c.before.kicker }}</span>
+          <h2 class="h-section">{{ c.before.title }}</h2>
+        </div>
+        <p>{{ c.before.aside }}</p>
+      </div>
+    </section>
+    <div class="cols cols-7-5">
+      <div class="tile tile--xl tile--ink">
+        <span class="kicker">{{ c.before.sicK }}</span>
+        <h3 class="h-block">{{ c.before.sicT }}</h3>
+        <div class="rows third-rows" style="--row-key:150px">
+          <div v-for="r in c.before.sicily" :key="r.k">
+            <span class="key">{{ r.k }}</span>
+            <span class="val"><strong class="pre-name">{{ r.n }}</strong> {{ r.v }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="tile tile--xl tile--gold">
+        <span class="kicker">{{ c.before.trK }}</span>
+        <h3 class="h-block">{{ c.before.trT }}</h3>
+        <div class="rows treaty-rows" style="--row-key:110px">
+          <div v-for="r in c.before.treaties" :key="r.k">
+            <span class="key">{{ r.k }}</span>
+            <span class="val"><strong class="pre-name">{{ r.n }}</strong> {{ r.v }}</span>
+          </div>
+        </div>
+        <p class="note">{{ c.before.trNote }}</p>
+      </div>
+    </div>
+    <div class="cols cols-2 gap-top">
+      <div v-for="(x, i) in c.before.invaders" :key="x.t" class="tile tile--xl tile--stack" :class="i === 0 ? 'tile--terra' : 'tile--navy'">
+        <div>
+          <span class="chip chip--glass">{{ x.era }}</span>
+          <h3 class="h-block war-title">{{ x.t }}</h3>
+          <p v-for="p in x.paras" :key="p" class="body mt">{{ p }}</p>
+        </div>
+      </div>
+    </div>
+
     <!-- Les trois guerres -->
     <section class="sec sec--wide">
       <div class="sec-head">
@@ -270,6 +313,41 @@ const C = {
       { n: '43', t: 'ans de guerre ouverte au total (23 + 17 + 3)' },
       { n: '10 000', t: "talents d'argent imposés à Carthage en 201, payables en 50 ans" }
     ],
+    before: {
+      kicker: 'Avant les guerres puniques',
+      title: 'Avant Rome : les Grecs de Sicile',
+      aside: "Pendant plus de deux siècles, l'adversaire de Carthage n'est pas Rome mais les cités grecques, en Sicile surtout. Avec Rome, les relations restent longtemps réglées par des traités.",
+      sicK: 'Les guerres de Sicile',
+      sicT: 'Deux siècles de lutte pour la Sicile',
+      sicily: [
+        { k: 'v. 540–535', n: 'Alalia.', v: "Alliés aux Étrusques, les Carthaginois affrontent au large de la Corse les Grecs de Phocée. Vainqueurs sur le papier, les Phocéens perdent l'essentiel de leur flotte et quittent l'île (Hérodote, I, 166)." },
+        { k: '480', n: 'Himère.', v: "Gélon de Syracuse, allié à Théron d'Agrigente, veut unifier la Sicile grecque. L'armée d'Hamilcar le Magonide est écrasée ; Carthage avait peut-être l'appui de la Perse, qui attaquait la Grèce la même année." },
+        { k: '409–405', n: 'Le retour.', v: "Hannibal, petit-fils d'Hamilcar, détruit Sélinonte et Himère (409). Il meurt de la peste devant Agrigente ; son successeur Himilcon prend la ville, puis conclut avec Denys de Syracuse une paix qui n'est qu'une trêve." },
+        { k: '398–396', n: 'Denys.', v: "Denys s'empare de Motyé, grande place punique de l'ouest de l'île, que Carthage reprend ensuite. Le siège carthaginois de Syracuse doit être levé en 396 à cause d'une épidémie." },
+        { k: 'v. 340', n: "L'ouest punique.", v: "Après soixante ans de guerres intermittentes et la défaite du Crimisos face à Timoléon, Carthage n'occupe plus que l'ouest et le sud-ouest de l'île." },
+        { k: '315–307', n: 'Agathocle.', v: "Le tyran de Syracuse prend Messine puis attaque les comptoirs puniques. Assiégé dans Syracuse, il porte la guerre en Afrique (voir ci-dessous)." },
+        { k: '278–276', n: 'Pyrrhus.', v: "Appelé par les Grecs de Sicile, le roi d'Épire prend presque toutes les places puniques mais échoue devant Lilybée, puis quitte l'île." }
+      ],
+      trK: 'Diplomatie',
+      trT: 'Les traités avec Rome',
+      treaties: [
+        { k: '509/508', n: 'Le premier traité.', v: "Conservé par Polybe (III, 22), qui le date des premiers consuls. Les Romains ne doivent pas naviguer au-delà du « Beau Promontoire » ; Carthage s'engage à ne pas nuire aux cités latines." },
+        { k: '348', n: 'Le deuxième traité.', v: "Rapporté par Polybe (III, 24) et daté par Diodore et Tite-Live. La zone interdite aux Romains s'étend jusqu'à l'Espagne (Mastia) ; la Sardaigne et la Libye leur sont fermées." },
+        { k: '306 ?', n: 'Le « traité de Philinos ».', v: "Selon l'historien Philinos d'Agrigente, Rome renonçait à la Sicile et Carthage à l'Italie. Polybe (III, 26) nie qu'il ait existé ; Tite-Live mentionne un renouvellement en 306. Le débat reste ouvert." },
+        { k: '279/278', n: 'Contre Pyrrhus.', v: "Les deux cités s'engagent à s'entraider face au roi d'Épire (Polybe, III, 25). C'est leur dernier accord avant la guerre." }
+      ],
+      trNote: "Ces traités garantissent à Carthage le monopole du commerce en Afrique du Nord et à Rome la sécurité du Latium. Leur rythme de plus en plus serré est souvent lu comme le signe d'une tension croissante.",
+      invaders: [
+        { era: '310–307 av. J.-C.', t: 'Agathocle en Afrique', paras: [
+          "En 310, Hamilcar, fils de Giscon, tient presque toute la Sicile et assiège Syracuse. Agathocle force le blocus, débarque au cap Bon et brûle ses navires pour ôter à ses soldats tout espoir de retraite (Diodore, XX).",
+          "Pour la première fois, une armée ennemie ravage le territoire africain de Carthage, dont plusieurs sujets libyens font défection. Carthage doit rappeler ses troupes de Sicile. La guerre dure trois ans et s'achève par la fuite d'Agathocle, qui abandonne son armée (307)."
+        ] },
+        { era: '278–276 av. J.-C.', t: 'Pyrrhus en Sicile', paras: [
+          "Après ses victoires coûteuses sur Rome en Italie, le roi d'Épire passe en Sicile à l'appel des Grecs. Il enlève Éryx et presque tout l'ouest punique, mais bute sur Lilybée, que sa flotte ne peut bloquer.",
+          "Il repart en 276, en prédisant, selon Plutarque, qu'il laisse la Sicile comme champ de bataille aux Romains et aux Carthaginois. Douze ans plus tard éclate la première guerre punique."
+        ] }
+      ]
+    },
     three: {
       title: 'Trois guerres',
       aside: 'Une guerre pour la Sicile, une guerre pour la Méditerranée, une guerre pour détruire Carthage.',
@@ -444,6 +522,41 @@ const C = {
       { n: '43', t: 'years of open war in total (23 + 17 + 3)' },
       { n: '10,000', t: 'talents of silver imposed on Carthage in 201, payable over 50 years' }
     ],
+    before: {
+      kicker: 'Before the Punic Wars',
+      title: 'Before Rome: the Greeks of Sicily',
+      aside: "For more than two centuries Carthage's enemy was not Rome but the Greek cities, above all in Sicily. With Rome, relations were long governed by treaties.",
+      sicK: 'The Sicilian wars',
+      sicT: 'Two centuries of struggle for Sicily',
+      sicily: [
+        { k: 'c. 540–535', n: 'Alalia.', v: 'Allied with the Etruscans, the Carthaginians fight the Phocaean Greeks off Corsica. Victorious on paper, the Phocaeans lose most of their fleet and leave the island (Herodotus, I, 166).' },
+        { k: '480', n: 'Himera.', v: "Gelon of Syracuse, allied with Theron of Akragas, seeks to unite Greek Sicily. The army of Hamilcar the Magonid is crushed; Carthage may have had the backing of Persia, which attacked Greece the same year." },
+        { k: '409–405', n: 'The return.', v: "Hannibal, Hamilcar's grandson, destroys Selinus and Himera (409). He dies of plague before Akragas; his successor Himilco takes the city, then makes a peace with Dionysius of Syracuse that is no more than a truce." },
+        { k: '398–396', n: 'Dionysius.', v: 'Dionysius captures Motya, the great Punic stronghold in the west of the island, which Carthage later retakes. The Carthaginian siege of Syracuse has to be lifted in 396 because of an epidemic.' },
+        { k: 'c. 340', n: 'The Punic west.', v: "After sixty years of intermittent war and the defeat at the Crimisus against Timoleon, Carthage holds only the west and south-west of the island." },
+        { k: '315–307', n: 'Agathocles.', v: 'The tyrant of Syracuse takes Messana, then attacks the Punic posts. Besieged in Syracuse, he carries the war to Africa (see below).' },
+        { k: '278–276', n: 'Pyrrhus.', v: 'Called in by the Sicilian Greeks, the king of Epirus takes almost all the Punic strongholds but fails before Lilybaeum, then leaves the island.' }
+      ],
+      trK: 'Diplomacy',
+      trT: 'The treaties with Rome',
+      treaties: [
+        { k: '509/508', n: 'The first treaty.', v: 'Preserved by Polybius (III, 22), who dates it to the first consuls. The Romans must not sail beyond the “Fair Promontory”; Carthage undertakes not to harm the Latin cities.' },
+        { k: '348', n: 'The second treaty.', v: 'Reported by Polybius (III, 24) and dated by Diodorus and Livy. The zone closed to the Romans extends to Spain (Mastia); Sardinia and Libya are shut to them.' },
+        { k: '306 ?', n: 'The “Philinus treaty”.', v: 'According to the historian Philinus of Akragas, Rome renounced Sicily and Carthage Italy. Polybius (III, 26) denies it ever existed; Livy mentions a renewal in 306. The debate remains open.' },
+        { k: '279/278', n: 'Against Pyrrhus.', v: 'The two cities agree to help each other against the king of Epirus (Polybius, III, 25). It is their last agreement before the war.' }
+      ],
+      trNote: 'These treaties guaranteed Carthage a monopoly of trade in North Africa and Rome the security of Latium. Their ever closer rhythm is often read as a sign of rising tension.',
+      invaders: [
+        { era: '310–307 BC', t: 'Agathocles in Africa', paras: [
+          'In 310 Hamilcar, son of Gisco, holds almost all of Sicily and besieges Syracuse. Agathocles breaks the blockade, lands on Cape Bon and burns his ships to deprive his soldiers of any hope of retreat (Diodorus, XX).',
+          "For the first time an enemy army ravages Carthage's African territory, and several of its Libyan subjects defect. Carthage has to recall its troops from Sicily. The war lasts three years and ends with the flight of Agathocles, who abandons his army (307)."
+        ] },
+        { era: '278–276 BC', t: 'Pyrrhus in Sicily', paras: [
+          'After his costly victories over Rome in Italy, the king of Epirus crosses to Sicily at the call of the Greeks. He takes Eryx and nearly all the Punic west, but is stopped at Lilybaeum, which his fleet cannot blockade.',
+          'He leaves in 276, predicting, according to Plutarch, that he was leaving Sicily as a battlefield for the Romans and Carthaginians. Twelve years later the First Punic War broke out.'
+        ] }
+      ]
+    },
     three: {
       title: 'Three wars',
       aside: 'A war for Sicily, a war for the Mediterranean, a war to destroy Carthage.',
@@ -618,6 +731,41 @@ const C = {
       { n: '43', t: 'عامًا من الحرب المفتوحة إجمالًا (23 + 17 + 3)' },
       { n: '10000', t: 'تالنت من الفضة فُرضت على قرطاج سنة 201، تُدفع على 50 عامًا' }
     ],
+    before: {
+      kicker: 'قبل الحروب البونية',
+      title: 'قبل روما: إغريق صقلية',
+      aside: 'طوال أكثر من قرنين لم يكن خصم قرطاج روما، بل المدن الإغريقية، في صقلية خاصة. أما مع روما فظلت العلاقات طويلًا تنظمها المعاهدات.',
+      sicK: 'حروب صقلية',
+      sicT: 'قرنان من الصراع على صقلية',
+      sicily: [
+        { k: 'نحو 540–535', n: 'ألاليا.', v: 'بالتحالف مع الإتروسكيين، يواجه القرطاجيون إغريق فوقية قبالة كورسيكا. ينتصر الفوقيون شكلًا لكنهم يخسرون معظم أسطولهم ويغادرون الجزيرة (هيرودوت، 1، 166).' },
+        { k: '480', n: 'هيميرا.', v: 'يسعى جيلون حاكم سرقوسة، متحالفًا مع ثيرون حاكم أكراغاس، إلى توحيد صقلية الإغريقية. فيُسحق جيش حملقار الماغوني؛ وربما حظيت قرطاج بدعم فارس التي هاجمت بلاد الإغريق في العام نفسه.' },
+        { k: '409–405', n: 'العودة.', v: 'يدمّر حنبعل، حفيد حملقار، سيلينونتي وهيميرا (409). ثم يموت بالطاعون أمام أكراغاس؛ فيستولي خلفه حِملكون على المدينة، ثم يعقد مع ديونيسيوس السرقوسي صلحًا لم يكن سوى هدنة.' },
+        { k: '398–396', n: 'ديونيسيوس.', v: 'يستولي ديونيسيوس على موتيا، المعقل البوني الكبير في غرب الجزيرة، ثم تستعيدها قرطاج. ويُرفع الحصار القرطاجي عن سرقوسة سنة 396 بسبب وباء.' },
+        { k: 'نحو 340', n: 'الغرب البوني.', v: 'بعد ستين عامًا من حروب متقطعة وهزيمة نهر كريميسوس أمام تيموليون، لم تعد قرطاج تسيطر إلا على غرب الجزيرة وجنوبها الغربي.' },
+        { k: '315–307', n: 'أغاثوكليس.', v: 'يستولي طاغية سرقوسة على مسينا ثم يهاجم المراكز البونية. وحين يُحاصَر في سرقوسة ينقل الحرب إلى إفريقيا (انظر أدناه).' },
+        { k: '278–276', n: 'بيروس.', v: 'يستنجد به إغريق صقلية، فيستولي ملك إبيروس على جلّ المعاقل البونية لكنه يعجز أمام ليليبايوم، ثم يغادر الجزيرة.' }
+      ],
+      trK: 'دبلوماسية',
+      trT: 'المعاهدات مع روما',
+      treaties: [
+        { k: '509/508', n: 'المعاهدة الأولى.', v: 'حفظها بوليبيوس (3، 22) وأرّخها بعهد القنصلين الأولين. لا يجوز للرومان الإبحار وراء «الرأس الجميل»؛ وتتعهد قرطاج بعدم الإضرار بالمدن اللاتينية.' },
+        { k: '348', n: 'المعاهدة الثانية.', v: 'أوردها بوليبيوس (3، 24) وأرّخها ديودوروس وتيتوس ليفيوس. تمتد المنطقة المحظورة على الرومان حتى إسبانيا (ماستيا)؛ وتُغلق في وجوههم سردينيا وليبيا.' },
+        { k: '306 ؟', n: '«معاهدة فيلينوس».', v: 'حسب المؤرخ فيلينوس الأكراغاسي، تخلّت روما عن صقلية وقرطاج عن إيطاليا. ينكر بوليبيوس (3، 26) وجودها، ويذكر تيتوس ليفيوس تجديدًا للمعاهدة سنة 306. ولا يزال الجدل قائمًا.' },
+        { k: '279/278', n: 'ضد بيروس.', v: 'تتعهد المدينتان بالتعاون ضد ملك إبيروس (بوليبيوس، 3، 25). وهو آخر اتفاق بينهما قبل الحرب.' }
+      ],
+      trNote: 'ضمنت هذه المعاهدات لقرطاج احتكار التجارة في إفريقيا الشمالية ولروما أمن لاتيوم. وكثيرًا ما يُقرأ تقارب مواعيدها المتزايد علامةً على توتر متصاعد.',
+      invaders: [
+        { era: '310–307 ق.م', t: 'أغاثوكليس في إفريقيا', paras: [
+          'في سنة 310 كان حملقار بن جيسكون يسيطر على صقلية كلها تقريبًا ويحاصر سرقوسة. فيخترق أغاثوكليس الحصار وينزل في الوطن القبلي ويحرق سفنه ليقطع على جنوده كل أمل في التراجع (ديودوروس، 20).',
+          'لأول مرة يعيث جيش معادٍ فسادًا في الإقليم الإفريقي لقرطاج، وينشقّ عنها عدد من رعاياها الليبيين. فتضطر إلى استدعاء قواتها من صقلية. وتدوم الحرب ثلاث سنوات وتنتهي بفرار أغاثوكليس تاركًا جيشه (307).'
+        ] },
+        { era: '278–276 ق.م', t: 'بيروس في صقلية', paras: [
+          'بعد انتصاراته الباهظة الثمن على روما في إيطاليا، يعبر ملك إبيروس إلى صقلية تلبيةً لنداء الإغريق. فيستولي على إريكس وعلى الغرب البوني كله تقريبًا، لكنه يصطدم بليليبايوم التي عجز أسطوله عن محاصرتها.',
+          'يغادر سنة 276 متنبئًا، حسب بلوتارخوس، بأنه يترك صقلية ساحة قتال للرومان والقرطاجيين. وبعد اثنتي عشرة سنة اندلعت الحرب البونية الأولى.'
+        ] }
+      ]
+    },
     three: {
       title: 'ثلاث حروب',
       aside: 'حرب من أجل صقلية، وحرب من أجل المتوسط، وحرب لتدمير قرطاج.',
@@ -796,6 +944,9 @@ useHead(() => ({
 .anchor { scroll-margin-top: 90px; }
 
 /* Trois tuiles */
+.pre-name { font: 800 17px/1.2 var(--font-display); color: inherit; }
+.tile--ink .pre-name { color: var(--white); }
+
 .war-title { font-size: clamp(28px, 2.8vw, 40px); margin-top: 18px; }
 .war-sub { font: 600 16px/1.3 var(--font-body); margin-top: 8px; }
 .war-rows { margin-top: 22px; }
