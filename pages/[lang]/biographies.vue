@@ -23,14 +23,30 @@
       <div class="tile tile--xl">
         <h2 class="h-block tree-title">{{ c.treeTitle }}</h2>
         <div class="tree">
-          <component
-            :is="c.root.to ? NuxtLinkComp : 'div'"
-            v-bind="c.root.to ? { to: localePath(c.root.to) } : {}"
-            class="node node--root"
-          >
-            <div class="n-name">{{ c.root.name }}</div>
-            <div class="n-meta">{{ c.root.meta }}</div>
-          </component>
+          <template v-for="(a, i) in c.ancestors" :key="`a${i}`">
+            <div class="node node--anc is-uncertain">
+              <div class="n-name">{{ a.name }}</div>
+              <div class="n-meta">{{ a.meta }}</div>
+            </div>
+            <div class="stem stem--dashed" aria-hidden="true" />
+          </template>
+          <div class="root-couple">
+            <component
+              :is="c.root.to ? NuxtLinkComp : 'div'"
+              v-bind="c.root.to ? { to: localePath(c.root.to) } : {}"
+              class="node node--root"
+            >
+              <div class="n-name">{{ c.root.name }}</div>
+              <div class="n-meta">{{ c.root.meta }}</div>
+            </component>
+            <div class="spouse spouse--root is-uncertain">
+              <span class="ring" aria-hidden="true">∞</span>
+              <span>
+                <b>{{ c.rootSpouse.name }}</b>
+                <span class="s-meta">{{ c.rootSpouse.meta }}</span>
+              </span>
+            </div>
+          </div>
           <div class="stem" aria-hidden="true" />
           <div class="bar" aria-hidden="true" />
           <div class="kids">
@@ -59,6 +75,7 @@
                     <span class="s-meta">{{ k.spouse.meta }}</span>
                   </span>
                 </component>
+                <p v-if="k.none" class="k-none">{{ k.none }}</p>
                 <template v-if="k.issue">
                   <div class="drop drop--sm" :class="{ 'is-uncertain': k.issue.uncertain }" aria-hidden="true" />
                   <div class="node node--gen3" :class="{ 'is-uncertain': k.issue.uncertain }">
@@ -70,6 +87,19 @@
             </div>
           </div>
           <p class="tree-note"><span class="dash" aria-hidden="true" />{{ c.treeNote }}</p>
+        </div>
+        <div class="unknown">
+          <div class="unknown-head">
+            <span class="kicker">{{ c.unknown.kicker }}</span>
+            <h3 class="h-card">{{ c.unknown.title }}</h3>
+            <p class="body">{{ c.unknown.intro }}</p>
+          </div>
+          <div class="rows unknown-rows" style="--row-key:190px">
+            <div v-for="(u, i) in c.unknown.rows" :key="i">
+              <span class="key">{{ u.k }}</span>
+              <span class="val">{{ u.v }}</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -156,18 +186,36 @@ const C = {
     heroCap: 'Hamilcar Barca, le père',
     chip: 'Personnages · 15 figures, 8 biographies',
     title: 'Les Barca, la « Foudre »',
-    lede: "Barca viendrait du punique baraq, « l'éclair ». Un père, trois fils, trois filles et leurs alliances : une famille qui a tenu tête à Rome pendant un demi-siècle.",
+    lede: "Barca viendrait du punique baraq, « l'éclair ». Un père, trois fils, trois filles et leurs alliances, et bien des noms perdus : une famille qui a tenu tête à Rome pendant un demi-siècle.",
     treeTitle: "L'arbre des Barcides",
+    ancestors: [
+      { name: 'Barcas, compagnon d\'Élissa ?', meta: "Ancêtre légendaire de la famille selon le poète Silius Italicus (Ier s. apr. J.-C.)" },
+      { name: "Père d'Hamilcar", meta: "Nom inconnu : aucune source ne le mentionne" }
+    ],
+    rootSpouse: { name: "Épouse d'Hamilcar", meta: 'Nom inconnu · mère de trois fils et de trois filles' },
     root: { name: 'Hamilcar Barca', meta: "~275 – 228 av. J.-C. · conquiert l'Hispanie", to: '/hamilcar' },
     kids: [
-      { name: 'Une fille', meta: '', spouse: { name: 'Bomilcar', meta: 'suffète' }, issue: { name: 'Hannon', meta: "fils de Bomilcar · mène la cavalerie qui franchit le Rhône en amont (218)", uncertain: true } },
-      { name: 'Une fille', meta: '', spouse: { name: 'Hasdrubal le Beau', meta: '†221 · fonde Carthagène ; épouse ensuite une princesse ibère', to: '/hasdrubal' } },
-      { name: 'Hannibal', meta: '247 – 183 · les Alpes, Cannes, puis suffète', to: '/hannibal', main: true, spouse: { name: 'Imilce', meta: 'princesse ibère de Castulo (Tite-Live)' }, issue: { name: 'Un fils ?', meta: 'mentionné par le seul poète Silius Italicus', uncertain: true } },
-      { name: 'Hasdrubal Barca', meta: '~245 – 207 · franchit à son tour les Alpes, tué au Métaure', to: '/hasdrubal' },
-      { name: 'Magon Barca', meta: "~243 – 203 · l'embuscade de la Trébie, la Ligurie", to: '/magon-barca' },
-      { name: 'Une fille', meta: 'promise pendant la guerre des Mercenaires', spouse: { name: 'Naravas', meta: 'prince numide rallié à Hamilcar (Polybe)', uncertain: true } }
+      { name: 'Une fille', meta: '', spouse: { name: 'Bomilcar', meta: 'suffète · mariage déduit par les historiens modernes', uncertain: true }, issue: { name: 'Hannon', meta: "fils de Bomilcar (Polybe) · mène la cavalerie qui franchit le Rhône en amont (218)", uncertain: true } },
+      { name: 'Une fille', meta: '', spouse: { name: 'Hasdrubal le Beau', meta: "†221 · gendre d'Hamilcar (Tite-Live) ; fonde Carthagène ; épouse ensuite une princesse ibère (Diodore)", to: '/hasdrubal' } },
+      { name: 'Hannibal', meta: '247 – 183 · les Alpes, Cannes, puis suffète', to: '/hannibal', main: true, spouse: { name: 'Imilce', meta: "originaire de Castulo, en Hispanie (Tite-Live) ; le nom Imilce vient du poète Silius Italicus", uncertain: true }, issue: { name: 'Un fils ?', meta: "né en Hispanie vers 218, selon Silius Italicus seulement ; sort inconnu", uncertain: true } },
+      { name: 'Hasdrubal Barca', meta: '~245 – 207 · franchit à son tour les Alpes, tué au Métaure', to: '/hasdrubal', none: 'Aucune épouse ni descendance connue' },
+      { name: 'Magon Barca', meta: "~243 – 203 · l'embuscade de la Trébie, la Ligurie", to: '/magon-barca', none: 'Aucune épouse ni descendance connue' },
+      { name: 'Une fille', meta: 'promise pendant la guerre des Mercenaires', spouse: { name: 'Naravas', meta: 'prince numide rallié à Hamilcar (Polybe) ; ses parents sont inconnus', uncertain: true } }
     ],
     treeNote: "Pointillés : lien incertain, reconstruit ou connu par une seule source tardive. Les noms des filles d'Hamilcar ne sont pas parvenus jusqu'à nous.",
+    unknown: {
+      kicker: 'Les trous de l\'arbre',
+      title: 'Pourquoi tant de noms manquent',
+      intro: "Les archives de Carthage ont disparu en 146 et ses livres ont été dispersés. Ce que l'on sait des Barcides vient d'auteurs grecs et romains, qui s'intéressaient aux généraux et nommaient rarement les femmes ou les enfants.",
+      rows: [
+        { k: 'Le père d\'Hamilcar', v: "Inconnu. Seule une tradition poétique fait remonter la famille à un compagnon d'Élissa ; le surnom Barca (« l'éclair ») n'est attesté qu'à partir d'Hamilcar." },
+        { k: 'La mère des Barcides', v: "Inconnue : ni son nom ni son origine ne sont connus." },
+        { k: 'Les trois filles', v: "Leurs noms ne sont pas parvenus jusqu'à nous. « Salammbô », souvent présentée comme fille d'Hamilcar, est un personnage inventé par Flaubert dans son roman de 1862." },
+        { k: 'Naravas, Bomilcar', v: "On ne connaît ni leurs parents ni leurs descendants, à l'exception d'Hannon, fils de Bomilcar." },
+        { k: "Les enfants d'Hannibal", v: "Aucun historien antique n'en mentionne. Chez Silius Italicus, Imilce lui donne un fils en Hispanie, que le Sénat carthaginois aurait voulu sacrifier : un épisode poétique, sans valeur historique sûre." },
+        { k: 'Hasdrubal, Magon', v: "Aucune épouse ni aucun enfant connus. Après la mort d'Hannibal en 183, les sources ne mentionnent plus de descendant des Barca." }
+      ]
+    },
     gridTitle: 'Généraux & figures',
     filterLabel: 'Filtrer les personnages',
     filters: [
@@ -216,18 +264,36 @@ const C = {
     heroCap: 'Hamilcar Barca, the father',
     chip: 'People · 15 figures, 8 biographies',
     title: 'The Barcas, the “Thunderbolt”',
-    lede: 'Barca is thought to come from the Punic baraq, “lightning”. One father, three sons, three daughters and their marriages: a family that stood up to Rome for half a century.',
+    lede: 'Barca is thought to come from the Punic baraq, “lightning”. One father, three sons, three daughters and their marriages, and many lost names: a family that stood up to Rome for half a century.',
     treeTitle: 'The Barcid family tree',
+    ancestors: [
+      { name: 'Barcas, companion of Elissa?', meta: 'Legendary ancestor of the family according to the poet Silius Italicus (1st c. AD)' },
+      { name: "Hamilcar's father", meta: 'Name unknown: no source mentions him' }
+    ],
+    rootSpouse: { name: "Hamilcar's wife", meta: 'Name unknown · mother of three sons and three daughters' },
     root: { name: 'Hamilcar Barca', meta: 'c. 275 – 228 BC · conquers Hispania', to: '/hamilcar' },
     kids: [
-      { name: 'A daughter', meta: '', spouse: { name: 'Bomilcar', meta: 'suffete' }, issue: { name: 'Hanno', meta: 'son of Bomilcar · leads the cavalry that crosses the Rhône upstream (218)', uncertain: true } },
-      { name: 'A daughter', meta: '', spouse: { name: 'Hasdrubal the Fair', meta: '†221 · founds Cartagena; later marries an Iberian princess', to: '/hasdrubal' } },
-      { name: 'Hannibal', meta: '247 – 183 · the Alps, Cannae, then suffete', to: '/hannibal', main: true, spouse: { name: 'Imilce', meta: 'Iberian princess from Castulo (Livy)' }, issue: { name: 'A son?', meta: 'mentioned only by the poet Silius Italicus', uncertain: true } },
-      { name: 'Hasdrubal Barca', meta: 'c. 245 – 207 · crosses the Alps in turn, killed at the Metaurus', to: '/hasdrubal' },
-      { name: 'Mago Barca', meta: 'c. 243 – 203 · the ambush at the Trebia, Liguria', to: '/magon-barca' },
-      { name: 'A daughter', meta: 'promised during the Mercenary War', spouse: { name: 'Naravas', meta: 'Numidian prince who joined Hamilcar (Polybius)', uncertain: true } }
+      { name: 'A daughter', meta: '', spouse: { name: 'Bomilcar', meta: 'suffete · marriage inferred by modern historians', uncertain: true }, issue: { name: 'Hanno', meta: 'son of Bomilcar (Polybius) · leads the cavalry that crosses the Rhône upstream (218)', uncertain: true } },
+      { name: 'A daughter', meta: '', spouse: { name: 'Hasdrubal the Fair', meta: "†221 · Hamilcar's son-in-law (Livy); founds Cartagena; later marries an Iberian princess (Diodorus)", to: '/hasdrubal' } },
+      { name: 'Hannibal', meta: '247 – 183 · the Alps, Cannae, then suffete', to: '/hannibal', main: true, spouse: { name: 'Imilce', meta: 'from Castulo in Hispania (Livy); the name Imilce comes from the poet Silius Italicus', uncertain: true }, issue: { name: 'A son?', meta: 'born in Hispania around 218, according to Silius Italicus only; fate unknown', uncertain: true } },
+      { name: 'Hasdrubal Barca', meta: 'c. 245 – 207 · crosses the Alps in turn, killed at the Metaurus', to: '/hasdrubal', none: 'No known wife or children' },
+      { name: 'Mago Barca', meta: 'c. 243 – 203 · the ambush at the Trebia, Liguria', to: '/magon-barca', none: 'No known wife or children' },
+      { name: 'A daughter', meta: 'promised during the Mercenary War', spouse: { name: 'Naravas', meta: 'Numidian prince who joined Hamilcar (Polybius); his parents are unknown', uncertain: true } }
     ],
     treeNote: "Dashed: uncertain link, a modern reconstruction or known from a single late source. The names of Hamilcar's daughters have not come down to us.",
+    unknown: {
+      kicker: 'Gaps in the tree',
+      title: 'Why so many names are missing',
+      intro: "Carthage's archives disappeared in 146 and its books were scattered. What we know of the Barcids comes from Greek and Roman authors, who cared about generals and rarely named women or children.",
+      rows: [
+        { k: "Hamilcar's father", v: 'Unknown. Only a poetic tradition traces the family back to a companion of Elissa; the nickname Barca (“lightning”) is attested only from Hamilcar onwards.' },
+        { k: 'The Barcids\' mother', v: 'Unknown: neither her name nor her origin is known.' },
+        { k: 'The three daughters', v: 'Their names have not come down to us. “Salammbô”, often presented as Hamilcar\'s daughter, is a character invented by Flaubert in his 1862 novel.' },
+        { k: 'Naravas, Bomilcar', v: 'Neither their parents nor their descendants are known, apart from Hanno, son of Bomilcar.' },
+        { k: "Hannibal's children", v: 'No ancient historian mentions any. In Silius Italicus, Imilce bears him a son in Hispania whom the Carthaginian Senate wants to sacrifice: a poetic episode with no reliable historical value.' },
+        { k: 'Hasdrubal, Mago', v: 'No known wives or children. After Hannibal\'s death in 183, the sources no longer mention any descendant of the Barcas.' }
+      ]
+    },
     gridTitle: 'Generals & figures',
     filterLabel: 'Filter people',
     filters: [
@@ -276,18 +342,36 @@ const C = {
     heroCap: 'حملقار برقا، الأب',
     chip: 'الشخصيات · 15 شخصية و8 سِيَر',
     title: 'آل برقا، «الصاعقة»',
-    lede: 'يُرجَّح أن اسم برقا مشتق من الكلمة البونيقية «برق». أب وثلاثة أبناء وثلاث بنات ومصاهراتهم: أسرة صمدت في وجه روما نصف قرن.',
+    lede: 'يُرجَّح أن اسم برقا مشتق من الكلمة البونيقية «برق». أب وثلاثة أبناء وثلاث بنات ومصاهراتهم، وأسماء كثيرة ضائعة: أسرة صمدت في وجه روما نصف قرن.',
     treeTitle: 'شجرة آل برقا',
+    ancestors: [
+      { name: 'برقاس، رفيق عليسة؟', meta: 'جدّ أسطوري للأسرة حسب الشاعر سيليوس إيتاليكوس (ق 1 م)' },
+      { name: 'والد حملقار', meta: 'اسمه مجهول: لا يذكره أي مصدر' }
+    ],
+    rootSpouse: { name: 'زوجة حملقار', meta: 'اسمها مجهول · أمّ لثلاثة أبناء وثلاث بنات' },
     root: { name: 'حملقار برقا', meta: 'نحو 275 – 228 ق.م · يفتح هسبانيا', to: '/hamilcar' },
     kids: [
-      { name: 'ابنة', meta: '', spouse: { name: 'بوملقار', meta: 'شفط' }, issue: { name: 'حنون', meta: 'ابن بوملقار · يقود الفرسان الذين عبروا الرون من أعلى النهر (218)', uncertain: true } },
-      { name: 'ابنة', meta: '', spouse: { name: 'صدربعل الجميل', meta: '†221 · مؤسس قرطاجنة؛ تزوج لاحقاً أميرة إيبيرية', to: '/hasdrubal' } },
-      { name: 'حنبعل', meta: '247 – 183 · الألب، كاناي، ثم شفط', to: '/hannibal', main: true, spouse: { name: 'إيميلكي', meta: 'أميرة إيبيرية من كاستولو (تيتوس ليفيوس)' }, issue: { name: 'ابن؟', meta: 'لم يذكره إلا الشاعر سيليوس إيتاليكوس', uncertain: true } },
-      { name: 'صدربعل برقا', meta: 'نحو 245 – 207 · يعبر الألب بدوره، ويُقتل عند الميتاورو', to: '/hasdrubal' },
-      { name: 'ماغون برقا', meta: 'نحو 243 – 203 · كمين تريبيا، ليغوريا', to: '/magon-barca' },
-      { name: 'ابنة', meta: 'وُعِد بها خلال حرب المرتزقة', spouse: { name: 'نارافاس', meta: 'أمير نوميدي انضم إلى حملقار (بوليبيوس)', uncertain: true } }
+      { name: 'ابنة', meta: '', spouse: { name: 'بوملقار', meta: 'شفط · زواج استنتجه المؤرخون المحدثون', uncertain: true }, issue: { name: 'حنون', meta: 'ابن بوملقار (بوليبيوس) · يقود الفرسان الذين عبروا الرون من أعلى النهر (218)', uncertain: true } },
+      { name: 'ابنة', meta: '', spouse: { name: 'صدربعل الجميل', meta: '†221 · صهر حملقار (تيتوس ليفيوس)؛ مؤسس قرطاجنة؛ تزوج لاحقاً أميرة إيبيرية (ديودوروس)', to: '/hasdrubal' } },
+      { name: 'حنبعل', meta: '247 – 183 · الألب، كاناي، ثم شفط', to: '/hannibal', main: true, spouse: { name: 'إيميلكي', meta: 'من كاستولو في هسبانيا (تيتوس ليفيوس)؛ واسم إيميلكي مأخوذ من الشاعر سيليوس إيتاليكوس', uncertain: true }, issue: { name: 'ابن؟', meta: 'وُلد في هسبانيا نحو 218 حسب سيليوس إيتاليكوس وحده؛ مصيره مجهول', uncertain: true } },
+      { name: 'صدربعل برقا', meta: 'نحو 245 – 207 · يعبر الألب بدوره، ويُقتل عند الميتاورو', to: '/hasdrubal', none: 'لا زوجة ولا ذرية معروفة' },
+      { name: 'ماغون برقا', meta: 'نحو 243 – 203 · كمين تريبيا، ليغوريا', to: '/magon-barca', none: 'لا زوجة ولا ذرية معروفة' },
+      { name: 'ابنة', meta: 'وُعِد بها خلال حرب المرتزقة', spouse: { name: 'نارافاس', meta: 'أمير نوميدي انضم إلى حملقار (بوليبيوس)؛ والداه مجهولان', uncertain: true } }
     ],
     treeNote: 'الخط المتقطع: صلة غير مؤكدة أو مُعاد بناؤها أو معروفة من مصدر متأخر واحد. أسماء بنات حملقار لم تصلنا.',
+    unknown: {
+      kicker: 'ثغرات الشجرة',
+      title: 'لماذا تغيب أسماء كثيرة',
+      intro: 'اختفت أرشيفات قرطاج سنة 146 وتشتتت كتبها. وما نعرفه عن البرقيين مصدره مؤلفون إغريق ورومان اهتموا بالقادة ونادراً ما سمّوا النساء أو الأطفال.',
+      rows: [
+        { k: 'والد حملقار', v: 'مجهول. وحده تقليد شعري يُرجع الأسرة إلى رفيق لعليسة، ولقب «برقا» (البرق) لا يظهر إلا ابتداءً من حملقار.' },
+        { k: 'أمّ البرقيين', v: 'مجهولة: لا يُعرف اسمها ولا أصلها.' },
+        { k: 'البنات الثلاث', v: 'لم تصلنا أسماؤهن. أما «سالامبو» التي تُقدَّم كثيراً على أنها ابنة حملقار، فشخصية اخترعها فلوبير في روايته سنة 1862.' },
+        { k: 'نارافاس، بوملقار', v: 'لا يُعرف والداهما ولا ذريتهما، باستثناء حنون بن بوملقار.' },
+        { k: 'أبناء حنبعل', v: 'لا يذكر أي مؤرخ قديم أبناءً له. وعند سيليوس إيتاليكوس تنجب له إيميلكي ابناً في هسبانيا أراد مجلس شيوخ قرطاج التضحية به: حكاية شعرية بلا قيمة تاريخية مؤكدة.' },
+        { k: 'صدربعل، ماغون', v: 'لا زوجة ولا ولد معروفان. وبعد موت حنبعل سنة 183 لم تعد المصادر تذكر أي سليل لآل برقا.' }
+      ]
+    },
     gridTitle: 'قادة وشخصيات',
     filterLabel: 'تصفية الشخصيات',
     filters: [
@@ -350,6 +434,17 @@ useHead(() => ({
 .hero-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
 .hero-phoen { font-size: 30px; color: var(--purple); }
 .tree-title { margin-bottom: 36px; }
+.node--anc { width: auto; min-width: 240px; max-width: 360px; background: var(--white); border: 1.5px dashed var(--ink); padding: 12px 20px; }
+.node--anc .n-name { font-size: 16px; }
+.stem--dashed { background: none; border-inline-start: 2px dashed var(--ink); width: 0; height: 22px; }
+.root-couple { position: relative; }
+.spouse--root { position: absolute; top: 50%; inset-inline-start: calc(100% + 10px); transform: translateY(-50%); width: 220px; margin-top: 0; }
+.k-none { margin-top: 8px; font: 500 12px/1.35 var(--font-body); color: var(--muted); text-align: center; font-style: italic; }
+.unknown { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 32px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--sand); }
+.unknown-head .kicker { margin-bottom: 10px; }
+.unknown-rows .key { font-size: 17px; }
+.unknown-rows .val { font-size: 15px; color: var(--muted); }
+
 
 /* Arbre — bureau */
 .tree { display: flex; flex-direction: column; align-items: center; }
@@ -444,6 +539,12 @@ a.spouse:hover { color: var(--ink); border-color: var(--purple); }
   .kid-body .drop--sm { width: 2px; height: 14px; margin-inline-start: 20px; }
   .kid-body .drop--sm.is-uncertain { width: 0; }
   .node { text-align: start; }
+  .node--anc { max-width: none; }
+  .stem--dashed { margin-inline-start: 24px; }
+  .root-couple { display: flex; flex-direction: column; gap: 6px; }
+  .spouse--root { position: static; transform: none; width: 100%; }
+  .k-none { text-align: start; }
+  .unknown { grid-template-columns: minmax(0, 1fr); gap: 16px; }
 }
 
 @media (max-width: 640px) {
