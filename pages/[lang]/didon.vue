@@ -1,396 +1,574 @@
 <template>
-  <div :class="{ 'rtl': locale === 'ar' }">
+  <div class="pg">
     <!-- Hero -->
-    <section class="hero-section">
-      <div class="container">
-        <span class="hero-tag">{{ heroTag }}</span>
-        <h1 class="hero-title">{{ heroTitle }}</h1>
-        <p class="hero-subtitle">{{ heroSubtitle }}</p>
+    <div class="bento bento--top">
+      <figure class="fig fig--hero s-5 hero-fig" style="background:#1F4E79">
+        <img src="/img/guerin-dido.jpg" :alt="c.hero.alt" style="object-position: 30% 40%">
+        <figcaption>{{ c.hero.caption }}</figcaption>
+      </figure>
+      <div class="tile tile--xl tile--purple tile--stack tile--hero s-7">
+        <div class="hero-top">
+          <span class="chip chip--glass">{{ c.hero.chip }}</span>
+          <span class="phoen hero-phoen" dir="rtl" aria-hidden="true">𐤒𐤓𐤕𐤇𐤃𐤔𐤕</span>
+        </div>
+        <div>
+          <p class="dates">{{ c.hero.dates }}</p>
+          <h1 class="h-display bio-title">{{ c.hero.title }}</h1>
+          <p class="lede">{{ c.hero.lede }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chiffres-clés -->
+    <div class="cols cols-4 keep-2 keyfigs">
+      <div v-for="(k, i) in c.keys" :key="k.n" class="tile keyfig" :class="keyTones[i]">
+        <div class="num">{{ k.n }}</div>
+        <p class="body">{{ k.t }}</p>
+      </div>
+    </div>
+
+    <!-- Deux noms -->
+    <section class="sec">
+      <div class="cols cols-2 cols--flush">
+        <div v-for="n in c.names.items" :key="n.name" class="tile tile--xl name-tile" :class="n.tone">
+          <span class="kicker">{{ n.kicker }}</span>
+          <h2 class="h-block">{{ n.name }}</h2>
+          <p class="body-lg name-text">{{ n.text }}</p>
+        </div>
       </div>
     </section>
 
-    <!-- Portrait & Introduction -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">{{ portraitTitle }}</h2>
-        <div class="portrait-grid">
-          <div class="portrait-image">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Didon_et_son_peuple_accueillant_%C3%89n%C3%A9e_-_Pierre-Narcisse_Gu%C3%A9rin.jpg/800px-Didon_et_son_peuple_accueillant_%C3%89n%C3%A9e_-_Pierre-Narcisse_Gu%C3%A9rin.jpg" :alt="heroTitle" loading="lazy" />
-            <div class="portrait-tags">
-              <span class="tag tag-gold">{{ tagOrigin }}</span>
-              <span class="tag tag-burgundy">{{ tagHeritage }}</span>
-            </div>
-          </div>
-          <div class="portrait-text">
-            <p v-for="(p, i) in portraitParagraphs" :key="i">{{ p }}</p>
-            <blockquote class="portrait-quote">
-              <span class="quote-mark">"</span>
-              {{ portraitQuote }}
-            </blockquote>
+    <!-- Chronologie -->
+    <section class="sec">
+      <div class="tile tile--xl tile--ink">
+        <span class="kicker">{{ c.life.kicker }}</span>
+        <h2 class="h-section life-title">{{ c.life.title }}</h2>
+        <div class="rows" style="--row-key:190px">
+          <div v-for="r in c.life.rows" :key="r.key">
+            <span class="key">{{ r.key }}</span>
+            <span class="val"><b>{{ r.title }}</b> — {{ r.text }}</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Le Génie de la Négociation -->
-    <section class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">{{ byrsaTitle }}</h2>
-        <div class="byrsa-grid">
-          <div class="byrsa-text">
-            <blockquote class="byrsa-quote">"{{ byrsaQuote }}"</blockquote>
-            <p v-for="(p, i) in byrsaParagraphs" :key="i">{{ p }}</p>
+    <!-- La peau de bœuf -->
+    <section class="sec">
+      <div class="cols cols-7-5 cols--flush">
+        <div class="tile tile--xl tile--gold tile--stack">
+          <div>
+            <span class="kicker">{{ c.byrsa.kicker }}</span>
+            <h2 class="h-block byrsa-title">{{ c.byrsa.title }}</h2>
+            <p v-for="p in c.byrsa.paras" :key="p" class="body-lg para">{{ p }}</p>
           </div>
-          <div class="byrsa-card">
-            <div class="byrsa-icon">🏛️</div>
-            <h3>{{ byrsaCardTitle }}</h3>
-            <p>{{ byrsaCardText }}</p>
+          <blockquote class="pull">
+            <p>« {{ c.byrsa.quote }} »</p>
+            <cite>{{ c.byrsa.cite }}</cite>
+          </blockquote>
+        </div>
+        <figure class="fig side-fig" style="background:#1D3F66">
+          <img src="/img/byrsa.jpg" :alt="c.byrsa.alt" loading="lazy">
+          <figcaption class="cap-box">{{ c.byrsa.caption }}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Deux récits -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.myth.title }}</h2>
+        <p>{{ c.myth.aside }}</p>
+      </div>
+    </section>
+    <div class="cols cols-2">
+      <div v-for="m in c.myth.items" :key="m.title" class="tile tile--xl tile--stack myth" :class="m.tone">
+        <div>
+          <span class="kicker">{{ m.kicker }}</span>
+          <h3 class="h-card">{{ m.title }}</h3>
+          <p v-for="p in m.paras" :key="p" class="body-lg para">{{ p }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Le bûcher -->
+    <section class="sec">
+      <div class="cols cols-5-7 cols--flush">
+        <figure class="fig side-fig" style="background:#E6D9C4">
+          <img src="/img/tanit-stele.jpg" :alt="c.death.alt" loading="lazy">
+          <figcaption>{{ c.death.caption }}</figcaption>
+        </figure>
+        <div class="tile tile--xl tile--terra tile--stack">
+          <div>
+            <span class="kicker">{{ c.death.kicker }}</span>
+            <h2 class="h-block byrsa-title">{{ c.death.title }}</h2>
+            <p v-for="p in c.death.paras" :key="p" class="body-lg para">{{ p }}</p>
           </div>
+          <NuxtLink :to="localePath('/religion')" class="btn btn-outline self-start">{{ c.death.more }}</NuxtLink>
         </div>
       </div>
     </section>
 
-    <!-- Truth Section -->
-    <section class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">{{ mythTitle }}</h2>
-        <div class="myth-grid">
-          <div class="myth-card myth-card-burgundy">
-            <h3>{{ mythCard1Title }}</h3>
-            <p>{{ mythCard1Text }}</p>
-          </div>
-          <div class="myth-card myth-card-navy">
-            <h3>{{ mythCard2Title }}</h3>
-            <p>{{ mythCard2Text }}</p>
-          </div>
-        </div>
-      </div>
+    <!-- Citations antiques -->
+    <section class="sec sec--wide">
+      <h2 class="h-section block-title">{{ c.quotes.title }}</h2>
     </section>
-
-    <!-- Timeline -->
-    <section class="section section-dark">
-      <div class="container">
-        <h2 class="section-title light">{{ timelineTitle }}</h2>
-        <div class="timeline">
-          <div v-for="(e, i) in timelineEvents" :key="i" class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">{{ e.date }}</div>
-              <h3 class="timeline-heading">{{ e.title }}</h3>
-              <p class="timeline-text">{{ e.desc }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Achievements -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">{{ achievementsTitle }}</h2>
-        <div class="achievements-grid">
-          <div v-for="a in achievements" :key="a.title" class="achievement-card">
-            <div class="achievement-icon">{{ a.icon }}</div>
-            <h3>{{ a.title }}</h3>
-            <p>{{ a.desc }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="cols cols-3">
+      <figure v-for="(q, i) in c.quotes.items" :key="q.cite" class="tile tile--stack quote" :class="i === 1 ? 'tile--outline' : 'tile--paper tile--outline'">
+        <blockquote>
+          <p class="q-orig" lang="la">{{ q.orig }}</p>
+          <p class="q-tr">« {{ q.tr }} »</p>
+        </blockquote>
+        <figcaption class="q-cite">{{ q.cite }}</figcaption>
+      </figure>
+    </div>
 
     <!-- Sources -->
-    <section class="section section-dark">
-      <div class="container">
-        <h2 class="section-title light">{{ sourcesTitle }}</h2>
-        <div class="citations-grid">
-          <div v-for="(c, i) in citations" :key="i" class="citation-card">
-            <span class="citation-icon">{{ c.icon }}</span>
-            <div>
-              <h4>{{ c.title }}</h4>
-              <p>{{ c.desc }}</p>
-            </div>
+    <section class="sec">
+      <div class="tile tile--xl">
+        <span class="kicker">{{ c.sources.kicker }}</span>
+        <h2 class="h-block life-title">{{ c.sources.title }}</h2>
+        <div class="rows" style="--row-key:260px">
+          <div v-for="s in c.sources.items" :key="s.key">
+            <span class="key src-key">{{ s.key }}</span>
+            <span class="val">{{ s.text }}</span>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Héritage -->
+    <section class="sec">
+      <div class="cols cols-7-5 cols--flush">
+        <div class="tile tile--xl tile--navy">
+          <span class="kicker">{{ c.legacy.kicker }}</span>
+          <h2 class="h-block life-title">{{ c.legacy.title }}</h2>
+          <div class="leg-grid">
+            <div v-for="l in c.legacy.items" :key="l.title" class="leg">
+              <h3 class="leg-title">{{ l.title }}</h3>
+              <p class="body">{{ l.text }}</p>
+            </div>
+          </div>
+        </div>
+        <figure class="fig side-fig" style="background:#B8904A">
+          <img src="/img/turner-dido.jpg" :alt="c.legacy.alt" loading="lazy">
+          <figcaption class="cap-box">{{ c.legacy.caption }}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- À lire aussi -->
+    <section class="sec sec--wide">
+      <h2 class="h-section block-title">{{ c.more.title }}</h2>
+    </section>
+    <div class="cols cols-3">
+      <NuxtLink v-for="m in c.more.items" :key="m.to" :to="localePath(m.to)" class="card-img">
+        <img :src="m.img" :alt="m.alt" loading="lazy">
+        <div class="card-body">
+          <span class="kicker">{{ m.kicker }}</span>
+          <h3 class="h-card">{{ m.title }}</h3>
+          <p>{{ m.text }}</p>
+        </div>
+      </NuxtLink>
+    </div>
   </div>
 </template>
 
 <script setup>
-const { locale } = useI18n()
-const isFr = computed(() => locale.value === 'fr')
-const isAr = computed(() => locale.value === 'ar')
+const { locale, localePath } = useI18n()
 
-useHead({
-  title: computed(() => isFr.value ? 'Didon — La Reine qui Défia les Empires' : isAr.value ? 'ديدو — الملكة التي تحدت الإمبراطوريات' : 'Dido — The Queen Who Defied Empires')
-})
+const keyTones = ['tile--ink', '', '', 'tile--gold']
 
-const heroTag = computed(() => isFr.value ? '~ 814 av. J.-C. \u2022 Carthage' : isAr.value ? '~ 814 ق.م \u2022 قرطاج' : '~ 814 BC \u2022 Carthage')
-const heroTitle = computed(() => isFr.value ? 'Didon — La Reine qui Défia les Empires' : isAr.value ? 'ديدو — الملكة التي تحدت الإمبراطوريات' : 'Dido — The Queen Who Defied Empires')
-const heroSubtitle = computed(() => isFr.value ? 'Une souveraine phénicienne, une stratège politique et la fondatrice d\'une civilisation qui régna sur la Méditerranée.' : isAr.value ? 'ملكة فينيقية، استراتيجية سياسية ومؤسسة حضارة حكمت البحر المتوسط.' : 'A Phoenician sovereign, a political strategist, and the founder of a civilization that ruled the Mediterranean.')
+const C = {
+  fr: {
+    meta: {
+      title: 'Élissa-Didon, reine fondatrice de Carthage — Carthage',
+      desc: "Princesse de Tyr, fugitive, fondatrice de Carthage vers 814 av. J.-C. : la vie d'Élissa-Didon selon Timée et Justin, et sa réinvention par Virgile."
+    },
+    hero: {
+      chip: 'Reine fondatrice · Tyr → Carthage',
+      dates: 'IXe siècle av. J.-C. · fondation vers 814',
+      title: 'Élissa-Didon',
+      lede: "Princesse de Tyr, fugitive et fondatrice : une souveraine phénicienne qui transforma un exil forcé en naissance d'une cité — Qart-Ḥadasht, la « Ville nouvelle ».",
+      alt: 'Énée racontant à Didon les malheurs de Troie, par Pierre-Narcisse Guérin',
+      caption: 'P.-N. Guérin, Énée racontant à Didon les malheurs de Troie (1815)'
+    },
+    keys: [
+      { n: '814', t: 'av. J.-C. : date de fondation retenue par Timée' },
+      { n: '80', t: 'jeunes Chypriotes emmenées vers l’Afrique (Justin)' },
+      { n: '1', t: 'peau de bœuf pour délimiter la colline de Byrsa' },
+      { n: '668', t: 'ans de Carthage punique, jusqu’en 146 av. J.-C.' }
+    ],
+    names: {
+      items: [
+        { tone: 'tile--sand', kicker: 'Son nom phénicien', name: 'Élissa', text: "C'est le nom que lui donnent Timée et Justin, sans doute transcription d'un nom phénicien. Les Tunisiens l'appellent aujourd'hui Élissa (عليسة)." },
+        { tone: '', kicker: 'Son surnom', name: 'Didon', text: "Selon Timée, les Libyens l'auraient surnommée Deidô, « l'errante », à cause de ses longs voyages. C'est ce nom que retient Virgile." }
+      ]
+    },
+    life: {
+      kicker: 'Chronologie',
+      title: 'Une vie, de Tyr à Byrsa',
+      rows: [
+        { key: 'Tyr', title: 'Une princesse', text: "Fille du roi Mutto (Bélus chez Virgile), sœur de Pygmalion. Le roi laisse le trône à ses deux enfants ; le peuple le donne à Pygmalion, encore enfant." },
+        { key: 'Mariage', title: 'Acherbas', text: "Élissa épouse son oncle Acherbas (Sychée chez Virgile), grand prêtre de Melqart — l'Hercule tyrien —, le second personnage du royaume après le roi." },
+        { key: 'Le crime', title: 'Pygmalion', text: "Convoitant les trésors d'Acherbas, Pygmalion le fait assassiner." },
+        { key: 'La fuite', title: 'La ruse du trésor', text: "Élissa feint de se soumettre, charge l'or sur des navires avec des nobles tyriens, et fait jeter à la mer des sacs de sable présentés comme le trésor : les envoyés du roi, terrifiés, la suivent." },
+        { key: 'Chypre', title: 'Escale', text: "Le prêtre de l'île se joint à elle avec sa famille, contre la promesse d'un sacerdoce héréditaire ; 80 jeunes filles sont emmenées pour épouses des colons." },
+        { key: 'v. 814 av. J.-C.', title: 'Arrivée en Afrique', text: "Elle achète autant de terre qu'une peau de bœuf peut en couvrir. Utique, colonie tyrienne plus ancienne, envoie des présents ; les habitants voisins viennent commercer." },
+        { key: 'Fondation', title: 'Deux présages', text: "En creusant les fondations, on trouve une tête de bœuf — terre fertile mais servitude — puis, plus loin, une tête de cheval : présage d'un peuple guerrier et puissant." },
+        { key: 'Iarbas', title: 'Le chantage', text: "Le roi des Maxitani exige d'épouser Élissa, sous menace de guerre ; les notables carthaginois la pressent d'accepter." },
+        { key: 'La mort', title: 'Le bûcher', text: "Elle fait dresser un bûcher, feignant un sacrifice aux mânes de son époux, y monte et se frappe d'une épée. Carthage l'honore comme une déesse." }
+      ]
+    },
+    byrsa: {
+      kicker: 'Le génie de la négociation',
+      title: 'La peau de bœuf',
+      paras: [
+        "Arrivée sur la côte de l'actuelle Tunisie, Élissa demande aux habitants autant de terre qu'une peau de bœuf peut en couvrir. Elle la découpe en lanières si fines qu'elle encercle toute une colline : Byrsa.",
+        "Les Grecs expliquaient ainsi le nom de la citadelle (bursa, « le cuir »), qui vient sans doute plutôt d'un mot sémitique désignant une forteresse. La légende dit l'essentiel : l'intelligence et la diplomatie l'emportent sur la force."
+      ],
+      quote: "Autant de terre qu'une peau de bœuf en pourrait couvrir.",
+      cite: 'D’après Justin, XVIII, 5',
+      alt: 'Colline de Byrsa, Carthage',
+      caption: 'La colline de Byrsa, cœur de Carthage'
+    },
+    myth: {
+      title: 'Deux récits, deux reines',
+      aside: "Le récit phénicien transmis par les Grecs, et sa réécriture romaine.",
+      items: [
+        { tone: 'tile--purple', kicker: 'Virgile, Énéide I et IV (19 av. J.-C.)', title: "L'amante abandonnée", paras: ["Virgile fait de Didon l'amante d'Énée, qui l'abandonne sur ordre des dieux pour aller fonder Rome ; elle se tue de désespoir en maudissant sa descendance et appelle un vengeur — Hannibal.", "Un mythe fondateur romain, qui explique la haine entre Rome et Carthage, mais réduit une souveraine à une femme éplorée."] },
+        { tone: 'tile--navy', kicker: 'Timée, Justin', title: 'La reine souveraine', paras: ["Dans la tradition plus ancienne, Énée n'apparaît pas. Élissa est une bâtisseuse d'État qui meurt pour rester fidèle à Acherbas et préserver l'indépendance de sa cité face à Iarbas.", "Et la chronologie est impossible : la chute de Troie, datée traditionnellement vers 1184 av. J.-C., précède de plus de trois siècles la fondation de Carthage."] }
+      ]
+    },
+    death: {
+      kicker: 'Le sacrifice',
+      title: 'Morte pour sa cité',
+      paras: [
+        "Pressée par Iarbas et par ses propres notables, Élissa prétend consentir au mariage. Elle fait élever un bûcher aux portes de la ville, comme pour apaiser l'ombre de son premier époux, puis se tue devant son peuple : elle rejoint son mari, dit-elle, comme on le lui demandait.",
+        "Selon Justin, elle fut vénérée comme une déesse aussi longtemps que Carthage resta invaincue."
+      ],
+      more: 'Les dieux de Carthage →',
+      alt: 'Stèle punique portant le signe de Tanit',
+      caption: 'Stèle au signe de Tanit'
+    },
+    quotes: {
+      title: 'Ce que disent les Anciens',
+      items: [
+        { orig: 'Quamdiu Carthago invicta fuit, pro dea culta est.', tr: "Tant que Carthage resta invaincue, elle fut honorée comme une déesse.", cite: 'Justin, Abrégé des Histoires philippiques, XVIII, 6' },
+        { orig: 'Exoriare aliquis nostris ex ossibus ultor.', tr: 'Lève-toi de nos ossements, ô vengeur, qui que tu sois.', cite: 'Virgile, Énéide, IV, 625 — Didon appelle Hannibal' },
+        { orig: 'Dux femina facti.', tr: "Une femme conduit l'entreprise.", cite: 'Virgile, Énéide, I, 364' }
+      ]
+    },
+    sources: {
+      kicker: 'Sources et archives',
+      title: "D'où vient ce que l'on sait",
+      items: [
+        { key: 'Timée de Tauroménion', text: "Historien grec (IVe–IIIe s. av. J.-C.) : la plus ancienne version connue, qui date la fondation de 814 et explique le nom de Didon." },
+        { key: 'Ménandre d’Éphèse', text: "Cité par Flavius Josèphe (Contre Apion, I, 18) : la fuite d'Élissa et la fondation ont lieu la septième année du règne de Pygmalion." },
+        { key: 'Justin', text: "Abrégé des Histoires philippiques de Trogue Pompée, livre XVIII : la source principale du récit (fuite, Chypre, peau de bœuf, Iarbas, bûcher)." },
+        { key: 'Virgile', text: "Énéide, livres I et IV : la version romaine romancée, à lire comme une œuvre poétique et politique, non comme de l'histoire." },
+        { key: 'Appien', text: "Libyca (IIe s. ap. J.-C.) : perspective grecque sur les origines de Carthage et la ruse de la peau de bœuf." }
+      ]
+    },
+    legacy: {
+      kicker: 'Héritage',
+      title: "Héritage d'une fondatrice",
+      alt: 'Didon construisant Carthage, par J. M. W. Turner',
+      caption: 'J. M. W. Turner, Didon construisant Carthage (1815)',
+      items: [
+        { title: 'Une cité de sept siècles', text: "Carthage, de 814 à 146 av. J.-C., devint la grande puissance maritime de la Méditerranée occidentale, rivale de Rome pendant plus d'un siècle." },
+        { title: 'Racines tyriennes', text: "Navigation, commerce, alphabet, culte de Melqart : l'héritage de Tyr forma l'ADN de la culture carthaginoise." },
+        { title: 'Une reine dans les arts', text: "Ovide (Héroïdes, VII), Purcell (Dido and Aeneas, 1689), Berlioz (Les Troyens), Guérin et Turner (1815) : Didon traverse la littérature, l'opéra et la peinture." },
+        { title: 'Un symbole tunisien', text: "Élissa reste aujourd'hui, en Tunisie, la figure fondatrice par excellence, symbole d'intelligence politique et de souveraineté." }
+      ]
+    },
+    more: {
+      title: 'À lire aussi',
+      items: [
+        { to: '/fondation', img: '/img/byrsa.jpg', alt: 'Colline de Byrsa', kicker: '814 av. J.-C.', title: 'La fondation de Carthage', text: "Qart-Ḥadasht, la Ville nouvelle, et ses premiers siècles." },
+        { to: '/religion', img: '/img/baal.jpg', alt: 'Statue de Baal Hammon', kicker: 'Croyances', title: 'La religion', text: 'Melqart, Baal Hammon, Tanit : les dieux de Carthage.' },
+        { to: '/biographies', img: '/img/hamilcar.jpg', alt: 'Hamilcar Barca', kicker: 'Personnages', title: 'Toutes les biographies', text: 'Les Barca, les généraux, les navigateurs et les reines.' }
+      ]
+    }
+  },
+  en: {
+    meta: {
+      title: 'Elissa-Dido, founding queen of Carthage — Carthage',
+      desc: 'Princess of Tyre, fugitive, founder of Carthage around 814 BC: the life of Elissa-Dido according to Timaeus and Justin, and her reinvention by Virgil.'
+    },
+    hero: {
+      chip: 'Founding queen · Tyre → Carthage',
+      dates: '9th century BC · founding c. 814',
+      title: 'Elissa-Dido',
+      lede: 'Princess of Tyre, fugitive and founder: a Phoenician sovereign who turned a forced exile into the birth of a city — Qart-Hadasht, the "New City".',
+      alt: 'Aeneas telling Dido of the misfortunes of Troy, by Pierre-Narcisse Guérin',
+      caption: 'P.-N. Guérin, Aeneas Telling Dido of the Misfortunes of Troy (1815)'
+    },
+    keys: [
+      { n: '814', t: 'BC: founding date given by Timaeus' },
+      { n: '80', t: 'Cypriot maidens taken to Africa (Justin)' },
+      { n: '1', t: 'oxhide to mark out the hill of Byrsa' },
+      { n: '668', t: 'years of Punic Carthage, until 146 BC' }
+    ],
+    names: {
+      items: [
+        { tone: 'tile--sand', kicker: 'Her Phoenician name', name: 'Elissa', text: 'The name given by Timaeus and Justin, probably the transcription of a Phoenician name. Tunisians today call her Elissa (عليسة).' },
+        { tone: '', kicker: 'Her nickname', name: 'Dido', text: 'According to Timaeus, the Libyans nicknamed her Deidō, "the wanderer", because of her long travels. This is the name Virgil kept.' }
+      ]
+    },
+    life: {
+      kicker: 'Timeline',
+      title: 'A life, from Tyre to Byrsa',
+      rows: [
+        { key: 'Tyre', title: 'A princess', text: 'Daughter of King Mutto (Belus in Virgil), sister of Pygmalion. The king left the throne to both children; the people gave it to Pygmalion, still a boy.' },
+        { key: 'Marriage', title: 'Acherbas', text: 'Elissa married her uncle Acherbas (Sychaeus in Virgil), high priest of Melqart — the Tyrian Heracles — and second only to the king.' },
+        { key: 'The crime', title: 'Pygmalion', text: "Coveting Acherbas's treasure, Pygmalion had him murdered." },
+        { key: 'The flight', title: 'The treasure trick', text: "Elissa feigned submission, loaded the gold onto ships with Tyrian nobles, and had sacks of sand thrown overboard as if they were the treasure: the king's terrified envoys followed her." },
+        { key: 'Cyprus', title: 'A stopover', text: "The island's priest joined her with his family in exchange for a hereditary priesthood; 80 young women were taken as wives for the settlers." },
+        { key: 'c. 814 BC', title: 'Arrival in Africa', text: 'She bought as much land as an oxhide could cover. Utica, an older Tyrian colony, sent gifts; the neighbouring peoples came to trade.' },
+        { key: 'Foundation', title: 'Two omens', text: "Digging the foundations, they found an ox's head — fertile land, but servitude — then, further on, a horse's head: the omen of a warlike, powerful people." },
+        { key: 'Iarbas', title: 'Blackmail', text: 'The king of the Maxitani demanded to marry Elissa, threatening war; the Carthaginian notables urged her to accept.' },
+        { key: 'Death', title: 'The pyre', text: "She had a pyre built, pretending to sacrifice to her husband's shade, climbed it and stabbed herself with a sword. Carthage honoured her as a goddess." }
+      ]
+    },
+    byrsa: {
+      kicker: 'The genius of negotiation',
+      title: 'The oxhide',
+      paras: [
+        "Arriving on the coast of present-day Tunisia, Elissa asked the inhabitants for as much land as an oxhide could cover. She cut it into strips so thin that they encircled an entire hill: Byrsa.",
+        'The Greeks explained the citadel’s name this way (bursa, "hide"), though it probably comes from a Semitic word for a fortress. The legend says what matters: intelligence and diplomacy prevail over force.'
+      ],
+      quote: 'As much land as an oxhide could cover.',
+      cite: 'After Justin, XVIII, 5',
+      alt: 'Byrsa Hill, Carthage',
+      caption: 'Byrsa Hill, the heart of Carthage'
+    },
+    myth: {
+      title: 'Two stories, two queens',
+      aside: 'The Phoenician story handed down by the Greeks, and its Roman rewriting.',
+      items: [
+        { tone: 'tile--purple', kicker: 'Virgil, Aeneid I and IV (19 BC)', title: 'The abandoned lover', paras: ['Virgil makes Dido the lover of Aeneas, who leaves her at the gods’ command to go and found Rome; she kills herself in despair, cursing his descendants and calling for an avenger — Hannibal.', 'A Roman founding myth that explains the hatred between Rome and Carthage, but reduces a sovereign to a grieving woman.'] },
+        { tone: 'tile--navy', kicker: 'Timaeus, Justin', title: 'The sovereign queen', paras: ['In the older tradition, Aeneas does not appear. Elissa is a state builder who dies to stay faithful to Acherbas and to preserve her city’s independence from Iarbas.', 'And the chronology is impossible: the fall of Troy, traditionally dated around 1184 BC, precedes the founding of Carthage by more than three centuries.'] }
+      ]
+    },
+    death: {
+      kicker: 'The sacrifice',
+      title: 'She died for her city',
+      paras: [
+        "Pressed by Iarbas and by her own notables, Elissa pretended to consent to the marriage. She had a pyre raised at the city gates, as if to appease the shade of her first husband, then killed herself before her people: she was going to her husband, she said, as they had asked.",
+        'According to Justin, she was worshipped as a goddess for as long as Carthage remained unconquered.'
+      ],
+      more: 'The gods of Carthage →',
+      alt: 'Punic stele bearing the sign of Tanit',
+      caption: 'Stele with the sign of Tanit'
+    },
+    quotes: {
+      title: 'What the ancients say',
+      items: [
+        { orig: 'Quamdiu Carthago invicta fuit, pro dea culta est.', tr: 'As long as Carthage remained unconquered, she was worshipped as a goddess.', cite: 'Justin, Epitome of the Philippic Histories, XVIII, 6' },
+        { orig: 'Exoriare aliquis nostris ex ossibus ultor.', tr: 'Arise from our bones, some avenger.', cite: 'Virgil, Aeneid, IV, 625 — Dido calls for Hannibal' },
+        { orig: 'Dux femina facti.', tr: 'A woman led the enterprise.', cite: 'Virgil, Aeneid, I, 364' }
+      ]
+    },
+    sources: {
+      kicker: 'Sources and archives',
+      title: 'Where our knowledge comes from',
+      items: [
+        { key: 'Timaeus of Tauromenium', text: 'Greek historian (4th–3rd c. BC): the oldest known version, which dates the founding to 814 and explains the name Dido.' },
+        { key: 'Menander of Ephesus', text: "Quoted by Flavius Josephus (Against Apion, I, 18): Elissa's flight and the founding took place in the seventh year of Pygmalion's reign." },
+        { key: 'Justin', text: 'Epitome of the Philippic Histories of Pompeius Trogus, book XVIII: the main source of the story (flight, Cyprus, oxhide, Iarbas, pyre).' },
+        { key: 'Virgil', text: 'Aeneid, books I and IV: the romanticised Roman version, to be read as poetry and politics, not as history.' },
+        { key: 'Appian', text: 'Libyca (2nd c. AD): a Greek perspective on the origins of Carthage and the oxhide trick.' }
+      ]
+    },
+    legacy: {
+      kicker: 'Legacy',
+      title: 'Legacy of a founder',
+      alt: 'Dido Building Carthage, by J. M. W. Turner',
+      caption: 'J. M. W. Turner, Dido Building Carthage (1815)',
+      items: [
+        { title: 'A city of seven centuries', text: 'Carthage, from 814 to 146 BC, became the great naval power of the western Mediterranean, Rome’s rival for more than a century.' },
+        { title: 'Tyrian roots', text: 'Navigation, trade, the alphabet, the cult of Melqart: the heritage of Tyre formed the DNA of Carthaginian culture.' },
+        { title: 'A queen in the arts', text: 'Ovid (Heroides, VII), Purcell (Dido and Aeneas, 1689), Berlioz (Les Troyens), Guérin and Turner (1815): Dido runs through literature, opera and painting.' },
+        { title: 'A Tunisian symbol', text: 'In Tunisia today, Elissa remains the founding figure par excellence, a symbol of political intelligence and sovereignty.' }
+      ]
+    },
+    more: {
+      title: 'Read also',
+      items: [
+        { to: '/fondation', img: '/img/byrsa.jpg', alt: 'Byrsa Hill', kicker: '814 BC', title: 'The founding of Carthage', text: 'Qart-Hadasht, the New City, and its first centuries.' },
+        { to: '/religion', img: '/img/baal.jpg', alt: 'Statue of Baal Hammon', kicker: 'Beliefs', title: 'Religion', text: 'Melqart, Baal Hammon, Tanit: the gods of Carthage.' },
+        { to: '/biographies', img: '/img/hamilcar.jpg', alt: 'Hamilcar Barca', kicker: 'People', title: 'All biographies', text: 'The Barcids, the generals, the navigators and the queens.' }
+      ]
+    }
+  },
+  ar: {
+    meta: {
+      title: 'عليسة-ديدون، الملكة المؤسِّسة لقرطاج — قرطاج',
+      desc: 'أميرة صور، الهاربة، مؤسِّسة قرطاج نحو 814 ق.م: حياة عليسة-ديدون كما رواها تيمايوس ويوستينوس، وإعادة ابتكارها عند فرجيل.'
+    },
+    hero: {
+      chip: 'الملكة المؤسِّسة · من صور إلى قرطاج',
+      dates: 'القرن 9 ق.م · التأسيس نحو 814',
+      title: 'عليسة-ديدون',
+      lede: 'أميرة صور، الهاربة والمؤسِّسة: ملكة فينيقية حوّلت منفى قسريًا إلى ميلاد مدينة — قرت حدشت، «المدينة الجديدة».',
+      alt: 'إينياس يروي لديدون مآسي طروادة، لوحة بيير-نرسيس غيران',
+      caption: 'غيران، إينياس يروي لديدون مآسي طروادة (1815)'
+    },
+    keys: [
+      { n: '814', t: 'ق.م: تاريخ التأسيس عند تيمايوس' },
+      { n: '80', t: 'فتاة قبرصية رافقت الرحلة إلى إفريقيا (يوستينوس)' },
+      { n: '1', t: 'جلد ثور لتحديد هضبة بيرصا' },
+      { n: '668', t: 'سنة عمر قرطاج البونية، حتى 146 ق.م' }
+    ],
+    names: {
+      items: [
+        { tone: 'tile--sand', kicker: 'اسمها الفينيقي', name: 'عليسة', text: 'هو الاسم الذي يذكره تيمايوس ويوستينوس، ولعله نقل لاسم فينيقي. ويسمّيها التونسيون اليوم عليسة.' },
+        { tone: '', kicker: 'لقبها', name: 'ديدون', text: 'حسب تيمايوس، لقّبها الليبيون «ديدو» أي «الهائمة» بسبب أسفارها الطويلة. وهذا الاسم هو الذي احتفظ به فرجيل.' }
+      ]
+    },
+    life: {
+      kicker: 'التسلسل الزمني',
+      title: 'حياة من صور إلى بيرصا',
+      rows: [
+        { key: 'صور', title: 'أميرة', text: 'ابنة الملك موتو (بيلوس عند فرجيل) وأخت بيغماليون. ترك الملك العرش لولديه، فمنحه الشعب لبيغماليون وهو ما يزال صبيًا.' },
+        { key: 'الزواج', title: 'أخرباص', text: 'تزوجت عليسة خالها أخرباص (سيخايوس عند فرجيل)، كبير كهنة ملقرت — هرقل الصوري — والرجل الثاني في المملكة بعد الملك.' },
+        { key: 'الجريمة', title: 'بيغماليون', text: 'طمعًا في كنوز أخرباص، دبّر بيغماليون اغتياله.' },
+        { key: 'الهروب', title: 'حيلة الكنز', text: 'تظاهرت عليسة بالخضوع، وحمّلت الذهب على السفن مع نبلاء من صور، ثم ألقت في البحر أكياسًا من الرمل على أنها الكنز: فخاف رسل الملك وتبعوها.' },
+        { key: 'قبرص', title: 'محطة', text: 'انضم إليها كاهن الجزيرة مع أسرته مقابل وعد بكهانة وراثية؛ واصطُحبت 80 فتاة زوجاتٍ للمستوطنين.' },
+        { key: 'نحو 814 ق.م', title: 'الوصول إلى إفريقيا', text: 'اشترت من الأرض ما يغطيه جلد ثور. وأرسلت أوتيكا، المستعمرة الصورية الأقدم، الهدايا؛ وجاء السكان المجاورون للتجارة.' },
+        { key: 'التأسيس', title: 'فألان', text: 'عند حفر الأسس وُجد رأس ثور — أرض خصبة ولكن عبودية — ثم في موضع آخر رأس حصان: فأل شعب محارب وقوي.' },
+        { key: 'يارباس', title: 'الابتزاز', text: 'طلب ملك المكسيتاني الزواج من عليسة مهددًا بالحرب، وألحّ عليها أعيان قرطاج بالقبول.' },
+        { key: 'الموت', title: 'المحرقة', text: 'أمرت بإقامة محرقة متظاهرة بتقديم قربان لروح زوجها، ثم صعدتها وطعنت نفسها بسيف. فكرّمتها قرطاج إلهةً.' }
+      ]
+    },
+    byrsa: {
+      kicker: 'عبقرية التفاوض',
+      title: 'جلد الثور',
+      paras: [
+        'عند وصولها إلى ساحل تونس الحالية، طلبت عليسة من السكان من الأرض ما يغطيه جلد ثور. فقطعته شرائط رفيعة جدًا أحاطت بهضبة كاملة: بيرصا.',
+        'بهذا فسّر الإغريق اسم القلعة (bursa أي «الجلد»)، وإن كان الأرجح أنه من كلمة سامية تعني الحصن. والأسطورة تقول الجوهر: الذكاء والدبلوماسية يغلبان القوة.'
+      ],
+      quote: 'من الأرض ما يمكن أن يغطيه جلد ثور.',
+      cite: 'عن يوستينوس، 18، 5',
+      alt: 'هضبة بيرصا، قرطاج',
+      caption: 'هضبة بيرصا، قلب قرطاج'
+    },
+    myth: {
+      title: 'روايتان وملكتان',
+      aside: 'الرواية الفينيقية التي نقلها الإغريق، وإعادة كتابتها الرومانية.',
+      items: [
+        { tone: 'tile--purple', kicker: 'فرجيل، الإنيادة 1 و4 (19 ق.م)', title: 'العاشقة المهجورة', paras: ['يجعل فرجيل ديدون عشيقة إينياس الذي يهجرها بأمر الآلهة ليؤسس روما؛ فتنتحر يأسًا لاعنةً نسله وداعيةً منتقمًا — حنبعل.', 'أسطورة تأسيس رومانية تفسّر العداء بين روما وقرطاج، لكنها تختزل ملكة ذات سيادة في امرأة باكية.'] },
+        { tone: 'tile--navy', kicker: 'تيمايوس، يوستينوس', title: 'الملكة ذات السيادة', paras: ['في الرواية الأقدم لا وجود لإينياس. عليسة بانية دولة ماتت وفاءً لأخرباص وحفاظًا على استقلال مدينتها أمام يارباس.', 'ثم إن التسلسل الزمني مستحيل: سقوط طروادة، المؤرَّخ تقليديًا نحو 1184 ق.م، يسبق تأسيس قرطاج بأكثر من ثلاثة قرون.'] }
+      ]
+    },
+    death: {
+      kicker: 'التضحية',
+      title: 'ماتت من أجل مدينتها',
+      paras: [
+        'تحت ضغط يارباس وأعيان مدينتها، تظاهرت عليسة بالموافقة على الزواج. وأمرت بإقامة محرقة عند أبواب المدينة كأنها تسترضي روح زوجها الأول، ثم قتلت نفسها أمام شعبها: إنها تلحق بزوجها، كما قالت، مثلما طُلب منها.',
+        'وحسب يوستينوس، عُبدت إلهةً ما دامت قرطاج لم تُقهر.'
+      ],
+      more: 'آلهة قرطاج ←',
+      alt: 'نصب بوني يحمل علامة تانيت',
+      caption: 'نصب بعلامة تانيت'
+    },
+    quotes: {
+      title: 'ماذا يقول القدماء',
+      items: [
+        { orig: 'Quamdiu Carthago invicta fuit, pro dea culta est.', tr: 'ما دامت قرطاج لم تُقهر، عُبدت إلهةً.', cite: 'يوستينوس، مختصر التواريخ الفيليبية، 18، 6' },
+        { orig: 'Exoriare aliquis nostris ex ossibus ultor.', tr: 'انهض من عظامنا أيها المنتقم، أيًّا كنت.', cite: 'فرجيل، الإنيادة، 4، 625 — ديدون تنادي حنبعل' },
+        { orig: 'Dux femina facti.', tr: 'امرأةٌ قادت المسعى.', cite: 'فرجيل، الإنيادة، 1، 364' }
+      ]
+    },
+    sources: {
+      kicker: 'المصادر والأرشيف',
+      title: 'من أين نعرف ما نعرف',
+      items: [
+        { key: 'تيمايوس التاورميني', text: 'مؤرخ إغريقي (القرن 4–3 ق.م): أقدم رواية معروفة، تؤرّخ التأسيس بسنة 814 وتفسّر اسم ديدون.' },
+        { key: 'ميناندر الأفسسي', text: 'نقله فلافيوس يوسيفوس (ضد أبيون، 1، 18): هروب عليسة والتأسيس في السنة السابعة من حكم بيغماليون.' },
+        { key: 'يوستينوس', text: 'مختصر التواريخ الفيليبية لتروغوس بومبيوس، الكتاب 18: المصدر الرئيسي للقصة (الهروب، قبرص، جلد الثور، يارباس، المحرقة).' },
+        { key: 'فرجيل', text: 'الإنيادة، الكتابان 1 و4: الرواية الرومانية الأدبية، تُقرأ شعرًا وسياسةً لا تاريخًا.' },
+        { key: 'أبيان', text: 'ليبيكا (القرن 2 م): منظور إغريقي حول أصول قرطاج وحيلة جلد الثور.' }
+      ]
+    },
+    legacy: {
+      kicker: 'الإرث',
+      title: 'إرث مؤسِّسة',
+      alt: 'ديدون تبني قرطاج، لوحة ويليام تيرنر',
+      caption: 'تيرنر، ديدون تبني قرطاج (1815)',
+      items: [
+        { title: 'مدينة سبعة قرون', text: 'أصبحت قرطاج، من 814 إلى 146 ق.م، القوة البحرية الكبرى في غرب المتوسط، ومنافسة روما لأكثر من قرن.' },
+        { title: 'جذور صورية', text: 'الملاحة والتجارة والأبجدية وعبادة ملقرت: تراث صور شكّل جوهر الثقافة القرطاجية.' },
+        { title: 'ملكة في الفنون', text: 'أوفيد (البطلات، 7)، بورسيل (ديدو وإينياس، 1689)، برليوز (الطرواديون)، غيران وتيرنر (1815): حضرت ديدون في الأدب والأوبرا والرسم.' },
+        { title: 'رمز تونسي', text: 'تبقى عليسة اليوم في تونس الشخصية المؤسِّسة بامتياز، رمزًا للذكاء السياسي والسيادة.' }
+      ]
+    },
+    more: {
+      title: 'اقرأ أيضًا',
+      items: [
+        { to: '/fondation', img: '/img/byrsa.jpg', alt: 'هضبة بيرصا', kicker: '814 ق.م', title: 'تأسيس قرطاج', text: 'قرت حدشت، المدينة الجديدة، وقرونها الأولى.' },
+        { to: '/religion', img: '/img/baal.jpg', alt: 'تمثال بعل حمون', kicker: 'المعتقدات', title: 'الديانة', text: 'ملقرت وبعل حمون وتانيت: آلهة قرطاج.' },
+        { to: '/biographies', img: '/img/hamilcar.jpg', alt: 'حملقار برقة', kicker: 'الشخصيات', title: 'كل السير', text: 'آل برقة والقادة والملاحون والملكات.' }
+      ]
+    }
+  }
+}
 
-const portraitTitle = computed(() => isFr.value ? 'Princesse de Tyr, Génie Politique' : isAr.value ? 'أميرة صور، عبقرية سياسية' : 'Princess of Tyre, Political Genius')
-const portraitParagraphs = computed(() => isFr.value ? [
-  'Fille du roi Mutto de Tyr, Élyssa (Didon) n\'était pas seulement une héritière, mais une visionnaire dans un monde dominé par les ambitions masculines et les trahisons fraternelles.',
-  'Après l\'assassinat de son mari Sychée par son frère Pygmalion, elle orchestre une fuite spectaculaire, emportant avec elle le trésor royal et une suite de nobles tyriens, transformant un exil forcé en une quête de souveraineté.',
-] : isAr.value ? [
-  'ابنة الملك موتو ملك صور، لم تكن إليسا (ديدو) مجرد وريثة، بل كانت صاحبة رؤية في عالم تسيطر عليه الطموحات الذكورية والخيانات الأخوية.',
-  'بعد اغتيال زوجها سيكايوس على يد أخيها بيغماليون، دبّرت هروبًا مذهلاً، حاملة معها الخزينة الملكية ومجموعة من نبلاء صور، محولة المنفى القسري إلى سعي نحو السيادة.',
-] : [
-  'Daughter of King Mutto of Tyre, Elissa (Dido) was not merely an heiress, but a visionary in a world dominated by masculine ambitions and fraternal betrayals.',
-  'After the assassination of her husband Acerbas by her brother Pygmalion, she orchestrated a spectacular escape, carrying with her the royal treasury and a retinue of Tyrian nobles, transforming a forced exile into a quest for sovereignty.',
-])
-const portraitQuote = computed(() => isFr.value ? 'Elle ne fuyait pas — elle conquérait un avenir que Tyr ne pouvait plus lui offrir.' : isAr.value ? 'لم تكن تهرب — كانت تغزو مستقبلاً لم تعد صور قادرة على تقديمه لها.' : 'She was not fleeing — she was conquering a future that Tyre could no longer offer her.')
-const tagOrigin = computed(() => isFr.value ? 'Tyr — Lieu de naissance' : isAr.value ? 'صور — مكان الولادة' : 'Tyre — Birthplace')
-const tagHeritage = computed(() => isFr.value ? 'Phénicie — Héritage culturel' : isAr.value ? 'فينيقيا — التراث الثقافي' : 'Phoenicia — Cultural Heritage')
+const c = computed(() => C[locale.value] || C.fr)
 
-const byrsaTitle = computed(() => isFr.value ? 'Le Génie de la Négociation' : isAr.value ? 'عبقرية التفاوض' : 'The Genius of Negotiation')
-const byrsaQuote = computed(() => isFr.value ? 'Donnez-moi seulement autant de terre qu\'une peau de bœuf peut en couvrir.' : isAr.value ? 'أعطوني فقط من الأرض ما يمكن أن يغطيه جلد ثور.' : 'Give me only as much land as an oxhide can cover.')
-const byrsaParagraphs = computed(() => isFr.value ? [
-  'Arrivée sur les côtes de l\'actuelle Tunisie, elle ruse face au roi local Iarbas. Elle découpe la peau de bœuf en lanières si fines qu\'elle parvient à encercler toute la colline de Byrsa.',
-  'Ce n\'était pas un simple stratagème, mais la fondation symbolique de Carthage, démontrant que l\'intelligence et la diplomatie prévalent sur la force brute.',
-] : isAr.value ? [
-  'عند وصولها إلى سواحل تونس الحالية، احتالت على الملك المحلي ياربا. قطعت جلد الثور إلى شرائح رفيعة جدًا حتى تمكنت من إحاطة تل بيرصا بأكمله.',
-  'لم تكن مجرد حيلة، بل كانت التأسيس الرمزي لقرطاج، مما يُثبت أن الذكاء والدبلوماسية يتفوقان على القوة الغاشمة.',
-] : [
-  'Arriving on the coast of modern-day Tunisia, she outwitted the local king Iarbas. She cut the oxhide into strips so thin that she managed to encircle the entire hill of Byrsa.',
-  'This was not a mere trick, but the symbolic foundation of Carthage, demonstrating that intelligence and diplomacy prevail over brute force.',
-])
-const byrsaCardTitle = computed(() => isFr.value ? 'La Colline de Byrsa' : isAr.value ? 'تل بيرصا' : 'The Hill of Byrsa')
-const byrsaCardText = computed(() => isFr.value ? 'Cœur stratégique de l\'empire carthaginois, la colline de Byrsa devint le symbole de l\'ingéniosité punique.' : isAr.value ? 'القلب الاستراتيجي للإمبراطورية القرطاجية، أصبح تل بيرصا رمزًا للعبقرية البونية.' : 'Strategic heart of the Carthaginian empire, the hill of Byrsa became the symbol of Punic ingenuity.')
-
-const mythTitle = computed(() => isFr.value ? 'Au-delà de la Propagande Romaine' : isAr.value ? 'ما وراء الدعاية الرومانية' : 'Beyond Roman Propaganda')
-const mythCard1Title = computed(() => isFr.value ? 'Le Mythe de Virgile' : isAr.value ? 'أسطورة فرجيل' : 'The Myth of Virgil')
-const mythCard1Text = computed(() => isFr.value ? 'Dans l\'Énéide, Virgile réduit Didon à une femme éplorée se sacrifiant pour l\'amour d\'Énée. Cette version fut créée pour justifier la supériorité romaine et effacer le souvenir d\'une reine souveraine.' : isAr.value ? 'في الإنيادة، حوّل فرجيل ديدو إلى امرأة حزينة تضحي بنفسها من أجل حب إينياس. صُنعت هذه النسخة لتبرير التفوق الروماني ومحو ذكرى ملكة ذات سيادة.' : 'In the Aeneid, Virgil reduced Dido to a lovesick woman sacrificing herself for the love of Aeneas. This version was created to justify Roman superiority and erase the memory of a sovereign queen.')
-const mythCard2Title = computed(() => isFr.value ? 'La Vérité Historique' : isAr.value ? 'الحقيقة التاريخية' : 'The Historical Truth')
-const mythCard2Text = computed(() => isFr.value ? 'Élyssa était une Reine Souveraine, une bâtisseuse d\'État. Elle s\'est sacrifiée non pour un homme, mais pour protéger l\'indépendance de sa cité face aux pressions de mariage forcé avec Iarbas. Elle vécut 300 ans avant tout Énée mythique.' : isAr.value ? 'كانت إليسا ملكة ذات سيادة، بانية دولة. ضحت بنفسها ليس من أجل رجل، بل لحماية استقلال مدينتها من ضغوط الزواج القسري مع ياربا. عاشت قبل 300 عام من أي إينياس أسطوري.' : 'Elissa was a Sovereign Queen, a state builder. She sacrificed herself not for a man, but to protect the independence of her city against the pressures of forced marriage with Iarbas. She lived 300 years before any mythical Aeneas.')
-
-const timelineTitle = computed(() => isFr.value ? 'Le Fil du Temps' : isAr.value ? 'خيط الزمن' : 'The Thread of Time')
-const timelineEvents = computed(() => isFr.value ? [
-  { date: '~ 820 av. J.-C.', title: 'Fuite de Tyr', desc: 'Mort de Sychée assassiné par Pygmalion. Départ clandestin avec le trésor royal et les fidèles tyriens vers l\'Occident.' },
-  { date: '~ 814 av. J.-C.', title: 'Fondation de Carthage', desc: 'Négociation de Byrsa avec le roi Iarbas. Établissement de Qart Hadasht — la Ville Nouvelle — sur la colline stratégique.' },
-  { date: '~ 810 av. J.-C.', title: 'L\'Ascension Économique', desc: 'Création du comptoir phénicien dominant les routes commerciales du pourpre, de l\'étain et de l\'or en Méditerranée occidentale.' },
-] : isAr.value ? [
-  { date: '~ 820 ق.م', title: 'الهروب من صور', desc: 'مقتل سيكايوس على يد بيغماليون. رحيل سري مع الخزينة الملكية والأتباع الصوريين نحو الغرب.' },
-  { date: '~ 814 ق.م', title: 'تأسيس قرطاج', desc: 'التفاوض على بيرصا مع الملك ياربا. إنشاء قرط حدشت — المدينة الجديدة — على التل الاستراتيجي.' },
-  { date: '~ 810 ق.م', title: 'الصعود الاقتصادي', desc: 'إنشاء المركز التجاري الفينيقي المهيمن على طرق تجارة الأرجوان والقصدير والذهب في غرب المتوسط.' },
-] : [
-  { date: '~ 820 BC', title: 'Flight from Tyre', desc: 'Death of Acerbas, murdered by Pygmalion. Secret departure with the royal treasury and loyal Tyrian nobles toward the West.' },
-  { date: '~ 814 BC', title: 'Foundation of Carthage', desc: 'Negotiation of Byrsa with King Iarbas. Establishment of Qart Hadasht — the New City — on the strategic hill.' },
-  { date: '~ 810 BC', title: 'Economic Ascension', desc: 'Creation of the Phoenician trading post dominating the trade routes for purple dye, tin, and gold in the western Mediterranean.' },
-])
-
-const achievementsTitle = computed(() => isFr.value ? 'Héritage d\'une Fondatrice' : isAr.value ? 'إرث مؤسِّسة' : 'Legacy of a Founder')
-const achievements = computed(() => isFr.value ? [
-  { icon: '🏛️', title: '700 Ans d\'Empire', desc: 'Carthage devint la thalassocratie dominante de l\'Occident, rivalisant avec Rome pendant sept siècles.' },
-  { icon: '👑', title: 'Première Femme Chef d\'État', desc: 'Élyssa a gouverné avec une autorité absolue et une intelligence diplomatique, bien avant les reines hellénistiques.' },
-  { icon: '📅', title: '814 av. J.-C.', desc: 'Année de fondation de Carthage, marquant le début d\'une des plus grandes civilisations méditerranéennes.' },
-  { icon: '⚓', title: 'Racines Tyriennes', desc: 'L\'héritage phénicien de Tyr — navigation, commerce, alphabet — forma l\'ADN de la culture carthaginoise.' },
-] : isAr.value ? [
-  { icon: '🏛️', title: '700 عام من الإمبراطورية', desc: 'أصبحت قرطاج القوة البحرية المهيمنة في الغرب، منافسة لروما لمدة سبعة قرون.' },
-  { icon: '👑', title: 'أول امرأة رئيسة دولة', desc: 'حكمت إليسا بسلطة مطلقة وذكاء دبلوماسي، قبل الملكات الهلنستيات بوقت طويل.' },
-  { icon: '📅', title: '814 ق.م', desc: 'عام تأسيس قرطاج، إيذانًا ببداية إحدى أعظم الحضارات المتوسطية.' },
-  { icon: '⚓', title: 'الجذور الصورية', desc: 'التراث الفينيقي من صور — الملاحة والتجارة والأبجدية — شكّل الحمض النووي للثقافة القرطاجية.' },
-] : [
-  { icon: '🏛️', title: '700 Years of Empire', desc: 'Carthage became the dominant thalassocracy of the West, rivaling Rome for seven centuries.' },
-  { icon: '👑', title: 'First Female Head of State', desc: 'Elissa ruled with absolute authority and diplomatic intelligence, long before the Hellenistic queens.' },
-  { icon: '📅', title: '814 BC', desc: 'Year of the foundation of Carthage, marking the beginning of one of the greatest Mediterranean civilizations.' },
-  { icon: '⚓', title: 'Tyrian Roots', desc: 'The Phoenician heritage of Tyre — navigation, trade, alphabet — formed the DNA of Carthaginian culture.' },
-])
-
-const sourcesTitle = computed(() => isFr.value ? 'Sources et Archives' : isAr.value ? 'المصادر والأرشيفات' : 'Sources and Archives')
-const citations = computed(() => isFr.value ? [
-  { icon: '📜', title: 'Justin, Abrégé des Histoires Philippiques', desc: 'Source principale sur la légende de Didon et la fondation de Carthage.' },
-  { icon: '📖', title: 'Virgile, Énéide, Livre IV', desc: 'Version romaine romancée — à lire comme propagande, non comme histoire.' },
-  { icon: '🏛️', title: 'Appien d\'Alexandrie, Libyca', desc: 'Perspective grecque sur les origines de la civilisation carthaginoise.' },
-] : isAr.value ? [
-  { icon: '📜', title: 'يوستينوس، مختصر تواريخ فيليبوس', desc: 'المصدر الرئيسي عن أسطورة ديدو وتأسيس قرطاج.' },
-  { icon: '📖', title: 'فرجيل، الإنيادة، الكتاب الرابع', desc: 'النسخة الرومانية الخيالية — تُقرأ كدعاية لا كتاريخ.' },
-  { icon: '🏛️', title: 'أبيان الإسكندري، ليبيكا', desc: 'المنظور اليوناني حول أصول الحضارة القرطاجية.' },
-] : [
-  { icon: '📜', title: 'Justin, Epitome of Philippic Histories', desc: 'Primary source on the legend of Dido and the foundation of Carthage.' },
-  { icon: '📖', title: 'Virgil, Aeneid, Book IV', desc: 'Romanticized Roman version — to be read as propaganda, not history.' },
-  { icon: '🏛️', title: 'Appian of Alexandria, Libyca', desc: 'Greek perspective on the origins of Carthaginian civilization.' },
-])
+useHead(() => ({
+  title: c.value.meta.title,
+  meta: [{ name: 'description', content: c.value.meta.desc }]
+}))
 </script>
 
 <style scoped>
-.rtl {
-  direction: rtl;
-  text-align: right;
+.hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px 16px; }
+.hero-phoen { font-size: clamp(22px, 2.4vw, 34px); color: var(--gold-light); opacity: 0.85; }
+.dates { font: 700 14px/1.3 var(--font-body); margin-bottom: 14px; }
+.bio-title { font-size: clamp(44px, 6vw, 92px); overflow-wrap: anywhere; }
+.hero-fig { min-height: clamp(380px, 42vw, 580px); }
+
+.keyfigs { margin-top: var(--gap); }
+.keyfig .body { margin-top: 6px; font-size: 14px; }
+
+.name-text { margin-top: 14px; }
+
+.life-title { margin-bottom: clamp(20px, 2.4vw, 32px); }
+.rows .val b { font-weight: 700; }
+.src-key { font-size: clamp(17px, 1.5vw, 20px) !important; line-height: 1.2 !important; }
+
+.byrsa-title { margin-bottom: 18px; }
+.para + .para { margin-top: 12px; }
+.side-fig { min-height: 460px; }
+.self-start { align-self: flex-start; }
+
+.pull { border-inline-start: 3px solid var(--ink); padding-inline-start: 18px; }
+.pull p { font: 800 clamp(20px, 1.9vw, 26px)/1.25 var(--font-display); color: var(--ink); }
+.pull cite { display: block; margin-top: 8px; font: 600 13px/1.3 var(--font-body); font-style: normal; }
+
+.myth .h-card { font-size: clamp(24px, 2.2vw, 32px); margin-bottom: 14px; }
+
+.block-title { margin-bottom: clamp(20px, 2.4vw, 32px); }
+
+.quote { min-height: 240px; }
+.q-orig { font: italic 500 15px/1.5 Georgia, serif; color: var(--purple) !important; margin-bottom: 12px; }
+.q-tr { font: 800 clamp(19px, 1.7vw, 23px)/1.3 var(--font-display); color: var(--ink) !important; }
+.q-cite { font: 600 13px/1.4 var(--font-body); color: var(--muted); }
+
+.leg-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 28px; }
+.leg { border-top: 1px solid rgba(255, 255, 255, 0.22); padding-top: 14px; }
+.leg-title { font: 800 18px/1.2 var(--font-display); margin-bottom: 6px; }
+
+@media (max-width: 960px) {
+  .hero-fig { min-height: clamp(260px, 60vw, 460px); }
+  .side-fig { min-height: 340px; }
+  .quote { min-height: 0; }
 }
 
-.hero-section {
-  background: linear-gradient(135deg, var(--color-navy) 0%, #1a0a10 50%, var(--color-burgundy) 100%);
-  padding: 10rem 0 4rem;
-  text-align: center;
-}
-
-.hero-tag {
-  display: inline-block;
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  color: var(--color-gold-light);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  opacity: 0.85;
-}
-
-.hero-title {
-  font-family: var(--font-heading);
-  font-size: 3.2rem;
-  color: var(--color-gold);
-  letter-spacing: 3px;
-  margin-bottom: 1.2rem;
-  line-height: 1.2;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-subtitle {
-  color: #ccc;
-  font-family: var(--font-body);
-  font-size: 1.15rem;
-  font-style: italic;
-  max-width: 650px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
-
-.section { padding: 5rem 0; }
-.section-alt { background: var(--color-sand, #f5f0e8); }
-.section-dark { background: var(--color-navy); }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-
-.section-title {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  color: var(--color-navy);
-  text-align: center;
-  margin-bottom: 2.5rem;
-  letter-spacing: 2px;
-}
-.section-title.light { color: var(--color-gold); }
-
-.portrait-grid {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.portrait-image img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
-}
-
-.portrait-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
-.tag { display: inline-block; font-family: var(--font-heading); font-size: 0.7rem; padding: 0.4rem 0.8rem; border-radius: 4px; letter-spacing: 1px; text-transform: uppercase; }
-.tag-gold { background: rgba(201, 168, 76, 0.15); color: var(--color-gold); border: 1px solid rgba(201, 168, 76, 0.3); }
-.tag-burgundy { background: rgba(107, 29, 42, 0.1); color: var(--color-burgundy); border: 1px solid rgba(107, 29, 42, 0.2); }
-
-.portrait-text p { color: #444; font-family: var(--font-body); font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.5rem; }
-
-.portrait-quote {
-  position: relative;
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--color-burgundy);
-  padding: 1.5rem 2rem;
-  background: rgba(107, 29, 42, 0.05);
-  border-left: 4px solid var(--color-gold);
-  border-radius: 0 8px 8px 0;
-  margin: 0;
-  line-height: 1.7;
-}
-.rtl .portrait-quote { border-left: none; border-right: 4px solid var(--color-gold); border-radius: 8px 0 0 8px; }
-.quote-mark { font-family: var(--font-heading); font-size: 3rem; color: var(--color-gold); line-height: 0; position: relative; top: 0.3rem; margin-right: 0.3rem; }
-
-/* Byrsa Section */
-.byrsa-grid {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 3rem;
-  align-items: start;
-}
-
-.byrsa-quote {
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: 1.2rem;
-  color: var(--color-burgundy);
-  padding: 1.5rem 2rem;
-  background: rgba(107, 29, 42, 0.05);
-  border-left: 4px solid var(--color-gold);
-  border-radius: 0 8px 8px 0;
-  margin: 0 0 2rem;
-  line-height: 1.7;
-}
-.rtl .byrsa-quote { border-left: none; border-right: 4px solid var(--color-gold); }
-
-.byrsa-text p { color: #444; font-family: var(--font-body); font-size: 1.05rem; line-height: 1.9; margin-bottom: 1rem; }
-
-.byrsa-card {
-  background: var(--color-navy);
-  padding: 2.5rem;
-  border-radius: 12px;
-  text-align: center;
-  border: 1px solid rgba(201, 168, 76, 0.2);
-}
-.byrsa-icon { font-size: 3rem; margin-bottom: 1rem; }
-.byrsa-card h3 { font-family: var(--font-heading); font-size: 1.3rem; color: var(--color-gold); margin-bottom: 0.8rem; letter-spacing: 1px; text-transform: uppercase; }
-.byrsa-card p { font-family: var(--font-body); font-size: 0.9rem; color: #aaa; line-height: 1.7; }
-
-/* Myth Cards */
-.myth-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 2.5rem; }
-.myth-card { padding: 2.5rem; border-radius: 12px; color: #fff; }
-.myth-card-burgundy { background: linear-gradient(135deg, var(--color-burgundy), #4a0e1a); }
-.myth-card-navy { background: linear-gradient(135deg, var(--color-navy), var(--color-navy-light)); }
-.myth-card h3 { font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-gold); margin-bottom: 1rem; letter-spacing: 1px; }
-.myth-card p { font-family: var(--font-body); font-size: 0.95rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); }
-
-/* Timeline */
-.timeline { position: relative; padding-left: 2rem; }
-.rtl .timeline { padding-left: 0; padding-right: 2rem; }
-.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--color-gold), transparent); }
-.rtl .timeline::before { left: auto; right: 0; }
-.timeline-item { position: relative; margin-bottom: 2.5rem; }
-.timeline-dot { position: absolute; left: -2rem; top: 0.3rem; width: 14px; height: 14px; border-radius: 50%; background: var(--color-gold); border: 3px solid var(--color-navy); transform: translateX(-6px); }
-.rtl .timeline-dot { left: auto; right: -2rem; transform: translateX(6px); }
-.timeline-date { font-family: var(--font-heading); font-size: 0.8rem; color: var(--color-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem; }
-.timeline-heading { font-family: var(--font-heading); font-size: 1.1rem; color: var(--color-gold-light); margin-bottom: 0.5rem; }
-.timeline-text { font-family: var(--font-body); font-size: 0.9rem; color: #aaa; line-height: 1.7; }
-
-/* Achievements */
-.achievements-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.achievement-card { background: #fff; padding: 2rem 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); border-top: 3px solid var(--color-gold); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.achievement-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); }
-.achievement-icon { font-size: 2.2rem; margin-bottom: 1rem; }
-.achievement-card h3 { font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-navy); margin-bottom: 0.6rem; letter-spacing: 0.5px; }
-.achievement-card p { font-family: var(--font-body); font-size: 0.85rem; color: #666; line-height: 1.6; }
-
-/* Citations */
-.citations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.citation-card { display: flex; gap: 1rem; align-items: flex-start; background: var(--color-navy-light); padding: 1.5rem; border-radius: 10px; border: 1px solid rgba(201, 168, 76, 0.15); }
-.citation-icon { font-size: 1.5rem; flex-shrink: 0; }
-.citation-card h4 { font-family: var(--font-heading); font-size: 0.85rem; color: var(--color-gold); margin-bottom: 0.4rem; letter-spacing: 0.5px; }
-.citation-card p { font-family: var(--font-body); font-size: 0.8rem; color: #999; line-height: 1.6; }
-
-@media (max-width: 768px) {
-  .hero-title { font-size: 2rem; }
-  .portrait-grid { grid-template-columns: 1fr; }
-  .byrsa-grid { grid-template-columns: 1fr; }
-  .myth-grid { grid-template-columns: 1fr; }
-  .achievements-grid { grid-template-columns: repeat(2, 1fr); }
-  .citations-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 480px) {
-  .achievements-grid { grid-template-columns: 1fr; }
-  .hero-section { padding: 8rem 0 3rem; }
+@media (max-width: 640px) {
+  .leg-grid { grid-template-columns: minmax(0, 1fr); }
+  .side-fig { min-height: 280px; }
+  .keyfig { padding: 18px; }
 }
 </style>

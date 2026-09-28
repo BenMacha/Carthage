@@ -1,42 +1,26 @@
 <template>
   <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-section">
-          <h3>🏛️ {{ t.siteName }}</h3>
+    <div class="foot">
+      <div class="f-top">
+        <div class="f-brand">
+          <div class="phoen" aria-hidden="true">𐤒𐤓𐤕𐤇𐤃𐤔𐤕</div>
+          <NuxtLink :to="localePath('/')" class="f-word">{{ t.siteName }}</NuxtLink>
           <p>{{ t.footer.description }}</p>
         </div>
-        <div class="footer-section">
-          <h4>{{ t.footer.explore }}</h4>
-          <ul>
-            <li><NuxtLink :to="localePath('/chronologie')">{{ t.footer.timeline }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/elephants')">{{ t.footer.elephantPassage }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/economie')">{{ t.footer.economy }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/afrique')">{{ t.footer.africa }}</NuxtLink></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>{{ t.footer.periods }}</h4>
-          <ul>
-            <li><NuxtLink :to="localePath('/fondation')">{{ t.footer.founding }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/guerres-puniques')">{{ t.footer.punicWars }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/hannibal')">{{ t.footer.hannibal }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/prise-de-carthage')">{{ t.footer.fall }}</NuxtLink></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>{{ footerBioTitle }}</h4>
-          <ul>
-            <li><NuxtLink :to="localePath('/didon')">{{ footerBioLabels.didon }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/hamilcar')">{{ footerBioLabels.hamilcar }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/hannon')">{{ footerBioLabels.hannon }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/sophonisbe')">{{ footerBioLabels.sophonisbe }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/armee')">{{ footerBioLabels.armee }}</NuxtLink></li>
-          </ul>
+        <div class="f-cols">
+          <nav v-for="col in cols" :key="col.title" class="f-col" :aria-label="col.title">
+            <h4>{{ col.title }}</h4>
+            <ul>
+              <li v-for="it in col.items" :key="it.to">
+                <NuxtLink :to="localePath(it.to)">{{ it.label }}</NuxtLink>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>{{ t.footer.copyright }}</p>
+      <div class="f-bottom">
+        <span>{{ t.footer.copyright }}</span>
+        <NuxtLink :to="localePath('/credits')">{{ F.credits }}</NuxtLink>
       </div>
     </div>
   </footer>
@@ -45,89 +29,165 @@
 <script setup>
 const { t, locale, localePath } = useI18n()
 
-const footerBioTitle = computed(() => {
-  const labels = { fr: 'Biographies', en: 'Biographies', ar: 'السير الذاتية' }
-  return labels[locale.value] || labels.fr
-})
-
-const footerBioLabels = computed(() => {
-  const labels = {
-    fr: { didon: 'Didon (Élyssa)', hamilcar: 'Hamilcar Barca', hannon: 'Hannon le Navigateur', sophonisbe: 'Sophonisbe', armee: 'L\'Armée Multinationale' },
-    en: { didon: 'Dido (Elissa)', hamilcar: 'Hamilcar Barca', hannon: 'Hanno the Navigator', sophonisbe: 'Sophonisba', armee: 'The Multinational Army' },
-    ar: { didon: 'ديدو (إليسا)', hamilcar: 'حملقار برقا', hannon: 'حنون الملاح', sophonisbe: 'صفنبعل', armee: 'الجيش المتعدد' }
+const FOOT = {
+  fr: {
+    note: 'Qart-Ḥadasht · 814 – 146 av. J.-C.',
+    credits: 'Images : Wikimedia Commons, domaine public / CC — crédits',
+    explore: 'Explorer', periods: 'Époques', people: 'Personnages',
+    tunisie: 'Carthage vit en Tunisie', carte: 'Carte animée', sources: 'Histoire des vainqueurs', tactiques: "Les tactiques d'Hannibal", richesse: 'La richesse et Rome', lieux: 'Lieux historiques', religion: 'Religion', agriculture: 'Agriculture', armee: "L'armée", bios: 'Toutes les biographies', didon: 'Élissa / Didon', hamilcar: 'Hamilcar Barca', hannon: 'Hannon le Navigateur', sophonisbe: 'Sophonisbe'
+  },
+  en: {
+    note: 'Qart-Ḥadasht · 814 – 146 BC',
+    credits: 'Images: Wikimedia Commons, public domain / CC — credits',
+    explore: 'Explore', periods: 'Eras', people: 'People',
+    tunisie: 'Carthage lives in Tunisia', carte: 'Animated map', sources: "The victors' history", tactiques: "Hannibal's tactics", richesse: 'Wealth and Rome', lieux: 'Historic places', religion: 'Religion', agriculture: 'Agriculture', armee: 'The army', bios: 'All biographies', didon: 'Elissa / Dido', hamilcar: 'Hamilcar Barca', hannon: 'Hanno the Navigator', sophonisbe: 'Sophonisba'
+  },
+  ar: {
+    note: 'قرت حدشت · 814 – 146 ق.م',
+    credits: 'الصور: ويكيميديا كومنز، ملك عام / CC — المصادر',
+    explore: 'استكشف', periods: 'الحقب', people: 'الشخصيات',
+    tunisie: 'قرطاج تحيا في تونس', carte: 'الخريطة المتحركة', sources: 'تاريخ المنتصرين', tactiques: 'تكتيكات حنبعل', richesse: 'الثروة وروما', lieux: 'أماكن تاريخية', religion: 'الديانة', agriculture: 'الفلاحة', armee: 'الجيش', bios: 'كل السير', didon: 'عليسة / ديدون', hamilcar: 'حملقار برقا', hannon: 'حنون الملاح', sophonisbe: 'صفنبعل'
   }
-  return labels[locale.value] || labels.fr
-})
+}
+
+const F = computed(() => FOOT[locale.value] || FOOT.fr)
+
+const cols = computed(() => [
+  {
+    title: F.value.explore,
+    items: [
+      { to: '/tunisie', label: F.value.tunisie },
+      { to: '/carte', label: F.value.carte },
+      { to: '/chronologie', label: t.value.footer.timeline },
+      { to: '/histoire-des-vainqueurs', label: F.value.sources },
+      { to: '/religion', label: F.value.religion },
+      { to: '/agriculture', label: F.value.agriculture },
+      { to: '/economie', label: t.value.footer.economy },
+      { to: '/richesse-rome', label: F.value.richesse },
+      { to: '/lieux', label: F.value.lieux },
+      { to: '/afrique', label: t.value.footer.africa }
+    ]
+  },
+  {
+    title: F.value.periods,
+    items: [
+      { to: '/fondation', label: t.value.footer.founding },
+      { to: '/guerres-puniques', label: t.value.footer.punicWars },
+      { to: '/elephants', label: t.value.footer.elephantPassage },
+      { to: '/tactiques', label: F.value.tactiques },
+      { to: '/armee', label: F.value.armee },
+      { to: '/prise-de-carthage', label: t.value.footer.fall }
+    ]
+  },
+  {
+    title: F.value.people,
+    items: [
+      { to: '/biographies', label: F.value.bios },
+      { to: '/didon', label: F.value.didon },
+      { to: '/hamilcar', label: F.value.hamilcar },
+      { to: '/hannibal', label: t.value.footer.hannibal },
+      { to: '/hannon', label: F.value.hannon },
+      { to: '/sophonisbe', label: F.value.sophonisbe }
+    ]
+  }
+])
 </script>
 
 <style scoped>
 .footer {
-  background: var(--color-navy);
-  color: var(--color-text-light);
-  padding: 4rem 0 1.5rem;
-  margin-top: 4rem;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--section) var(--gutter) calc(env(safe-area-inset-bottom, 0px) + var(--gutter));
 }
 
-.footer-grid {
+.foot {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--r-xl);
+  padding: clamp(32px, 4vw, 56px) clamp(22px, 3.4vw, 48px) clamp(22px, 2.4vw, 32px);
+}
+
+.f-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.f-brand .phoen {
+  font-size: clamp(26px, 3vw, 40px);
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.f-word {
+  display: block;
+  font: 900 clamp(64px, 9vw, 112px)/0.85 var(--font-display);
+  font-stretch: 108%;
+  letter-spacing: -0.045em;
+  color: var(--paper);
+}
+
+.f-word:hover { color: var(--white); }
+
+.f-brand p {
+  margin-top: 18px;
+  font: 400 15px/1.55 var(--font-body);
+  color: var(--on-dark);
+  max-width: 380px;
+}
+
+.f-cols {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: repeat(3, auto);
+  gap: 32px 48px;
 }
 
-.footer-section h3 {
-  font-family: var(--font-heading);
-  color: var(--color-gold);
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-}
-
-.footer-section h4 {
-  font-family: var(--font-heading);
-  color: var(--color-gold-light);
-  font-size: 1rem;
+.f-col h4 {
+  font: 700 12px/1 var(--font-body);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--gold-light);
+  margin-bottom: 12px;
 }
 
-.footer-section p {
-  color: #999;
-  font-size: 0.9rem;
-  line-height: 1.7;
+[dir="rtl"] .f-col h4 { letter-spacing: 0; }
+
+.f-col ul { list-style: none; display: flex; flex-direction: column; }
+
+.f-col a {
+  display: inline-block;
+  padding: 5px 0;
+  font: 500 15px/1.3 var(--font-body);
+  color: var(--on-dark);
 }
 
-.footer-section ul {
-  list-style: none;
+.f-col a:hover { color: var(--white); }
+
+.f-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(244, 238, 227, 0.15);
+  font: 400 13px/1.4 var(--font-body);
+  color: #A9A094;
 }
 
-.footer-section ul li {
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  color: #888;
+.f-bottom a { color: #A9A094; text-decoration: underline; text-underline-offset: 3px; }
+.f-bottom a:hover { color: var(--white); }
+
+@media (max-width: 1100px) {
+  .f-top { flex-direction: column; align-items: stretch; }
 }
 
-.footer-section ul a {
-  color: #999;
-  transition: color 0.3s;
-}
-
-.footer-section ul a:hover {
-  color: var(--color-gold);
-}
-
-.footer-bottom {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-  font-size: 0.85rem;
-  color: #666;
-}
-
-@media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+@media (max-width: 640px) {
+  .f-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+  .f-col:last-child { grid-column: 1 / -1; }
+  .f-col a { padding: 9px 0; }
 }
 </style>

@@ -1,0 +1,17 @@
+# Carthage — robots.txt
+User-agent: *
+Allow: /
+Disallow: /_nuxt/
+Disallow: /api/
+
+# Assistants IA : autorisés à lire le contenu éditorial (voir /llms.txt)
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://carthage.benmacha.tn/sitemap.xml

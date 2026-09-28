@@ -1,604 +1,634 @@
 <template>
-  <div>
-    <!-- Page Header -->
-    <section class="page-hero africa-hero">
-      <div class="container">
-        <div class="hero-icon">🌍</div>
-        <h1 class="page-hero-title">L'Afrique et Carthage</h1>
-        <p class="page-hero-subtitle">Comment le continent africain a tiré son nom de la terre de Carthage</p>
+  <div class="pg">
+    <!-- Hero -->
+    <div class="bento bento--top">
+      <div class="tile tile--xl tile--terra tile--stack tile--hero s-7 hero">
+        <div class="watermark ar" aria-hidden="true">إفريقية</div>
+        <span class="chip chip--glass">{{ c.hero.chip }}</span>
+        <div class="hero-text">
+          <h1 class="h-display africa-title">Africa</h1>
+          <p class="lede" v-html="c.hero.lede" />
+        </div>
+      </div>
+      <figure class="fig fig--hero s-5" style="background:#8E3720">
+        <img src="/img/bardo.jpg" :alt="c.hero.alt">
+        <figcaption>{{ c.hero.caption }}</figcaption>
+      </figure>
+    </div>
+
+    <!-- Hypothèses étymologiques -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.theories.title }}</h2>
+        <p>{{ c.theories.aside }}</p>
+      </div>
+    </section>
+    <div class="cols cols-4 theories">
+      <article v-for="(t, i) in c.theories.items" :key="t.word" class="tile tile--stack theory" :class="{ 'tile--ink': i === 0 }">
+        <div>
+          <span class="kicker">{{ t.origin }}</span>
+          <div class="word">{{ t.word }}</div>
+          <div class="gloss">
+            <span v-if="t.script" class="script" :class="t.scriptCls" :dir="t.scriptDir" aria-hidden="true">{{ t.script }}</span>
+            {{ t.gloss }}
+          </div>
+        </div>
+        <div>
+          <p class="body">{{ t.text }}</p>
+          <p class="detail">{{ t.detail }}</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Le voyage d'un nom -->
+    <section class="sec">
+      <div class="tile tile--xl tile--sand">
+        <div class="sec-head journey-head">
+          <h2 class="h-section">{{ c.journey.title }}</h2>
+          <p>{{ c.journey.aside }}</p>
+        </div>
+        <ol class="journey">
+          <li v-for="(s, i) in c.journey.steps" :key="s.date" class="step" :class="{ 'step--key': s.key }">
+            <span class="step-date">{{ s.date }}</span>
+            <span class="step-name" :class="{ ar: s.ar }">{{ s.name }}</span>
+            <span class="step-title">{{ s.title }}</span>
+            <span class="step-text">{{ s.text }}</span>
+            <span v-if="i < c.journey.steps.length - 1" class="step-arrow" aria-hidden="true">→</span>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- Origin of the Name -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">L'origine du nom « Afrique »</h2>
-        <p class="section-subtitle">Un nom aux racines carthaginoises et berbères</p>
-
-        <div class="origin-content">
-          <div class="origin-main">
-            <p class="lead-text">
-              Le nom « Afrique » trouve ses origines dans la région de Carthage. Pour les Romains,
-              <strong>Africa</strong> désignait initialement la province romaine créée après la destruction
-              de Carthage en 146 av. J.-C., correspondant à l'actuelle Tunisie et à la Libye occidentale.
-              Ce n'est que progressivement que ce nom s'est étendu à l'ensemble du continent.
-            </p>
+    <!-- Ifriqiya + renvoi Tunisie -->
+    <section class="sec">
+      <div class="cols cols-5-7 cols--flush">
+        <figure class="fig ifr-fig" style="background:#8E3720">
+          <img src="/img/kairouan.jpg" :alt="c.ifr.alt" loading="lazy">
+          <figcaption class="cap-box">{{ c.ifr.caption }}</figcaption>
+        </figure>
+        <div class="tile tile--xl tile--purple tile--stack">
+          <div>
+            <span class="kicker">{{ c.ifr.kicker }}</span>
+            <h2 class="h-block ifr-title">{{ c.ifr.title }}</h2>
+            <p class="body-lg">{{ c.ifr.text }}</p>
           </div>
+          <NuxtLink :to="localePath('/tunisie')" class="btn btn-outline see-also">{{ c.ifr.more }}</NuxtLink>
+        </div>
+      </div>
+    </section>
 
-          <div class="theories-grid">
-            <div v-for="theory in nameTheories" :key="theory.title" class="theory-card">
-              <div class="theory-origin">{{ theory.origin }}</div>
-              <h3>{{ theory.title }}</h3>
-              <p>{{ theory.description }}</p>
-              <div class="theory-detail">{{ theory.detail }}</div>
+    <!-- L'Afrique du Nord avant Carthage -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.peoples.title }}</h2>
+        <p>{{ c.peoples.aside }}</p>
+      </div>
+    </section>
+    <div class="cols cols-4 peoples">
+      <article v-for="p in c.peoples.items" :key="p.name" class="card-img people" :class="{ 'tile--ink': p.img }">
+        <img v-if="p.img" :src="p.img" :alt="p.alt" loading="lazy">
+        <div class="card-body">
+          <span class="kicker">{{ p.period }}</span>
+          <h3 class="h-card">{{ p.name }}</h3>
+          <p>{{ p.text }}</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Identité africaine -->
+    <section class="sec">
+      <div class="cols cols-7-5 cols--flush">
+        <div class="tile tile--xl tile--ink">
+          <span class="kicker">{{ c.identity.kicker }}</span>
+          <h2 class="h-block id-title">{{ c.identity.title }}</h2>
+          <div class="id-grid">
+            <div v-for="a in c.identity.items" :key="a.title" class="id-item">
+              <h3 class="id-name">{{ a.title }}</h3>
+              <p class="body">{{ a.text }}</p>
+              <NuxtLink v-if="a.link" :to="localePath(a.link)" class="id-link">{{ a.linkLabel }}</NuxtLink>
             </div>
           </div>
         </div>
+        <figure class="fig dame-fig" style="background:#5E574F">
+          <img src="/img/dame.jpg" :alt="c.identity.alt" loading="lazy">
+          <figcaption class="cap-box">{{ c.identity.caption }}</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- Timeline of the Name -->
-    <section class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">L'évolution du nom à travers les siècles</h2>
-
-        <div class="timeline">
-          <div v-for="(event, index) in nameTimeline" :key="index" class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">{{ event.date }}</div>
-              <h3 class="timeline-title">{{ event.title }}</h3>
-              <p class="timeline-text">{{ event.description }}</p>
-            </div>
-          </div>
+    <!-- Héritage -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.legacy.title }}</h2>
+        <p>{{ c.legacy.aside }}</p>
+      </div>
+    </section>
+    <div class="cols cols-2 legacy">
+      <article v-for="(l, i) in c.legacy.items" :key="l.title" class="tile legacy-tile" :class="{ 'tile--gold': i === 0, 'with-img': l.img }">
+        <img v-if="l.img" :src="l.img" :alt="l.alt" loading="lazy">
+        <div>
+          <h3 class="h-card">{{ l.title }}</h3>
+          <p class="body">{{ l.text }}</p>
+          <ul class="bullets">
+            <li v-for="it in l.items" :key="it">{{ it }}</li>
+          </ul>
         </div>
-      </div>
+      </article>
+    </div>
+
+    <!-- Le saviez-vous ? -->
+    <section class="sec sec--wide">
+      <h2 class="h-section facts-title">{{ c.facts.title }}</h2>
     </section>
+    <div class="cols cols-3">
+      <div v-for="(f, i) in c.facts.items" :key="f.title" class="tile fact" :class="factTones[i]">
+        <h3 class="h-card">{{ f.title }}</h3>
+        <p class="body">{{ f.text }}</p>
+      </div>
+    </div>
 
-    <!-- Africa Before Carthage -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">L'Afrique du Nord avant Carthage</h2>
-        <p class="section-subtitle">Les peuples et civilisations qui ont précédé les Phéniciens</p>
-
-        <div class="peoples-grid">
-          <div v-for="people in ancientPeoples" :key="people.name" class="people-card">
-            <div class="people-icon">{{ people.icon }}</div>
-            <h3>{{ people.name }}</h3>
-            <div class="people-period">{{ people.period }}</div>
-            <p>{{ people.description }}</p>
-          </div>
+    <!-- À lire aussi -->
+    <section class="sec sec--wide">
+      <h2 class="h-section facts-title">{{ c.more.title }}</h2>
+    </section>
+    <div class="cols cols-3">
+      <NuxtLink v-for="m in c.more.items" :key="m.to" :to="localePath(m.to)" class="card-img">
+        <img :src="m.img" :alt="m.alt" loading="lazy">
+        <div class="card-body">
+          <span class="kicker">{{ m.kicker }}</span>
+          <h3 class="h-card">{{ m.title }}</h3>
+          <p>{{ m.text }}</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Carthage's African Identity -->
-    <section class="section section-dark">
-      <div class="container">
-        <h2 class="section-title light">L'identité africaine de Carthage</h2>
-        <p class="section-subtitle light">Carthage, creuset de cultures méditerranéennes et africaines</p>
-
-        <div class="identity-grid">
-          <div v-for="aspect in identityAspects" :key="aspect.title" class="identity-card">
-            <div class="identity-icon">{{ aspect.icon }}</div>
-            <h3>{{ aspect.title }}</h3>
-            <p>{{ aspect.description }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- African Legacy -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">L'héritage carthaginois en Afrique</h2>
-        <p class="section-subtitle">Ce que Carthage a légué au continent</p>
-
-        <div class="legacy-grid">
-          <div v-for="legacy in legacyItems" :key="legacy.title" class="legacy-card">
-            <h3>{{ legacy.icon }} {{ legacy.title }}</h3>
-            <p>{{ legacy.description }}</p>
-            <ul>
-              <li v-for="item in legacy.items" :key="item">{{ item }}</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Key Facts -->
-    <section class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Le saviez-vous ?</h2>
-
-        <div class="facts-grid">
-          <div v-for="fact in funFacts" :key="fact.title" class="fact-card">
-            <div class="fact-icon">{{ fact.icon }}</div>
-            <h3>{{ fact.title }}</h3>
-            <p>{{ fact.description }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+      </NuxtLink>
+    </div>
   </div>
 </template>
 
 <script setup>
-useHead({
-  title: 'L\'Afrique et Carthage - Origine du nom'
-})
+const { locale, localePath } = useI18n()
 
-const nameTheories = [
-  {
-    origin: 'Théorie berbère',
-    title: 'Les Afri / Ifri',
-    description: 'Le nom proviendrait des Afri (ou Aourigha), un peuple berbère vivant près de Carthage. Le mot berbère « ifri » signifie « grotte » ou « caverne », faisant référence aux habitations troglodytes de ces populations.',
-    detail: 'Cette théorie est la plus largement acceptée par les historiens. Les Afri étaient les voisins immédiats de Carthage, et les Romains auraient étendu leur nom à toute la région.'
-  },
-  {
-    origin: 'Théorie phénicienne',
-    title: 'Afar — « poussière »',
-    description: 'En phénicien, la langue de Carthage, le mot « afar » (𐤏𐤐𐤓) signifie « poussière » ou « terre ». L\'Africa serait donc simplement « la terre », « le pays ».',
-    detail: 'Cette étymologie fait écho au paysage semi-aride de la Tunisie intérieure, que les Phéniciens auraient découvert en s\'installant sur les côtes.'
-  },
-  {
-    origin: 'Théorie latine',
-    title: 'Aprica — « ensoleillée »',
-    description: 'Le mot latin « aprica » signifie « exposée au soleil ». Certains érudits romains, dont Isidore de Séville, ont proposé cette étymologie pour expliquer le climat chaud de la région.',
-    detail: 'Bien que séduisante, cette théorie est aujourd\'hui considérée comme une étymologie populaire plutôt que scientifique.'
-  },
-  {
-    origin: 'Théorie grecque',
-    title: 'Aphrike — « sans froid »',
-    description: 'Du grec « a-phrike » (ἀ-φρίκη), signifiant « sans froid » ou « sans frisson ». Les Grecs auraient nommé ainsi cette terre chaude par opposition à leur climat.',
-    detail: 'Cette théorie est mentionnée par Léon l\'Africain au XVIe siècle, mais elle reste minoritaire parmi les spécialistes.'
-  }
-]
+const factTones = ['', 'tile--navy', '', '', '', 'tile--purple']
 
-const nameTimeline = [
-  {
-    date: 'Avant 814 av. J.-C.',
-    title: 'La terre des Afri',
-    description: 'Les Berbères Afri habitent la région de l\'actuelle Tunisie. Leur nom désigne un peuple local, pas un continent. Les Égyptiens appellent ces terres « Tehenou » ou « Temehou ».'
+const C = {
+  fr: {
+    meta: {
+      title: "L'Afrique et son nom — Carthage",
+      desc: "Afri, Africa, Ifriqiya : comment le nom de la terre de Carthage, l'actuelle Tunisie, est devenu celui de tout un continent."
+    },
+    hero: {
+      chip: "L'Afrique et son nom",
+      lede: "Pour les Romains, <i>Africa</i> désignait d'abord la province créée en 146 av. J.-C. sur le territoire de Carthage — le nord-est de l'actuelle Tunisie. Le nom s'est ensuite étendu, en deux mille ans, à tout le continent.",
+      alt: 'Musée national du Bardo, Tunis',
+      caption: 'Musée national du Bardo, Tunis'
+    },
+    theories: {
+      title: "D'où vient « Afri » ?",
+      aside: "Quatre hypothèses ont été proposées. Aucune n'est prouvée ; la première est la plus souvent retenue.",
+      items: [
+        { origin: 'Berbère · la plus admise', word: 'Ifri', gloss: '« grotte, caverne »', text: "Les Afri (ou Aourigha), peuple berbère voisin de Carthage. Le mot berbère ifri évoquerait des habitants de grottes.", detail: "Les Romains auraient étendu le nom de ces voisins immédiats de Carthage à toute la région." },
+        { origin: 'Phénicienne', word: 'Afar', script: '𐤏𐤐𐤓', scriptCls: 'phoen', scriptDir: 'rtl', gloss: '« poussière, terre »', text: "Dans la langue de Carthage, ʿafar signifie « poussière » ou « terre » : Africa serait simplement « le pays ».", detail: "Une étymologie qui ferait écho aux paysages semi-arides de l'intérieur tunisien." },
+        { origin: 'Latine', word: 'Aprica', gloss: '« ensoleillée »', text: "Le latin aprica, « exposée au soleil », proposé notamment par Isidore de Séville pour expliquer le climat chaud de la région.", detail: "Séduisante, mais considérée aujourd'hui comme une étymologie populaire." },
+        { origin: 'Grecque', word: 'Aphrikē', script: 'ἀ-φρίκη', scriptCls: 'serif', gloss: '« sans froid »', text: "Du grec a-phrikē, « sans frisson » : une terre chaude, par opposition au climat de la Grèce.", detail: "Rapportée par Léon l'Africain au XVIe siècle ; minoritaire chez les spécialistes." }
+      ]
+    },
+    journey: {
+      title: "Le voyage d'un nom",
+      aside: "D'un peuple local à un continent de 54 pays.",
+      steps: [
+        { date: 'Avant 814 av. J.-C.', name: 'Afri', title: 'La terre des Afri', text: "Un peuple local, pas un continent. Les Égyptiens nomment les Libyens de l'ouest Tehenou et Temehou." },
+        { date: '814 av. J.-C.', name: 'Libyē', title: 'Fondation de Carthage', text: "Les Tyriens s'installent en territoire libyque. Les Grecs appellent l'ensemble de la région « Libye »." },
+        { date: '264–146 av. J.-C.', name: 'Afer', title: 'Les guerres puniques', text: "Au contact de Carthage, les Romains nomment les habitants Afer (pluriel Afri)." },
+        { date: '146 av. J.-C.', name: 'Africa', title: "Province d'Africa", text: "Après la destruction de Carthage, Rome crée la province d'Africa : premier usage officiel du nom.", key: true },
+        { date: 'Ier s. ap. J.-C.', name: 'Africa', title: 'Extension du nom', text: "Pline l'Ancien et Pomponius Mela emploient Africa pour tout le continent connu, distinct de l'Africa proprement dite." },
+        { date: 'VIIe siècle', name: 'إفريقية', ar: true, title: 'Ifriqiya', text: "Les conquérants arabes reprennent le nom latin pour la Tunisie et ses marges, avec Kairouan pour capitale." },
+        { date: 'XVe–XVIe siècle', name: 'Afrique', title: 'Le continent entier', text: "Avec les grandes navigations, les cartographes étendent le nom jusqu'au cap de Bonne-Espérance." }
+      ]
+    },
+    ifr: {
+      kicker: 'Ifriqiya',
+      title: 'Un nom jamais oublié',
+      text: "« Ifriqiya » (إفريقية) est la transcription directe du latin Africa. Utilisé pendant tout le Moyen Âge pour la Tunisie, avec l'est de l'actuelle Algérie et la Tripolitaine, il prouve que le nom n'a jamais quitté la région. Entre-temps, Carthage elle-même, refondée par Rome, était redevenue la capitale de l'Africa romaine.",
+      more: 'Voir aussi : Carthage vit en Tunisie →',
+      alt: 'Grande Mosquée de Kairouan',
+      caption: "Kairouan, fondée en 670, capitale de l'Ifriqiya"
+    },
+    peoples: {
+      title: "L'Afrique du Nord avant Carthage",
+      aside: 'Les peuples qui ont précédé, accueilli et côtoyé les Phéniciens.',
+      items: [
+        { period: 'Xe–VIe millénaire av. J.-C.', name: 'Les Capsiens', text: "Culture préhistorique nommée d'après Gafsa (Capsa), en Tunisie. Ancêtres probables des Berbères, ils ont laissé de nombreux sites archéologiques." },
+        { period: 'Depuis la préhistoire', name: 'Les Berbères (Imazighen)', text: "Peuple autochtone du Maghreb depuis des millénaires, ancêtres des Amazighs actuels. Leur présence est attestée par un riche art rupestre." },
+        { period: 'IVe–Ier s. av. J.-C.', name: 'Les royaumes numides', img: '/img/massinissa.jpg', alt: 'Massinissa, roi des Numides', text: "Cavaliers d'élite de l'actuelle Algérie et de l'ouest tunisien. Massinissa pèse sur la fin de la deuxième guerre punique ; la cavalerie numide sert Carthage, puis Rome." },
+        { period: 'Ier millénaire av. J.-C.', name: 'Les Garamantes', text: "Au Fezzan (Libye), une civilisation prospère en plein Sahara grâce à des galeries d'irrigation souterraines (foggaras), au cœur du commerce transsaharien." }
+      ]
+    },
+    identity: {
+      kicker: 'Une cité africaine',
+      title: "L'identité africaine de Carthage",
+      alt: 'Mosaïque dite « la Dame de Carthage »',
+      caption: '« La Dame de Carthage », mosaïque, musée de Carthage',
+      items: [
+        { title: 'Fusion des cultures', text: "Traditions phéniciennes et cultures libyco-berbères se mêlent ; les mariages mixtes sont courants. La culture punique qui en naît est proprement africaine." },
+        { title: 'Religions', text: "Baal Hammon et Tanit, venus de Phénicie, prennent à Carthage une place et des formes nouvelles ; l'influence de cultes libyques est discutée.", link: '/religion', linkLabel: 'La religion →' },
+        { title: 'Langue punique', text: "Issu du phénicien, le punique reste parlé en Afrique du Nord jusqu'au Ve siècle ap. J.-C., comme en témoigne saint Augustin." },
+        { title: 'Architecture', text: "Appien décrit, près de Byrsa, des maisons de six étages ; l'urbanisme punique s'adapte au site et au climat africains." },
+        { title: 'Une armée de peuples', text: "Libyens, Numides, Maures combattent aux côtés des Ibères, Baléares et Gaulois : l'armée reflète l'ancrage africain de Carthage.", link: '/armee', linkLabel: "L'armée →" },
+        { title: 'Savoir agricole', text: "Le savoir phénicien et la connaissance locale des sols donnent l'une des agricultures les plus productives de l'Antiquité.", link: '/agriculture', linkLabel: "L'agriculture →" }
+      ]
+    },
+    legacy: {
+      title: "L'héritage carthaginois en Afrique",
+      aside: 'Ce que Carthage a légué au continent.',
+      items: [
+        { title: 'Le nom du continent', text: "L'héritage le plus durable : le nom même de l'Afrique vient de la terre où s'élevait la cité punique.", items: ['Africa (latin) → Ifriqiya (arabe) → Afrique', 'De la Tunisie au continent entier en 2 000 ans', 'La plupart des langues du monde en utilisent une forme dérivée'] },
+        { title: "L'exploration africaine", text: "Les Carthaginois comptent parmi les premiers explorateurs des côtes atlantiques de l'Afrique.", items: ["Hannon longe la côte ouest de l'Afrique (vers 500 av. J.-C.)", "Il atteint peut-être le golfe de Guinée — la limite reste discutée", "Son Périple est le plus ancien récit d'exploration de l'Afrique occidentale"] },
+        { title: "L'urbanisme nord-africain", img: '/img/kerkouane.jpg', alt: 'Kerkouane, cité punique du cap Bon', text: "Carthage pose les bases de la ville en Afrique du Nord ; Kerkouane, au cap Bon, en est le meilleur témoin.", items: ['Réseau de villes puniques de la Tunisie au Maroc', 'Modèle urbain repris par les Romains puis les Arabes', 'Techniques de construction adaptées au climat'] },
+        { title: "L'agriculture", text: "Les techniques carthaginoises ont transformé les campagnes d'Afrique du Nord.", items: ["Oléiculture intensive", "Irrigation en zone semi-aride", "Le traité de Magon, traduit en latin sur ordre du Sénat, influence l'agriculture romaine"] }
+      ]
+    },
+    facts: {
+      title: 'Le saviez-vous ?',
+      items: [
+        { title: 'Saint Augustin et le punique', text: "Augustin d'Hippone (354–430), Berbère romanisé, rapporte que le punique se parlait encore dans les campagnes — plus de 500 ans après la chute de Carthage." },
+        { title: "Le Périple d'Hannon", text: "Vers 500 av. J.-C., 60 navires et 30 000 colons le long de la côte atlantique. Le récit décrit des « gorilles » — sans doute des chimpanzés ou des gorilles — et une montagne en feu." },
+        { title: 'Carthage romaine', text: "Décidée par César, la refondation de Carthage est réalisée sous Auguste (29 av. J.-C.). La ville redevient l'une des plus grandes de l'Empire, capitale de l'Africa." },
+        { title: 'Ifriqiya', text: "Le mot arabe إفريقية, qui désigna la Tunisie médiévale, transcrit directement le latin Africa." },
+        { title: 'Patrimoine mondial', text: "Le site de Carthage, dans la banlieue nord de Tunis, est inscrit au patrimoine mondial de l'UNESCO depuis 1979." },
+        { title: 'Un héros africain', text: "Hannibal, né à Carthage, mena une armée largement africaine contre la plus grande puissance européenne de son temps." }
+      ]
+    },
+    more: {
+      title: 'À lire aussi',
+      items: [
+        { to: '/tunisie', img: '/img/byrsa.jpg', alt: 'Colline de Byrsa', kicker: 'Aujourd’hui', title: 'Carthage vit en Tunisie', text: "Un nom en quatre langues, et partout dans la Tunisie d'aujourd'hui." },
+        { to: '/fondation', img: '/img/guerin-dido.jpg', alt: 'Didon, par P.-N. Guérin', kicker: '814 av. J.-C.', title: 'La fondation', text: "Élissa, la peau de bœuf et la naissance de Qart-Hadasht." },
+        { to: '/hannon', img: '/img/hanno-galley.png', alt: "Galère d'Hannon", kicker: 'Explorateur', title: 'Hannon le Navigateur', text: "Le périple le long des côtes atlantiques de l'Afrique." }
+      ]
+    }
   },
-  {
-    date: '814 av. J.-C.',
-    title: 'Fondation de Carthage',
-    description: 'Les Phéniciens fondent Carthage en territoire Afri. La coexistence entre Carthaginois et Berbères crée une culture hybride unique. Les Grecs appellent la région « Libye ».'
+  en: {
+    meta: {
+      title: 'Africa and its name — Carthage',
+      desc: 'Afri, Africa, Ifriqiya: how the name of the land of Carthage, present-day Tunisia, became the name of an entire continent.'
+    },
+    hero: {
+      chip: 'Africa and its name',
+      lede: 'For the Romans, <i>Africa</i> first meant the province created in 146 BC on the territory of Carthage — the north-east of present-day Tunisia. Over two thousand years, the name spread to the whole continent.',
+      alt: 'Bardo National Museum, Tunis',
+      caption: 'Bardo National Museum, Tunis'
+    },
+    theories: {
+      title: 'Where does "Afri" come from?',
+      aside: 'Four hypotheses have been proposed. None is proven; the first is the most widely accepted.',
+      items: [
+        { origin: 'Berber · most accepted', word: 'Ifri', gloss: '"cave"', text: 'The Afri (or Aourigha), a Berber people living near Carthage. The Berber word ifri would refer to cave dwellers.', detail: "The Romans are thought to have extended the name of Carthage's immediate neighbours to the whole region." },
+        { origin: 'Phoenician', word: 'Afar', script: '𐤏𐤐𐤓', scriptCls: 'phoen', scriptDir: 'rtl', gloss: '"dust, earth"', text: 'In the language of Carthage, ʿafar means "dust" or "earth": Africa would simply be "the land".', detail: 'An etymology that would echo the semi-arid landscapes of inland Tunisia.' },
+        { origin: 'Latin', word: 'Aprica', gloss: '"sunny"', text: 'The Latin aprica, "exposed to the sun", suggested by Isidore of Seville among others to explain the hot climate.', detail: 'Appealing, but now regarded as a folk etymology.' },
+        { origin: 'Greek', word: 'Aphrikē', script: 'ἀ-φρίκη', scriptCls: 'serif', gloss: '"without cold"', text: 'From the Greek a-phrikē, "without shivering": a warm land, as opposed to the Greek climate.', detail: 'Reported by Leo Africanus in the 16th century; a minority view among specialists.' }
+      ]
+    },
+    journey: {
+      title: 'The journey of a name',
+      aside: 'From a local people to a continent of 54 countries.',
+      steps: [
+        { date: 'Before 814 BC', name: 'Afri', title: 'The land of the Afri', text: 'A local people, not a continent. The Egyptians call the western Libyans Tehenu and Temehu.' },
+        { date: '814 BC', name: 'Libyē', title: 'Carthage is founded', text: 'Tyrians settle on Libyan land. The Greeks call the whole region "Libya".' },
+        { date: '264–146 BC', name: 'Afer', title: 'The Punic Wars', text: 'In contact with Carthage, the Romans call the inhabitants Afer (plural Afri).' },
+        { date: '146 BC', name: 'Africa', title: 'Province of Africa', text: 'After destroying Carthage, Rome creates the province of Africa: the first official use of the name.', key: true },
+        { date: '1st c. AD', name: 'Africa', title: 'The name spreads', text: 'Pliny the Elder and Pomponius Mela use Africa for the whole known continent, distinct from Africa proper.' },
+        { date: '7th century', name: 'إفريقية', ar: true, title: 'Ifriqiya', text: 'The Arab conquerors adopt the Latin name for Tunisia and its borderlands, with Kairouan as capital.' },
+        { date: '15th–16th c.', name: 'Africa', title: 'The whole continent', text: 'With the great voyages, cartographers extend the name down to the Cape of Good Hope.' }
+      ]
+    },
+    ifr: {
+      kicker: 'Ifriqiya',
+      title: 'A name never forgotten',
+      text: 'Ifriqiya (إفريقية) is a direct transcription of the Latin Africa. Used throughout the Middle Ages for Tunisia, together with eastern Algeria and Tripolitania, it shows that the name never left the region. Meanwhile Carthage itself, refounded by Rome, had again become the capital of Roman Africa.',
+      more: 'See also: Carthage lives in Tunisia →',
+      alt: 'Great Mosque of Kairouan',
+      caption: 'Kairouan, founded in 670, capital of Ifriqiya'
+    },
+    peoples: {
+      title: 'North Africa before Carthage',
+      aside: 'The peoples who preceded, welcomed and lived alongside the Phoenicians.',
+      items: [
+        { period: '10th–6th millennium BC', name: 'The Capsians', text: 'A prehistoric culture named after Gafsa (Capsa) in Tunisia. Probable ancestors of the Berbers, they left many archaeological sites.' },
+        { period: 'Since prehistory', name: 'The Berbers (Imazighen)', text: 'The indigenous people of the Maghreb for millennia, ancestors of today’s Amazigh. A rich rock art attests to their presence.' },
+        { period: '4th–1st c. BC', name: 'The Numidian kingdoms', img: '/img/massinissa.jpg', alt: 'Masinissa, king of the Numidians', text: 'Elite horsemen from present-day Algeria and western Tunisia. Masinissa weighed heavily at the end of the Second Punic War; Numidian cavalry served Carthage, then Rome.' },
+        { period: '1st millennium BC', name: 'The Garamantes', text: 'In the Fezzan (Libya), a prosperous civilisation in the heart of the Sahara thanks to underground irrigation channels (foggaras), at the centre of trans-Saharan trade.' }
+      ]
+    },
+    identity: {
+      kicker: 'An African city',
+      title: "Carthage's African identity",
+      alt: 'Mosaic known as "the Lady of Carthage"',
+      caption: '"The Lady of Carthage", mosaic, Carthage Museum',
+      items: [
+        { title: 'A blend of cultures', text: 'Phoenician traditions and Libyco-Berber cultures mixed; intermarriage was common. The resulting Punic culture was distinctly African.' },
+        { title: 'Religion', text: 'Baal Hammon and Tanit, brought from Phoenicia, took on a new place and new forms in Carthage; the influence of Libyan cults is debated.', link: '/religion', linkLabel: 'Religion →' },
+        { title: 'The Punic language', text: 'Derived from Phoenician, Punic was still spoken in North Africa until the 5th century AD, as Saint Augustine attests.' },
+        { title: 'Architecture', text: 'Appian describes six-storey houses near Byrsa; Punic town planning adapted to the African site and climate.' },
+        { title: 'An army of peoples', text: 'Libyans, Numidians and Moors fought alongside Iberians, Balearic slingers and Gauls: the army reflected Carthage’s African roots.', link: '/armee', linkLabel: 'The army →' },
+        { title: 'Farming know-how', text: 'Phoenician skills combined with local knowledge of soils produced one of the most productive agricultures of antiquity.', link: '/agriculture', linkLabel: 'Agriculture →' }
+      ]
+    },
+    legacy: {
+      title: "Carthage's legacy in Africa",
+      aside: 'What Carthage bequeathed to the continent.',
+      items: [
+        { title: 'The name of the continent', text: 'The most lasting legacy: the very name of Africa comes from the land where the Punic city stood.', items: ['Africa (Latin) → Ifriqiya (Arabic) → Afrique / Africa', 'From Tunisia to the whole continent in 2,000 years', 'Most of the world’s languages use a form of it'] },
+        { title: 'Exploring Africa', text: 'The Carthaginians were among the first explorers of Africa’s Atlantic coasts.', items: ['Hanno sails down the west coast of Africa (c. 500 BC)', 'He may have reached the Gulf of Guinea — how far is debated', 'His Periplus is the oldest account of the exploration of West Africa'] },
+        { title: 'North African town planning', img: '/img/kerkouane.jpg', alt: 'Kerkouane, Punic town on Cape Bon', text: 'Carthage laid the foundations of the city in North Africa; Kerkouane, on Cape Bon, is its best witness.', items: ['A network of Punic towns from Tunisia to Morocco', 'An urban model taken up by the Romans, then the Arabs', 'Building techniques adapted to the climate'] },
+        { title: 'Agriculture', text: 'Carthaginian techniques transformed the North African countryside.', items: ['Intensive olive growing', 'Irrigation in semi-arid areas', 'Mago’s treatise, translated into Latin by order of the Senate, shaped Roman farming'] }
+      ]
+    },
+    facts: {
+      title: 'Did you know?',
+      items: [
+        { title: 'Saint Augustine and Punic', text: 'Augustine of Hippo (354–430), a Romanised Berber, reports that Punic was still spoken in the countryside — more than 500 years after the fall of Carthage.' },
+        { title: 'The Periplus of Hanno', text: 'Around 500 BC, 60 ships and 30,000 settlers along the Atlantic coast. The account describes "gorillas" — probably chimpanzees or gorillas — and a mountain on fire.' },
+        { title: 'Roman Carthage', text: 'Planned by Caesar, the refoundation of Carthage was carried out under Augustus (29 BC). It became one of the largest cities of the Empire, capital of Africa.' },
+        { title: 'Ifriqiya', text: 'The Arabic word إفريقية, the name of medieval Tunisia, is a direct transcription of the Latin Africa.' },
+        { title: 'World Heritage', text: 'The site of Carthage, in the northern suburbs of Tunis, has been a UNESCO World Heritage Site since 1979.' },
+        { title: 'An African hero', text: 'Hannibal, born in Carthage, led a largely African army against the greatest European power of his day.' }
+      ]
+    },
+    more: {
+      title: 'Read also',
+      items: [
+        { to: '/tunisie', img: '/img/byrsa.jpg', alt: 'Byrsa Hill', kicker: 'Today', title: 'Carthage lives in Tunisia', text: 'One name in four languages, and everywhere in today’s Tunisia.' },
+        { to: '/fondation', img: '/img/guerin-dido.jpg', alt: 'Dido, by P.-N. Guérin', kicker: '814 BC', title: 'The foundation', text: 'Elissa, the oxhide and the birth of Qart-Hadasht.' },
+        { to: '/hannon', img: '/img/hanno-galley.png', alt: "Hanno's galley", kicker: 'Explorer', title: 'Hanno the Navigator', text: 'The voyage along the Atlantic coasts of Africa.' }
+      ]
+    }
   },
-  {
-    date: '264–146 av. J.-C.',
-    title: 'Les Guerres Puniques',
-    description: 'Rome entre en contact direct avec la terre des Afri à travers ses guerres contre Carthage. Les Romains adoptent le terme « Afer » (singulier) pour désigner les habitants de la région.'
-  },
-  {
-    date: '146 av. J.-C.',
-    title: 'Création de la province d\'Africa',
-    description: 'Après la destruction de Carthage, Rome crée la province d\'Africa Proconsularis sur le territoire carthaginois. C\'est la première utilisation officielle du nom « Africa » comme entité administrative.'
-  },
-  {
-    date: 'Ier siècle ap. J.-C.',
-    title: 'Extension du nom',
-    description: 'Les géographes romains comme Pline l\'Ancien et Pomponius Mela commencent à utiliser « Africa » pour désigner l\'ensemble du continent, distinguant l\'Africa propria (Tunisie) de l\'Africa au sens large.'
-  },
-  {
-    date: 'VIIe siècle',
-    title: 'Ifriqiya arabe',
-    description: 'Les conquérants arabes adoptent le nom sous la forme « Ifriqiya » (إفريقية) pour désigner la Tunisie et l\'est de l\'Algérie, perpétuant directement le nom latin Africa.'
-  },
-  {
-    date: 'XVe–XVIe siècle',
-    title: 'Le continent entier',
-    description: 'Avec les grandes explorations, les cartographes européens étendent définitivement le nom « Africa » à l\'ensemble du continent, de la Méditerranée au Cap de Bonne-Espérance.'
+  ar: {
+    meta: {
+      title: 'إفريقيا واسمها — قرطاج',
+      desc: 'أفري، أفريكا، إفريقية: كيف صار اسم أرض قرطاج، تونس الحالية، اسمًا لقارة بأكملها.'
+    },
+    hero: {
+      chip: 'إفريقيا واسمها',
+      lede: 'عند الرومان، كانت <i>Africa</i> تعني أولًا الولاية التي أُنشئت سنة 146 ق.م على أرض قرطاج — شمال شرق تونس الحالية. ثم امتد الاسم، على مدى ألفي عام، إلى القارة كلها.',
+      alt: 'المتحف الوطني بباردو، تونس',
+      caption: 'المتحف الوطني بباردو، تونس'
+    },
+    theories: {
+      title: 'من أين جاءت كلمة «أفري»؟',
+      aside: 'اقتُرحت أربع فرضيات، لم تثبت أيّ منها؛ والأولى هي الأكثر قبولًا.',
+      items: [
+        { origin: 'أمازيغية · الأكثر قبولًا', word: 'Ifri', gloss: '«المغارة، الكهف»', text: 'الأفري (أو أوريغة) شعب أمازيغي جار لقرطاج. وكلمة «إفري» الأمازيغية تشير إلى سكان المغارات.', detail: 'يُرجَّح أن الرومان عمّموا اسم هؤلاء الجيران المباشرين لقرطاج على المنطقة كلها.' },
+        { origin: 'فينيقية', word: 'Afar', script: '𐤏𐤐𐤓', scriptCls: 'phoen', scriptDir: 'rtl', gloss: '«الغبار، التراب»', text: 'في لغة قرطاج تعني «عَفَر» الغبار أو التراب: فتكون أفريكا ببساطة «البلاد».', detail: 'اشتقاق يذكّر بالمشاهد شبه الجافة في الداخل التونسي.' },
+        { origin: 'لاتينية', word: 'Aprica', gloss: '«المشمسة»', text: 'اللاتينية aprica أي «المعرّضة للشمس»، اقترحها خصوصًا إيسيدور الإشبيلي لتفسير حرارة المناخ.', detail: 'فرضية جذابة، لكنها تُعدّ اليوم اشتقاقًا شعبيًا.' },
+        { origin: 'إغريقية', word: 'Aphrikē', script: 'ἀ-φρίκη', scriptCls: 'serif', gloss: '«بلا برد»', text: 'من الإغريقية a-phrikē أي «بلا قشعريرة»: أرض دافئة مقارنة بمناخ بلاد الإغريق.', detail: 'نقلها الحسن الوزان (ليون الإفريقي) في القرن السادس عشر؛ وهي رأي أقلية بين المختصين.' }
+      ]
+    },
+    journey: {
+      title: 'رحلة اسم',
+      aside: 'من شعب محلي إلى قارة تضم 54 دولة.',
+      steps: [
+        { date: 'قبل 814 ق.م', name: 'Afri', title: 'أرض الأفري', text: 'شعب محلي لا قارة. وكان المصريون يسمّون الليبيين الغربيين «تحنو» و«تمحو».' },
+        { date: '814 ق.م', name: 'Libyē', title: 'تأسيس قرطاج', text: 'يستقر الصوريون في أرض ليبية، ويسمّي الإغريق المنطقة كلها «ليبيا».' },
+        { date: '264–146 ق.م', name: 'Afer', title: 'الحروب البونيقية', text: 'باحتكاكهم بقرطاج، سمّى الرومان السكان Afer (والجمع Afri).' },
+        { date: '146 ق.م', name: 'Africa', title: 'ولاية إفريقية', text: 'بعد تدمير قرطاج أنشأت روما ولاية Africa: أول استعمال رسمي للاسم.', key: true },
+        { date: 'القرن 1 م', name: 'Africa', title: 'اتساع الاسم', text: 'استعمل بلينيوس الأكبر وبومبونيوس ميلا اسم Africa للقارة المعروفة كلها، تمييزًا لها عن إفريقية بالمعنى الضيق.' },
+        { date: 'القرن 7', name: 'إفريقية', ar: true, title: 'إفريقية', text: 'اعتمد الفاتحون العرب الاسم اللاتيني لتونس وأطرافها، وعاصمتها القيروان.' },
+        { date: 'القرنان 15–16', name: 'Afrique', title: 'القارة كلها', text: 'مع الرحلات البحرية الكبرى، مدّ رسّامو الخرائط الاسم حتى رأس الرجاء الصالح.' }
+      ]
+    },
+    ifr: {
+      kicker: 'إفريقية',
+      title: 'اسم لم يُنسَ قط',
+      text: '«إفريقية» نقلٌ مباشر للّاتينية Africa. استُعمل طوال العصر الوسيط لتونس مع شرق الجزائر الحالية وطرابلس، وهو دليل على أن الاسم لم يغادر المنطقة قط. وفي الأثناء كانت قرطاج نفسها، بعد أن أعاد الرومان تأسيسها، قد عادت عاصمةً لإفريقية الرومانية.',
+      more: 'انظر أيضًا: قرطاج تحيا في تونس ←',
+      alt: 'جامع القيروان الكبير',
+      caption: 'القيروان، تأسست سنة 670، عاصمة إفريقية'
+    },
+    peoples: {
+      title: 'شمال إفريقيا قبل قرطاج',
+      aside: 'الشعوب التي سبقت الفينيقيين واستقبلتهم وجاورتهم.',
+      items: [
+        { period: 'الألفية 10–6 ق.م', name: 'القفصيون', text: 'ثقافة ما قبل التاريخ سُمّيت نسبةً إلى قفصة (Capsa) في تونس. يُرجَّح أنهم أسلاف الأمازيغ، وتركوا مواقع أثرية عديدة.' },
+        { period: 'منذ ما قبل التاريخ', name: 'الأمازيغ', text: 'السكان الأصليون للمغرب الكبير منذ آلاف السنين، أسلاف الأمازيغ الحاليين. ويشهد على حضورهم فنّ صخري غني.' },
+        { period: 'القرن 4–1 ق.م', name: 'الممالك النوميدية', img: '/img/massinissa.jpg', alt: 'ماسينيسا، ملك النوميديين', text: 'فرسان النخبة من الجزائر الحالية وغرب تونس. كان لماسينيسا وزن حاسم في نهاية الحرب البونيقية الثانية؛ وخدم الفرسان النوميديون قرطاج ثم روما.' },
+        { period: 'الألفية 1 ق.م', name: 'الجرمنت', text: 'في فزّان (ليبيا)، حضارة مزدهرة في قلب الصحراء بفضل قنوات ري جوفية (الفقارات)، في قلب التجارة العابرة للصحراء.' }
+      ]
+    },
+    identity: {
+      kicker: 'مدينة إفريقية',
+      title: 'الهوية الإفريقية لقرطاج',
+      alt: 'فسيفساء «سيدة قرطاج»',
+      caption: '«سيدة قرطاج»، فسيفساء، متحف قرطاج',
+      items: [
+        { title: 'امتزاج الثقافات', text: 'امتزجت التقاليد الفينيقية بالثقافات الليبية الأمازيغية، وكان الزواج المختلط شائعًا. فجاءت الثقافة البونية إفريقية الطابع.' },
+        { title: 'الديانة', text: 'بعل حمون وتانيت، القادمان من فينيقيا، اتخذا في قرطاج مكانة وأشكالًا جديدة؛ أما تأثير العبادات الليبية فمحلّ نقاش.', link: '/religion', linkLabel: 'الديانة ←' },
+        { title: 'اللغة البونية', text: 'بقيت البونية، المتفرعة عن الفينيقية، متداولة في شمال إفريقيا حتى القرن الخامس للميلاد، كما يشهد القديس أوغسطين.' },
+        { title: 'العمارة', text: 'يصف أبيان بيوتًا من ستة طوابق قرب بيرصا؛ وتكيّف العمران البوني مع الموقع والمناخ الإفريقيين.' },
+        { title: 'جيش من الشعوب', text: 'قاتل الليبيون والنوميديون والموريون إلى جانب الإيبيريين والبليار والغاليين: جيش يعكس تجذّر قرطاج في إفريقيا.', link: '/armee', linkLabel: 'الجيش ←' },
+        { title: 'خبرة زراعية', text: 'أنتج امتزاج الخبرة الفينيقية بالمعرفة المحلية للتربة واحدة من أكثر الزراعات إنتاجًا في العصور القديمة.', link: '/agriculture', linkLabel: 'الزراعة ←' }
+      ]
+    },
+    legacy: {
+      title: 'الإرث القرطاجي في إفريقيا',
+      aside: 'ما خلّفته قرطاج للقارة.',
+      items: [
+        { title: 'اسم القارة', text: 'الإرث الأبقى: اسم إفريقيا نفسه جاء من الأرض التي قامت عليها المدينة البونية.', items: ['Africa (اللاتينية) ← إفريقية (العربية) ← Afrique', 'من تونس إلى القارة كلها في ألفي عام', 'تستعمل معظم لغات العالم صيغة مشتقة منه'] },
+        { title: 'استكشاف إفريقيا', text: 'كان القرطاجيون من أوائل مستكشفي السواحل الأطلسية لإفريقيا.', items: ['حنون يبحر على طول الساحل الغربي لإفريقيا (نحو 500 ق.م)', 'ربما بلغ خليج غينيا — ومدى رحلته محلّ نقاش', 'رحلته أقدم رواية عن استكشاف غرب إفريقيا'] },
+        { title: 'العمران في شمال إفريقيا', img: '/img/kerkouane.jpg', alt: 'كركوان، مدينة بونية في الوطن القبلي', text: 'وضعت قرطاج أسس المدينة في شمال إفريقيا؛ وكركوان في الوطن القبلي أفضل شاهد على ذلك.', items: ['شبكة مدن بونية من تونس إلى المغرب', 'نموذج عمراني تبنّاه الرومان ثم العرب', 'تقنيات بناء متكيّفة مع المناخ'] },
+        { title: 'الزراعة', text: 'غيّرت التقنيات القرطاجية أرياف شمال إفريقيا.', items: ['زراعة الزيتون المكثفة', 'الري في المناطق شبه الجافة', 'كتاب ماغون، المترجم إلى اللاتينية بأمر من مجلس الشيوخ، أثّر في الزراعة الرومانية'] }
+      ]
+    },
+    facts: {
+      title: 'هل تعلم؟',
+      items: [
+        { title: 'القديس أوغسطين والبونية', text: 'يذكر أوغسطين الهيبوني (354–430)، الأمازيغي المتروّم، أن البونية كانت ما تزال تُتكلّم في الأرياف — بعد أكثر من 500 سنة من سقوط قرطاج.' },
+        { title: 'رحلة حنون', text: 'نحو 500 ق.م، 60 سفينة و30 ألف مستوطن على طول الساحل الأطلسي. تصف الرواية «غوريلات» — لعلها شمبانزي أو غوريلا — وجبلًا مشتعلًا.' },
+        { title: 'قرطاج الرومانية', text: 'قرّر قيصر إعادة تأسيس قرطاج، ونُفّذ ذلك في عهد أغسطس (29 ق.م). فعادت من كبريات مدن الإمبراطورية وعاصمةً لإفريقية.' },
+        { title: 'إفريقية', text: 'الكلمة العربية «إفريقية»، اسم تونس في العصر الوسيط، نقلٌ مباشر للّاتينية Africa.' },
+        { title: 'التراث العالمي', text: 'موقع قرطاج، في الضاحية الشمالية لتونس العاصمة، مسجّل في قائمة التراث العالمي لليونسكو منذ 1979.' },
+        { title: 'بطل إفريقي', text: 'قاد حنبعل، المولود في قرطاج، جيشًا إفريقيًا في معظمه ضد أعظم قوة أوروبية في عصره.' }
+      ]
+    },
+    more: {
+      title: 'اقرأ أيضًا',
+      items: [
+        { to: '/tunisie', img: '/img/byrsa.jpg', alt: 'هضبة بيرصا', kicker: 'اليوم', title: 'قرطاج تحيا في تونس', text: 'اسم بأربع لغات، حاضر في كل مكان في تونس اليوم.' },
+        { to: '/fondation', img: '/img/guerin-dido.jpg', alt: 'ديدون، بريشة غيران', kicker: '814 ق.م', title: 'التأسيس', text: 'عليسة وجلد الثور وميلاد قرت حدشت.' },
+        { to: '/hannon', img: '/img/hanno-galley.png', alt: 'سفينة حنون', kicker: 'مستكشف', title: 'حنون الملاح', text: 'الرحلة على طول السواحل الأطلسية لإفريقيا.' }
+      ]
+    }
   }
-]
+}
 
-const ancientPeoples = [
-  {
-    icon: '🏔️',
-    name: 'Les Berbères (Imazighen)',
-    period: 'Depuis la préhistoire',
-    description: 'Peuple autochtone d\'Afrique du Nord, les Berbères occupent le Maghreb depuis des millénaires. Leur civilisation est attestée par des gravures rupestres datant de 12 000 ans. Ils sont les ancêtres des Amazighs actuels.'
-  },
-  {
-    icon: '👑',
-    name: 'Les Royaumes numides',
-    period: 'IVe–Ier siècle av. J.-C.',
-    description: 'Les Numides (actuelle Algérie) étaient des cavaliers d\'élite. Les rois Massinissa et Jugurtha ont joué un rôle crucial dans les guerres puniques. La cavalerie numide était l\'arme secrète de Carthage puis de Rome.'
-  },
-  {
-    icon: '🐎',
-    name: 'Les Garamantes',
-    period: 'Ier millénaire av. J.-C.',
-    description: 'Peuple du Fezzan (Libye actuelle), les Garamantes ont bâti une civilisation prospère au cœur du Sahara grâce à des systèmes d\'irrigation souterrains (foggaras). Ils contrôlaient le commerce transsaharien.'
-  },
-  {
-    icon: '⚱️',
-    name: 'Les Capsiens',
-    period: '10 000–6 000 av. J.-C.',
-    description: 'Culture préhistorique d\'Afrique du Nord (nommée d\'après Gafsa en Tunisie), les Capsiens sont considérés comme les ancêtres probables des Berbères. Ils ont laissé d\'importants sites archéologiques.'
-  }
-]
+const c = computed(() => C[locale.value] || C.fr)
 
-const identityAspects = [
-  {
-    icon: '🤝',
-    title: 'Fusion des cultures',
-    description: 'Carthage était un creuset unique mêlant traditions phéniciennes orientales et cultures berbères locales. Les mariages mixtes étaient courants, et la culture punique qui en résulta était distinctement africaine.'
-  },
-  {
-    icon: '🙏',
-    title: 'Religions syncrétiques',
-    description: 'Les divinités carthaginoises (Tanit, Baal Hammon) sont un mélange de dieux phéniciens et de divinités locales libyques. Le culte de Tanit, en particulier, semble avoir des racines africaines profondes.'
-  },
-  {
-    icon: '🗣️',
-    title: 'Langue punique',
-    description: 'Le punique, dérivé du phénicien, est resté parlé en Afrique du Nord jusqu\'au Ve siècle ap. J.-C. Saint Augustin, lui-même Berbère romanisé, témoigne de sa persistance dans les campagnes.'
-  },
-  {
-    icon: '🏗️',
-    title: 'Architecture',
-    description: 'L\'urbanisme carthaginois intégrait des éléments architecturaux locaux. Les immeubles de Carthage, hauts de 6 étages, étaient uniques dans le monde antique et reflétaient les contraintes du site africain.'
-  },
-  {
-    icon: '⚔️',
-    title: 'Armée multi-ethnique',
-    description: 'L\'armée carthaginoise était composée de soldats de toute l\'Afrique : Numides, Libyens, Maures, et même des guerriers subsahariens. Cette diversité reflétait l\'ancrage africain de l\'empire.'
-  },
-  {
-    icon: '🌾',
-    title: 'Savoir-faire agricole',
-    description: 'Les techniques agricoles carthaginoises combinaient le savoir phénicien avec les connaissances locales des sols et du climat africain, créant une agriculture parmi les plus productives de l\'Antiquité.'
-  }
-]
-
-const legacyItems = [
-  {
-    icon: '📛',
-    title: 'Le nom du continent',
-    description: 'L\'héritage le plus durable de Carthage est sans doute le nom même du continent africain, qui provient de la terre où s\'élevait la cité punique.',
-    items: [
-      'Africa (latin) → Ifriqiya (arabe) → Afrique (français)',
-      'Le nom a voyagé de la Tunisie au continent entier en 2 000 ans',
-      'Toutes les langues du monde utilisent une forme dérivée de ce nom'
-    ]
-  },
-  {
-    icon: '🚢',
-    title: 'L\'exploration africaine',
-    description: 'Les Carthaginois ont été parmi les premiers à explorer les côtes africaines.',
-    items: [
-      'Hannon le Navigateur a exploré la côte ouest de l\'Afrique (Ve siècle av. J.-C.)',
-      'Il aurait atteint le golfe de Guinée, voire le Cameroun',
-      'Son périple est le plus ancien récit d\'exploration de l\'Afrique occidentale'
-    ]
-  },
-  {
-    icon: '🏙️',
-    title: 'L\'urbanisme nord-africain',
-    description: 'Carthage a posé les fondations de l\'urbanisation en Afrique du Nord.',
-    items: [
-      'Réseau de villes puniques de la Tunisie au Maroc',
-      'Modèle urbain repris par les Romains puis les Arabes',
-      'Techniques de construction adaptées au climat africain'
-    ]
-  },
-  {
-    icon: '🌿',
-    title: 'L\'agriculture africaine',
-    description: 'Les techniques agricoles carthaginoises ont transformé l\'Afrique du Nord.',
-    items: [
-      'Introduction de l\'oléiculture intensive',
-      'Développement de l\'irrigation en zone semi-aride',
-      'Le traité de Magon a influencé l\'agriculture romaine en Afrique'
-    ]
-  }
-]
-
-const funFacts = [
-  {
-    icon: '📖',
-    title: 'Saint Augustin et le punique',
-    description: 'Saint Augustin d\'Hippone (354–430), l\'un des pères de l\'Église, était un Berbère romanisé d\'Afrique du Nord. Il rapporte que le punique était encore parlé dans les campagnes de son époque, soit 500 ans après la chute de Carthage.'
-  },
-  {
-    icon: '🗺️',
-    title: 'Ifriqiya',
-    description: 'Le mot arabe « Ifriqiya » (إفريقية), utilisé pour désigner la Tunisie médiévale, est la transcription directe du latin « Africa ». C\'est la preuve vivante que le nom n\'a jamais été oublié dans la région.'
-  },
-  {
-    icon: '🏛️',
-    title: 'Carthage romaine',
-    description: 'Après sa destruction, Carthage a été refondée par les Romains sous Jules César en 46 av. J.-C. Elle est redevenue l\'une des plus grandes villes de l\'Empire, capitale de la province d\'Africa.'
-  },
-  {
-    icon: '🌊',
-    title: 'Le Périple d\'Hannon',
-    description: 'Vers 500 av. J.-C., Hannon le Navigateur carthaginois a mené une expédition de 60 navires et 30 000 colons le long de la côte atlantique africaine. Il décrit des « gorilles » (probablement des chimpanzés) et des volcans en éruption.'
-  },
-  {
-    icon: '🏺',
-    title: 'Carthage = Tunisie',
-    description: 'Le site archéologique de Carthage se trouve aujourd\'hui dans la banlieue nord de Tunis, capitale de la Tunisie. Il est classé au patrimoine mondial de l\'UNESCO depuis 1979.'
-  },
-  {
-    icon: '✊',
-    title: 'Fierté africaine',
-    description: 'Hannibal Barca est considéré comme un héros africain. Né à Carthage (Tunisie), il a mené une armée multi-ethnique africaine contre la plus grande puissance européenne de son temps.'
-  }
-]
+useHead(() => ({
+  title: c.value.meta.title,
+  meta: [{ name: 'description', content: c.value.meta.desc }]
+}))
 </script>
 
 <style scoped>
-.africa-hero {
-  background: linear-gradient(135deg, var(--color-navy) 0%, #1a3a2e 50%, var(--color-burgundy-dark) 100%);
-  padding: 10rem 0 4rem;
-  text-align: center;
-}
+.hero-text { position: relative; }
 
-.hero-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-.page-hero-title {
-  font-size: 3rem;
-  color: var(--color-gold);
-  margin-bottom: 1rem;
-  letter-spacing: 3px;
-}
-
-.page-hero-subtitle {
-  color: #ccc;
-  font-size: 1.15rem;
-  font-style: italic;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.origin-content {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.origin-main {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.lead-text {
-  font-size: 1.15rem;
-  color: #444;
-  line-height: 1.9;
-}
-
-.lead-text strong {
-  color: var(--color-burgundy);
-}
-
-.section-alt {
-  background: var(--color-sand);
-}
-
-.section-dark {
-  background: var(--color-navy);
-}
-
-/* Theories */
-.theories-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-.theory-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  border-top: 4px solid var(--color-gold);
-}
-
-.theory-origin {
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
-  color: var(--color-burgundy);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 0.5rem;
-}
-
-.theory-card h3 {
-  font-size: 1.2rem;
-  color: var(--color-navy);
-  margin-bottom: 0.8rem;
-}
-
-.theory-card > p {
-  color: #555;
-  font-size: 0.9rem;
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-
-.theory-detail {
-  padding: 0.8rem 1rem;
-  background: var(--color-sand-light);
-  border-radius: 8px;
-  font-size: 0.85rem;
-  color: #666;
-  font-style: italic;
-  border-left: 3px solid var(--color-gold);
-}
-
-/* Peoples */
-.peoples-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-.people-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-}
-
-.people-icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.8rem;
-}
-
-.people-card h3 {
-  font-size: 1.1rem;
-  color: var(--color-navy);
-  margin-bottom: 0.3rem;
-}
-
-.people-period {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  color: var(--color-burgundy);
-  margin-bottom: 0.8rem;
-}
-
-.people-card p {
-  color: #555;
-  font-size: 0.9rem;
-  line-height: 1.7;
-}
-
-/* Identity */
-.identity-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.identity-card {
-  padding: 2rem;
-  background: var(--color-navy-light);
-  border-radius: 12px;
-  border: 1px solid rgba(201, 168, 76, 0.15);
-  transition: border-color 0.3s;
-}
-
-.identity-card:hover {
-  border-color: var(--color-gold);
-}
-
-.identity-icon {
-  font-size: 2rem;
-  margin-bottom: 0.8rem;
-}
-
-.identity-card h3 {
-  color: var(--color-gold);
-  font-size: 1rem;
-  margin-bottom: 0.6rem;
-}
-
-.identity-card p {
-  color: #999;
-  font-size: 0.85rem;
-  line-height: 1.7;
-}
-
-/* Legacy */
-.legacy-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-.legacy-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  border-left: 4px solid var(--color-gold);
-}
-
-.legacy-card h3 {
-  font-size: 1.1rem;
-  color: var(--color-navy);
-  margin-bottom: 0.6rem;
-}
-
-.legacy-card > p {
-  color: #555;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.legacy-card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.legacy-card li {
-  padding: 0.3rem 0 0.3rem 1.5rem;
-  position: relative;
-  color: #555;
-  font-size: 0.85rem;
-}
-
-.legacy-card li::before {
-  content: '▸';
+.watermark {
   position: absolute;
-  left: 0;
-  color: var(--color-gold);
-  font-weight: bold;
+  inset-inline-end: -10px;
+  top: 30px;
+  font: 700 clamp(90px, 13vw, 200px)/1 var(--font-ar);
+  color: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  white-space: nowrap;
 }
 
-/* Fun Facts */
-.facts-grid {
+.africa-title { font-size: clamp(64px, 11vw, 168px); line-height: 0.85; }
+
+/* Hypothèses */
+.theory { min-height: 380px; }
+.word { font: 900 clamp(40px, 4.4vw, 64px)/1 var(--font-display); letter-spacing: -0.03em; color: var(--purple); }
+.tile--ink .word { color: var(--gold-light); }
+.gloss { margin-top: 10px; font: 600 15px/1.4 var(--font-body); }
+.script { display: inline-block; margin-inline-end: 6px; font-size: 20px; }
+.script.serif { font-family: Georgia, serif; }
+.detail { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(22, 19, 15, 0.15); font: 500 13px/1.5 var(--font-body); }
+.tile--ink .detail { border-top-color: rgba(255, 255, 255, 0.18); }
+
+/* Voyage d'un nom */
+.journey-head { margin-bottom: 28px; }
+.journey {
+  list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--gap);
 }
 
-.fact-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  text-align: center;
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--white);
+  border-radius: var(--r-md);
+  padding: 18px 16px;
 }
 
-.fact-icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.8rem;
+.step--key { background: var(--purple); color: var(--white); }
+.step-date { font: 700 12px/1.3 var(--font-body); color: var(--purple); }
+.step--key .step-date { color: var(--purple-tint); }
+.step-name { font: 900 clamp(24px, 2.2vw, 32px)/1 var(--font-display); letter-spacing: -0.02em; overflow-wrap: anywhere; }
+.step-name.ar { font-family: var(--font-ar); font-weight: 700; }
+.step-title { font: 700 14px/1.3 var(--font-body); }
+.step-text { font: 400 13px/1.5 var(--font-body); color: var(--muted); }
+.step--key .step-text { color: var(--purple-soft); }
+
+.step-arrow {
+  position: absolute;
+  top: 50%;
+  inset-inline-end: -11px;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  font: 700 12px/1 var(--font-body);
 }
 
-.fact-card h3 {
-  font-size: 1rem;
-  color: var(--color-navy);
-  margin-bottom: 0.6rem;
+[dir="rtl"] .step-arrow { transform: translateY(-50%) scaleX(-1); }
+
+/* Ifriqiya */
+.ifr-fig { min-height: 440px; }
+.ifr-title { margin-bottom: 18px; }
+.see-also { align-self: flex-start; }
+
+/* Peuples */
+.people > img { height: 200px; object-position: 50% 20%; }
+.people .h-card { margin-top: 2px; }
+
+/* Identité */
+.id-title { margin-bottom: 28px; }
+.id-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 28px;
 }
 
-.fact-card p {
-  color: #555;
-  font-size: 0.85rem;
-  line-height: 1.7;
+.id-item { border-top: 1px solid rgba(255, 255, 255, 0.18); padding-top: 14px; }
+.id-name { font: 800 18px/1.2 var(--font-display); margin-bottom: 6px; }
+.id-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font: 600 13px/1 var(--font-body);
+  color: var(--gold-light);
 }
 
-@media (max-width: 768px) {
-  .page-hero-title {
-    font-size: 2rem;
-  }
+.dame-fig { min-height: 520px; }
 
-  .theories-grid,
-  .peoples-grid,
-  .legacy-grid {
-    grid-template-columns: 1fr;
-  }
+/* Héritage */
+.legacy-tile.with-img {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 18px;
+}
 
-  .identity-grid,
-  .facts-grid {
-    grid-template-columns: 1fr;
-  }
+.legacy-tile.with-img > img {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  border-radius: 20px;
+  background: var(--sand-deep);
+}
+
+.legacy-tile.with-img > div { padding-block: 22px 14px; padding-inline-end: 14px; }
+
+.bullets { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+.bullets li {
+  position: relative;
+  padding-inline-start: 18px;
+  font: 500 14px/1.45 var(--font-body);
+}
+
+.bullets li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--terra);
+}
+
+.tile--gold .bullets li::before { background: var(--ink); }
+
+/* Faits */
+.facts-title { margin-bottom: clamp(20px, 2.4vw, 32px); }
+.fact { min-height: 190px; }
+
+@media (max-width: 1280px) {
+  .journey { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .step-arrow { display: none; }
+}
+
+@media (max-width: 960px) {
+  .theory { min-height: 0; }
+  .ifr-fig, .dame-fig { min-height: 340px; }
+  .journey { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .journey { grid-template-columns: minmax(0, 1fr); }
+  .id-grid { grid-template-columns: minmax(0, 1fr); }
+  .legacy-tile.with-img { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .legacy-tile.with-img > img { height: 200px; min-height: 0; }
+  .legacy-tile.with-img > div { padding: 18px 12px 12px; }
+  .fact { min-height: 0; }
+  .ifr-fig, .dame-fig { min-height: 280px; }
 }
 </style>

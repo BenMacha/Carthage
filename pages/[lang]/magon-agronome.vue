@@ -1,49 +1,98 @@
 <template>
-  <div class="magon-page" :dir="isAr ? 'rtl' : 'ltr'">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-container">
-        <div class="hero-text">
-          <h1 class="hero-title">{{ heroTitle }}</h1>
-          <p class="hero-subtitle">{{ heroSubtitle }}</p>
-          <div class="hero-buttons">
-            <NuxtLink :to="localePath('/archives')" class="btn btn-primary">{{ heroBtn1 }}</NuxtLink>
-            <a href="#volumes" class="btn btn-outline">{{ heroBtn2 }}</a>
+  <div class="pg">
+    <!-- Hero -->
+    <div class="bento bento--top">
+      <figure class="fig fig--hero s-5">
+        <img src="/img/dominus.jpg" :alt="c.heroAlt">
+        <figcaption class="cap-box">{{ c.heroCap }}</figcaption>
+      </figure>
+      <div class="tile tile--xl tile--olive tile--stack tile--hero s-7">
+        <div class="hero-top">
+          <span class="chip chip--glass">{{ c.chip }}</span>
+          <span class="phoen hero-phoen" aria-hidden="true">𐤌𐤂𐤍</span>
+        </div>
+        <div>
+          <p class="kicker">{{ c.dates }}</p>
+          <h1 class="h-display hero-title">{{ c.title }}</h1>
+          <p class="epithet">{{ c.epithet }}</p>
+          <p class="lede">{{ c.lede }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chiffres clés -->
+    <div class="cols cols-4 keep-2">
+      <div v-for="s in c.stats" :key="s.t" class="tile stat" :class="s.tone">
+        <div class="num">{{ s.n }}</div>
+        <p class="body">{{ s.t }}</p>
+      </div>
+    </div>
+
+    <!-- Pourquoi Rome l'a traduit -->
+    <section class="sec">
+      <div class="cols cols-7-5 cols--flush">
+        <div class="tile tile--xl tile--stack">
+          <div>
+            <span class="kicker">{{ c.romeKicker }}</span>
+            <h2 class="h-block block-title">{{ c.romeTitle }}</h2>
+            <p v-for="(p, i) in c.romeParas" :key="i" class="body-lg para">{{ p }}</p>
           </div>
         </div>
-        <div class="hero-image">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Oliveraie_Djerba.jpg/800px-Oliveraie_Djerba.jpg"
-            :alt="heroImageAlt"
-            loading="lazy"
-          />
+        <blockquote class="tile tile--xl tile--paper tile--outline quote">
+          <span class="kicker">{{ c.plinyKicker }}</span>
+          <p class="quote-text">« {{ c.plinyQuote }} »</p>
+          <cite>{{ c.plinyCite }}</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Transmission -->
+    <section class="sec">
+      <div class="tile tile--xl tile--ink">
+        <span class="kicker">{{ c.chronoKicker }}</span>
+        <h2 class="h-block block-title">{{ c.chronoTitle }}</h2>
+        <div class="rows" style="--row-key: 220px">
+          <div v-for="r in c.chrono" :key="r.k">
+            <div class="key">{{ r.k }}</div>
+            <div class="val">{{ r.v }}</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- L'Architecte de la Prospérité Punique -->
-    <section class="section">
-      <div class="container">
-        <div class="architect-grid">
-          <div class="architect-portrait">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Aratrum_-_Plowing.jpg/800px-Aratrum_-_Plowing.jpg"
-              :alt="architectImageAlt"
-              loading="lazy"
-            />
-          </div>
-          <div class="architect-content">
-            <h2 class="architect-title">{{ architectTitle }}</h2>
-            <p class="architect-text">{{ architectText }}</p>
-            <blockquote class="architect-quote">{{ architectQuote }}</blockquote>
-            <div class="architect-stats">
-              <div class="arch-stat">
-                <span class="arch-stat-value">~300 {{ isFr ? 'av. J.-C.' : isAr ? 'ق.م' : 'BC' }}</span>
-                <span class="arch-stat-label">{{ architectStatLabel1 }}</span>
-              </div>
-              <div class="arch-stat">
-                <span class="arch-stat-value">28 Vol.</span>
-                <span class="arch-stat-label">{{ architectStatLabel2 }}</span>
+    <!-- Contenu des 28 livres -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.booksTitle }}</h2>
+        <p>{{ c.booksLede }}</p>
+      </div>
+    </section>
+    <div class="cols cols-4">
+      <div v-for="b in c.books" :key="b.title" class="tile tile--stack" :class="b.tone">
+        <div>
+          <span class="kicker">{{ b.kicker }}</span>
+          <h3 class="h-card">{{ b.title }}</h3>
+          <p class="body">{{ b.text }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Préceptes -->
+    <section class="sec">
+      <div class="cols cols-5-7 cols--flush">
+        <figure class="fig olive-fig">
+          <img src="/img/olive.jpg" :alt="c.oliveAlt" loading="lazy">
+          <figcaption>{{ c.oliveCap }}</figcaption>
+        </figure>
+        <div class="tile tile--xl">
+          <span class="kicker">{{ c.precKicker }}</span>
+          <h2 class="h-block block-title">{{ c.precTitle }}</h2>
+          <div class="rows" style="--row-key: 180px">
+            <div v-for="p in c.precepts" :key="p.k">
+              <div class="key">{{ p.k }}</div>
+              <div class="val">
+                {{ p.v }}
+                <span class="src">{{ p.src }}</span>
               </div>
             </div>
           </div>
@@ -51,700 +100,318 @@
       </div>
     </section>
 
-    <!-- Pourquoi Rome a épargné ses livres -->
-    <section class="section section-dark">
-      <div class="container">
-        <h2 class="section-title light">{{ romeTitle }}</h2>
-        <div class="rome-grid">
-          <div class="rome-text">
-            <p>{{ romeText1 }}</p>
-            <p>{{ romeText2 }}</p>
-          </div>
-          <div class="rome-card">
-            <div class="rome-card-icon">📜</div>
-            <h3>{{ romeCardTitle }}</h3>
-            <p>{{ romeCardDesc }}</p>
-          </div>
+    <!-- Citation Columelle + Kerkouane -->
+    <section class="sec">
+      <div class="cols cols-7-5 cols--flush">
+        <figure class="fig kerk-fig">
+          <img src="/img/kerkouane.jpg" :alt="c.kerkAlt" loading="lazy">
+          <figcaption class="cap-box">{{ c.kerkCap }}</figcaption>
+        </figure>
+        <div class="tile tile--xl tile--purple tile--stack">
+          <blockquote class="col-quote">
+            <span class="kicker">{{ c.colKicker }}</span>
+            <p class="quote-text">« {{ c.colQuote }} »</p>
+            <cite>{{ c.colCite }}</cite>
+          </blockquote>
+          <NuxtLink :to="localePath('/agriculture')" class="btn btn-outline">{{ c.agriCta }}</NuxtLink>
         </div>
       </div>
     </section>
 
-    <!-- Piliers de l'Agriculture Moderne -->
-    <section id="volumes" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">{{ pillarsTitle }}</h2>
-        <div class="pillars-grid">
-          <div v-for="(pillar, i) in pillars" :key="i" class="pillar-card">
-            <div class="pillar-icon">{{ pillar.icon }}</div>
-            <h3>{{ pillar.title }}</h3>
-            <p>{{ pillar.desc }}</p>
-          </div>
-        </div>
+    <!-- Héritage -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.legacyTitle }}</h2>
       </div>
     </section>
-
-    <!-- Le Fil de la Transmission -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">{{ transmissionTitle }}</h2>
-        <div class="timeline">
-          <div v-for="(step, i) in transmissionSteps" :key="i" class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">{{ step.date }}</div>
-              <h3 class="timeline-step-title">{{ step.title }}</h3>
-              <p class="timeline-step-desc">{{ step.desc }}</p>
-            </div>
-          </div>
+    <div class="cols cols-3">
+      <div v-for="l in c.legacy" :key="l.title" class="tile tile--stack" :class="l.tone">
+        <div>
+          <span class="kicker">{{ l.kicker }}</span>
+          <h3 class="h-card">{{ l.title }}</h3>
+          <p class="body">{{ l.text }}</p>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- CTA Section -->
-    <section class="section section-cta">
-      <div class="container cta-container">
-        <blockquote class="cta-quote">{{ ctaQuote }}</blockquote>
-        <NuxtLink :to="localePath('/archives')" class="cta-button">{{ ctaButton }}</NuxtLink>
+    <!-- À lire aussi -->
+    <section class="sec">
+      <h2 class="h-block block-title">{{ c.moreTitle }}</h2>
+      <div class="cols cols-3 cols--flush">
+        <NuxtLink v-for="l in c.links" :key="l.to" :to="localePath(l.to)" class="tile tile--stack link-tile" :class="l.tone">
+          <span class="kicker">{{ l.kicker }}</span>
+          <div>
+            <h3 class="h-card">{{ l.title }}</h3>
+            <p class="body">{{ l.text }}</p>
+          </div>
+        </NuxtLink>
       </div>
     </section>
   </div>
 </template>
 
 <script setup>
-const { t, locale, localePath } = useI18n()
-const isFr = computed(() => locale.value === 'fr')
-const isAr = computed(() => locale.value === 'ar')
+const { locale, localePath } = useI18n()
 
-const heroTitle = computed(() =>
-  isFr.value ? 'Magon — Le Père de l\'Agriculture Scientifique'
-  : isAr.value ? 'ماغون — أبو الزراعة العلمية'
-  : 'Magon — The Father of Scientific Agriculture'
-)
+const C = {
+  fr: {
+    metaTitle: "Magon l'Agronome — le traité punique en 28 livres | Carthage",
+    metaDesc: "Magon, agronome carthaginois : un traité d'agriculture en 28 livres, seul ouvrage punique traduit en latin sur ordre du Sénat romain, cité par Varron, Columelle et Pline.",
+    heroAlt: 'Mosaïque du Dominus Julius, musée du Bardo',
+    heroCap: "Mosaïque du Dominus Julius (Bardo) : la vie d'un grand domaine africain, héritier des méthodes puniques",
+    chip: 'Agronome · Carthage',
+    dates: 'Date inconnue, avant 146 av. J.-C.',
+    title: "Magon l'Agronome",
+    epithet: "« Le père de l'agriculture » — ainsi l'appelle l'agronome romain Columelle.",
+    lede: "Un Carthaginois, sans doute grand propriétaire, qui consigna en punique tout le savoir agricole de sa cité. Rome détruisit Carthage, mais fit traduire son œuvre.",
+    stats: [
+      { n: '28', t: 'livres rédigés en punique', tone: 'tile--olive' },
+      { n: '1', t: 'seul ouvrage carthaginois traduit en latin sur ordre du Sénat' },
+      { n: '20', t: 'livres dans la version grecque de Cassius Dionysius' },
+      { n: '6', t: "livres dans l'abrégé de Diophane de Nicée", tone: 'tile--gold' }
+    ],
+    romeKicker: '146 av. J.-C.',
+    romeTitle: 'Pourquoi Rome a traduit Magon',
+    romeParas: [
+      "Après la prise de Carthage, le Sénat romain fit don des bibliothèques de la ville aux princes africains. Il ne garda qu'une œuvre : les 28 livres de Magon, dont il ordonna la traduction en latin.",
+      "La tâche fut confiée à une commission d'hommes connaissant le punique, présidée par Decimus Silanus. Pour les Romains, dont l'économie reposait sur la terre, ce savoir était trop utile pour disparaître avec la cité.",
+      "Ni l'original punique ni la traduction latine ne nous sont parvenus : Magon n'existe plus qu'à travers les citations des auteurs grecs et latins."
+    ],
+    plinyKicker: 'Le témoignage de Pline',
+    plinyQuote: "Carthage prise, notre Sénat donna ses bibliothèques aux roitelets d'Afrique ; il décréta seulement que les vingt-huit livres de Magon seraient traduits en latin.",
+    plinyCite: "Pline l'Ancien, Histoire naturelle, XVIII, 22",
+    chronoKicker: 'Le fil de la transmission',
+    chronoTitle: 'De Carthage à Rome',
+    chrono: [
+      { k: 'Avant 146', v: "Magon compose ses 28 livres en punique. Sa date exacte est inconnue : on le place souvent aux IVe–IIIe siècles av. J.-C., à l'apogée de l'agriculture carthaginoise." },
+      { k: '146 av. J.-C.', v: 'Chute de Carthage. Le Sénat ordonne la traduction latine, confiée à une commission présidée par Decimus Silanus.' },
+      { k: '88 av. J.-C.', v: "Cassius Dionysius d'Utique en donne une version grecque en 20 livres, enrichie d'auteurs grecs." },
+      { k: 'Ier s. av. J.-C.', v: 'Diophane de Nicée en tire un abrégé en 6 livres pour le roi Déiotarus de Galatie.' },
+      { k: '37 av. J.-C.', v: "Varron, dans son traité De l'agriculture, place Magon en tête des auteurs de référence." },
+      { k: 'Ier s. ap. J.-C.', v: "Columelle et Pline l'Ancien le citent abondamment : Columelle l'appelle « père de l'agriculture »." }
+    ],
+    booksTitle: 'Ce que contenaient les 28 livres',
+    booksLede: "Un traité complet du grand domaine, reconstitué à partir des fragments cités par les Latins.",
+    books: [
+      { kicker: 'Cultures', title: "Vigne & olivier", text: "Choix des terrains, exposition, plantation, taille : l'essentiel de la richesse agricole punique.", tone: 'tile--olive' },
+      { kicker: 'Vergers', title: 'Arbres fruitiers', text: 'Grenadiers, amandiers, figuiers : greffes, soins et conservation des fruits.' },
+      { kicker: 'Élevage', title: 'Bœufs, mules, abeilles', text: "Choix des bêtes de labour, reproduction, apiculture et soins vétérinaires." },
+      { kicker: 'Gestion', title: 'Le domaine', text: "Organisation de la main-d'œuvre, rôle du régisseur et présence du maître sur ses terres.", tone: 'tile--gold' }
+    ],
+    oliveAlt: 'Olivier près de Testour',
+    oliveCap: 'Olivier, Testour (Tunisie)',
+    precKicker: 'Fragments conservés',
+    precTitle: 'Quelques préceptes de Magon',
+    precepts: [
+      { k: 'Le maître', v: "« Qui a acheté une terre doit vendre sa maison de ville, pour ne pas préférer les dieux lares de la ville à ceux de la campagne. »", src: 'Columelle I, 1, 18 ; Pline XVIII, 35' },
+      { k: 'La vigne', v: "Planter les vignobles face au nord, pour les protéger de la chaleur africaine.", src: 'Columelle III, 12, 5' },
+      { k: "L'olivier", v: 'Espacer largement les oliviers : 75 pieds en bonne terre, 45 en sol maigre ou venté.', src: 'Pline XVII, 93' },
+      { k: 'Le passum', v: 'Une recette de vin doux de raisins séchés au soleil, que Columelle reproduit presque mot pour mot.', src: 'Columelle XII, 39' },
+      { k: 'Les bœufs', v: 'Choisir des bœufs jeunes, trapus, aux membres solides, aux cornes longues et sombres, au front large.', src: 'Columelle VI, 1, 3' }
+    ],
+    kerkAlt: 'Maisons puniques de Kerkouane',
+    kerkCap: 'Kerkouane, cité punique du cap Bon, au cœur des terres agricoles de Carthage',
+    colKicker: 'Columelle, De re rustica',
+    colQuote: "Magon le Carthaginois, père de l'agriculture.",
+    colCite: 'Columelle, I, 1, 13',
+    agriCta: "L'agriculture carthaginoise →",
+    legacyTitle: 'Héritage',
+    legacy: [
+      { kicker: 'Agronomie latine', title: 'Une source majeure', text: "Varron, Columelle et Pline puisent chez Magon ; par eux, les méthodes puniques passent dans l'agronomie romaine, puis médiévale.", tone: 'tile--olive' },
+      { kicker: 'Afrique romaine', title: 'Le grenier de Rome', text: "Les grands domaines de l'Afrique romaine — blé, huile, vin — prolongent un savoir-faire que Carthage avait porté à son sommet." },
+      { kicker: 'Mémoire', title: 'Un nom sauvé', text: "Presque toute la littérature punique a disparu. Magon est l'un des rares auteurs carthaginois dont nous connaissons le nom et une partie de l'œuvre.", tone: 'tile--ink' }
+    ],
+    moreTitle: 'À lire aussi',
+    links: [
+      { to: '/agriculture', kicker: 'Terres & savoirs', title: "L'agriculture carthaginoise", text: 'Olivier, vigne et blé : les campagnes de Carthage.', tone: 'tile--olive' },
+      { to: '/economie', kicker: 'Commerce', title: "L'économie punique", text: "Comptoirs, métaux et routes maritimes : la richesse de Carthage." },
+      { to: '/biographies', kicker: 'Personnages', title: 'Les grandes figures', text: 'Généraux, navigateurs et reines de Carthage.', tone: 'tile--purple' }
+    ]
+  },
+  en: {
+    metaTitle: 'Mago the Agronomist — the Punic treatise in 28 books | Carthage',
+    metaDesc: 'Mago, Carthaginian agronomist: a 28-book treatise on agriculture, the only Punic work translated into Latin by order of the Roman Senate, cited by Varro, Columella and Pliny.',
+    heroAlt: 'Dominus Julius mosaic, Bardo Museum',
+    heroCap: 'The Dominus Julius mosaic (Bardo): life on a great African estate, heir to Punic methods',
+    chip: 'Agronomist · Carthage',
+    dates: 'Date unknown, before 146 BC',
+    title: 'Mago the Agronomist',
+    epithet: '“The father of agriculture” — so the Roman agronomist Columella calls him.',
+    lede: 'A Carthaginian, probably a great landowner, who set down in Punic all the farming knowledge of his city. Rome destroyed Carthage, but had his work translated.',
+    stats: [
+      { n: '28', t: 'books written in Punic', tone: 'tile--olive' },
+      { n: '1', t: 'only Carthaginian work translated into Latin by order of the Senate' },
+      { n: '20', t: 'books in the Greek version by Cassius Dionysius' },
+      { n: '6', t: 'books in the abridgement by Diophanes of Nicaea', tone: 'tile--gold' }
+    ],
+    romeKicker: '146 BC',
+    romeTitle: 'Why Rome translated Mago',
+    romeParas: [
+      'After taking Carthage, the Roman Senate gave the city’s libraries to the African princes. It kept only one work: the 28 books of Mago, which it ordered translated into Latin.',
+      'The task was entrusted to a committee of men who knew Punic, chaired by Decimus Silanus. For the Romans, whose economy rested on the land, this knowledge was too useful to vanish with the city.',
+      'Neither the Punic original nor the Latin translation has survived: Mago now exists only through quotations in Greek and Latin authors.'
+    ],
+    plinyKicker: 'Pliny’s testimony',
+    plinyQuote: 'When Carthage was taken, our Senate gave its libraries to the petty kings of Africa; it decreed only that Mago’s twenty-eight books should be translated into Latin.',
+    plinyCite: 'Pliny the Elder, Natural History, XVIII, 22',
+    chronoKicker: 'The thread of transmission',
+    chronoTitle: 'From Carthage to Rome',
+    chrono: [
+      { k: 'Before 146', v: 'Mago writes his 28 books in Punic. His exact date is unknown: he is often placed in the 4th–3rd centuries BC, at the height of Carthaginian agriculture.' },
+      { k: '146 BC', v: 'Fall of Carthage. The Senate orders the Latin translation, entrusted to a committee chaired by Decimus Silanus.' },
+      { k: '88 BC', v: 'Cassius Dionysius of Utica produces a Greek version in 20 books, enriched with Greek authors.' },
+      { k: '1st c. BC', v: 'Diophanes of Nicaea abridges it into 6 books for King Deiotarus of Galatia.' },
+      { k: '37 BC', v: 'Varro, in his treatise On Agriculture, places Mago at the head of the reference authors.' },
+      { k: '1st c. AD', v: 'Columella and Pliny the Elder quote him extensively: Columella calls him “the father of agriculture”.' }
+    ],
+    booksTitle: 'What the 28 books contained',
+    booksLede: 'A complete treatise on the great estate, pieced together from the fragments quoted by Latin writers.',
+    books: [
+      { kicker: 'Crops', title: 'Vine & olive', text: 'Choice of land, exposure, planting, pruning: the core of Punic farm wealth.', tone: 'tile--olive' },
+      { kicker: 'Orchards', title: 'Fruit trees', text: 'Pomegranates, almonds, figs: grafting, care and preserving fruit.' },
+      { kicker: 'Livestock', title: 'Oxen, mules, bees', text: 'Choosing plough animals, breeding, beekeeping and veterinary care.' },
+      { kicker: 'Management', title: 'The estate', text: 'Organising the workforce, the role of the steward and the master’s presence on his land.', tone: 'tile--gold' }
+    ],
+    oliveAlt: 'Olive tree near Testour',
+    oliveCap: 'Olive tree, Testour (Tunisia)',
+    precKicker: 'Surviving fragments',
+    precTitle: 'Some of Mago’s precepts',
+    precepts: [
+      { k: 'The master', v: '“Whoever has bought land should sell his town house, so as not to prefer the household gods of the city to those of the country.”', src: 'Columella I, 1, 18; Pliny XVIII, 35' },
+      { k: 'The vine', v: 'Plant vineyards facing north, to shield them from the African heat.', src: 'Columella III, 12, 5' },
+      { k: 'The olive', v: 'Space olive trees widely: 75 feet in good soil, 45 in thin or windy ground.', src: 'Pliny XVII, 93' },
+      { k: 'Passum', v: 'A recipe for sweet wine from sun-dried grapes, which Columella reproduces almost word for word.', src: 'Columella XII, 39' },
+      { k: 'Oxen', v: 'Choose young, compact oxen with sturdy limbs, long dark horns and a broad forehead.', src: 'Columella VI, 1, 3' }
+    ],
+    kerkAlt: 'Punic houses at Kerkouane',
+    kerkCap: 'Kerkouane, a Punic town on Cape Bon, in the heart of Carthage’s farmland',
+    colKicker: 'Columella, De re rustica',
+    colQuote: 'Mago the Carthaginian, the father of agriculture.',
+    colCite: 'Columella, I, 1, 13',
+    agriCta: 'Carthaginian agriculture →',
+    legacyTitle: 'Legacy',
+    legacy: [
+      { kicker: 'Latin agronomy', title: 'A major source', text: 'Varro, Columella and Pliny draw on Mago; through them, Punic methods passed into Roman, then medieval, agronomy.', tone: 'tile--olive' },
+      { kicker: 'Roman Africa', title: 'The granary of Rome', text: 'The great estates of Roman Africa — grain, oil, wine — carried on a know-how that Carthage had brought to its peak.' },
+      { kicker: 'Memory', title: 'A name saved', text: 'Almost all Punic literature is lost. Mago is one of the few Carthaginian authors whose name and part of whose work we know.', tone: 'tile--ink' }
+    ],
+    moreTitle: 'Read also',
+    links: [
+      { to: '/agriculture', kicker: 'Land & knowledge', title: 'Carthaginian agriculture', text: 'Olive, vine and wheat: the countryside of Carthage.', tone: 'tile--olive' },
+      { to: '/economie', kicker: 'Trade', title: 'The Punic economy', text: 'Trading posts, metals and sea routes: the wealth of Carthage.' },
+      { to: '/biographies', kicker: 'People', title: 'The great figures', text: 'Generals, navigators and queens of Carthage.', tone: 'tile--purple' }
+    ]
+  },
+  ar: {
+    metaTitle: 'ماغون الفلاحي — الموسوعة البونيقية في 28 كتابًا | قرطاج',
+    metaDesc: 'ماغون، عالم الفلاحة القرطاجي: موسوعة في الفلاحة من 28 كتابًا، المؤلَّف البونيقي الوحيد الذي تُرجم إلى اللاتينية بأمر من مجلس الشيوخ الروماني، واستشهد به فارون وكولوميلا وبليني.',
+    heroAlt: 'فسيفساء دومينوس يوليوس، متحف باردو',
+    heroCap: 'فسيفساء دومينوس يوليوس (باردو): الحياة في ضيعة إفريقية كبرى، وريثة الأساليب البونيقية',
+    chip: 'عالم فلاحة · قرطاج',
+    dates: 'تاريخ مجهول، قبل 146 ق.م',
+    title: 'ماغون الفلاحي',
+    epithet: '«أبو الفلاحة» — هكذا يسمّيه عالم الفلاحة الروماني كولوميلا.',
+    lede: 'قرطاجي، كان على الأرجح من كبار ملّاك الأرض، دوّن بالبونيقية كل المعارف الفلاحية لمدينته. دمّرت روما قرطاج، لكنها أمرت بترجمة مؤلَّفه.',
+    stats: [
+      { n: '28', t: 'كتابًا مكتوبة بالبونيقية', tone: 'tile--olive' },
+      { n: '1', t: 'المؤلَّف القرطاجي الوحيد الذي تُرجم إلى اللاتينية بأمر من مجلس الشيوخ' },
+      { n: '20', t: 'كتابًا في النسخة اليونانية لكاسيوس ديونيسيوس' },
+      { n: '6', t: 'كتب في مختصر ديوفانس النيقي', tone: 'tile--gold' }
+    ],
+    romeKicker: '146 ق.م',
+    romeTitle: 'لماذا ترجمت روما ماغون',
+    romeParas: [
+      'بعد الاستيلاء على قرطاج، أهدى مجلس الشيوخ الروماني مكتبات المدينة إلى الأمراء الأفارقة. ولم يحتفظ إلا بمؤلَّف واحد: كتب ماغون الثمانية والعشرين، التي أمر بترجمتها إلى اللاتينية.',
+      'أُسندت المهمة إلى لجنة من العارفين بالبونيقية يرأسها دقيموس سيلانوس. فبالنسبة إلى الرومان، الذين قام اقتصادهم على الأرض، كانت هذه المعرفة أنفع من أن تزول مع المدينة.',
+      'لم يصلنا لا الأصل البونيقي ولا الترجمة اللاتينية: فماغون لم يعد موجودًا إلا من خلال استشهادات المؤلفين الإغريق واللاتين.'
+    ],
+    plinyKicker: 'شهادة بليني',
+    plinyQuote: 'لما أُخذت قرطاج، أهدى مجلس شيوخنا مكتباتها إلى ملوك إفريقيا الصغار، ولم يقرّر إلا ترجمة كتب ماغون الثمانية والعشرين إلى اللاتينية.',
+    plinyCite: 'بليني الأكبر، التاريخ الطبيعي، 18، 22',
+    chronoKicker: 'خيط النقل',
+    chronoTitle: 'من قرطاج إلى روما',
+    chrono: [
+      { k: 'قبل 146', v: 'يؤلف ماغون كتبه الثمانية والعشرين بالبونيقية. تاريخه الدقيق مجهول: كثيرًا ما يُنسب إلى القرنين الرابع والثالث ق.م، في أوج الفلاحة القرطاجية.' },
+      { k: '146 ق.م', v: 'سقوط قرطاج. يأمر مجلس الشيوخ بالترجمة اللاتينية، ويعهد بها إلى لجنة يرأسها دقيموس سيلانوس.' },
+      { k: '88 ق.م', v: 'يضع كاسيوس ديونيسيوس الأوتيكي نسخة يونانية في 20 كتابًا، أثراها بمؤلفين إغريق.' },
+      { k: 'القرن 1 ق.م', v: 'يختصرها ديوفانس النيقي في 6 كتب للملك ديوتاروس ملك غلاطية.' },
+      { k: '37 ق.م', v: 'يضع فارون ماغون، في كتابه «في الفلاحة»، على رأس المؤلفين المرجعيين.' },
+      { k: 'القرن 1 م', v: 'يستشهد به كولوميلا وبليني الأكبر كثيرًا، ويسمّيه كولوميلا «أبا الفلاحة».' }
+    ],
+    booksTitle: 'ما احتوته الكتب الثمانية والعشرون',
+    booksLede: 'موسوعة كاملة عن الضيعة الكبرى، أُعيد تركيبها من الشذرات التي نقلها الكتّاب اللاتين.',
+    books: [
+      { kicker: 'المزروعات', title: 'الكرمة والزيتون', text: 'اختيار الأرض والاتجاه والغرس والتقليم: عماد الثروة الفلاحية البونيقية.', tone: 'tile--olive' },
+      { kicker: 'البساتين', title: 'الأشجار المثمرة', text: 'الرمان واللوز والتين: التطعيم والعناية وحفظ الثمار.' },
+      { kicker: 'تربية الماشية', title: 'الثيران والبغال والنحل', text: 'اختيار دواب الحرث والتناسل وتربية النحل والعلاج البيطري.' },
+      { kicker: 'التسيير', title: 'الضيعة', text: 'تنظيم اليد العاملة ودور الوكيل وحضور المالك في أرضه.', tone: 'tile--gold' }
+    ],
+    oliveAlt: 'شجرة زيتون قرب تستور',
+    oliveCap: 'شجرة زيتون، تستور (تونس)',
+    precKicker: 'شذرات باقية',
+    precTitle: 'من وصايا ماغون',
+    precepts: [
+      { k: 'المالك', v: '«من اشترى أرضًا فليبع داره في المدينة، كي لا يؤثر آلهة بيت المدينة على آلهة الريف.»', src: 'كولوميلا 1، 1، 18؛ بليني 18، 35' },
+      { k: 'الكرمة', v: 'اغرس الكروم متجهة نحو الشمال لتقيها حرّ إفريقيا.', src: 'كولوميلا 3، 12، 5' },
+      { k: 'الزيتون', v: 'باعد بين أشجار الزيتون: 75 قدمًا في الأرض الجيدة، و45 في التربة الفقيرة أو المعرّضة للريح.', src: 'بليني 17، 93' },
+      { k: 'الباسوم', v: 'وصفة لنبيذ حلو من العنب المجفف في الشمس، ينقلها كولوميلا حرفيًا تقريبًا.', src: 'كولوميلا 12، 39' },
+      { k: 'الثيران', v: 'اختر ثيرانًا فتية ممتلئة، قوية القوائم، طويلة القرون داكنتها، عريضة الجبهة.', src: 'كولوميلا 6، 1، 3' }
+    ],
+    kerkAlt: 'منازل بونيقية في كركوان',
+    kerkCap: 'كركوان، مدينة بونيقية في الوطن القبلي، في قلب أراضي قرطاج الفلاحية',
+    colKicker: 'كولوميلا، في الفلاحة',
+    colQuote: 'ماغون القرطاجي، أبو الفلاحة.',
+    colCite: 'كولوميلا، 1، 1، 13',
+    agriCta: 'الفلاحة القرطاجية ←',
+    legacyTitle: 'الإرث',
+    legacy: [
+      { kicker: 'الفلاحة اللاتينية', title: 'مصدر رئيسي', text: 'ينهل فارون وكولوميلا وبليني من ماغون؛ وعبرهم انتقلت الأساليب البونيقية إلى الفلاحة الرومانية ثم الوسيطية.', tone: 'tile--olive' },
+      { kicker: 'إفريقيا الرومانية', title: 'مخزن حبوب روما', text: 'واصلت الضيعات الكبرى في إفريقيا الرومانية — قمحًا وزيتًا ونبيذًا — دراية بلغت بها قرطاج ذروتها.' },
+      { kicker: 'الذاكرة', title: 'اسم أُنقذ', text: 'ضاع الأدب البونيقي كله تقريبًا. وماغون من القلائل من المؤلفين القرطاجيين الذين نعرف اسمهم وجزءًا من مؤلَّفهم.', tone: 'tile--ink' }
+    ],
+    moreTitle: 'اقرأ أيضًا',
+    links: [
+      { to: '/agriculture', kicker: 'الأرض والمعرفة', title: 'الفلاحة القرطاجية', text: 'الزيتون والكرمة والقمح: أرياف قرطاج.', tone: 'tile--olive' },
+      { to: '/economie', kicker: 'التجارة', title: 'الاقتصاد البونيقي', text: 'المراكز التجارية والمعادن والطرق البحرية: ثروة قرطاج.' },
+      { to: '/biographies', kicker: 'الشخصيات', title: 'الشخصيات الكبرى', text: 'قادة قرطاج وملاحوها وملكاتها.', tone: 'tile--purple' }
+    ]
+  }
+}
 
-const heroSubtitle = computed(() =>
-  isFr.value ? 'Savant dont l\'œuvre a survécu à la fureur de Rome, Magon a transformé la terre de Carthage en un empire de fertilité.'
-  : isAr.value ? 'عالم نجا عمله من غضب روما، حوّل ماغون أرض قرطاج إلى إمبراطورية من الخصوبة.'
-  : 'A scholar whose work survived Rome\'s fury, Magon transformed the land of Carthage into an empire of fertility.'
-)
+const c = computed(() => C[locale.value] || C.fr)
 
-const heroBtn1 = computed(() =>
-  isFr.value ? 'Explorer l\'Encyclopédie'
-  : isAr.value ? 'استكشاف الموسوعة'
-  : 'Explore the Encyclopedia'
-)
-
-const heroBtn2 = computed(() =>
-  isFr.value ? 'Les 28 Volumes'
-  : isAr.value ? 'المجلدات الـ28'
-  : 'The 28 Volumes'
-)
-
-const heroImageAlt = computed(() =>
-  isFr.value ? 'Oliveraie tunisienne — héritage agricole de Carthage'
-  : isAr.value ? 'بستان زيتون تونسي — الإرث الزراعي لقرطاج'
-  : 'Tunisian olive grove — agricultural heritage of Carthage'
-)
-
-const architectTitle = computed(() =>
-  isFr.value ? 'L\'Architecte de la Prospérité Punique'
-  : isAr.value ? 'مهندس الازدهار البوني'
-  : 'The Architect of Punic Prosperity'
-)
-
-const architectText = computed(() =>
-  isFr.value ? 'Son encyclopédie de 28 volumes était l\'œuvre la plus complète jamais rédigée sur l\'agriculture. Elle couvrait la viticulture, l\'oléiculture, l\'irrigation, l\'élevage et la médecine vétérinaire — un système intégré de savoir agronomique sans précédent dans le monde antique.'
-  : isAr.value ? 'كانت موسوعته المكونة من 28 مجلداً أشمل عمل كُتب عن الزراعة على الإطلاق. غطت زراعة الكروم وزراعة الزيتون والري وتربية الماشية والطب البيطري — نظام متكامل من المعرفة الزراعية لم يسبق له مثيل في العالم القديم.'
-  : 'His 28-volume encyclopedia was the most comprehensive work ever written on farming. It covered viticulture, olive cultivation, irrigation, livestock, and veterinary medicine — an integrated system of agronomic knowledge unprecedented in the ancient world.'
-)
-
-const architectQuote = computed(() =>
-  isFr.value ? 'Il est d\'un bon citoyen de cultiver ses champs lui-même, plutôt que de le faire cultiver par d\'autres.'
-  : isAr.value ? 'من واجب المواطن الصالح أن يزرع حقوله بنفسه، بدلاً من أن يجعل الآخرين يزرعونها.'
-  : 'It is the duty of a good citizen to cultivate his fields himself, rather than have others cultivate them.'
-)
-
-const architectStatLabel1 = computed(() =>
-  isFr.value ? 'Période d\'Activité'
-  : isAr.value ? 'فترة النشاط'
-  : 'Period of Activity'
-)
-
-const architectStatLabel2 = computed(() =>
-  isFr.value ? 'Magnum Opus'
-  : isAr.value ? 'العمل الأعظم'
-  : 'Magnum Opus'
-)
-
-const architectImageAlt = computed(() =>
-  isFr.value ? 'Agriculture antique — labour'
-  : isAr.value ? 'الزراعة القديمة — الحرث'
-  : 'Ancient agriculture — plowing'
-)
-
-const romeTitle = computed(() =>
-  isFr.value ? 'Pourquoi Rome a épargné ses livres'
-  : isAr.value ? 'لماذا أنقذت روما كتبه'
-  : 'Why Rome Spared His Books'
-)
-
-const romeText1 = computed(() =>
-  isFr.value ? 'Le seul texte carthaginois que Rome a préservé. Lorsque Carthage tomba en 146 av. J.-C., le Sénat romain ordonna qu\'une seule chose soit sauvée : le traité agricole de Magon. Ils le firent traduire en latin par une commission spéciale.'
-  : isAr.value ? 'النص القرطاجي الوحيد الذي حفظته روما. عندما سقطت قرطاج عام 146 ق.م، أمر مجلس الشيوخ الروماني بإنقاذ شيء واحد فقط: كتاب ماغون في الزراعة. أمروا بترجمته إلى اللاتينية من قبل لجنة خاصة.'
-  : 'The only Carthaginian text Rome preserved. When Carthage fell in 146 BC, the Roman Senate ordered ONE thing saved: Magon\'s agricultural treatise. They had it translated into Latin by a special commission.'
-)
-
-const romeText2 = computed(() =>
-  isFr.value ? 'Cet acte extraordinaire témoigne de la valeur inestimable de l\'œuvre de Magon. Les Romains, qui détruisirent systématiquement toute trace de la civilisation punique, reconnurent que ce savoir était trop précieux pour être perdu.'
-  : isAr.value ? 'هذا العمل الاستثنائي يشهد على القيمة التي لا تُقدّر لعمل ماغون. الرومان، الذين دمروا بشكل منهجي كل أثر للحضارة البونية، أدركوا أن هذه المعرفة كانت أثمن من أن تُفقد.'
-  : 'This extraordinary act testifies to the inestimable value of Magon\'s work. The Romans, who systematically destroyed every trace of Punic civilization, recognized that this knowledge was too precious to be lost.'
-)
-
-const romeCardTitle = computed(() =>
-  isFr.value ? 'De Carthage à la Bibliothèque du Sénat'
-  : isAr.value ? 'من قرطاج إلى مكتبة مجلس الشيوخ'
-  : 'From Carthage to the Senate Library'
-)
-
-const romeCardDesc = computed(() =>
-  isFr.value ? 'Sur ordre du Sénat, le traité de Magon fut transporté des ruines fumantes de Carthage jusqu\'à Rome, où il devint la pierre angulaire de l\'agronomie romaine pendant des siècles.'
-  : isAr.value ? 'بأمر من مجلس الشيوخ، نُقل كتاب ماغون من أنقاض قرطاج المشتعلة إلى روما، حيث أصبح حجر الزاوية في الزراعة الرومانية لقرون.'
-  : 'By order of the Senate, Magon\'s treatise was transported from the smoldering ruins of Carthage to Rome, where it became the cornerstone of Roman agronomy for centuries.'
-)
-
-const pillarsTitle = computed(() =>
-  isFr.value ? 'Piliers de l\'Agriculture Moderne'
-  : isAr.value ? 'أركان الزراعة الحديثة'
-  : 'Pillars of Modern Agriculture'
-)
-
-const pillars = computed(() =>
-  isFr.value ? [
-    { icon: '💧', title: 'Irrigation & Gestion des Sols', desc: 'Magon développa des techniques sophistiquées de canalisation et de rotation des cultures, maximisant les rendements dans le climat semi-aride de l\'Afrique du Nord.' },
-    { icon: '🍇', title: 'Viticulture & Oléiculture', desc: 'Ses méthodes de culture de la vigne et de l\'olivier établirent les standards que le bassin méditerranéen suit encore aujourd\'hui.' },
-    { icon: '🐄', title: 'Médecine Vétérinaire', desc: 'Le premier traitement systématique des maladies animales, des techniques de reproduction et de l\'alimentation du bétail dans l\'histoire écrite.' },
-    { icon: '📚', title: 'Systématisation du Savoir', desc: 'En compilant 28 volumes structurés, Magon inventa le concept même d\'encyclopédie agricole — un modèle repris par Columelle, Varron et Pline.' }
-  ] : isAr.value ? [
-    { icon: '💧', title: 'الري وإدارة التربة', desc: 'طوّر ماغون تقنيات متطورة للقنوات وتناوب المحاصيل، مما زاد الإنتاجية في المناخ شبه الجاف لشمال أفريقيا.' },
-    { icon: '🍇', title: 'زراعة الكروم والزيتون', desc: 'أسست أساليبه في زراعة الكروم والزيتون المعايير التي لا يزال حوض البحر الأبيض المتوسط يتبعها حتى اليوم.' },
-    { icon: '🐄', title: 'الطب البيطري', desc: 'أول معالجة منهجية لأمراض الحيوانات وتقنيات التربية وتغذية الماشية في التاريخ المكتوب.' },
-    { icon: '📚', title: 'تنظيم المعرفة', desc: 'بتجميع 28 مجلداً منظماً، اخترع ماغون مفهوم الموسوعة الزراعية — نموذج اتبعه كولوميلا وفارو وبليني.' }
-  ] : [
-    { icon: '💧', title: 'Irrigation & Soil Management', desc: 'Magon developed sophisticated techniques for channeling water and crop rotation, maximizing yields in the semi-arid climate of North Africa.' },
-    { icon: '🍇', title: 'Viticulture & Olive Cultivation', desc: 'His methods of cultivating vines and olive trees established the standards that the Mediterranean basin still follows today.' },
-    { icon: '🐄', title: 'Veterinary Medicine', desc: 'The first systematic treatment of animal diseases, breeding techniques, and livestock nutrition in written history.' },
-    { icon: '📚', title: 'Systematization of Knowledge', desc: 'By compiling 28 structured volumes, Magon invented the very concept of an agricultural encyclopedia — a model followed by Columella, Varro, and Pliny.' }
-  ]
-)
-
-const transmissionTitle = computed(() =>
-  isFr.value ? 'Le Fil de la Transmission'
-  : isAr.value ? 'خيط النقل'
-  : 'The Thread of Transmission'
-)
-
-const transmissionSteps = computed(() =>
-  isFr.value ? [
-    { date: '~300 av. J.-C.', title: 'L\'Âge d\'Or Punique', desc: 'Magon rédige ses 28 volumes à l\'apogée de la puissance carthaginoise. L\'agriculture punique est la plus avancée de la Méditerranée, alimentant un empire commercial qui rivalise avec Rome.' },
-    { date: '146 av. J.-C.', title: 'La Chute & Le Salut', desc: 'Carthage est rasée. Mais le Sénat romain, reconnaissant la valeur incomparable du traité de Magon, ordonne sa traduction en latin — le seul texte punique épargné de la destruction totale.' },
-    { date: '1er siècle ap. J.-C.', title: 'L\'Héritage Romain', desc: 'Columelle, Varron et Pline l\'Ancien citent abondamment Magon dans leurs propres œuvres. Le savoir carthaginois irrigue toute l\'agronomie romaine et, par extension, l\'agriculture européenne.' }
-  ] : isAr.value ? [
-    { date: '~300 ق.م', title: 'العصر الذهبي البوني', desc: 'يكتب ماغون مجلداته الـ28 في ذروة القوة القرطاجية. الزراعة البونية هي الأكثر تقدماً في البحر الأبيض المتوسط.' },
-    { date: '146 ق.م', title: 'السقوط والإنقاذ', desc: 'قرطاج تُدمّر. لكن مجلس الشيوخ الروماني يأمر بترجمة كتاب ماغون إلى اللاتينية — النص البوني الوحيد الذي نجا من الدمار الشامل.' },
-    { date: 'القرن الأول الميلادي', title: 'الإرث الروماني', desc: 'كولوميلا وفارو وبليني الأكبر يستشهدون بماغون بكثرة في أعمالهم. المعرفة القرطاجية تغذي كل الزراعة الرومانية.' }
-  ] : [
-    { date: '~300 BC', title: 'The Punic Golden Age', desc: 'Magon writes his 28 volumes at the height of Carthaginian power. Punic agriculture is the most advanced in the Mediterranean, fueling a commercial empire that rivals Rome.' },
-    { date: '146 BC', title: 'The Fall & The Salvation', desc: 'Carthage is razed. But the Roman Senate, recognizing the incomparable value of Magon\'s treatise, orders its translation into Latin — the only Punic text spared from total destruction.' },
-    { date: '1st century AD', title: 'The Roman Legacy', desc: 'Columella, Varro, and Pliny the Elder cite Magon extensively in their own works. Carthaginian knowledge irrigates all Roman agronomy and, by extension, European agriculture.' }
-  ]
-)
-
-const ctaQuote = computed(() =>
-  isFr.value ? 'Le traité de Magon est la preuve que la Connaissance survit à la destruction.'
-  : isAr.value ? 'كتاب ماغون هو الدليل على أن المعرفة تنجو من الدمار.'
-  : 'Magon\'s treatise is proof that Knowledge survives destruction.'
-)
-
-const ctaButton = computed(() =>
-  isFr.value ? 'Accéder aux Archives Digitales'
-  : isAr.value ? 'الوصول إلى الأرشيف الرقمي'
-  : 'Access the Digital Archives'
-)
+useHead(() => ({
+  title: c.value.metaTitle,
+  meta: [{ name: 'description', content: c.value.metaDesc }]
+}))
 </script>
 
 <style scoped>
-/* Hero Section */
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(135deg, var(--color-navy) 0%, #0d0d1a 100%);
-  padding: 6rem 2rem 4rem;
-}
+.hero-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.hero-phoen { font-size: 30px; color: var(--olive-soft); }
+.hero-title { font-size: clamp(40px, 5.6vw, 84px); overflow-wrap: break-word; }
+.epithet { font: 600 clamp(15px, 1.25vw, 18px)/1.45 var(--font-body); color: var(--white) !important; margin-top: 14px; max-width: 620px; }
 
-.hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
+.stat .num { margin-bottom: 8px; }
 
-.hero-title {
-  font-family: var(--font-heading);
-  font-size: 3rem;
-  color: var(--color-gold);
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  letter-spacing: 2px;
-}
+.block-title { margin-bottom: 20px; }
+.para + .para { margin-top: 12px; }
 
-.hero-subtitle {
-  font-family: var(--font-body);
-  color: #c0c0d0;
-  font-size: 1.15rem;
-  line-height: 1.9;
-  margin-bottom: 2rem;
-}
+.quote { margin: 0; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+.quote-text { font: 600 clamp(18px, 1.7vw, 24px)/1.45 var(--font-display); color: var(--ink) !important; margin: 0; }
+.quote cite { font: 600 13px/1.3 var(--font-body); font-style: normal; color: var(--purple); }
 
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
+.col-quote { margin: 0; }
+.col-quote .quote-text { color: var(--white) !important; font-size: clamp(22px, 2.4vw, 34px); }
+.col-quote cite { display: block; margin-top: 14px; font: 600 13px/1.3 var(--font-body); font-style: normal; color: var(--purple-tint); }
 
-.btn {
-  display: inline-block;
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  padding: 0.9rem 2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
+.src { display: block; margin-top: 6px; font: 600 12px/1.3 var(--font-body); color: var(--purple); }
 
-.btn-primary {
-  background: var(--color-gold);
-  color: var(--color-navy);
-}
+.olive-fig, .kerk-fig { min-height: clamp(300px, 36vw, 520px); }
 
-.btn-primary:hover {
-  background: var(--color-gold-light);
-  transform: translateY(-2px);
-}
+.link-tile { min-height: 200px; }
 
-.btn-outline {
-  background: transparent;
-  color: var(--color-gold);
-  border: 2px solid var(--color-gold);
-}
-
-.btn-outline:hover {
-  background: var(--color-gold);
-  color: var(--color-navy);
-  transform: translateY(-2px);
-}
-
-.hero-image img {
-  width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(201, 168, 76, 0.3);
-}
-
-/* Common */
-.section {
-  padding: 6rem 2rem;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.section-title {
-  font-family: var(--font-heading);
-  font-size: 2.4rem;
-  color: var(--color-navy);
-  text-align: center;
-  margin-bottom: 3rem;
-  letter-spacing: 2px;
-}
-
-.section-title.light {
-  color: var(--color-gold);
-}
-
-.section-alt {
-  background: #f8f5ef;
-}
-
-.section-dark {
-  background: var(--color-navy);
-}
-
-/* Architect Section */
-.architect-grid {
-  display: grid;
-  grid-template-columns: 400px 1fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.architect-portrait img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-}
-
-.architect-title {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  color: var(--color-burgundy);
-  margin-bottom: 1.5rem;
-}
-
-.architect-text {
-  font-family: var(--font-body);
-  color: #444;
-  font-size: 1.05rem;
-  line-height: 1.9;
-  margin-bottom: 1.5rem;
-}
-
-.architect-quote {
-  font-family: var(--font-body);
-  color: var(--color-burgundy);
-  font-size: 1.1rem;
-  line-height: 1.7;
-  font-style: italic;
-  border-left: 4px solid var(--color-gold);
-  padding-left: 1.5rem;
-  margin: 0 0 2rem;
-}
-
-[dir="rtl"] .architect-quote {
-  border-left: none;
-  border-right: 4px solid var(--color-gold);
-  padding-left: 0;
-  padding-right: 1.5rem;
-}
-
-.architect-stats {
-  display: flex;
-  gap: 3rem;
-}
-
-.arch-stat {
-  display: flex;
-  flex-direction: column;
-}
-
-.arch-stat-value {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  color: var(--color-navy);
-  font-weight: 700;
-}
-
-.arch-stat-label {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 0.3rem;
-}
-
-/* Rome Section */
-.rome-grid {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 3rem;
-  align-items: center;
-}
-
-.rome-text p {
-  font-family: var(--font-body);
-  color: #b0b0c0;
-  font-size: 1.05rem;
-  line-height: 1.9;
-  margin-bottom: 1.5rem;
-}
-
-.rome-card {
-  background: var(--color-navy-light);
-  padding: 2.5rem;
-  border-radius: 16px;
-  border: 1px solid rgba(201, 168, 76, 0.3);
-  text-align: center;
-}
-
-.rome-card-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.rome-card h3 {
-  font-family: var(--font-heading);
-  color: var(--color-gold);
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-}
-
-.rome-card p {
-  font-family: var(--font-body);
-  color: #a0a0b0;
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-/* Pillars Grid */
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-.pillar-card {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  border-top: 4px solid var(--color-gold);
-  transition: transform 0.3s ease;
-}
-
-.pillar-card:hover {
-  transform: translateY(-4px);
-}
-
-.pillar-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.pillar-card h3 {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  color: var(--color-navy);
-  margin-bottom: 0.8rem;
-  letter-spacing: 1px;
-}
-
-.pillar-card p {
-  font-family: var(--font-body);
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.8;
-}
-
-/* Timeline */
-.timeline {
-  position: relative;
-  padding-left: 3rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-[dir="rtl"] .timeline {
-  padding-left: 0;
-  padding-right: 3rem;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0.75rem;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--color-gold);
-}
-
-[dir="rtl"] .timeline::before {
-  left: auto;
-  right: 0.75rem;
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 3rem;
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -2.55rem;
-  top: 0.3rem;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--color-gold);
-  border: 3px solid #fff;
-  box-shadow: 0 0 0 2px var(--color-gold);
-}
-
-[dir="rtl"] .timeline-dot {
-  left: auto;
-  right: -2.55rem;
-}
-
-.timeline-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border-left: 4px solid var(--color-gold);
-}
-
-[dir="rtl"] .timeline-content {
-  border-left: none;
-  border-right: 4px solid var(--color-gold);
-}
-
-.timeline-date {
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  color: var(--color-burgundy);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-}
-
-.timeline-step-title {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  color: var(--color-navy);
-  margin-bottom: 0.6rem;
-}
-
-.timeline-step-desc {
-  font-family: var(--font-body);
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-/* CTA Section */
-.section-cta {
-  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-burgundy) 100%);
-  padding: 8rem 2rem;
-}
-
-.cta-container {
-  text-align: center;
-  max-width: 800px;
-}
-
-.cta-quote {
-  font-family: var(--font-body);
-  font-size: 1.6rem;
-  color: var(--color-gold-light);
-  line-height: 1.7;
-  font-style: italic;
-  margin: 0 0 2.5rem;
-  padding: 0;
-  border: none;
-}
-
-.cta-button {
-  display: inline-block;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  color: var(--color-navy);
-  background: var(--color-gold);
-  padding: 1rem 3rem;
-  border-radius: 8px;
-  text-decoration: none;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.cta-button:hover {
-  background: var(--color-gold-light);
-  transform: translateY(-2px);
-}
-
-/* Responsive */
-@media (max-width: 968px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-text {
-    order: 1;
-  }
-
-  .hero-image {
-    order: 2;
-  }
-
-  .architect-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .rome-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: auto;
-    padding: 8rem 1.5rem 3rem;
-  }
-
-  .hero-title {
-    font-size: 2.2rem;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .pillars-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .architect-stats {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .timeline {
-    padding-left: 2rem;
-  }
-
-  [dir="rtl"] .timeline {
-    padding-left: 0;
-    padding-right: 2rem;
-  }
-
-  .timeline-dot {
-    left: -1.55rem;
-  }
-
-  [dir="rtl"] .timeline-dot {
-    left: auto;
-    right: -1.55rem;
-  }
-
-  .cta-quote {
-    font-size: 1.2rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+@media (max-width: 640px) {
+  .rows .key { font-size: 20px; }
 }
 </style>

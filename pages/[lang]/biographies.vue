@@ -1,52 +1,101 @@
 <template>
-  <div>
-    <!-- Page Header -->
-    <section class="page-hero bio-hero">
-      <div class="container">
-        <div class="hero-icon">👤</div>
-        <h1 class="page-hero-title">{{ t.bio.title }}</h1>
-        <p class="page-hero-subtitle">{{ t.bio.subtitle }}</p>
+  <div class="pg">
+    <!-- Hero -->
+    <div class="bento bento--top">
+      <figure class="fig fig--hero s-4 hero-fig">
+        <img src="/img/hamilcar.jpg" :alt="c.heroAlt" style="object-position: 50% 25%" />
+        <figcaption>{{ c.heroCap }}</figcaption>
+      </figure>
+      <div class="tile tile--xl tile--stack s-8">
+        <div class="hero-top">
+          <span class="chip">{{ c.chip }}</span>
+          <span class="phoen hero-phoen" aria-hidden="true">𐤁𐤓𐤒</span>
+        </div>
+        <div>
+          <h1 class="h-display">{{ c.title }}</h1>
+          <p class="lede">{{ c.lede }}</p>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Biographies -->
-    <section class="section">
-      <div class="container">
-        <div v-for="(person, index) in people" :key="person.name" class="bio-block" :class="{ reverse: index % 2 !== 0 }">
-          <div class="bio-image">
-            <img :src="person.image" :alt="person.name" loading="lazy" />
-            <div class="bio-image-caption">{{ person.imageCaption }}</div>
-          </div>
-          <div class="bio-info">
-            <div class="bio-era">{{ person.era }}</div>
-            <h2>{{ person.name }}</h2>
-            <div class="bio-role">{{ person.role }}</div>
-            <div class="bio-text" v-for="para in person.paragraphs" :key="para">
-              <p>{{ para }}</p>
-            </div>
-            <div v-if="person.achievements" class="bio-achievements">
-              <h4>{{ achievementsLabel }}</h4>
-              <ul>
-                <li v-for="a in person.achievements" :key="a">{{ a }}</li>
-              </ul>
+    <!-- Arbre des Barcides -->
+    <section class="sec">
+      <div class="tile tile--xl">
+        <h2 class="h-block tree-title">{{ c.treeTitle }}</h2>
+        <div class="tree">
+          <component
+            :is="c.root.to ? NuxtLinkComp : 'div'"
+            v-bind="c.root.to ? { to: localePath(c.root.to) } : {}"
+            class="node node--root"
+          >
+            <div class="n-name">{{ c.root.name }}</div>
+            <div class="n-meta">{{ c.root.meta }}</div>
+          </component>
+          <div class="stem" aria-hidden="true" />
+          <div class="bar" aria-hidden="true" />
+          <div class="kids">
+            <div v-for="(k, i) in c.kids" :key="i" class="kid">
+              <div class="drop" aria-hidden="true" />
+              <component
+                :is="k.to ? NuxtLinkComp : 'div'"
+                v-bind="k.to ? { to: localePath(k.to) } : {}"
+                class="node"
+                :class="{ 'node--main': k.main }"
+              >
+                <div class="n-name">{{ k.name }}</div>
+                <div class="n-meta" v-html="k.meta" />
+              </component>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Other Figures -->
-    <section class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">{{ otherFiguresTitle }}</h2>
-        <div class="others-grid">
-          <div v-for="fig in otherFigures" :key="fig.name" class="other-card">
-            <img :src="fig.image" :alt="fig.name" loading="lazy" />
-            <div class="other-body">
-              <div class="other-era">{{ fig.era }}</div>
-              <h3>{{ fig.name }}</h3>
-              <p>{{ fig.description }}</p>
-            </div>
+    <!-- Généraux & figures -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.gridTitle }}</h2>
+        <div class="pill-row" role="tablist" :aria-label="c.filterLabel">
+          <button
+            v-for="f in c.filters"
+            :key="f.key"
+            class="pill-btn"
+            :class="{ on: filter === f.key }"
+            role="tab"
+            :aria-selected="filter === f.key"
+            @click="filter = f.key"
+          >{{ f.label }}</button>
+        </div>
+      </div>
+    </section>
+    <div class="cols cols-4 people">
+      <component
+        :is="p.to ? NuxtLinkComp : 'article'"
+        v-for="p in visible"
+        :key="p.id"
+        v-bind="p.to ? { to: localePath(p.to) } : {}"
+        class="card-img person"
+        :class="{ 'tile--ink': p.dark }"
+      >
+        <img :src="p.img" :alt="p.alt" loading="lazy" :style="p.pos ? { objectPosition: p.pos } : null" />
+        <div class="card-body">
+          <span class="kicker" :class="{ 'k-gold': p.dark }">{{ p.role }}</span>
+          <div class="h-card">{{ p.name }}</div>
+          <p class="p-long">{{ p.text }}</p>
+          <p class="p-short">{{ p.short }}</p>
+        </div>
+      </component>
+    </div>
+
+    <!-- Repères -->
+    <section class="sec">
+      <div class="tile tile--xl tile--ink">
+        <span class="kicker">{{ c.datesKicker }}</span>
+        <h2 class="h-block tree-title">{{ c.datesTitle }}</h2>
+        <div class="rows" style="--row-key: 150px">
+          <div v-for="d in c.dates" :key="d.k">
+            <div class="key">{{ d.k }}</div>
+            <div class="val">{{ d.v }}</div>
           </div>
         </div>
       </div>
@@ -55,623 +104,293 @@
 </template>
 
 <script setup>
-const { t, locale } = useI18n()
+import { NuxtLink } from '#components'
 
-const achievementsLabel = computed(() => {
-  const labels = { fr: 'Réalisations majeures', en: 'Major achievements', ar: 'الإنجازات الكبرى' }
-  return labels[locale.value] || labels.fr
-})
+const NuxtLinkComp = NuxtLink
+const { locale, localePath } = useI18n()
+const filter = ref('all')
 
-const otherFiguresTitle = computed(() => {
-  const labels = { fr: 'Autres figures importantes', en: 'Other important figures', ar: 'شخصيات مهمة أخرى' }
-  return labels[locale.value] || labels.fr
-})
+const PEOPLE = [
+  { id: 'maharbal', img: '/img/coin-elephant.jpg', cats: ['gen'] },
+  { id: 'hasdrubal-cav', img: '/img/quarter-shekel.jpg', cats: ['gen'] },
+  { id: 'giscon', img: '/img/sophonisba.jpg', cats: ['gen', 'queen'], to: '/sophonisbe' },
+  { id: 'elissa', img: '/img/guerin-dido.jpg', cats: ['queen'], to: '/didon' },
+  { id: 'hannon', img: '/img/hanno-galley.png', cats: ['nav'], to: '/hannon' },
+  { id: 'himilcon', img: '/img/punic-ship.jpg', cats: ['nav'] },
+  { id: 'massinissa', img: '/img/massinissa.jpg', cats: ['ally'] },
+  { id: 'hasdrubal-beau', img: '/img/wall-cartagena.jpg', cats: ['gen'] },
+  { id: 'xanthippe', img: '/img/byrsa.jpg', cats: ['gen'] },
+  { id: 'boetharque', img: '/img/ruins.jpg', cats: ['gen'], dark: true },
+  { id: 'hannibal', img: '/img/hannibal-bust.jpg', cats: ['gen'], to: '/hannibal' },
+  { id: 'magon-agro', img: '/img/dominus.jpg', cats: [], to: '/magon-agronome' }
+]
 
-const people = computed(() => {
-  const data = {
-    fr: [
-      {
-        name: 'Didon (Élyssa)',
-        era: '~814 av. J.-C.',
-        role: 'Fondatrice et première reine de Carthage',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Didon_et_son_peuple_accueillant_%C3%89n%C3%A9e_-_Pierre-Narcisse_Gu%C3%A9rin.jpg/800px-Didon_et_son_peuple_accueillant_%C3%89n%C3%A9e_-_Pierre-Narcisse_Gu%C3%A9rin.jpg',
-        imageCaption: 'Didon accueillant Énée — Pierre-Narcisse Guérin',
-        paragraphs: [
-          'Didon, aussi connue sous le nom d\'Élyssa, est la fondatrice légendaire de Carthage. Princesse de Tyr en Phénicie (actuel Liban), elle était l\'épouse de Sychée (ou Acherbas), un prêtre d\'Hercule extrêmement riche.',
-          'Son frère Pygmalion, roi de Tyr, assassina Sychée pour s\'emparer de ses richesses. Prévenue en rêve par le fantôme de son époux, Didon s\'enfuit avec les trésors et un groupe de fidèles. Après une escale à Chypre, elle débarqua sur les côtes de l\'actuelle Tunisie.',
-          'Face au roi berbère Iarbas, elle usa d\'un stratagème célèbre : elle demanda autant de terre qu\'une peau de bœuf pouvait couvrir, puis découpa celle-ci en lanières extrêmement fines pour entourer toute la colline de Byrsa (du grec « byrsa », peau). C\'est sur cette colline que naquit Carthage — « Qart Hadasht », la Ville Nouvelle.',
-        ],
-        achievements: [
-          'Fondation de Carthage, future superpuissance méditerranéenne',
-          'Le stratagème de la peau de bœuf, symbole d\'intelligence et de ruse',
-          'Création d\'un havre pour les réfugiés phéniciens',
-          'Figure d\'indépendance et de détermination féminine dans l\'Antiquité',
-        ]
-      },
-      {
-        name: 'Hamilcar Barca',
-        era: '275–228 av. J.-C.',
-        role: 'Général carthaginois, père d\'Hannibal',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hamilcar_Barca.jpg/440px-Hamilcar_Barca.jpg',
-        imageCaption: 'Hamilcar Barca — Gravure historique',
-        paragraphs: [
-          'Hamilcar Barca (en phénicien : « grâce de Baal, la foudre ») est l\'un des plus grands généraux de Carthage et le fondateur de la dynastie des Barcides. Pendant la première guerre punique (264–241 av. J.-C.), il mena une guérilla brillante en Sicile contre les Romains.',
-          'Après la défaite de Carthage et la perte de la Sicile, il dut faire face à la terrible Guerre des Mercenaires (241–238 av. J.-C.), une révolte des soldats impayés. Avec une habileté tactique remarquable, il écrasa la rébellion en trois ans.',
-          'En 237 av. J.-C., il entreprit la conquête de l\'Espagne, transformant la péninsule ibérique en base de puissance carthaginoise. C\'est là qu\'il fit prêter à son fils Hannibal, alors âgé de 9 ans, le célèbre serment de haine éternelle envers Rome. Hamilcar périt au combat en 228 av. J.-C., noyé en traversant une rivière lors d\'une bataille contre les Ibères.',
-        ],
-        achievements: [
-          'Résistance brillante en Sicile pendant la première guerre punique',
-          'Victoire sur la révolte des mercenaires',
-          'Conquête de la péninsule ibérique (sud de l\'Espagne)',
-          'Fondation de la dynastie Barcide',
-          'Formation militaire de son fils Hannibal',
-        ]
-      },
-      {
-        name: 'Hannibal Barca',
-        era: '247–183 av. J.-C.',
-        role: 'Le plus grand stratège de l\'Antiquité',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mommsen_p265.jpg/440px-Mommsen_p265.jpg',
-        imageCaption: 'Buste présumé d\'Hannibal — Musée de Naples',
-        paragraphs: [
-          'Hannibal Barca est considéré comme l\'un des plus grands génies militaires de l\'histoire de l\'humanité. Fils d\'Hamilcar Barca, il grandit dans les camps militaires d\'Espagne et reçut une éducation à la fois guerrière et intellectuelle, parlant plusieurs langues dont le punique, le grec et le latin.',
-          'En 221 av. J.-C., à seulement 26 ans, il prit le commandement des forces carthaginoises en Espagne. En 218 av. J.-C., il accomplit l\'un des exploits les plus audacieux de l\'histoire militaire : la traversée des Alpes avec 50 000 fantassins, 9 000 cavaliers et 37 éléphants de guerre pour attaquer Rome sur son propre territoire.',
-          'En Italie, il enchaîna les victoires : au Tessin, à la Trébie, au Lac Trasimène, et surtout à Cannes (216 av. J.-C.), où sa manœuvre de double enveloppement anéantit une armée romaine de 86 000 hommes. Cette bataille est encore étudiée dans toutes les académies militaires du monde.',
-          'Malgré ses victoires, privé de renforts par le Sénat de Carthage, Hannibal ne put prendre Rome. Rappelé en Afrique en 202 av. J.-C., il fut vaincu à Zama par Scipion l\'Africain. Il s\'exila ensuite au Proche-Orient, servant comme conseiller militaire auprès de plusieurs rois. Traqué par Rome, il se donna la mort en 183 av. J.-C. plutôt que de se rendre.',
-        ],
-        achievements: [
-          'Traversée des Alpes avec des éléphants de guerre (218 av. J.-C.)',
-          'Victoire de Cannes : le double enveloppement parfait',
-          '15 ans de campagne victorieuse en territoire ennemi',
-          'Stratège étudié encore aujourd\'hui dans les académies militaires',
-          'Considéré comme le plus grand adversaire de Rome',
-        ]
-      },
-      {
-        name: 'Hasdrubal Barca',
-        era: '245–207 av. J.-C.',
-        role: 'Général carthaginois, frère d\'Hannibal',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Hasdrubal_Barca_%28Hannibal%27s_brother%29.jpg/440px-Hasdrubal_Barca_%28Hannibal%27s_brother%29.jpg',
-        imageCaption: 'Hasdrubal Barca — Illustration historique',
-        paragraphs: [
-          'Hasdrubal Barca, frère cadet d\'Hannibal, reçut la mission cruciale de maintenir le contrôle carthaginois en Espagne pendant que son frère menait ses campagnes en Italie. Pendant six ans, il combattit avec succès les armées romaines de Scipion.',
-          'En 208 av. J.-C., il prit la décision audacieuse de suivre le chemin de son frère en traversant les Pyrénées et les Alpes pour le rejoindre en Italie avec des renforts considérables. Cette seconde traversée des Alpes fut tout aussi remarquable que la première.',
-          'Malheureusement, ses messagers furent interceptés par les Romains. Le consul Néron, par une marche forcée secrète, réunit deux armées romaines et surprit Hasdrubal à la bataille du Métaure (207 av. J.-C.). Hasdrubal combattit avec bravoure mais fut tué. Dans un acte de cruauté, les Romains catapultèrent sa tête dans le camp d\'Hannibal — c\'est ainsi que le grand général apprit la mort de son frère.',
-        ],
-        achievements: [
-          'Défense efficace de l\'Espagne carthaginoise pendant 6 ans',
-          'Seconde traversée des Alpes (208–207 av. J.-C.)',
-          'Maintien de la pression militaire sur Rome sur deux fronts',
-          'Bravoure exemplaire à la bataille du Métaure',
-        ]
-      },
-      {
-        name: 'Magon Barca',
-        era: '243–203 av. J.-C.',
-        role: 'Général carthaginois, frère d\'Hannibal',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Carthage_National_Museum_general_view.jpg/800px-Carthage_National_Museum_general_view.jpg',
-        imageCaption: 'Musée national de Carthage — Vestiges de la civilisation punique',
-        paragraphs: [
-          'Magon Barca, le plus jeune des trois frères Barcides, joua un rôle déterminant dans les campagnes d\'Hannibal en Italie. Il participa à la bataille de Cannes où il commanda l\'embuscade décisive qui permit le double enveloppement.',
-          'Après Cannes, Magon fut envoyé à Carthage pour annoncer la victoire. Selon la tradition, il versa sur le sol du Sénat carthaginois les anneaux d\'or des chevaliers romains tués, un spectacle impressionnant qui témoignait de l\'ampleur de la victoire.',
-          'En 205 av. J.-C., il débarqua en Ligurie (nord de l\'Italie) avec une armée pour ouvrir un second front. Blessé dans une bataille en 203 av. J.-C., il mourut en mer sur le chemin du retour vers Carthage.',
-        ],
-        achievements: [
-          'Rôle clé dans la victoire de Cannes',
-          'Ouverture d\'un second front en Italie du Nord',
-          'Ambassadeur de la victoire à Carthage après Cannes',
-        ]
-      },
-      {
-        name: 'Hannon le Navigateur',
-        era: '~500 av. J.-C.',
-        role: 'Explorateur et amiral carthaginois',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Hanno_bas_relief_MnM.jpg/440px-Hanno_bas_relief_MnM.jpg',
-        imageCaption: 'Bas-relief représentant Hannon — Musée de la Marine',
-        paragraphs: [
-          'Hannon le Navigateur est l\'un des plus grands explorateurs de l\'Antiquité. Vers 500 av. J.-C., le Sénat de Carthage lui confia une expédition monumentale : explorer et coloniser les côtes atlantiques de l\'Afrique.',
-          'Avec une flotte de 60 navires et environ 30 000 hommes et femmes (colons), Hannon longea toute la côte atlantique du Maroc, franchit le détroit de Gibraltar, et poursuivit vers le sud. Il fonda plusieurs colonies le long du chemin.',
-          'Son récit, le « Périple d\'Hannon », est l\'un des plus anciens documents d\'exploration africaine. Il y décrit des « gorilles » (probablement des chimpanzés ou gorilles), un volcan en éruption qu\'il appelle le « Char des Dieux » (probablement le Mont Cameroun), et des peuples inconnus. Il aurait atteint le golfe de Guinée, voire le Cameroun — un exploit extraordinaire pour l\'époque.',
-        ],
-        achievements: [
-          'Exploration de la côte atlantique africaine sur des milliers de kilomètres',
-          'Fondation de colonies le long du littoral marocain et au-delà',
-          'Rédaction du Périple, premier récit d\'exploration de l\'Afrique occidentale',
-          'Observation des premiers « gorilles » connus des Occidentaux',
-        ]
-      },
-      {
-        name: 'Massinissa',
-        era: '238–148 av. J.-C.',
-        role: 'Roi des Numides, allié puis rival de Carthage',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Massinissa.jpg/440px-Massinissa.jpg',
-        imageCaption: 'Pièce de monnaie représentant Massinissa',
-        paragraphs: [
-          'Massinissa, roi de Numidie (actuelle Algérie), est une figure majeure de l\'histoire nord-africaine. D\'abord allié de Carthage pendant la deuxième guerre punique, il changea de camp après une querelle politique et rejoignit Scipion l\'Africain.',
-          'Sa cavalerie numide, réputée comme la meilleure du monde antique, joua un rôle décisif dans la victoire romaine à Zama (202 av. J.-C.). En récompense, Rome l\'aida à unifier la Numidie sous son règne.',
-          'Massinissa transforma la Numidie en un royaume prospère et moderne. Il développa l\'agriculture, urbanisa son territoire et régna pendant près de 60 ans. Ses empiètements constants sur le territoire carthaginois furent l\'un des prétextes utilisés par Rome pour déclencher la troisième guerre punique.',
-        ],
-        achievements: [
-          'Unification de la Numidie en un royaume puissant',
-          'Cavalerie numide décisive à Zama',
-          'Modernisation de l\'agriculture nord-africaine',
-          'Règne de près de 60 ans (le plus long de l\'Antiquité)',
-        ]
-      },
+const C = {
+  fr: {
+    metaTitle: 'Personnages — les Barca, les généraux, les navigateurs | Carthage',
+    metaDesc: "La famille Barca, les généraux, les navigateurs et les reines de Carthage : Hamilcar, Hannibal, Hasdrubal, Magon, Hannon, Himilcon, Élissa, Sophonisbe, Massinissa.",
+    heroAlt: 'Hamilcar Barca',
+    heroCap: 'Hamilcar Barca, le père',
+    chip: 'Personnages · 15 figures, 8 biographies',
+    title: 'Les Barca, la « Foudre »',
+    lede: "Barca viendrait du punique baraq, « l'éclair ». Un père, trois fils, deux gendres : une famille qui a tenu tête à Rome pendant un demi-siècle.",
+    treeTitle: "L'arbre des Barcides",
+    root: { name: 'Hamilcar Barca', meta: "~275 – 228 av. J.-C. · conquiert l'Hispanie", to: '/hamilcar' },
+    kids: [
+      { name: 'Une fille', meta: 'épouse <b>Hasdrubal le Beau</b> (†221), fondateur de Carthagène' },
+      { name: 'Hannibal', meta: '247 – 183 · les Alpes, Cannes, puis suffète', to: '/hannibal', main: true },
+      { name: 'Hasdrubal Barca', meta: '~245 – 207 · franchit à son tour les Alpes, tué au Métaure', to: '/hasdrubal' },
+      { name: 'Magon Barca', meta: "~243 – 203 · l'embuscade de la Trébie, la Ligurie", to: '/magon-barca' },
+      { name: 'Une fille', meta: 'épouse <b>Bomilcar</b> ; leur fils Hannon mène la cavalerie au Rhône' }
     ],
-    en: [
-      {
-        name: 'Dido (Elissa)',
-        era: '~814 BC',
-        role: 'Founder and first queen of Carthage',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Didon_et_son_peuple_accueillant_%C3%89n%C3%A9e_-_Pierre-Narcisse_Gu%C3%A9rin.jpg/800px-Didon_et_son_peuple_accueillant_%C3%89n%C3%A9e_-_Pierre-Narcisse_Gu%C3%A9rin.jpg',
-        imageCaption: 'Dido welcoming Aeneas — Pierre-Narcisse Guérin',
-        paragraphs: [
-          'Dido, also known as Elissa, is the legendary founder of Carthage. A princess of Tyre in Phoenicia (modern Lebanon), she was married to Sychaeus, an extremely wealthy priest of Hercules.',
-          'Her brother Pygmalion, king of Tyre, murdered Sychaeus to seize his riches. Warned in a dream by her husband\'s ghost, Dido fled with the treasures and a group of loyal followers. After a stop in Cyprus, she landed on the coast of present-day Tunisia.',
-          'Facing the Berber king Iarbas, she employed a famous stratagem: she asked for as much land as an oxhide could cover, then cut it into extremely thin strips to surround the entire hill of Byrsa. It was on this hill that Carthage was born — "Qart Hadasht," the New City.',
-        ],
-        achievements: [
-          'Foundation of Carthage, future Mediterranean superpower',
-          'The oxhide stratagem, a symbol of intelligence and cunning',
-          'Creation of a haven for Phoenician refugees',
-          'Icon of feminine independence and determination in antiquity',
-        ]
-      },
-      {
-        name: 'Hamilcar Barca',
-        era: '275–228 BC',
-        role: 'Carthaginian general, father of Hannibal',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hamilcar_Barca.jpg/440px-Hamilcar_Barca.jpg',
-        imageCaption: 'Hamilcar Barca — Historical engraving',
-        paragraphs: [
-          'Hamilcar Barca (Phoenician: "Grace of Baal, the lightning") was one of Carthage\'s greatest generals and founder of the Barcid dynasty. During the First Punic War (264–241 BC), he waged a brilliant guerrilla campaign in Sicily against Rome.',
-          'After Carthage\'s defeat and loss of Sicily, he faced the terrible Mercenary War (241–238 BC). With remarkable tactical skill, he crushed the rebellion in three years.',
-          'In 237 BC, he embarked on the conquest of Spain, transforming the Iberian Peninsula into a Carthaginian power base. It was there that he made his son Hannibal, aged 9, swear the famous oath of eternal hatred toward Rome. Hamilcar died in combat in 228 BC.',
-        ],
-        achievements: [
-          'Brilliant resistance in Sicily during the First Punic War',
-          'Victory over the Mercenary revolt',
-          'Conquest of the Iberian Peninsula',
-          'Foundation of the Barcid dynasty',
-          'Military training of his son Hannibal',
-        ]
-      },
-      {
-        name: 'Hannibal Barca',
-        era: '247–183 BC',
-        role: 'The greatest strategist of antiquity',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mommsen_p265.jpg/440px-Mommsen_p265.jpg',
-        imageCaption: 'Presumed bust of Hannibal — Museum of Naples',
-        paragraphs: [
-          'Hannibal Barca is considered one of the greatest military geniuses in human history. Son of Hamilcar Barca, he grew up in the military camps of Spain and received both a warrior\'s and an intellectual\'s education, speaking multiple languages including Punic, Greek, and Latin.',
-          'In 221 BC, at only 26, he took command of Carthaginian forces in Spain. In 218 BC, he accomplished one of history\'s most daring military feats: crossing the Alps with 50,000 infantry, 9,000 cavalry, and 37 war elephants to attack Rome on its own soil.',
-          'In Italy, he won victory after victory: at Ticinus, Trebia, Lake Trasimene, and above all at Cannae (216 BC), where his double envelopment maneuver annihilated a Roman army of 86,000 men. This battle is still studied in every military academy in the world.',
-          'Despite his victories, denied reinforcements by the Carthaginian Senate, Hannibal could not take Rome. Recalled to Africa in 202 BC, he was defeated at Zama by Scipio Africanus. He then went into exile in the Near East, serving as military advisor to several kings. Hunted by Rome, he took his own life in 183 BC rather than surrender.',
-        ],
-        achievements: [
-          'Crossing the Alps with war elephants (218 BC)',
-          'Battle of Cannae: the perfect double envelopment',
-          '15 years of victorious campaigning in enemy territory',
-          'Strategist still studied in military academies today',
-          'Considered Rome\'s greatest adversary',
-        ]
-      },
-      {
-        name: 'Hasdrubal Barca',
-        era: '245–207 BC',
-        role: 'Carthaginian general, brother of Hannibal',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Hasdrubal_Barca_%28Hannibal%27s_brother%29.jpg/440px-Hasdrubal_Barca_%28Hannibal%27s_brother%29.jpg',
-        imageCaption: 'Hasdrubal Barca — Historical illustration',
-        paragraphs: [
-          'Hasdrubal Barca, Hannibal\'s younger brother, was tasked with maintaining Carthaginian control of Spain while his brother campaigned in Italy. For six years, he successfully fought the Roman armies of Scipio.',
-          'In 208 BC, he made the bold decision to follow his brother\'s path across the Pyrenees and Alps to join him in Italy with substantial reinforcements.',
-          'Unfortunately, his messengers were intercepted by the Romans. Consul Nero, through a secret forced march, combined two Roman armies and surprised Hasdrubal at the Battle of the Metaurus (207 BC). Hasdrubal fought bravely but was killed. In an act of cruelty, the Romans catapulted his head into Hannibal\'s camp.',
-        ],
-        achievements: [
-          'Effective defense of Carthaginian Spain for 6 years',
-          'Second crossing of the Alps (208–207 BC)',
-          'Maintaining military pressure on Rome on two fronts',
-          'Exemplary bravery at the Battle of the Metaurus',
-        ]
-      },
-      {
-        name: 'Hanno the Navigator',
-        era: '~500 BC',
-        role: 'Carthaginian explorer and admiral',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Hanno_bas_relief_MnM.jpg/440px-Hanno_bas_relief_MnM.jpg',
-        imageCaption: 'Bas-relief of Hanno — Maritime Museum',
-        paragraphs: [
-          'Hanno the Navigator is one of the greatest explorers of antiquity. Around 500 BC, the Carthaginian Senate entrusted him with a monumental expedition: to explore and colonize the Atlantic coasts of Africa.',
-          'With a fleet of 60 ships and about 30,000 men and women (colonists), Hanno sailed along the entire Atlantic coast of Morocco, passed through the Strait of Gibraltar, and continued south, founding several colonies along the way.',
-          'His account, the "Periplus of Hanno," is one of the oldest documents of African exploration. He describes "gorillas" (likely chimpanzees or gorillas), an erupting volcano he calls the "Chariot of the Gods" (probably Mount Cameroon), and unknown peoples.',
-        ],
-        achievements: [
-          'Exploration of the African Atlantic coast for thousands of kilometers',
-          'Foundation of colonies along the Moroccan coastline and beyond',
-          'Writing the Periplus, the first account of West African exploration',
-          'Observation of the first "gorillas" known to Westerners',
-        ]
-      },
-      {
-        name: 'Masinissa',
-        era: '238–148 BC',
-        role: 'King of Numidia, ally then rival of Carthage',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Massinissa.jpg/440px-Massinissa.jpg',
-        imageCaption: 'Coin depicting Masinissa',
-        paragraphs: [
-          'Masinissa, king of Numidia (modern Algeria), is a major figure in North African history. Initially allied with Carthage during the Second Punic War, he switched sides after a political quarrel and joined Scipio Africanus.',
-          'His Numidian cavalry, reputed as the finest in the ancient world, played a decisive role in the Roman victory at Zama (202 BC). In return, Rome helped him unify Numidia under his rule.',
-          'Masinissa transformed Numidia into a prosperous and modern kingdom, developing agriculture, urbanizing his territory, and reigning for nearly 60 years.',
-        ],
-        achievements: [
-          'Unification of Numidia into a powerful kingdom',
-          'Decisive Numidian cavalry at Zama',
-          'Modernization of North African agriculture',
-          'Reign of nearly 60 years (the longest in antiquity)',
-        ]
-      },
+    gridTitle: 'Généraux & figures',
+    filterLabel: 'Filtrer les personnages',
+    filters: [
+      { key: 'all', label: 'Tous' },
+      { key: 'gen', label: 'Généraux' },
+      { key: 'nav', label: 'Navigateurs' },
+      { key: 'queen', label: 'Reines' },
+      { key: 'ally', label: 'Alliés & rivaux' }
     ],
-    ar: [
-      {
-        name: 'ديدون (أليسا)',
-        era: '~814 ق.م',
-        role: 'مؤسسة وأول ملكة لقرطاج',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Didon_et_son_peuple_accueillant_%C3%89n%C3%A9e_-_Pierre-Narcisse_Gu%C3%A9rin.jpg/800px-Didon_et_son_peuple_accueillant_%C3%89n%C3%A9e_-_Pierre-Narcisse_Gu%C3%A9rin.jpg',
-        imageCaption: 'ديدون تستقبل إينياس — بيير-نارسيس غيران',
-        paragraphs: [
-          'ديدون، المعروفة أيضاً باسم أليسا، هي المؤسسة الأسطورية لقرطاج. أميرة من صور في فينيقيا (لبنان الحالي)، كانت زوجة سيشايوس، كاهن هرقل الثري جداً.',
-          'قام شقيقها بيغماليون، ملك صور، بقتل سيشايوس للاستيلاء على ثرواته. حُذّرت في حلم من شبح زوجها، ففرّت ديدون بالكنوز ومجموعة من الأتباع المخلصين. بعد توقف في قبرص، نزلت على سواحل تونس الحالية.',
-          'أمام الملك الأمازيغي إيرباس، استخدمت حيلة شهيرة: طلبت مساحة من الأرض بقدر ما يمكن أن يغطيه جلد ثور، ثم قطعته إلى شرائح رفيعة للغاية لتحيط تلة بيرصا بأكملها. على هذه التلة وُلدت قرطاج — «قرت حدشت»، المدينة الجديدة.',
-        ],
-        achievements: [
-          'تأسيس قرطاج، القوة العظمى المتوسطية المستقبلية',
-          'حيلة جلد الثور، رمز الذكاء والحنكة',
-          'إنشاء ملاذ للاجئين الفينيقيين',
-          'رمز للاستقلال والإرادة النسائية في العصور القديمة',
-        ]
-      },
-      {
-        name: 'حملقار برقا',
-        era: '275–228 ق.م',
-        role: 'قائد قرطاجي، والد حنبعل',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hamilcar_Barca.jpg/440px-Hamilcar_Barca.jpg',
-        imageCaption: 'حملقار برقا — نقش تاريخي',
-        paragraphs: [
-          'حملقار برقا (بالفينيقية: «نعمة بعل، البرق») هو أحد أعظم قادة قرطاج ومؤسس سلالة البرقيين. خلال الحرب البونية الأولى، شنّ حرب عصابات بارعة في صقلية ضد الرومان.',
-          'بعد هزيمة قرطاج وخسارة صقلية، واجه حرب المرتزقة المروعة. بمهارة تكتيكية مذهلة، سحق التمرد في ثلاث سنوات.',
-          'عام 237 ق.م، انطلق لفتح إسبانيا، محولاً شبه الجزيرة الإيبيرية إلى قاعدة قوة قرطاجية. هناك جعل ابنه حنبعل البالغ 9 سنوات يقسم اليمين الشهير بالكراهية الأبدية لروما.',
-        ],
-        achievements: [
-          'مقاومة بارعة في صقلية خلال الحرب البونية الأولى',
-          'الانتصار على تمرد المرتزقة',
-          'فتح شبه الجزيرة الإيبيرية',
-          'تأسيس سلالة البرقيين',
-          'التدريب العسكري لابنه حنبعل',
-        ]
-      },
-      {
-        name: 'حنبعل برقا',
-        era: '247–183 ق.م',
-        role: 'أعظم استراتيجي في العصور القديمة',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mommsen_p265.jpg/440px-Mommsen_p265.jpg',
-        imageCaption: 'تمثال نصفي مفترض لحنبعل — متحف نابولي',
-        paragraphs: [
-          'يُعتبر حنبعل برقا أحد أعظم العباقرة العسكريين في تاريخ البشرية. ابن حملقار برقا، نشأ في المعسكرات العسكرية في إسبانيا وتلقى تعليماً حربياً وفكرياً، متحدثاً عدة لغات منها البونية واليونانية واللاتينية.',
-          'عام 221 ق.م، في سن 26 فقط، تولى قيادة القوات القرطاجية في إسبانيا. عام 218 ق.م، أنجز أحد أجرأ الأعمال العسكرية في التاريخ: عبور جبال الألب مع 50,000 مشاة و9,000 فارس و37 فيلاً حربياً لمهاجمة روما في أرضها.',
-          'في إيطاليا، حقق انتصاراً تلو الآخر: في تيسينوس، وتريبيا، وبحيرة تراسيمين، والأهم في كاناي (216 ق.م)، حيث أباد مناورة التطويق المزدوج جيشاً رومانياً من 86,000 رجل.',
-          'رغم انتصاراته، وحرمانه من التعزيزات من مجلس شيوخ قرطاج، لم يتمكن حنبعل من أخذ روما. استُدعي إلى أفريقيا عام 202 ق.م حيث هُزم في زاما. نُفي ثم انتحر عام 183 ق.م رافضاً الاستسلام.',
-        ],
-        achievements: [
-          'عبور جبال الألب بفيلة الحرب (218 ق.م)',
-          'معركة كاناي: التطويق المزدوج المثالي',
-          '15 عاماً من الحملات المنتصرة في أرض العدو',
-          'استراتيجي لا يزال يُدرس في الأكاديميات العسكرية',
-          'يُعتبر أعظم خصم لروما',
-        ]
-      },
-      {
-        name: 'صدربعل برقا',
-        era: '245–207 ق.م',
-        role: 'قائد قرطاجي، شقيق حنبعل',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Hasdrubal_Barca_%28Hannibal%27s_brother%29.jpg/440px-Hasdrubal_Barca_%28Hannibal%27s_brother%29.jpg',
-        imageCaption: 'صدربعل برقا — رسم تاريخي',
-        paragraphs: [
-          'صدربعل برقا، الشقيق الأصغر لحنبعل، كُلّف بالحفاظ على السيطرة القرطاجية في إسبانيا أثناء حملات أخيه في إيطاليا. طوال ست سنوات، قاتل بنجاح الجيوش الرومانية.',
-          'عام 208 ق.م، اتخذ القرار الجريء بعبور البيرينيه والألب للالتحاق بأخيه في إيطاليا بتعزيزات كبيرة.',
-          'لسوء الحظ، اعترض الرومان رسله. القنصل نيرون، بمسيرة إجبارية سرية، جمع جيشين رومانيين وفاجأ صدربعل في معركة ميتاوروس (207 ق.م). قاتل صدربعل بشجاعة لكنه قُتل. في عمل وحشي، قذف الرومان رأسه في معسكر حنبعل.',
-        ],
-        achievements: [
-          'دفاع فعّال عن إسبانيا القرطاجية لمدة 6 سنوات',
-          'العبور الثاني لجبال الألب (208–207 ق.م)',
-          'الحفاظ على الضغط العسكري على روما في جبهتين',
-          'شجاعة مثالية في معركة ميتاوروس',
-        ]
-      },
-      {
-        name: 'حنّون الملاّح',
-        era: '~500 ق.م',
-        role: 'مستكشف وأميرال قرطاجي',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Hanno_bas_relief_MnM.jpg/440px-Hanno_bas_relief_MnM.jpg',
-        imageCaption: 'نقش بارز لحنّون — المتحف البحري',
-        paragraphs: [
-          'حنّون الملاّح هو أحد أعظم المستكشفين في العصور القديمة. حوالي 500 ق.م، كلّفه مجلس شيوخ قرطاج ببعثة ضخمة: استكشاف واستعمار السواحل الأطلسية لأفريقيا.',
-          'مع أسطول من 60 سفينة ونحو 30,000 رجل وامرأة (مستوطنين)، أبحر حنّون على طول الساحل الأطلسي للمغرب، وعبر مضيق جبل طارق، وواصل جنوباً مؤسساً عدة مستعمرات.',
-          'روايته، «محيط حنّون»، هي أحد أقدم وثائق الاستكشاف الأفريقي. يصف فيها «غوريلات» (على الأرجح شمبانزي أو غوريلا)، وبركاناً ثائراً أسماه «عربة الآلهة» (ربما جبل الكاميرون).',
-        ],
-        achievements: [
-          'استكشاف الساحل الأطلسي الأفريقي لآلاف الكيلومترات',
-          'تأسيس مستعمرات على الساحل المغربي وما وراءه',
-          'كتابة المحيط، أول رواية لاستكشاف غرب أفريقيا',
-          'مراقبة أول «غوريلات» عرفها الغربيون',
-        ]
-      },
-      {
-        name: 'ماسينيسا',
-        era: '238–148 ق.م',
-        role: 'ملك نوميديا، حليف ثم منافس لقرطاج',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Massinissa.jpg/440px-Massinissa.jpg',
-        imageCaption: 'عملة تصور ماسينيسا',
-        paragraphs: [
-          'ماسينيسا، ملك نوميديا (الجزائر الحالية)، شخصية محورية في تاريخ شمال أفريقيا. حليف قرطاج في البداية، غيّر جانبه بعد خلاف سياسي وانضم إلى سكيبيو الأفريقي.',
-          'سلاح الفرسان النوميدي الذي قاده، المعروف بأنه الأفضل في العالم القديم، لعب دوراً حاسماً في النصر الروماني في زاما (202 ق.م).',
-          'حوّل ماسينيسا نوميديا إلى مملكة مزدهرة وحديثة. طوّر الزراعة وعمّر أراضيه وحكم لنحو 60 عاماً.',
-        ],
-        achievements: [
-          'توحيد نوميديا في مملكة قوية',
-          'سلاح الفرسان النوميدي الحاسم في زاما',
-          'تحديث الزراعة في شمال أفريقيا',
-          'حكم لنحو 60 عاماً (الأطول في العصور القديمة)',
-        ]
-      },
+    people: {
+      maharbal: { alt: 'Shekel barcide', role: 'Général de cavalerie', name: 'Maharbal', text: '« Tu sais vaincre, Hannibal ; tu ne sais pas profiter de ta victoire », lui dit-il après Cannes, selon Tite-Live.', short: 'Chef de la cavalerie à Cannes' },
+      'hasdrubal-cav': { alt: 'Quart de shekel barcide', role: 'Général · Cannes', name: 'Hasdrubal (cavalerie)', text: 'Commande la cavalerie lourde qui contourne les légions et ferme le piège de Cannes.', short: 'Ferme le piège de Cannes' },
+      giscon: { alt: 'Sophonisbe', role: 'Général & reine', name: 'Hasdrubal Giscon & Sophonisbe', text: "Il combat Scipion en Hispanie et en Afrique ; sa fille Sophonisbe (~235 – 203) épouse le roi numide Syphax et choisit le poison plutôt que la captivité romaine.", short: 'Le père et la reine numide' },
+      elissa: { alt: 'Didon', role: 'Fondatrice · ~814', name: 'Élissa / Didon', text: 'Princesse de Tyr, elle fonde Carthage sur la colline de Byrsa.', short: 'Fondatrice · ~814' },
+      hannon: { alt: 'Galère punique', role: 'Navigateur · Ve s.', name: 'Hannon', text: "Longe l'Afrique de l'Ouest avec 60 navires, selon le Périple qui lui est attribué.", short: "Le Périple vers l'Afrique de l'Ouest" },
+      himilcon: { alt: 'Proue du navire punique de Marsala', role: 'Navigateur · Ve s.', name: 'Himilcon', text: "Remonte l'Atlantique vers le nord, sur la route de l'étain.", short: "La route de l'étain" },
+      massinissa: { alt: 'Massinissa', role: 'Allié puis rival · 238 – 148', name: 'Massinissa', text: "Prince numide formé à Carthage, il passe dans le camp de Rome et décide de la bataille de Zama. Roi de Numidie pendant plus de cinquante ans, il grignote le territoire carthaginois.", short: 'Allié puis rival' },
+      'hasdrubal-beau': { alt: 'Muraille punique de Carthagène', role: 'Général · ~270 – 221', name: 'Hasdrubal le Beau', text: "Gendre d'Hamilcar, il lui succède en Hispanie, fonde Carthagène et conclut avec Rome le traité de l'Èbre (226). Assassiné en 221.", short: "Fondateur de Carthagène" },
+      xanthippe: { alt: 'Colline de Byrsa, Carthage', role: 'Mercenaire spartiate · 255', name: 'Xanthippe', text: "Engagé par Carthage, il réorganise l'armée et écrase Regulus près de Tunis en 255, sauvant la cité d'une invasion.", short: 'Vainqueur de Regulus, 255' },
+      boetharque: { alt: 'Ruines de Carthage', role: 'Dernier chef · 146', name: 'Hasdrubal le Boétharque', text: 'Mène la défense de la ville pendant les trois ans du siège final.', short: 'Défend Carthage, 149–146' },
+      hannibal: { alt: "Buste d'Hannibal", role: 'Général · 247 – 183', name: 'Hannibal Barca', text: 'Franchit les Alpes avec ses éléphants et écrase Rome à Cannes en 216 av. J.-C.', short: '247 – 183' },
+      'magon-agro': { alt: "Mosaïque agricole, Carthage", role: 'Agronome', name: "Magon l'Agronome", text: "Auteur d'un traité d'agriculture en 28 livres, traduit en latin sur ordre du Sénat.", short: "Le père de l'agronomie" }
+    },
+    datesKicker: 'Repères',
+    datesTitle: 'Six siècles de figures carthaginoises',
+    dates: [
+      { k: '~814', v: "Élissa, princesse de Tyr, fonde Carthage sur la colline de Byrsa : c'est la légende de la peau de bœuf découpée en lanières." },
+      { k: '~500 ?', v: "Hannon longe la côte atlantique de l'Afrique avec 60 navires et 30 000 colons." },
+      { k: '255', v: 'Le Spartiate Xanthippe, au service de Carthage, écrase le consul Regulus devant Tunis.' },
+      { k: '247 – 241', v: "Hamilcar Barca mène la guérilla en Sicile, depuis l'Eryx, jusqu'à la fin de la première guerre punique." },
+      { k: '241 – 238', v: 'Hamilcar écrase la révolte des mercenaires impayés.' },
+      { k: '237', v: "Départ pour l'Hispanie ; Hannibal, 9 ans, jure de ne jamais être l'ami de Rome." },
+      { k: '228 – 221', v: "Hamilcar meurt noyé en combattant les Ibères ; Hasdrubal le Beau fonde Carthagène puis est assassiné. Hannibal, 26 ans, prend le commandement." },
+      { k: '218 – 216', v: "Les Alpes, la Trébie, Trasimène, Cannes. Magon Barca verse devant le Sénat de Carthage les anneaux d'or des chevaliers romains tués." },
+      { k: '207', v: "Hasdrubal Barca est tué au Métaure ; les Romains jettent sa tête dans le camp d'Hannibal." },
+      { k: '203', v: "Magon Barca, blessé en Ligurie, meurt en mer. Sophonisbe s'empoisonne." },
+      { k: '202', v: "Zama : la cavalerie de Massinissa décide de la victoire de Scipion." },
+      { k: '183', v: "Traqué par Rome, Hannibal s'empoisonne en Bithynie." },
+      { k: '148 – 146', v: "Mort de Massinissa ; Hasdrubal le Boétharque défend Carthage jusqu'à la chute." }
+    ]
+  },
+  en: {
+    metaTitle: 'People — the Barcids, the generals, the navigators | Carthage',
+    metaDesc: "The Barca family, Carthage's generals, navigators and queens: Hamilcar, Hannibal, Hasdrubal, Mago, Hanno, Himilco, Elissa, Sophonisba, Masinissa.",
+    heroAlt: 'Hamilcar Barca',
+    heroCap: 'Hamilcar Barca, the father',
+    chip: 'People · 15 figures, 8 biographies',
+    title: 'The Barcas, the “Thunderbolt”',
+    lede: 'Barca is thought to come from the Punic baraq, “lightning”. One father, three sons, two sons-in-law: a family that stood up to Rome for half a century.',
+    treeTitle: 'The Barcid family tree',
+    root: { name: 'Hamilcar Barca', meta: 'c. 275 – 228 BC · conquers Hispania', to: '/hamilcar' },
+    kids: [
+      { name: 'A daughter', meta: 'marries <b>Hasdrubal the Fair</b> (†221), founder of Cartagena' },
+      { name: 'Hannibal', meta: '247 – 183 · the Alps, Cannae, then suffete', to: '/hannibal', main: true },
+      { name: 'Hasdrubal Barca', meta: 'c. 245 – 207 · crosses the Alps in turn, killed at the Metaurus', to: '/hasdrubal' },
+      { name: 'Mago Barca', meta: 'c. 243 – 203 · the ambush at the Trebia, Liguria', to: '/magon-barca' },
+      { name: 'A daughter', meta: 'marries <b>Bomilcar</b>; their son Hanno leads the cavalry at the Rhône' }
+    ],
+    gridTitle: 'Generals & figures',
+    filterLabel: 'Filter people',
+    filters: [
+      { key: 'all', label: 'All' },
+      { key: 'gen', label: 'Generals' },
+      { key: 'nav', label: 'Navigators' },
+      { key: 'queen', label: 'Queens' },
+      { key: 'ally', label: 'Allies & rivals' }
+    ],
+    people: {
+      maharbal: { alt: 'Barcid shekel', role: 'Cavalry general', name: 'Maharbal', text: '“You know how to win a victory, Hannibal; you do not know how to use it,” he tells him after Cannae, according to Livy.', short: 'Cavalry commander at Cannae' },
+      'hasdrubal-cav': { alt: 'Barcid quarter shekel', role: 'General · Cannae', name: 'Hasdrubal (cavalry)', text: 'Commands the heavy cavalry that rides around the legions and closes the trap at Cannae.', short: 'Closes the trap at Cannae' },
+      giscon: { alt: 'Sophonisba', role: 'General & queen', name: 'Hasdrubal Gisco & Sophonisba', text: 'He fights Scipio in Hispania and Africa; his daughter Sophonisba (c. 235 – 203) marries the Numidian king Syphax and chooses poison over Roman captivity.', short: 'The father and the Numidian queen' },
+      elissa: { alt: 'Dido', role: 'Founder · c. 814', name: 'Elissa / Dido', text: 'A princess of Tyre, she founds Carthage on the hill of Byrsa.', short: 'Founder · c. 814' },
+      hannon: { alt: 'Punic galley', role: 'Navigator · 5th c.', name: 'Hanno', text: 'Sails along West Africa with 60 ships, according to the Periplus attributed to him.', short: 'The Periplus to West Africa' },
+      himilcon: { alt: 'Bow of the Marsala Punic ship', role: 'Navigator · 5th c.', name: 'Himilco', text: 'Sails north up the Atlantic, along the tin route.', short: 'The tin route' },
+      massinissa: { alt: 'Masinissa', role: 'Ally, then rival · 238 – 148', name: 'Masinissa', text: "A Numidian prince educated in Carthage, he goes over to Rome's side and decides the battle of Zama. King of Numidia for over fifty years, he nibbles away at Carthaginian territory.", short: 'Ally, then rival' },
+      'hasdrubal-beau': { alt: 'Punic wall of Cartagena', role: 'General · c. 270 – 221', name: 'Hasdrubal the Fair', text: "Hamilcar's son-in-law, he succeeds him in Iberia, founds Cartagena and concludes the Ebro Treaty with Rome (226). Assassinated in 221.", short: 'Founder of Cartagena' },
+      xanthippe: { alt: 'Byrsa hill, Carthage', role: 'Spartan mercenary · 255', name: 'Xanthippus', text: 'Hired by Carthage, he reorganises the army and crushes Regulus near Tunis in 255, saving the city from invasion.', short: 'Victor over Regulus, 255' },
+      boetharque: { alt: 'Ruins of Carthage', role: 'Last leader · 146', name: 'Hasdrubal the Boetharch', text: 'Leads the defence of the city through the three years of the final siege.', short: 'Defends Carthage, 149–146' },
+      hannibal: { alt: 'Bust of Hannibal', role: 'General · 247 – 183', name: 'Hannibal Barca', text: 'Crosses the Alps with his elephants and crushes Rome at Cannae in 216 BC.', short: '247 – 183' },
+      'magon-agro': { alt: 'Farming mosaic, Carthage', role: 'Agronomist', name: 'Mago the Agronomist', text: 'Author of a 28-book treatise on agriculture, translated into Latin by order of the Senate.', short: 'The father of agronomy' }
+    },
+    datesKicker: 'Milestones',
+    datesTitle: 'Six centuries of Carthaginian figures',
+    dates: [
+      { k: 'c. 814', v: 'Elissa, princess of Tyre, founds Carthage on the hill of Byrsa: the legend of the oxhide cut into strips.' },
+      { k: 'c. 500?', v: 'Hanno sails along the Atlantic coast of Africa with 60 ships and 30,000 colonists.' },
+      { k: '255', v: 'The Spartan Xanthippus, in Carthage’s service, crushes the consul Regulus before Tunis.' },
+      { k: '247 – 241', v: 'Hamilcar Barca wages guerrilla war in Sicily, from Eryx, until the end of the First Punic War.' },
+      { k: '241 – 238', v: 'Hamilcar crushes the revolt of the unpaid mercenaries.' },
+      { k: '237', v: 'Departure for Iberia; Hannibal, aged 9, swears never to be a friend of Rome.' },
+      { k: '228 – 221', v: 'Hamilcar drowns fighting the Iberians; Hasdrubal the Fair founds Cartagena and is then assassinated. Hannibal, 26, takes command.' },
+      { k: '218 – 216', v: 'The Alps, the Trebia, Trasimene, Cannae. Mago Barca pours out before the Carthaginian Senate the gold rings of slain Roman knights.' },
+      { k: '207', v: 'Hasdrubal Barca is killed at the Metaurus; the Romans throw his head into Hannibal’s camp.' },
+      { k: '203', v: 'Mago Barca, wounded in Liguria, dies at sea. Sophonisba takes poison.' },
+      { k: '202', v: 'Zama: Masinissa’s cavalry decides Scipio’s victory.' },
+      { k: '183', v: 'Hunted by Rome, Hannibal takes poison in Bithynia.' },
+      { k: '148 – 146', v: 'Death of Masinissa; Hasdrubal the Boetharch defends Carthage to the end.' }
+    ]
+  },
+  ar: {
+    metaTitle: 'الشخصيات — آل برقا والقادة والملاحون | قرطاج',
+    metaDesc: 'أسرة برقا وقادة قرطاج وملاحوها وملكاتها: حملقار وحنبعل وصدربعل وماغون وحنون وحملكون وعليسة وصفنبعل وماسينيسا.',
+    heroAlt: 'حملقار برقا',
+    heroCap: 'حملقار برقا، الأب',
+    chip: 'الشخصيات · 15 شخصية و8 سِيَر',
+    title: 'آل برقا، «الصاعقة»',
+    lede: 'يُرجَّح أن اسم برقا مشتق من الكلمة البونيقية «برق». أب وثلاثة أبناء وصهران: أسرة صمدت في وجه روما نصف قرن.',
+    treeTitle: 'شجرة آل برقا',
+    root: { name: 'حملقار برقا', meta: 'نحو 275 – 228 ق.م · يفتح هسبانيا', to: '/hamilcar' },
+    kids: [
+      { name: 'ابنة', meta: 'تتزوج <b>صدربعل الجميل</b> (†221)، مؤسس قرطاجنة' },
+      { name: 'حنبعل', meta: '247 – 183 · الألب، كاناي، ثم شفط', to: '/hannibal', main: true },
+      { name: 'صدربعل برقا', meta: 'نحو 245 – 207 · يعبر الألب بدوره، ويُقتل عند الميتاورو', to: '/hasdrubal' },
+      { name: 'ماغون برقا', meta: 'نحو 243 – 203 · كمين تريبيا، ليغوريا', to: '/magon-barca' },
+      { name: 'ابنة', meta: 'تتزوج <b>بوملقار</b>؛ ابنهما حنون يقود الفرسان عند الرون' }
+    ],
+    gridTitle: 'قادة وشخصيات',
+    filterLabel: 'تصفية الشخصيات',
+    filters: [
+      { key: 'all', label: 'الكل' },
+      { key: 'gen', label: 'القادة' },
+      { key: 'nav', label: 'الملاحون' },
+      { key: 'queen', label: 'الملكات' },
+      { key: 'ally', label: 'حلفاء وخصوم' }
+    ],
+    people: {
+      maharbal: { alt: 'شيكل برقي', role: 'قائد الفرسان', name: 'مهربعل', text: '«أنت تعرف كيف تنتصر يا حنبعل، لكنك لا تعرف كيف تستثمر نصرك»، قالها له بعد كاناي بحسب تيتوس ليفيوس.', short: 'قائد الفرسان في كاناي' },
+      'hasdrubal-cav': { alt: 'ربع شيكل برقي', role: 'قائد · كاناي', name: 'صدربعل (الفرسان)', text: 'يقود الفرسان الثقيلة التي تلتف حول الفيالق وتُحكم فخ كاناي.', short: 'يُحكم فخ كاناي' },
+      giscon: { alt: 'صفنبعل', role: 'قائد وملكة', name: 'صدربعل جسكون وصفنبعل', text: 'يحارب سكيبيو في هسبانيا وإفريقيا؛ وتتزوج ابنته صفنبعل (نحو 235 – 203) الملك النوميدي سيفاكس، وتختار السم على الأسر الروماني.', short: 'الأب والملكة النوميدية' },
+      elissa: { alt: 'ديدون', role: 'المؤسِّسة · نحو 814', name: 'عليسة / ديدون', text: 'أميرة من صور، أسست قرطاج على تل بيرصا.', short: 'المؤسِّسة · نحو 814' },
+      hannon: { alt: 'سفينة بونيقية', role: 'ملاح · القرن الخامس', name: 'حنون', text: 'يبحر بمحاذاة غرب إفريقيا على رأس 60 سفينة، بحسب «الرحلة» المنسوبة إليه.', short: 'الرحلة إلى غرب إفريقيا' },
+      himilcon: { alt: 'مقدمة سفينة مرسالة البونيقية', role: 'ملاح · القرن الخامس', name: 'حملكون', text: 'يصعد الأطلسي شمالًا على طريق القصدير.', short: 'طريق القصدير' },
+      massinissa: { alt: 'ماسينيسا', role: 'حليف ثم خصم · 238 – 148', name: 'ماسينيسا', text: 'أمير نوميدي تربّى في قرطاج، ينحاز إلى روما ويحسم معركة زامة. ملك نوميديا أكثر من خمسين عامًا، قضم خلالها أراضي قرطاج.', short: 'حليف ثم خصم' },
+      'hasdrubal-beau': { alt: 'السور البونيقي في قرطاجنة', role: 'قائد · نحو 270 – 221', name: 'صدربعل الجميل', text: 'صهر حملقار، يخلفه في إيبيريا، ويؤسس قرطاجنة، ويبرم مع روما معاهدة الإيبرو (226). اغتيل سنة 221.', short: 'مؤسس قرطاجنة' },
+      xanthippe: { alt: 'تل بيرصا، قرطاج', role: 'مرتزق إسبرطي · 255', name: 'كسانثيبوس', text: 'استأجرته قرطاج فأعاد تنظيم الجيش وسحق ريغولوس قرب تونس سنة 255، منقذًا المدينة من الغزو.', short: 'قاهر ريغولوس، 255' },
+      boetharque: { alt: 'أطلال قرطاج', role: 'آخر قائد · 146', name: 'صدربعل البويثارخ', text: 'يقود الدفاع عن المدينة طوال السنوات الثلاث للحصار الأخير.', short: 'يدافع عن قرطاج، 149–146' },
+      hannibal: { alt: 'تمثال نصفي لحنبعل', role: 'قائد · 247 – 183', name: 'حنبعل برقا', text: 'يعبر الألب بفيلته ويسحق روما في كاناي سنة 216 ق.م.', short: '247 – 183' },
+      'magon-agro': { alt: 'فسيفساء فلاحية، قرطاج', role: 'عالم فلاحة', name: 'ماغون الفلاحي', text: 'صاحب موسوعة في الفلاحة من 28 كتابًا، تُرجمت إلى اللاتينية بأمر من مجلس الشيوخ.', short: 'أبو علم الفلاحة' }
+    },
+    datesKicker: 'معالم',
+    datesTitle: 'ستة قرون من الشخصيات القرطاجية',
+    dates: [
+      { k: 'نحو 814', v: 'عليسة، أميرة صور، تؤسس قرطاج على تل بيرصا: أسطورة جلد الثور المقطّع شرائط.' },
+      { k: 'نحو 500؟', v: 'حنّون يبحر بمحاذاة الساحل الأطلسي لإفريقيا بستين سفينة وثلاثين ألف مستوطن.' },
+      { k: '255', v: 'الإسبرطي كسانثيبوس، في خدمة قرطاج، يسحق القنصل ريغولوس أمام تونس.' },
+      { k: '247 – 241', v: 'حملقار برقا يخوض حرب عصابات في صقلية انطلاقًا من إريكس حتى نهاية الحرب البونيقية الأولى.' },
+      { k: '241 – 238', v: 'حملقار يسحق ثورة المرتزقة الذين لم يتقاضوا أجورهم.' },
+      { k: '237', v: 'الرحيل إلى إيبيريا؛ حنبعل، ابن التاسعة، يقسم ألا يكون صديقًا لروما أبدًا.' },
+      { k: '228 – 221', v: 'حملقار يغرق وهو يقاتل الإيبيريين؛ صدربعل الجميل يؤسس قرطاجنة ثم يُغتال. وحنبعل، ابن السادسة والعشرين، يتولى القيادة.' },
+      { k: '218 – 216', v: 'الألب، تريبيا، ترازيمينو، كاناي. ماغون برقا ينثر أمام مجلس شيوخ قرطاج الخواتم الذهبية للفرسان الرومان القتلى.' },
+      { k: '207', v: 'مقتل صدربعل برقا عند الميتاورو؛ الرومان يلقون رأسه في معسكر حنبعل.' },
+      { k: '203', v: 'ماغون برقا، الجريح في ليغوريا، يموت في البحر. وصفنبعل تتجرع السم.' },
+      { k: '202', v: 'زاما: فرسان ماسينيسا يحسمون انتصار سكيبيو.' },
+      { k: '183', v: 'حنبعل، الذي طاردته روما، يتجرع السم في بيثينيا.' },
+      { k: '148 – 146', v: 'وفاة ماسينيسا؛ صدربعل البويثارخ يدافع عن قرطاج حتى السقوط.' }
     ]
   }
-  return data[locale.value] || data.fr
-})
+}
 
-const otherFigures = computed(() => {
-  const data = {
-    fr: [
-      { name: 'Sophonisbe', era: '~235–203 av. J.-C.', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Giambattista_Pittoni_-_The_Sacrifice_of_Polyxena_-_WGA17975.jpg/440px-Giambattista_Pittoni_-_The_Sacrifice_of_Polyxena_-_WGA17975.jpg', description: 'Princesse carthaginoise, fille d\'Hasdrubal Gisco. Mariée au roi numide Syphax pour sceller une alliance, elle préféra le poison à la captivité romaine. Son courage inspire artistes et écrivains depuis des siècles.' },
-      { name: 'Hasdrubal le Beau', era: '~270–221 av. J.-C.', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Carthage_National_Museum_general_view.jpg/800px-Carthage_National_Museum_general_view.jpg', description: 'Gendre d\'Hamilcar Barca, il prit la relève en Espagne après sa mort. Diplomate habile, il fonda Carthagène (Qart Hadasht) et négocia le traité de l\'Èbre avec Rome.' },
-      { name: 'Xanthippe', era: '~255 av. J.-C.', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Carthage_National_Museum_general_view.jpg/800px-Carthage_National_Museum_general_view.jpg', description: 'Général mercenaire spartiate engagé par Carthage. Il réorganisa l\'armée et écrasa les légions romaines de Regulus à la bataille de Tunis (255 av. J.-C.), sauvant Carthage d\'une invasion.' },
-      { name: 'Magon l\'Agronome', era: '~IIe siècle av. J.-C.', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Carthage_National_Museum_general_view.jpg/800px-Carthage_National_Museum_general_view.jpg', description: 'Auteur du célèbre traité d\'agriculture en 28 volumes. Après la chute de Carthage, le Sénat romain ordonna sa traduction en latin — le seul ouvrage punique à recevoir cet honneur.' },
-    ],
-    en: [
-      { name: 'Sophonisba', era: '~235–203 BC', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Giambattista_Pittoni_-_The_Sacrifice_of_Polyxena_-_WGA17975.jpg/440px-Giambattista_Pittoni_-_The_Sacrifice_of_Polyxena_-_WGA17975.jpg', description: 'Carthaginian princess who chose poison over Roman captivity. Her courage has inspired artists and writers for centuries.' },
-      { name: 'Hasdrubal the Fair', era: '~270–221 BC', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Carthage_National_Museum_general_view.jpg/800px-Carthage_National_Museum_general_view.jpg', description: 'Hamilcar Barca\'s son-in-law, he took over in Spain after his death. A skilled diplomat, he founded Cartagena and negotiated the Ebro Treaty with Rome.' },
-      { name: 'Xanthippus', era: '~255 BC', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Carthage_National_Museum_general_view.jpg/800px-Carthage_National_Museum_general_view.jpg', description: 'Spartan mercenary general hired by Carthage. He reorganized the army and crushed the Roman legions of Regulus at the Battle of Tunis (255 BC), saving Carthage from invasion.' },
-      { name: 'Mago the Agronomist', era: '~2nd century BC', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Carthage_National_Museum_general_view.jpg/800px-Carthage_National_Museum_general_view.jpg', description: 'Author of the famous 28-volume agricultural treatise. After Carthage\'s fall, the Roman Senate ordered its translation into Latin — the only Punic work to receive this honor.' },
-    ],
-    ar: [
-      { name: 'صوفونسبا', era: '~235–203 ق.م', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Giambattista_Pittoni_-_The_Sacrifice_of_Polyxena_-_WGA17975.jpg/440px-Giambattista_Pittoni_-_The_Sacrifice_of_Polyxena_-_WGA17975.jpg', description: 'أميرة قرطاجية اختارت السم على الأسر الروماني. شجاعتها ألهمت الفنانين والكتّاب لقرون.' },
-      { name: 'صدربعل الجميل', era: '~270–221 ق.م', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Carthage_National_Museum_general_view.jpg/800px-Carthage_National_Museum_general_view.jpg', description: 'صهر حملقار برقا، تولى القيادة في إسبانيا بعد وفاته. دبلوماسي ماهر، أسس قرطاجنة وتفاوض على معاهدة إيبرو مع روما.' },
-      { name: 'كسانثيبوس', era: '~255 ق.م', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Carthage_National_Museum_general_view.jpg/800px-Carthage_National_Museum_general_view.jpg', description: 'قائد مرتزق سبارطي استأجرته قرطاج. أعاد تنظيم الجيش وسحق الفيالق الرومانية في معركة تونس (255 ق.م)، منقذاً قرطاج من الغزو.' },
-      { name: 'ماغون المهندس الزراعي', era: '~القرن الثاني ق.م', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Carthage_National_Museum_general_view.jpg/800px-Carthage_National_Museum_general_view.jpg', description: 'مؤلف أطروحة الزراعة الشهيرة في 28 مجلداً. بعد سقوط قرطاج، أمر مجلس الشيوخ الروماني بترجمتها إلى اللاتينية — العمل البوني الوحيد الذي حظي بهذا الشرف.' },
-    ]
-  }
-  return data[locale.value] || data.fr
-})
+const c = computed(() => C[locale.value] || C.fr)
+
+const visible = computed(() =>
+  PEOPLE
+    .filter(p => filter.value === 'all' || p.cats.includes(filter.value))
+    .map(p => ({ ...p, ...c.value.people[p.id] }))
+)
+
+useHead(() => ({
+  title: c.value.metaTitle,
+  meta: [{ name: 'description', content: c.value.metaDesc }]
+}))
 </script>
 
 <style scoped>
-.bio-hero {
-  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-burgundy-dark) 60%, #2d1b0e 100%);
-  padding: 10rem 0 4rem;
+.hero-fig { background: #8E3720; min-height: clamp(360px, 38vw, 520px); }
+.hero-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.hero-phoen { font-size: 30px; color: var(--purple); }
+.tree-title { margin-bottom: 36px; }
+
+/* Arbre — bureau */
+.tree { display: flex; flex-direction: column; align-items: center; }
+.node {
+  display: block;
+  width: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 18px;
+  padding: 16px;
   text-align: center;
 }
+a.node { transition: transform 0.2s, box-shadow 0.2s; }
+a.node:hover { color: inherit; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(22, 19, 15, 0.1); }
+.node--root { width: auto; background: var(--ink); color: var(--white); border-radius: 20px; padding: 18px 28px; }
+.node--root:hover { color: var(--white) !important; }
+.node--main { background: var(--purple); color: var(--white); }
+.node--main:hover { color: var(--white) !important; }
+.n-name { font: 800 18px/1.1 var(--font-display); }
+.node--root .n-name { font-size: 24px; line-height: 1; }
+.node--main .n-name { font-size: 22px; }
+.n-meta { font: 500 12px/1.4 var(--font-body); color: var(--muted); margin-top: 6px; }
+.node--root .n-meta { font-size: 13px; color: var(--on-dark); margin-top: 8px; }
+.node--main .n-meta { color: var(--purple-soft); }
+.stem { width: 2px; height: 28px; background: var(--ink); }
+.bar { width: 84%; height: 2px; background: var(--ink); }
+.kids { width: 100%; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.kid { display: flex; flex-direction: column; align-items: center; }
+.drop { width: 2px; height: 24px; background: var(--ink); }
 
-.hero-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
+.person.tile--ink, .person.tile--ink:hover { color: var(--white); }
+.k-gold { color: var(--gold-light) !important; }
+.p-short { display: none; }
+
+@media (max-width: 900px) {
+  .kids { gap: 8px; }
+  .n-name { font-size: 16px; }
 }
 
-.page-hero-title {
-  font-size: 3rem;
-  color: var(--color-gold);
-  margin-bottom: 1rem;
-  letter-spacing: 3px;
-}
-
-.page-hero-subtitle {
-  color: #ccc;
-  font-size: 1.15rem;
-  font-style: italic;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Bio Blocks */
-.bio-block {
-  display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 3rem;
-  margin-bottom: 5rem;
-  padding-bottom: 5rem;
-  border-bottom: 1px solid #e0d8c8;
-}
-
-.bio-block.reverse {
-  grid-template-columns: 1fr 350px;
-}
-
-.bio-block.reverse .bio-image {
-  order: 2;
-}
-
-.bio-block.reverse .bio-info {
-  order: 1;
-}
-
-.bio-image img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-}
-
-.bio-image-caption {
-  text-align: center;
-  margin-top: 0.8rem;
-  font-size: 0.8rem;
-  color: #888;
-  font-style: italic;
-}
-
-.bio-era {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  color: var(--color-burgundy);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 0.3rem;
-}
-
-.bio-info h2 {
-  font-size: 2rem;
-  color: var(--color-navy);
-  margin-bottom: 0.3rem;
-}
-
-.bio-role {
-  font-style: italic;
-  color: var(--color-gold-dark);
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.bio-text p {
-  color: #444;
-  font-size: 0.95rem;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
-.bio-achievements {
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  background: var(--color-sand);
-  border-radius: 8px;
-  border-left: 4px solid var(--color-gold);
-}
-
-:global([dir="rtl"]) .bio-achievements {
-  border-left: none;
-  border-right: 4px solid var(--color-gold);
-}
-
-.bio-achievements h4 {
-  font-size: 0.9rem;
-  color: var(--color-burgundy);
-  margin-bottom: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.bio-achievements ul {
-  list-style: none;
-  padding: 0;
-}
-
-.bio-achievements li {
-  padding: 0.3rem 0 0.3rem 1.5rem;
-  position: relative;
-  color: #555;
-  font-size: 0.9rem;
-}
-
-:global([dir="rtl"]) .bio-achievements li {
-  padding: 0.3rem 1.5rem 0.3rem 0;
-}
-
-.bio-achievements li::before {
-  content: '✦';
-  position: absolute;
-  left: 0;
-  color: var(--color-gold);
-}
-
-:global([dir="rtl"]) .bio-achievements li::before {
-  left: auto;
-  right: 0;
-}
-
-/* Other Figures */
-.section-alt {
-  background: var(--color-sand);
-}
-
-.others-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-.other-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s;
-}
-
-.other-card:hover {
-  transform: translateY(-3px);
-}
-
-.other-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.other-body {
-  padding: 1.5rem;
-}
-
-.other-era {
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
-  color: var(--color-burgundy);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 0.3rem;
-}
-
-.other-card h3 {
-  font-size: 1.15rem;
-  color: var(--color-navy);
-  margin-bottom: 0.6rem;
-}
-
-.other-card p {
-  color: #555;
-  font-size: 0.9rem;
-  line-height: 1.7;
-}
-
-@media (max-width: 768px) {
-  .page-hero-title {
-    font-size: 2rem;
+/* Arbre — mobile : liste verticale avec ligne de rattachement */
+@media (max-width: 640px) {
+  .tree { align-items: stretch; }
+  .node--root { text-align: start; }
+  .stem, .bar { display: none; }
+  .kids {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    padding-block-start: 12px;
+    padding-inline-start: 22px;
+    border-inline-start: 2px solid var(--ink);
+    margin-inline-start: 18px;
   }
+  .kid { flex-direction: row; align-items: center; }
+  .drop { width: 18px; height: 2px; margin-inline-start: -22px; flex: none; }
+  .node { text-align: start; }
 
-  .bio-block,
-  .bio-block.reverse {
-    grid-template-columns: 1fr;
+  /* Cartes compactes */
+  .people .person {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+    padding: 8px;
+    border-radius: 22px;
   }
-
-  .bio-block.reverse .bio-image,
-  .bio-block.reverse .bio-info {
-    order: unset;
-  }
-
-  .bio-image img {
-    height: 250px;
-  }
-
-  .others-grid {
-    grid-template-columns: 1fr;
-  }
+  .people .person > img { width: 96px; height: 96px; border-radius: 16px; }
+  .people .card-body { padding: 0; }
+  .people .kicker { display: none; }
+  .people .h-card { font-size: 18px; margin-bottom: 4px; }
+  .p-long { display: none; }
+  .p-short { display: block; font: 500 13px/1.4 var(--font-body); }
 }
 </style>

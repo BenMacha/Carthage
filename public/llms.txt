@@ -1,0 +1,47 @@
+# Carthage
+
+> Site éducatif trilingue (français, anglais, arabe) sur la civilisation punique de Carthage (Tunisie actuelle), d'Élissa/Didon (814 av. J.-C. selon Timée) à la chute de 146 av. J.-C. : Hannibal, les guerres puniques, la religion, l'économie, l'armée et l'héritage carthaginois dans la Tunisie d'aujourd'hui.
+
+Le contenu s'appuie sur les sources antiques (Polybe, Tite-Live, Appien, Plutarque, Diodore, Justin, Pline l'Ancien) et sur l'archéologie. Les sources étant presque toutes gréco-romaines, le site signale les récits discutés, les chiffres incertains et les biais des auteurs (voir « Histoire des vainqueurs »). Chaque page existe en /fr, /en et /ar (même chemin, préfixe de langue différent).
+
+## Repères
+- [Accueil](https://carthage.benmacha.tn/fr)
+- [Chronologie, de la fondation (814 av. J.-C.) à 146 av. J.-C.](https://carthage.benmacha.tn/fr/chronologie)
+- [Carte animée : territoires, campagne d'Hannibal, voyages, alliés](https://carthage.benmacha.tn/fr/carte)
+- [Carthage et la Tunisie aujourd'hui](https://carthage.benmacha.tn/fr/tunisie)
+- [Une histoire écrite par Rome : sources, biais et relectures](https://carthage.benmacha.tn/fr/histoire-des-vainqueurs)
+
+## Histoire
+- [Fondation de Carthage](https://carthage.benmacha.tn/fr/fondation)
+- [Les trois guerres puniques (264–146 av. J.-C.)](https://carthage.benmacha.tn/fr/guerres-puniques)
+- [La prise de Carthage (149–146 av. J.-C.)](https://carthage.benmacha.tn/fr/prise-de-carthage)
+- [La richesse de Carthage et l'hostilité de Rome](https://carthage.benmacha.tn/fr/richesse-rome)
+- [Carthage et l'Afrique : origine du nom Africa / Ifriqiya](https://carthage.benmacha.tn/fr/afrique)
+- [Lieux historiques et villes portant le nom de Carthage ou d'Hannibal](https://carthage.benmacha.tn/fr/lieux)
+
+## Hannibal et la guerre
+- [Hannibal Barca, biographie](https://carthage.benmacha.tn/fr/hannibal)
+- [Les tactiques d'Hannibal : Trébie, Trasimène, Cannes, Zama](https://carthage.benmacha.tn/fr/tactiques)
+- [Les éléphants et le passage des Alpes (218 av. J.-C.)](https://carthage.benmacha.tn/fr/elephants)
+- [L'armée carthaginoise](https://carthage.benmacha.tn/fr/armee)
+
+## Civilisation
+- [Économie et commerce](https://carthage.benmacha.tn/fr/economie)
+- [Agriculture punique](https://carthage.benmacha.tn/fr/agriculture)
+- [Religion punique : Baal Hammon, Tanit, Melqart, Eshmoun, le tophet](https://carthage.benmacha.tn/fr/religion)
+
+## Personnages
+- [Index des personnages et arbre des Barcides](https://carthage.benmacha.tn/fr/biographies)
+- [Élissa / Didon, fondatrice](https://carthage.benmacha.tn/fr/didon)
+- [Hamilcar Barca, père d'Hannibal](https://carthage.benmacha.tn/fr/hamilcar)
+- [Hasdrubal le Beau et Hasdrubal Barca](https://carthage.benmacha.tn/fr/hasdrubal)
+- [Magon Barca, frère d'Hannibal](https://carthage.benmacha.tn/fr/magon-barca)
+- [Hannon le Navigateur et le Périple](https://carthage.benmacha.tn/fr/hannon)
+- [Magon l'agronome](https://carthage.benmacha.tn/fr/magon-agronome)
+- [Sophonisbe](https://carthage.benmacha.tn/fr/sophonisbe)
+
+## Optional
+- [English version](https://carthage.benmacha.tn/en)
+- [النسخة العربية](https://carthage.benmacha.tn/ar)
+- [Crédits des images (Wikimedia Commons)](https://carthage.benmacha.tn/fr/credits)
+- [Sitemap XML](https://carthage.benmacha.tn/sitemap.xml)

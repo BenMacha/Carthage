@@ -3,10 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "prebuild": "node scripts/generate-sitemap.mjs && node scripts/generate-credits.mjs",
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "generate": "node scripts/generate-sitemap.mjs && node scripts/generate-credits.mjs && nuxt generate",
+    "preview": "nuxt preview",
+    "credits": "node scripts/generate-credits.mjs"
   },
   "dependencies": {
     "nuxt": "^3.14.0",

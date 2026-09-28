@@ -1,541 +1,409 @@
 <template>
-  <div :class="{ 'rtl': locale === 'ar' }">
+  <div class="pg">
     <!-- Hero -->
-    <section class="hero-section">
-      <div class="container">
-        <h1 class="hero-title">{{ heroTitle }}</h1>
-        <p class="hero-subtitle">{{ heroSubtitle }}</p>
-        <div class="hero-buttons">
-          <a :href="'#units'" class="btn btn-gold">{{ btnExplore }}</a>
-          <a :href="'#heritage'" class="btn btn-outline">{{ btnChronicles }}</a>
+    <div class="bento bento--top">
+      <div class="tile tile--xl tile--terra tile--stack tile--hero s-5">
+        <span class="chip chip--glass">{{ c.chip }}</span>
+        <div>
+          <h1 class="h-display army-title">{{ c.title }}</h1>
+          <p class="lede">{{ c.lede }}</p>
         </div>
       </div>
-      <div class="hero-overlay"></div>
+      <figure class="fig fig--hero s-7">
+        <img src="/img/zama.jpg" :alt="c.heroAlt">
+        <figcaption>{{ c.heroCap }}</figcaption>
+      </figure>
+    </div>
+
+    <!-- Unités -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.unitsTitle }}</h2>
+        <NuxtLink :to="localePath('/guerres-puniques')" class="btn btn-outline">{{ c.warsCta }}</NuxtLink>
+      </div>
+    </section>
+    <div class="cols cols-3">
+      <template v-for="u in c.units" :key="u.name">
+        <component
+          :is="u.link ? NuxtLinkC : 'div'"
+          v-bind="u.link ? { to: localePath(u.link) } : {}"
+          class="tile"
+          :class="[u.tone, { 'unit-img': u.img }]"
+        >
+          <img v-if="u.img" :src="u.img" :alt="u.alt" loading="lazy">
+          <div :class="{ 'unit-txt': u.img }">
+            <span class="kicker">{{ u.origin }}</span>
+            <h3 class="h-card">{{ u.name }}</h3>
+            <p class="body">{{ u.text }}</p>
+            <span v-if="u.link" class="more">{{ c.more }}</span>
+          </div>
+        </component>
+      </template>
+    </div>
+
+    <!-- Recrutement -->
+    <section class="sec">
+      <div class="cols cols-7-5 cols--flush">
+        <div class="tile tile--xl tile--paper tile--stack">
+          <div>
+            <span class="kicker">{{ c.recruitKicker }}</span>
+            <h2 class="h-block block-title">{{ c.recruitTitle }}</h2>
+            <p v-for="(p, i) in c.recruitParas" :key="i" class="body-lg para">{{ p }}</p>
+          </div>
+          <div class="chips">
+            <span v-for="t in c.recruitTags" :key="t" class="chip chip--white">{{ t }}</span>
+          </div>
+        </div>
+        <div class="tile tile--xl tile--terra tile--stack">
+          <div>
+            <span class="kicker">{{ c.xanKicker }}</span>
+            <h2 class="h-block block-title">{{ c.xanTitle }}</h2>
+            <p class="body-lg">{{ c.xanText }}</p>
+          </div>
+          <span class="chip chip--glass">{{ c.xanChip }}</span>
+        </div>
+      </div>
     </section>
 
-    <!-- Le Pacte de Carthage -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">{{ pactTitle }}</h2>
-        <div class="pact-grid">
-          <div class="pact-image">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Charter_of_Liberties.jpg/800px-Charter_of_Liberties.jpg" :alt="pactTitle" loading="lazy" />
-          </div>
-          <div class="pact-text">
-            <p class="pact-intro">{{ pactIntro }}</p>
-            <blockquote class="pact-quote">
-              <span class="quote-mark">"</span>{{ pactQuote }}
-            </blockquote>
-            <ul class="pact-points">
-              <li v-for="(point, i) in pactPoints" :key="i">
-                <span class="point-icon">&#9830;</span>
-                {{ point }}
-              </li>
-            </ul>
+    <!-- Effectifs de l'armée d'Hannibal -->
+    <section class="sec">
+      <div class="tile tile--xl tile--ink">
+        <span class="kicker">{{ c.numbersKicker }}</span>
+        <h2 class="h-block block-title">{{ c.numbersTitle }}</h2>
+        <div class="rows" style="--row-key: 200px">
+          <div v-for="r in c.numbers" :key="r.k">
+            <div class="key">{{ r.k }}</div>
+            <div class="val">{{ r.v }}</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- L'Elite des Nations -->
-    <section id="units" class="section section-dark">
-      <div class="container">
-        <h2 class="section-title light">{{ eliteTitle }}</h2>
-        <div class="bento-grid">
-          <div v-for="(unit, i) in units" :key="i" class="unit-card" :class="'unit-card-' + (i + 1)">
-            <div class="unit-badge">{{ unit.icon }}</div>
-            <h3 class="unit-name">{{ unit.name }}</h3>
-            <span class="unit-subtitle">{{ unit.subtitle }}</span>
-            <p class="unit-desc">{{ unit.desc }}</p>
+    <!-- Marine -->
+    <section class="sec">
+      <div class="cols cols-5-7 cols--flush">
+        <figure class="fig navy-fig">
+          <img src="/img/punic-ship.jpg" :alt="c.shipAlt" loading="lazy">
+          <figcaption>{{ c.shipCap }}</figcaption>
+        </figure>
+        <div class="tile tile--xl tile--navy tile--stack">
+          <div>
+            <span class="kicker">{{ c.navyKicker }}</span>
+            <h2 class="h-block navy-title">{{ c.navyTitle }}</h2>
+            <p class="body-lg">{{ c.navyText }}</p>
+          </div>
+          <div class="stats">
+            <div v-for="s in c.stats" :key="s.n" class="stat">
+              <div class="stat-n">{{ s.n }}</div>
+              <p>{{ s.t }}</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Heritage Militaire -->
-    <section id="heritage" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">{{ heritageTitle }}</h2>
-        <p class="heritage-tagline">{{ heritageTagline }}</p>
-        <div class="heritage-grid">
-          <div v-for="(card, i) in heritageCards" :key="i" class="heritage-card">
-            <div class="heritage-numeral">{{ card.numeral }}</div>
-            <h3>{{ card.title }}</h3>
-            <p>{{ card.desc }}</p>
-          </div>
-        </div>
+    <!-- Héritage militaire -->
+    <section class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.heritageTitle }}</h2>
       </div>
     </section>
-
-    <!-- CTA -->
-    <section class="section section-cta">
-      <div class="container cta-container">
-        <h2 class="cta-title">{{ ctaTitle }}</h2>
-        <p class="cta-text">{{ ctaText }}</p>
-        <NuxtLink :to="localePath('/chronologie')" class="btn btn-gold btn-lg">{{ ctaButton }}</NuxtLink>
+    <div class="cols cols-3">
+      <div v-for="h in c.heritage" :key="h.title" class="tile tile--stack" :class="h.tone">
+        <div>
+          <span class="kicker">{{ h.kicker }}</span>
+          <h3 class="h-card">{{ h.title }}</h3>
+          <p class="body">{{ h.text }}</p>
+        </div>
       </div>
+    </div>
+
+    <!-- CTA carte -->
+    <section class="sec">
+      <NuxtLink :to="localePath('/carte')" class="tile tile--xl tile--ink cta">
+        <div>
+          <span class="kicker">{{ c.mapKicker }}</span>
+          <h2 class="h-block">{{ c.mapCta }}</h2>
+        </div>
+        <span class="cta-arrow" aria-hidden="true">→</span>
+      </NuxtLink>
     </section>
   </div>
 </template>
 
 <script setup>
+import { resolveComponent } from 'vue'
+
+const NuxtLinkC = resolveComponent('NuxtLink')
 const { locale, localePath } = useI18n()
-const isFr = computed(() => locale.value === 'fr')
-const isAr = computed(() => locale.value === 'ar')
 
-useHead({
-  title: computed(() => isFr.value ? 'L\'Armee Multinationale — La Force du Libre Arbitre' : isAr.value ? 'الجيش متعدد الجنسيات — قوة الإرادة الحرة' : 'The Multinational Army — The Force of Free Will')
-})
+const C = {
+  fr: {
+    metaTitle: "L'armée de Carthage — une armée de peuples, une flotte de géants",
+    metaDesc: "Bataillon sacré, infanterie libyenne, cavalerie numide, frondeurs baléares, éléphants et la plus grande flotte de son temps : l'armée de Carthage.",
+    chip: 'Carthage · Armée',
+    title: "L'armée de Carthage",
+    lede: "Des officiers carthaginois à la tête de soldats venus de tout l'Occident méditerranéen — et la plus grande flotte de son temps.",
+    heroAlt: 'Bataille de Zama',
+    heroCap: 'La bataille de Zama (202 av. J.-C.)',
+    unitsTitle: 'Qui combattait pour Carthage ?',
+    warsCta: 'Cannes et les guerres puniques →',
+    more: 'En savoir plus →',
+    units: [
+      { tone: 'tile--purple', origin: 'Carthage', name: 'Le Bataillon sacré', text: "Environ 2 500 citoyens de l'élite, lourdement armés, selon Diodore. Les officiers sont carthaginois." },
+      { origin: 'Tunisie actuelle', name: 'Infanterie libyenne', text: "Le cœur de l'armée : fantassins disciplinés, armés de la lance et du bouclier, rééquipés à Cannes avec les armes prises aux Romains." },
+      { origin: 'Numidie', name: 'Cavalerie numide', text: 'Sans selle ni mors, légère et insaisissable : harcèlement, fausses fuites et retours brusques. La meilleure cavalerie de la Méditerranée.' },
+      { img: '/img/slinger.jpg', alt: 'Frondeur baléare', origin: 'Îles Baléares', name: 'Frondeurs', text: "Entraînés dès l'enfance, ils portaient trois frondes pour tirer à différentes distances (Strabon) et lançaient pierres et balles de plomb." },
+      { origin: 'Hispanie & Gaule', name: 'Ibères, Celtibères, Gaulois', text: "L'épée ibérique — Rome en tira son gladius hispaniensis — et la furie des Gaulois de Cisalpine, ralliés en Italie : le centre du croissant de Cannes." },
+      { tone: 'tile--ink', img: '/img/coin-elephant.jpg', alt: 'Éléphant sur shekel', origin: 'Afrique du Nord', name: 'Éléphants', text: 'Arme de choc et de terreur ; 80 à Zama selon Polybe.', link: '/elephants' }
+    ],
+    shipAlt: 'Proue du navire punique de Marsala',
+    shipCap: 'Navire punique de Marsala, IIIe s. av. J.-C.',
+    navyKicker: 'La marine',
+    navyTitle: 'Maîtres de la mer',
+    navyText: "Les navires puniques étaient construits en série : les pièces portaient des lettres de montage, comme l'a montré l'épave de Marsala. Rome copia un navire carthaginois échoué pour bâtir sa première flotte.",
+    stats: [
+      { n: '220', t: 'loges du port circulaire (Appien)' },
+      { n: '~300', t: 'rameurs par quinquérème' },
+      { n: '10', t: 'navires autorisés après 201' }
+    ],
+    recruitKicker: 'Recrutement',
+    recruitTitle: 'Une armée de contrats et d’alliances',
+    recruitParas: [
+      "Carthage, cité de marchands peu nombreuse, ne levait pas de grandes armées de citoyens. Elle combinait trois ressources : les Libyens de son territoire africain, astreints au service ; les contingents de rois et chefs alliés, numides surtout ; et des mercenaires engagés contre solde en Hispanie, en Gaule, aux Baléares, en Grèce ou en Campanie.",
+      "Les généraux et les officiers étaient carthaginois. Les citoyens servaient surtout dans la flotte et ne prenaient les armes en masse qu’en cas de danger extrême — contre Agathocle en 310, contre Regulus en 256-255, pendant le siège final de 149-146.",
+      "Ce système avait sa faiblesse : en 241, les mercenaires revenus de Sicile et mal payés se révoltèrent. La guerre des Mercenaires (241-238) faillit emporter Carthage, avant qu’Hamilcar Barca ne l’écrase."
+    ],
+    recruitTags: ['Libyens', 'Alliés numides', 'Mercenaires', 'Officiers carthaginois'],
+    xanKicker: 'Première guerre punique · 255',
+    xanTitle: 'Xanthippe le Spartiate',
+    xanText: "Mercenaire spartiate engagé par Carthage alors que le consul Regulus campe devant Tunis. Il réorganise l’armée, fait combattre cavalerie et éléphants en plaine et écrase les légions : Regulus est fait prisonnier, Carthage est sauvée.",
+    xanChip: 'Bataille de Tunis (Bagradas), 255 av. J.-C.',
+    numbersKicker: 'Selon Polybe',
+    numbersTitle: 'L’armée d’Hannibal en chiffres',
+    numbers: [
+      { k: 'Printemps 218', v: 'Départ de Carthagène avec 90 000 fantassins et 12 000 cavaliers.' },
+      { k: "Après l'Èbre", v: 'Garnisons laissées en Hispanie : il franchit les Pyrénées avec 50 000 fantassins et 9 000 cavaliers ; 37 éléphants passent le Rhône.' },
+      { k: 'Automne 218', v: 'Arrivée en Italie après les Alpes : 12 000 Africains, 8 000 Ibères et 6 000 cavaliers, chiffres gravés par Hannibal lui-même au cap Lacinium.' },
+      { k: 'Cannes, 216', v: 'Environ 40 000 fantassins et 10 000 cavaliers face à quelque 80 000 Romains et alliés.' },
+      { k: 'Zama, 202', v: '80 éléphants en première ligne, puis mercenaires, Libyens et Carthaginois, et les vétérans d’Italie en réserve.' }
+    ],
+    heritageTitle: 'Héritage militaire',
+    heritage: [
+      { kicker: 'Armes combinées', title: 'Chaque peuple à sa place', text: 'Cavaliers numides pour la poursuite, frondeurs baléares pour le tir, Libyens et Ibères pour la ligne : Hannibal fit de cette diversité un instrument tactique.', tone: 'tile--purple' },
+      { kicker: 'Cannes', title: 'Le modèle de l’enveloppement', text: "Le double enveloppement de 216 est étudié dans les écoles militaires jusqu'à l'époque moderne ; Schlieffen en fit le cœur de sa doctrine." },
+      { kicker: 'Fidélité', title: 'Seize ans sans mutinerie', text: "Selon Polybe, l'armée multinationale d'Hannibal ne se mutina jamais pendant seize ans de guerre en Italie, malgré les privations.", tone: 'tile--navy' }
+    ],
+    mapKicker: "Campagne d'Hannibal · 219–202",
+    mapCta: 'Voir la campagne sur la carte animée'
+  },
+  en: {
+    metaTitle: "Carthage's army — an army of peoples, a fleet of giants",
+    metaDesc: "Sacred Band, Libyan infantry, Numidian cavalry, Balearic slingers, elephants and the largest fleet of its day: the army of Carthage.",
+    chip: 'Carthage · Army',
+    title: 'The army of Carthage',
+    lede: 'Carthaginian officers leading soldiers from across the western Mediterranean — and the largest fleet of its day.',
+    heroAlt: 'Battle of Zama',
+    heroCap: 'The Battle of Zama (202 BC)',
+    unitsTitle: 'Who fought for Carthage?',
+    warsCta: 'Cannae and the Punic Wars →',
+    more: 'Learn more →',
+    units: [
+      { tone: 'tile--purple', origin: 'Carthage', name: 'The Sacred Band', text: 'Some 2,500 elite citizens, heavily armed, according to Diodorus. The officers were Carthaginian.' },
+      { origin: 'Present-day Tunisia', name: 'Libyan infantry', text: 'The core of the army: disciplined foot soldiers with spear and shield, re-equipped at Cannae with weapons taken from the Romans.' },
+      { origin: 'Numidia', name: 'Numidian cavalry', text: 'No saddle, no bit, light and elusive: harassment, feigned flight and sudden return. The finest cavalry in the Mediterranean.' },
+      { img: '/img/slinger.jpg', alt: 'Balearic slinger', origin: 'Balearic Islands', name: 'Slingers', text: 'Trained from childhood, they carried three slings for different ranges (Strabo) and hurled stones and lead shot.' },
+      { origin: 'Iberia & Gaul', name: 'Iberians, Celtiberians, Gauls', text: 'The Iberian sword — Rome adopted it as the gladius hispaniensis — and the fury of the Cisalpine Gauls who joined in Italy: the centre of the crescent at Cannae.' },
+      { tone: 'tile--ink', img: '/img/coin-elephant.jpg', alt: 'Elephant on a shekel', origin: 'North Africa', name: 'Elephants', text: 'A weapon of shock and terror; 80 at Zama according to Polybius.', link: '/elephants' }
+    ],
+    shipAlt: 'Bow of the Marsala Punic ship',
+    shipCap: 'The Marsala Punic ship, 3rd c. BC',
+    navyKicker: 'The navy',
+    navyTitle: 'Masters of the sea',
+    navyText: 'Punic ships were built in series: the parts bore assembly letters, as the Marsala wreck revealed. Rome copied a stranded Carthaginian ship to build its first fleet.',
+    stats: [
+      { n: '220', t: 'ship sheds in the circular harbour (Appian)' },
+      { n: '~300', t: 'rowers per quinquereme' },
+      { n: '10', t: 'ships allowed after 201' }
+    ],
+    recruitKicker: 'Recruitment',
+    recruitTitle: 'An army of contracts and alliances',
+    recruitParas: [
+      'Carthage, a trading city with few citizens, did not raise large citizen armies. It combined three resources: the Libyans of its African territory, liable to service; contingents from allied kings and chiefs, above all Numidians; and mercenaries hired for pay in Iberia, Gaul, the Balearics, Greece and Campania.',
+      'Generals and officers were Carthaginian. Citizens served mainly in the fleet and only took up arms en masse in extreme danger — against Agathocles in 310, against Regulus in 256–255, during the final siege of 149–146.',
+      'The system had its weakness: in 241 the mercenaries back from Sicily, poorly paid, rose in revolt. The Mercenary War (241–238) almost destroyed Carthage before Hamilcar Barca crushed it.'
+    ],
+    recruitTags: ['Libyans', 'Numidian allies', 'Mercenaries', 'Carthaginian officers'],
+    xanKicker: 'First Punic War · 255',
+    xanTitle: 'Xanthippus the Spartan',
+    xanText: 'A Spartan mercenary hired by Carthage while the consul Regulus was encamped before Tunis. He reorganised the army, fought with cavalry and elephants on open ground and crushed the legions: Regulus was captured and Carthage saved.',
+    xanChip: 'Battle of Tunis (Bagradas), 255 BC',
+    numbersKicker: 'According to Polybius',
+    numbersTitle: "Hannibal's army in numbers",
+    numbers: [
+      { k: 'Spring 218', v: 'Leaves Carthago Nova with 90,000 infantry and 12,000 cavalry.' },
+      { k: 'After the Ebro', v: 'Leaving garrisons in Iberia, he crosses the Pyrenees with 50,000 infantry and 9,000 cavalry; 37 elephants cross the Rhône.' },
+      { k: 'Autumn 218', v: 'Arrives in Italy after the Alps: 12,000 Africans, 8,000 Iberians and 6,000 cavalry — figures Hannibal himself had inscribed at Cape Lacinium.' },
+      { k: 'Cannae, 216', v: 'About 40,000 infantry and 10,000 cavalry against some 80,000 Romans and allies.' },
+      { k: 'Zama, 202', v: "80 elephants in the front line, then mercenaries, Libyans and Carthaginians, with the veterans of Italy in reserve." }
+    ],
+    heritageTitle: 'Military legacy',
+    heritage: [
+      { kicker: 'Combined arms', title: 'Each people in its place', text: 'Numidian horsemen for pursuit, Balearic slingers for missile fire, Libyans and Iberians for the line: Hannibal turned this diversity into a tactical instrument.', tone: 'tile--purple' },
+      { kicker: 'Cannae', title: 'The model of envelopment', text: 'The double envelopment of 216 has been studied in military schools into modern times; Schlieffen made it the heart of his doctrine.' },
+      { kicker: 'Loyalty', title: 'Sixteen years without mutiny', text: "According to Polybius, Hannibal's multinational army never mutinied during sixteen years of war in Italy, despite hardship.", tone: 'tile--navy' }
+    ],
+    mapKicker: "Hannibal's campaign · 219–202",
+    mapCta: 'See the campaign on the animated map'
+  },
+  ar: {
+    metaTitle: 'جيش قرطاج — جيش من الشعوب وأسطول من العمالقة',
+    metaDesc: 'الكتيبة المقدسة والمشاة الليبيون والفرسان النوميديون والمقلاعيون البلياريون والفيلة وأكبر أسطول في عصره: جيش قرطاج.',
+    chip: 'قرطاج · الجيش',
+    title: 'جيش قرطاج',
+    lede: 'ضباط قرطاجيون على رأس جنود قدموا من كامل غرب البحر الأبيض المتوسط — وأكبر أسطول في عصره.',
+    heroAlt: 'معركة زاما',
+    heroCap: 'معركة زاما (202 ق.م)',
+    unitsTitle: 'من كان يقاتل من أجل قرطاج؟',
+    warsCta: 'كاناي والحروب البونيقية ←',
+    more: 'اعرف المزيد ←',
+    units: [
+      { tone: 'tile--purple', origin: 'قرطاج', name: 'الكتيبة المقدسة', text: 'نحو 2500 مواطن من النخبة، مدججين بالسلاح، حسب ديودور. وكان الضباط قرطاجيين.' },
+      { origin: 'تونس الحالية', name: 'المشاة الليبيون', text: 'قلب الجيش: مشاة منضبطون بالرمح والترس، تسلّحوا في كاناي بالأسلحة التي غنموها من الرومان.' },
+      { origin: 'نوميديا', name: 'الفرسان النوميديون', text: 'بلا سرج ولا لجام، خفاف يصعب الإمساك بهم: مناوشة وتظاهر بالفرار ثم كرّ مباغت. أفضل فرسان البحر الأبيض المتوسط.' },
+      { img: '/img/slinger.jpg', alt: 'مقلاعي بلياري', origin: 'جزر البليار', name: 'رماة المقلاع', text: 'تدرّبوا منذ الطفولة، وحملوا ثلاثة مقاليع للرمي على مسافات مختلفة (سترابون)، فرموا الحجارة وكرات الرصاص.' },
+      { origin: 'إيبيريا وبلاد الغال', name: 'الإيبيريون والسلتيبيريون والغاليون', text: 'السيف الإيبيري — الذي اقتبست منه روما «السيف الهسباني» — وبأس غاليي إيطاليا الشمالية الذين التحقوا بحنبعل: وسط الهلال في كاناي.' },
+      { tone: 'tile--ink', img: '/img/coin-elephant.jpg', alt: 'فيل على شيقل', origin: 'شمال إفريقيا', name: 'الفيلة', text: 'سلاح صدمة ورعب؛ 80 فيلًا في زاما حسب بوليبيوس.', link: '/elephants' }
+    ],
+    shipAlt: 'مقدمة السفينة البونيقية في مرسالا',
+    shipCap: 'السفينة البونيقية في مرسالا، القرن الثالث ق.م',
+    navyKicker: 'البحرية',
+    navyTitle: 'سادة البحر',
+    navyText: 'كانت السفن البونيقية تُبنى بالجملة: حملت قطعها حروف تركيب، كما كشف حطام مرسالا. ونسخت روما سفينة قرطاجية جانحة لتبني أول أسطول لها.',
+    stats: [
+      { n: '220', t: 'حوضًا في الميناء الدائري (أبيان)' },
+      { n: '~300', t: 'مجدّف في كل سفينة خماسية' },
+      { n: '10', t: 'سفن مسموح بها بعد 201' }
+    ],
+    recruitKicker: 'التجنيد',
+    recruitTitle: 'جيش من العقود والتحالفات',
+    recruitParas: [
+      'لم تكن قرطاج، مدينة التجار القليلة المواطنين، تحشد جيوشًا كبيرة من مواطنيها. بل جمعت بين ثلاثة موارد: الليبيين في إقليمها الإفريقي الملزمين بالخدمة، وفرق الملوك والزعماء الحلفاء ولا سيما النوميديين، والمرتزقة المستأجرين بالأجر من إيبيريا وبلاد الغال وجزر البليار واليونان وكمبانيا.',
+      'كان القادة والضباط قرطاجيين. وخدم المواطنون أساسًا في الأسطول، ولم يحملوا السلاح بأعداد كبيرة إلا عند الخطر الداهم — ضد أغاثوكليس سنة 310، وضد ريغولوس في 256–255، وأثناء الحصار الأخير في 149–146.',
+      'وكان لهذا النظام ضعفه: ففي 241 ثار المرتزقة العائدون من صقلية لأنهم لم يتقاضوا أجورهم. وكادت حرب المرتزقة (241–238) تقضي على قرطاج قبل أن يسحقها حملقار برقا.'
+    ],
+    recruitTags: ['الليبيون', 'الحلفاء النوميديون', 'المرتزقة', 'ضباط قرطاجيون'],
+    xanKicker: 'الحرب البونيقية الأولى · 255',
+    xanTitle: 'كسانثيبوس الإسبرطي',
+    xanText: 'مرتزق إسبرطي استأجرته قرطاج حين كان القنصل ريغولوس معسكرًا أمام تونس. أعاد تنظيم الجيش، وقاتل بالفرسان والفيلة في السهل، فسحق الفيالق: أُسر ريغولوس ونجت قرطاج.',
+    xanChip: 'معركة تونس (مجردة)، 255 ق.م',
+    numbersKicker: 'بحسب بوليبيوس',
+    numbersTitle: 'جيش حنبعل بالأرقام',
+    numbers: [
+      { k: 'ربيع 218', v: 'ينطلق من قرطاجنة بتسعين ألف راجل واثني عشر ألف فارس.' },
+      { k: 'بعد الإيبرو', v: 'يترك حاميات في إيبيريا ويعبر البرانس بخمسين ألف راجل وتسعة آلاف فارس، ثم يعبر 37 فيلًا نهر الرون.' },
+      { k: 'خريف 218', v: 'يصل إلى إيطاليا بعد الألب: 12 ألف إفريقي و8 آلاف إيبيري و6 آلاف فارس، وهي أرقام نقشها حنبعل بنفسه في رأس لاكينيوم.' },
+      { k: 'كاناي، 216', v: 'نحو 40 ألف راجل و10 آلاف فارس في مواجهة قرابة 80 ألف روماني وحليف.' },
+      { k: 'زاما، 202', v: '80 فيلًا في الصف الأول، ثم المرتزقة والليبيون والقرطاجيون، وقدامى محاربي إيطاليا في الاحتياط.' }
+    ],
+    heritageTitle: 'الإرث العسكري',
+    heritage: [
+      { kicker: 'تكامل الأسلحة', title: 'لكل شعب موقعه', text: 'الفرسان النوميديون للمطاردة، ورماة المقلاع البليار للرمي، والليبيون والإيبيريون للصف: جعل حنبعل من هذا التنوع أداة تكتيكية.', tone: 'tile--purple' },
+      { kicker: 'كاناي', title: 'نموذج التطويق', text: 'دُرس التطويق المزدوج سنة 216 في المدارس العسكرية حتى العصر الحديث، وجعله شليفن قلب عقيدته.' },
+      { kicker: 'الوفاء', title: 'ست عشرة سنة بلا تمرد', text: 'بحسب بوليبيوس، لم يتمرد جيش حنبعل المتعدد الشعوب قط طوال ست عشرة سنة من الحرب في إيطاليا، رغم الحرمان.', tone: 'tile--navy' }
+    ],
+    mapKicker: 'حملة حنبعل · 219–202',
+    mapCta: 'شاهد الحملة على الخريطة المتحركة'
+  }
+}
 
-const heroTitle = computed(() => isFr.value ? 'L\'Armee Multinationale : La Force du Libre Arbitre' : isAr.value ? 'الجيش متعدد الجنسيات: قوة الإرادة الحرة' : 'The Multinational Army: The Force of Free Will')
-const heroSubtitle = computed(() => isFr.value ? 'Au-dela du mythe du mercenariat, decouvrez comment Carthage a forge l\'unite a partir de la diversite, creant la force la plus specialisee de l\'Antiquite.' : isAr.value ? 'بعيدًا عن أسطورة المرتزقة، اكتشفوا كيف صاغت قرطاج الوحدة من التنوع، مُنشئةً أكثر القوى تخصصًا في العصور القديمة.' : 'Beyond the myth of mercenaries, discover how Carthage forged unity from diversity, creating the most specialized force of antiquity.')
-const btnExplore = computed(() => isFr.value ? 'Explorer les Unites' : isAr.value ? 'استكشاف الوحدات' : 'Explore the Units')
-const btnChronicles = computed(() => isFr.value ? 'Les Chroniques' : isAr.value ? 'السجلات' : 'The Chronicles')
+const c = computed(() => C[locale.value] || C.fr)
 
-const pactTitle = computed(() => isFr.value ? 'Le Pacte de Carthage' : isAr.value ? 'ميثاق قرطاج' : 'The Pact of Carthage')
-const pactIntro = computed(() => isFr.value ? 'Contrairement aux empires fondes sur la conscription forcee, Carthage a bati sa puissance sur un modele revolutionnaire : le volontariat et l\'alliance strategique.' : isAr.value ? 'على عكس الإمبراطوريات القائمة على التجنيد الإجباري، بنت قرطاج قوتها على نموذج ثوري: التطوع والتحالف الاستراتيجي.' : 'Unlike empires built on forced conscription, Carthage built its power on a revolutionary model: volunteerism and strategic alliance.')
-const pactQuote = computed(() => isFr.value ? 'Ils ne combattaient pas par contrainte, mais par alliance de gloire.' : isAr.value ? 'لم يقاتلوا بالإكراه، بل بتحالف المجد.' : 'They did not fight by constraint, but by an alliance of glory.')
-const pactPoints = computed(() => isFr.value ? [
-  'Respect de l\'autonomie culturelle de chaque peuple allie',
-  'Accords diplomatiques bases sur la prosperite mutuelle',
-] : isAr.value ? [
-  'احترام الاستقلالية الثقافية لكل شعب حليف',
-  'اتفاقيات دبلوماسية مبنية على الازدهار المتبادل',
-] : [
-  'Respect for the cultural autonomy of each allied people',
-  'Diplomatic agreements based on mutual prosperity',
-])
-
-const eliteTitle = computed(() => isFr.value ? 'L\'Elite des Nations' : isAr.value ? 'نخبة الأمم' : 'The Elite of Nations')
-const units = computed(() => isFr.value ? [
-  { icon: '🪨', name: 'Frondeurs des Baleares', subtitle: 'Maitres de la distance', desc: 'Recrutes dans les iles Baleares, ces frondeurs etaient mortellement precis a plus de 100 metres. Chaque guerrier portait trois frondes de longueurs differentes. Leur pluie de pierres brisait les formations ennemies avant meme le contact.' },
-  { icon: '🐎', name: 'Cavalerie Numide', subtitle: 'Les cavaliers les plus rapides de l\'Antiquite', desc: 'Montant sans selle ni bride, les cavaliers numides harcelaient les legions romaines avec une mobilite inegalee. Leur tactique de feinte et de charge rapide rendait les formations romaines impuissantes.' },
-  { icon: '⚔️', name: 'Epeistes Iberes', subtitle: 'La falcata qui fit trembler Rome', desc: 'L\'epee ibere, la falcata, etait si redoutable que Rome fut contrainte de copier leur acier. Ces guerriers iberiques combinaient ferocite individuelle et discipline collective, formant le fer de lance de nombreuses offensives.' },
-  { icon: '🛡️', name: 'Infanterie Libyenne', subtitle: 'Le Coeur Phalangiste', desc: 'Colonne vertebrale de chaque armee carthaginoise, l\'infanterie libyenne formait la phalange centrale. Equipes de longues lances et de boucliers, ils constituaient le mur infranchissable autour duquel toute la strategie s\'articulait.' },
-  { icon: '🪓', name: 'Guerriers Celtes', subtitle: 'La Furie du Nord', desc: 'Recrutes en Gaule cisalpine et transalpine, les guerriers celtes apportaient une fureur de combat legendaire. Leur charge frontale brisait le moral ennemi, et leur endurance physique faisait d\'eux des combattants redoutables dans les longues batailles.' },
-  { icon: '🏛️', name: 'Xanthippe le Spartiate', subtitle: 'Le sauveur de Carthage', desc: 'General spartiate qui sauva Carthage durant la Premiere Guerre Punique. En reorganisant l\'armee carthaginoise selon les principes de la phalange grecque, il infligea a Regulus une defaite ecrasante a la bataille de Tunis en 255 av. J.-C.' },
-] : isAr.value ? [
-  { icon: '🪨', name: 'رماة جزر البليار', subtitle: 'أسياد المسافة', desc: 'تم تجنيدهم من جزر البليار، كان هؤلاء الرماة دقيقين بشكل قاتل على مسافة تزيد عن 100 متر. حمل كل محارب ثلاثة مقاليع بأطوال مختلفة. أمطارهم الحجرية حطمت تشكيلات العدو قبل أي اتصال مباشر.' },
-  { icon: '🐎', name: 'الفرسان النوميديون', subtitle: 'أسرع فرسان العصور القديمة', desc: 'ركبوا بدون سرج أو لجام، أزعج الفرسان النوميديون الفيالق الرومانية بحركية لا مثيل لها. تكتيكهم في التمويه والهجوم السريع جعل التشكيلات الرومانية عاجزة.' },
-  { icon: '⚔️', name: 'مقاتلو السيوف الإيبيريون', subtitle: 'الفالكاتا التي أرعبت روما', desc: 'كان السيف الإيبيري، الفالكاتا، مرعبًا لدرجة أن روما اضطرت لنسخ فولاذهم. جمع هؤلاء المحاربون بين الشراسة الفردية والانضباط الجماعي.' },
-  { icon: '🛡️', name: 'المشاة الليبيون', subtitle: 'قلب الكتيبة', desc: 'العمود الفقري لكل جيش قرطاجي، شكّل المشاة الليبيون الكتيبة المركزية. مجهزون برماح طويلة ودروع، شكلوا الجدار المنيع الذي تمحورت حوله كل الاستراتيجية.' },
-  { icon: '🪓', name: 'المحاربون الكلتيون', subtitle: 'غضب الشمال', desc: 'تم تجنيدهم من بلاد الغال، جلب المحاربون الكلتيون غضبًا أسطوريًا في القتال. هجومهم الأمامي كسر معنويات العدو، وقدرتهم البدنية جعلتهم مقاتلين مرعبين.' },
-  { icon: '🏛️', name: 'زانثيبوس الإسبرطي', subtitle: 'منقذ قرطاج', desc: 'جنرال إسبرطي أنقذ قرطاج خلال الحرب البونية الأولى. بإعادة تنظيم الجيش القرطاجي وفق مبادئ الكتيبة اليونانية، ألحق بريغولوس هزيمة ساحقة في معركة تونس عام 255 ق.م.' },
-] : [
-  { icon: '🪨', name: 'Balearic Slingers', subtitle: 'Masters of distance', desc: 'Recruited from the Balearic Islands, these slingers were deadly accurate at over 100 meters. Each warrior carried three slings of different lengths. Their rain of stones shattered enemy formations before any direct contact.' },
-  { icon: '🐎', name: 'Numidian Cavalry', subtitle: 'The fastest horsemen of antiquity', desc: 'Riding without saddle or bridle, Numidian horsemen harassed Roman legions with unmatched mobility. Their feint-and-charge tactics rendered Roman formations powerless.' },
-  { icon: '⚔️', name: 'Iberian Swordsmen', subtitle: 'The falcata that made Rome tremble', desc: 'The Iberian sword, the falcata, was so formidable that Rome was forced to copy their steel. These Iberian warriors combined individual ferocity with collective discipline, forming the spearhead of many offensives.' },
-  { icon: '🛡️', name: 'Libyan Infantry', subtitle: 'The Phalanx Heart', desc: 'Backbone of every Carthaginian army, the Libyan infantry formed the central phalanx. Equipped with long spears and shields, they constituted the impenetrable wall around which all strategy was built.' },
-  { icon: '🪓', name: 'Celtic Warriors', subtitle: 'The Fury of the North', desc: 'Recruited in Cisalpine and Transalpine Gaul, Celtic warriors brought legendary battle fury. Their frontal charge broke enemy morale, and their physical endurance made them fearsome fighters in prolonged battles.' },
-  { icon: '🏛️', name: 'Xanthippus the Spartan', subtitle: 'The savior of Carthage', desc: 'Spartan general who saved Carthage during the First Punic War. By reorganizing the Carthaginian army along Greek phalanx principles, he inflicted a crushing defeat on Regulus at the Battle of Tunis in 255 BC.' },
-])
-
-const heritageTitle = computed(() => isFr.value ? 'Heritage Militaire' : isAr.value ? 'التراث العسكري' : 'Military Heritage')
-const heritageTagline = computed(() => isFr.value ? 'Unite dans la Diversite' : isAr.value ? 'الوحدة في التنوع' : 'Unity in Diversity')
-const heritageCards = computed(() => isFr.value ? [
-  { numeral: 'I', title: 'Synergie Culturelle', desc: 'Carthage fut le premier Etat a harmoniser des tactiques de combat provenant de trois continents, creant une force militaire dont la polyvalence n\'avait aucun equivalent dans le monde antique.' },
-  { numeral: 'II', title: 'Specialisation Ultime', desc: 'Chaque unite etait utilisee selon sa force ancestrale : les Numides pour la cavalerie legere, les Baleares pour le tir a distance, les Libyens pour la phalange. Cette specialisation donna a Carthage un avantage tactique decisif.' },
-] : isAr.value ? [
-  { numeral: 'I', title: 'التآزر الثقافي', desc: 'كانت قرطاج أول دولة تنسق تكتيكات قتالية من ثلاث قارات، مُنشئةً قوة عسكرية لم يكن لتعدد قدراتها مثيل في العالم القديم.' },
-  { numeral: 'II', title: 'التخصص الأقصى', desc: 'استُخدمت كل وحدة وفق قوتها الموروثة: النوميديون للفرسان الخفيفة، البليار للرمي عن بُعد، الليبيون للكتيبة. هذا التخصص منح قرطاج تفوقًا تكتيكيًا حاسمًا.' },
-] : [
-  { numeral: 'I', title: 'Cultural Synergy', desc: 'Carthage was the first state to harmonize combat tactics from three continents, creating a military force whose versatility had no equivalent in the ancient world.' },
-  { numeral: 'II', title: 'Ultimate Specialization', desc: 'Each unit was deployed according to its ancestral strength: Numidians for light cavalry, Balearics for ranged fire, Libyans for the phalanx. This specialization gave Carthage a decisive tactical advantage.' },
-])
-
-const ctaTitle = computed(() => isFr.value ? 'Rejoignez les Annales de l\'Histoire' : isAr.value ? 'انضموا إلى سجلات التاريخ' : 'Join the Annals of History')
-const ctaText = computed(() => isFr.value ? 'Explorez les archives completes des campagnes d\'Hannibal et des alliances qui ont defie l\'Empire.' : isAr.value ? 'استكشفوا الأرشيفات الكاملة لحملات حنبعل والتحالفات التي تحدت الإمبراطورية.' : 'Explore the complete archives of Hannibal\'s campaigns and the alliances that defied the Empire.')
-const ctaButton = computed(() => isFr.value ? 'Acceder aux Archives' : isAr.value ? 'الوصول إلى الأرشيفات' : 'Access the Archives')
+useHead(() => ({
+  title: c.value.metaTitle,
+  meta: [{ name: 'description', content: c.value.metaDesc }]
+}))
 </script>
 
 <style scoped>
-.rtl {
-  direction: rtl;
-  text-align: right;
+.army-title { font-size: clamp(44px, 5.8vw, 84px); line-height: 0.88; }
+
+.unit-img {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 18px;
 }
 
-/* Hero */
-.hero-section {
-  position: relative;
-  background: linear-gradient(135deg, var(--color-navy) 0%, #2d1b0e 40%, var(--color-burgundy) 100%);
-  padding: 10rem 0 5rem;
-  text-align: center;
-  overflow: hidden;
+.unit-img > img {
+  width: 150px;
+  height: 100%;
+  min-height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  background: var(--sand-deep);
 }
 
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Castra-Praetoria-Mauer.jpg/1280px-Castra-Praetoria-Mauer.jpg') center/cover no-repeat;
-  opacity: 0.12;
-  z-index: 0;
-}
+.tile--ink.unit-img > img { background: #3A332C; }
 
-.hero-section .container {
-  position: relative;
-  z-index: 1;
-}
+.unit-txt { padding-block: 22px 14px; padding-inline-end: 14px; }
 
-.hero-title {
-  font-family: var(--font-heading);
-  font-size: 3rem;
-  color: var(--color-gold);
-  letter-spacing: 3px;
-  margin-bottom: 1.2rem;
-  line-height: 1.25;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
+.block-title { margin-bottom: 20px; }
+.para + .para { margin-top: 12px; }
 
-.hero-subtitle {
-  font-family: var(--font-body);
-  color: #ccc;
-  font-size: 1.1rem;
-  font-style: italic;
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.8;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-}
-
-.btn {
+.more {
   display: inline-block;
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  padding: 0.8rem 2rem;
-  border-radius: 6px;
-  text-decoration: none;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  margin-top: 12px;
+  font: 600 13px/1 var(--font-body);
+  color: var(--gold-light);
 }
 
-.btn-gold {
-  background: linear-gradient(135deg, var(--color-gold), #b8923e);
-  color: var(--color-navy);
-  border: none;
-}
+.navy-fig { background: var(--navy); min-height: clamp(300px, 36vw, 480px); }
+.navy-title { font-size: clamp(34px, 3.9vw, 56px); margin-bottom: 20px; }
 
-.btn-gold:hover {
-  background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.4);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--color-gold);
-  border: 1px solid rgba(201, 168, 76, 0.5);
-}
-
-.btn-outline:hover {
-  background: rgba(201, 168, 76, 0.1);
-  border-color: var(--color-gold);
-}
-
-.btn-lg {
-  padding: 1rem 2.5rem;
-  font-size: 0.9rem;
-}
-
-/* Sections */
-.section {
-  padding: 5rem 0;
-}
-
-.section-alt {
-  background: var(--color-sand, #f5f0e8);
-}
-
-.section-dark {
-  background: var(--color-navy);
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.section-title {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  color: var(--color-navy);
-  text-align: center;
-  margin-bottom: 2.5rem;
-  letter-spacing: 2px;
-}
-
-.section-title.light {
-  color: var(--color-gold);
-}
-
-/* Pact */
-.pact-grid {
+.stats {
   display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 3rem;
-  align-items: start;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
 }
 
-.pact-image img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+.stat {
+  background: var(--navy-deep);
+  border-radius: 20px;
+  padding: 20px;
 }
 
-.pact-intro {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: #444;
-  line-height: 1.9;
-  margin-bottom: 1.5rem;
-}
+.stat-n { font: 900 34px/1 var(--font-display); }
+.stat p { font: 500 13px/1.4 var(--font-body); color: var(--navy-soft); margin-top: 6px; }
 
-.pact-quote {
-  position: relative;
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--color-burgundy);
-  padding: 1.5rem 2rem;
-  background: rgba(107, 29, 42, 0.05);
-  border-left: 4px solid var(--color-gold);
-  border-radius: 0 8px 8px 0;
-  margin: 0 0 2rem 0;
-  line-height: 1.7;
-}
-
-.rtl .pact-quote {
-  border-left: none;
-  border-right: 4px solid var(--color-gold);
-  border-radius: 8px 0 0 8px;
-}
-
-.quote-mark {
-  font-family: var(--font-heading);
-  font-size: 3rem;
-  color: var(--color-gold);
-  line-height: 0;
-  position: relative;
-  top: 0.3rem;
-  margin-right: 0.3rem;
-}
-
-.pact-points {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.pact-points li {
+.cta {
   display: flex;
-  align-items: flex-start;
-  gap: 0.8rem;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.7;
-  margin-bottom: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-.point-icon {
-  color: var(--color-gold);
-  font-size: 0.7rem;
-  margin-top: 0.4rem;
-  flex-shrink: 0;
-}
-
-/* Bento Grid */
-.bento-grid {
+.cta-arrow {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--purple);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
-  gap: 1.5rem;
+  place-items: center;
+  font: 700 22px/1 var(--font-body);
 }
 
-.unit-card {
-  background: var(--color-navy-light);
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid rgba(201, 168, 76, 0.12);
-  transition: all 0.3s ease;
+[dir="rtl"] .cta-arrow { transform: scaleX(-1); }
+
+@media (max-width: 640px) {
+  .unit-img { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .unit-img > img { width: 100%; height: 200px; min-height: 0; }
+  .unit-txt { padding: 18px 12px 12px; }
+  .stats { grid-template-columns: minmax(0, 1fr); }
 }
 
-.unit-card:hover {
-  border-color: var(--color-gold);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-.unit-card-1 {
-  grid-column: span 1;
-}
-
-.unit-card-4 {
-  grid-column: span 2;
-}
-
-.unit-badge {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-
-.unit-name {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  color: var(--color-gold);
-  margin-bottom: 0.3rem;
-  letter-spacing: 1px;
-}
-
-.unit-subtitle {
-  display: block;
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: 0.8rem;
-  color: var(--color-gold-light);
-  opacity: 0.7;
-  margin-bottom: 0.8rem;
-}
-
-.unit-desc {
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  color: #aaa;
-  line-height: 1.7;
-}
-
-/* Heritage */
-.heritage-tagline {
-  text-align: center;
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--color-burgundy);
-  margin-top: -1.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.heritage-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-.heritage-card {
-  background: #fff;
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-  border-top: 3px solid var(--color-gold);
-  position: relative;
-}
-
-.heritage-numeral {
-  font-family: var(--font-heading);
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: rgba(201, 168, 76, 0.15);
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  line-height: 1;
-}
-
-.rtl .heritage-numeral {
-  right: auto;
-  left: 1.5rem;
-}
-
-.heritage-card h3 {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  color: var(--color-navy);
-  margin-bottom: 0.8rem;
-  letter-spacing: 0.5px;
-}
-
-.heritage-card p {
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  color: #555;
-  line-height: 1.8;
-}
-
-/* CTA */
-.section-cta {
-  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-burgundy) 100%);
-  text-align: center;
-}
-
-.cta-container {
-  max-width: 650px;
-}
-
-.cta-title {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  color: var(--color-gold);
-  margin-bottom: 1.2rem;
-  letter-spacing: 2px;
-}
-
-.cta-text {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: #ccc;
-  line-height: 1.8;
-  margin-bottom: 2rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .pact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .bento-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .unit-card-4 {
-    grid-column: span 1;
-  }
-
-  .heritage-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-section {
-    padding: 8rem 0 3rem;
-  }
-
-  .cta-title {
-    font-size: 1.5rem;
-  }
+@media (max-width: 420px) {
+  .cta-arrow { width: 44px; height: 44px; }
 }
 </style>

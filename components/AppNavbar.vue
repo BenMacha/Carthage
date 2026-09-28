@@ -1,304 +1,462 @@
 <template>
-  <nav class="navbar" :class="{ scrolled: isScrolled }">
-    <div class="container navbar-inner">
-      <NuxtLink :to="localePath('/')" class="navbar-brand">
-        <span class="brand-icon">🏛️</span>
-        <span class="brand-text">{{ t.siteName }}</span>
+  <div class="nav-wrap" :class="{ scrolled: isScrolled }">
+    <header class="nav">
+      <NuxtLink :to="localePath('/')" class="brand" @click="close">
+        <span class="tanit" aria-hidden="true"><i /><i /><i /></span>
+        <span class="brand-name">{{ t.siteName }}</span>
       </NuxtLink>
 
-      <ul class="nav-links" :class="{ open: menuOpen }">
-        <li><NuxtLink :to="localePath('/')" @click="menuOpen = false">{{ t.nav.home }}</NuxtLink></li>
-        <li><NuxtLink :to="localePath('/chronologie')" @click="menuOpen = false">{{ t.nav.timeline }}</NuxtLink></li>
-        <li><NuxtLink :to="localePath('/elephants')" @click="menuOpen = false">{{ t.nav.elephants }}</NuxtLink></li>
-        <li><NuxtLink :to="localePath('/economie')" @click="menuOpen = false">{{ t.nav.economy }}</NuxtLink></li>
-        <li><NuxtLink :to="localePath('/afrique')" @click="menuOpen = false">{{ t.nav.africa }}</NuxtLink></li>
-        <li class="nav-dropdown">
-          <NuxtLink :to="localePath('/biographies')" @click="menuOpen = false">{{ t.nav.biographies }}</NuxtLink>
-          <ul class="dropdown-menu">
-            <li><NuxtLink :to="localePath('/didon')" @click="menuOpen = false">{{ bioLabels.didon }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/hannibal')" @click="menuOpen = false">{{ bioLabels.hannibal }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/hamilcar')" @click="menuOpen = false">{{ bioLabels.hamilcar }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/hasdrubal')" @click="menuOpen = false">{{ bioLabels.hasdrubal }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/magon-barca')" @click="menuOpen = false">{{ bioLabels.magonBarca }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/hannon')" @click="menuOpen = false">{{ bioLabels.hannon }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/magon-agronome')" @click="menuOpen = false">{{ bioLabels.magonAgronome }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/sophonisbe')" @click="menuOpen = false">{{ bioLabels.sophonisbe }}</NuxtLink></li>
-            <li><NuxtLink :to="localePath('/armee')" @click="menuOpen = false">{{ bioLabels.armee }}</NuxtLink></li>
-          </ul>
-        </li>
-      </ul>
+      <nav class="links" :aria-label="L.menu">
+        <NuxtLink :to="localePath('/')" class="lk" :class="{ on: isHome }">{{ L.home }}</NuxtLink>
+        <div v-for="g in groups" :key="g.key" class="dd" :class="{ open: openDd === g.key }" @mouseenter="openDd = g.key" @mouseleave="openDd = null">
+          <button class="lk" :class="{ on: groupActive(g) }" :aria-expanded="openDd === g.key" @click="openDd = openDd === g.key ? null : g.key">
+            {{ g.label }} <span class="caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="menu" :class="{ 'menu--2': g.items.length > 6 }">
+            <NuxtLink v-for="it in g.items" :key="it.to" :to="localePath(it.to)" @click="openDd = null">{{ it.label }}</NuxtLink>
+          </div>
+        </div>
+        <NuxtLink v-for="it in flat" :key="it.to" :to="localePath(it.to)" class="lk">{{ it.label }}</NuxtLink>
+      </nav>
 
-      <div class="navbar-right">
-        <div class="lang-switcher">
+      <div class="right">
+        <div class="langs" role="group" :aria-label="L.lang">
           <button
             v-for="loc in availableLocales"
             :key="loc.code"
-            class="lang-btn"
-            :class="{ active: locale === loc.code }"
-            @click="setLocale(loc.code)"
+            :class="{ on: locale === loc.code, ar: loc.code === 'ar' }"
             :title="loc.label"
-          >
-            <span class="lang-flag">{{ loc.flag }}</span>
-            <span class="lang-code">{{ loc.code.toUpperCase() }}</span>
-          </button>
+            @click="setLocale(loc.code)"
+          >{{ loc.code === 'ar' ? 'ع' : loc.code.toUpperCase() }}</button>
         </div>
-
-        <button class="menu-toggle" @click="menuOpen = !menuOpen">
-          <span :class="{ open: menuOpen }"></span>
+        <button class="lang-mobile ar" :title="altLocale.label" @click="setLocale(altLocale.code)">{{ altLocale.code === 'ar' ? 'ع' : altLocale.code.toUpperCase() }}</button>
+        <button class="burger" :class="{ open: menuOpen }" :aria-expanded="menuOpen" :aria-label="L.menu" @click="menuOpen = !menuOpen">
+          <i /><i />
         </button>
       </div>
-    </div>
-  </nav>
+    </header>
+
+    <!-- Tiroir mobile -->
+    <Transition name="drawer">
+      <div v-if="menuOpen" class="drawer" @click.self="close">
+        <div class="drawer-panel">
+          <NuxtLink :to="localePath('/')" class="d-main" @click="close">{{ L.home }}</NuxtLink>
+          <section v-for="g in groups" :key="g.key">
+            <div class="d-title">{{ g.label }}</div>
+            <div class="d-grid">
+              <NuxtLink v-for="it in g.items" :key="it.to" :to="localePath(it.to)" @click="close">{{ it.label }}</NuxtLink>
+            </div>
+          </section>
+          <div class="d-flat">
+            <NuxtLink v-for="it in flat" :key="it.to" :to="localePath(it.to)" class="d-main" @click="close">{{ it.label }}</NuxtLink>
+          </div>
+          <div class="d-langs">
+            <button v-for="loc in availableLocales" :key="loc.code" :class="{ on: locale === loc.code }" @click="setLocale(loc.code); close()">{{ loc.label }}</button>
+          </div>
+        </div>
+      </div>
+    </Transition>
+  </div>
 </template>
 
 <script setup>
 const { t, locale, setLocale, localePath, availableLocales } = useI18n()
+const route = useRoute()
 const isScrolled = ref(false)
 const menuOpen = ref(false)
+const openDd = ref(null)
 
-const bioLabels = computed(() => {
-  const labels = {
-    fr: { didon: 'Didon (Élyssa)', hannibal: 'Hannibal Barca', hamilcar: 'Hamilcar Barca', hasdrubal: 'Hasdrubal Barca', magonBarca: 'Magon Barca', hannon: 'Hannon le Navigateur', magonAgronome: 'Magon l\'Agronome', sophonisbe: 'Sophonisbe', armee: 'L\'Armée Multinationale' },
-    en: { didon: 'Dido (Elissa)', hannibal: 'Hannibal Barca', hamilcar: 'Hamilcar Barca', hasdrubal: 'Hasdrubal Barca', magonBarca: 'Magon Barca', hannon: 'Hanno the Navigator', magonAgronome: 'Mago the Agronomist', sophonisbe: 'Sophonisba', armee: 'The Multinational Army' },
-    ar: { didon: 'ديدو (إليسا)', hannibal: 'حنبعل برقا', hamilcar: 'حملقار برقا', hasdrubal: 'صدربعل برقا', magonBarca: 'ماغون برقا', hannon: 'حنون الملاح', magonAgronome: 'ماغون المهندس الزراعي', sophonisbe: 'صفنبعل', armee: 'الجيش المتعدد الجنسيات' }
+const LABELS = {
+  fr: {
+    home: 'Accueil', menu: 'Menu', lang: 'Langue', hannibal: 'Hannibal', carthage: 'Carthage',
+    tunisie: 'Tunisie', carte: 'Carte', persos: 'Personnages',
+    items: {
+      hannibal: 'Hannibal Barca', tactiques: 'Les tactiques', elephants: 'Les éléphants et les Alpes', guerres: 'Les guerres puniques', armee: "L'armée de Carthage",
+      fondation: 'La fondation', chronologie: 'Chronologie', richesse: 'La richesse et Rome', lieux: 'Lieux historiques', economie: 'Économie', agriculture: 'Agriculture', religion: 'Religion',
+      sources: 'Histoire des vainqueurs', prise: 'La prise de Carthage', afrique: "L'Afrique et son nom"
+    }
+  },
+  en: {
+    home: 'Home', menu: 'Menu', lang: 'Language', hannibal: 'Hannibal', carthage: 'Carthage',
+    tunisie: 'Tunisia', carte: 'Map', persos: 'People',
+    items: {
+      hannibal: 'Hannibal Barca', tactiques: 'Tactics', elephants: 'Elephants and the Alps', guerres: 'The Punic Wars', armee: "Carthage's army",
+      fondation: 'The founding', chronologie: 'Timeline', richesse: 'Wealth and Rome', lieux: 'Historic places', economie: 'Economy', agriculture: 'Agriculture', religion: 'Religion',
+      sources: "The victors' history", prise: 'The fall of Carthage', afrique: 'Africa and its name'
+    }
+  },
+  ar: {
+    home: 'الرئيسية', menu: 'القائمة', lang: 'اللغة', hannibal: 'حنبعل', carthage: 'قرطاج',
+    tunisie: 'تونس', carte: 'الخريطة', persos: 'الشخصيات',
+    items: {
+      hannibal: 'حنبعل برقا', tactiques: 'التكتيكات', elephants: 'الفيلة وجبال الألب', guerres: 'الحروب البونيقية', armee: 'جيش قرطاج',
+      fondation: 'التأسيس', chronologie: 'التسلسل الزمني', richesse: 'الثروة وروما', lieux: 'أماكن تاريخية', economie: 'الاقتصاد', agriculture: 'الفلاحة', religion: 'الديانة',
+      sources: 'تاريخ المنتصرين', prise: 'سقوط قرطاج', afrique: 'إفريقيا واسمها'
+    }
   }
-  return labels[locale.value] || labels.fr
+}
+
+const L = computed(() => LABELS[locale.value] || LABELS.fr)
+
+const groups = computed(() => [
+  {
+    key: 'hannibal',
+    label: L.value.hannibal,
+    items: [
+      { to: '/hannibal', label: L.value.items.hannibal },
+      { to: '/tactiques', label: L.value.items.tactiques },
+      { to: '/elephants', label: L.value.items.elephants },
+      { to: '/guerres-puniques', label: L.value.items.guerres },
+      { to: '/armee', label: L.value.items.armee }
+    ]
+  },
+  {
+    key: 'carthage',
+    label: L.value.carthage,
+    items: [
+      { to: '/fondation', label: L.value.items.fondation },
+      { to: '/chronologie', label: L.value.items.chronologie },
+      { to: '/richesse-rome', label: L.value.items.richesse },
+      { to: '/lieux', label: L.value.items.lieux },
+      { to: '/economie', label: L.value.items.economie },
+      { to: '/agriculture', label: L.value.items.agriculture },
+      { to: '/religion', label: L.value.items.religion },
+      { to: '/histoire-des-vainqueurs', label: L.value.items.sources },
+      { to: '/prise-de-carthage', label: L.value.items.prise },
+      { to: '/afrique', label: L.value.items.afrique }
+    ]
+  }
+])
+
+const flat = computed(() => [
+  { to: '/tunisie', label: L.value.tunisie },
+  { to: '/carte', label: L.value.carte },
+  { to: '/biographies', label: L.value.persos }
+])
+
+const isHome = computed(() => route.path === `/${locale.value}` || route.path === `/${locale.value}/`)
+const groupActive = (g) => g.items.some(it => route.path === localePath(it.to))
+
+const altLocale = computed(() => {
+  const target = locale.value === 'ar' ? 'fr' : 'ar'
+  return availableLocales.find(l => l.code === target)
 })
 
+const close = () => { menuOpen.value = false }
+
+watch(() => route.fullPath, () => { menuOpen.value = false; openDd.value = null })
+watch(menuOpen, (v) => {
+  if (typeof document !== 'undefined') document.body.style.overflow = v ? 'hidden' : ''
+})
+
+const onScroll = () => { isScrolled.value = window.scrollY > 8 }
+const onKey = (e) => { if (e.key === 'Escape') { menuOpen.value = false; openDd.value = null } }
+
 onMounted(() => {
-  window.addEventListener('scroll', () => {
-    isScrolled.value = window.scrollY > 50
-  })
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('keydown', onKey)
+  onScroll()
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('keydown', onKey)
+  if (typeof document !== 'undefined') document.body.style.overflow = ''
 })
 </script>
 
 <style scoped>
-.navbar {
-  position: fixed;
+.nav-wrap {
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 1000;
-  padding: 1rem 0;
-  transition: all 0.3s;
-  background: rgba(26, 26, 46, 0.85);
-  backdrop-filter: blur(5px);
+  padding: calc(env(safe-area-inset-top, 0px) + var(--gutter)) var(--gutter) 0;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  transition: padding 0.25s;
 }
 
-.navbar.scrolled {
-  background: rgba(26, 26, 46, 0.97);
-  backdrop-filter: blur(10px);
-  padding: 0.5rem 0;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+.nav-wrap.scrolled {
+  padding-top: calc(env(safe-area-inset-top, 0px) + 10px);
 }
 
-.navbar-inner {
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 16px;
+  background: var(--white);
+  border-radius: 999px;
+  padding: 10px 10px 10px 24px;
+  transition: box-shadow 0.25s;
 }
 
-.navbar-brand {
+[dir="rtl"] .nav { padding: 10px 24px 10px 10px; }
+
+.scrolled .nav {
+  box-shadow: 0 6px 24px rgba(22, 19, 15, 0.08);
+}
+
+.brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 900;
-  color: var(--color-gold);
-  text-decoration: none;
-  flex-shrink: 0;
+  gap: 12px;
+  color: var(--ink);
+  flex: none;
 }
 
-.brand-icon {
-  font-size: 1.6rem;
+.brand:hover { color: var(--ink); }
+
+.tanit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
 
-.navbar-right {
+.tanit i { display: block; background: var(--purple); }
+.tanit i:nth-child(1) { width: 12px; height: 12px; border-radius: 50%; }
+.tanit i:nth-child(2) { width: 22px; height: 3px; border-radius: 2px; }
+.tanit i:nth-child(3) { width: 18px; height: 14px; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+
+.brand-name {
+  font: 800 20px/1 var(--font-display);
+  font-stretch: 112%;
+  letter-spacing: -0.01em;
+}
+
+.links {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  flex-shrink: 0;
+  gap: 2px;
 }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 1.2rem;
-  flex-wrap: nowrap;
-}
-
-.nav-links a {
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--color-gold-light);
-  text-decoration: none;
-  padding: 0.5rem 0;
-  position: relative;
-  transition: color 0.3s;
+.lk {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  font: 500 15px/1 var(--font-body);
+  color: var(--ink);
+  cursor: pointer;
   white-space: nowrap;
+  transition: background 0.2s;
 }
 
-.nav-links a::after {
+.lk:hover { background: var(--paper); color: var(--ink); }
+.lk.on, .lk.router-link-exact-active { background: var(--paper); }
+
+.caret { font-size: 11px; opacity: 0.7; }
+
+.dd { position: relative; }
+
+.menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 240px;
+  background: var(--white);
+  border-radius: 22px;
+  padding: 8px;
+  box-shadow: 0 16px 40px rgba(22, 19, 15, 0.14);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.18s, transform 0.18s, visibility 0.18s;
+}
+
+[dir="rtl"] .menu { left: auto; right: 0; }
+
+.menu--2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 460px;
+}
+
+.menu::before {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--color-gold);
-  transition: width 0.3s;
+  inset: -10px 0 auto;
+  height: 10px;
 }
 
-.nav-links a:hover,
-.nav-links a.router-link-active {
-  color: var(--color-gold);
+.dd.open .menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
 }
 
-.nav-links a:hover::after,
-.nav-links a.router-link-active::after {
-  width: 100%;
+.menu a {
+  padding: 11px 14px;
+  border-radius: 14px;
+  font: 500 14px/1.2 var(--font-body);
+  color: var(--ink);
 }
 
-/* Dropdown */
-.nav-dropdown {
-  position: relative;
-}
+.menu a:hover, .menu a.router-link-exact-active { background: var(--paper); }
 
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(26, 26, 46, 0.97);
-  backdrop-filter: blur(10px);
-  list-style: none;
-  min-width: 220px;
-  padding: 0.75rem 0;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  z-index: 1001;
-  border: 1px solid rgba(201, 168, 76, 0.15);
-}
-
-.nav-dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-menu li {
-  padding: 0;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 0.5rem 1.2rem !important;
-  font-size: 0.7rem !important;
-  white-space: nowrap;
-}
-
-.dropdown-menu a:hover {
-  background: rgba(201, 168, 76, 0.1);
-}
-
-/* Language Switcher (inline) */
-.lang-switcher {
-  display: flex;
-  gap: 0.25rem;
-}
-
-.lang-btn {
+.right {
   display: flex;
   align-items: center;
-  gap: 0.2rem;
-  padding: 0.25rem 0.45rem;
-  border: 1px solid rgba(201, 168, 76, 0.3);
-  border-radius: 4px;
+  gap: 6px;
+  flex: none;
+}
+
+.langs {
+  display: flex;
+  background: var(--paper);
+  border-radius: 999px;
+  padding: 4px;
+}
+
+.langs button {
+  border: 0;
   background: transparent;
-  color: var(--color-gold-light);
+  font: 600 13px/1 var(--font-body);
+  color: var(--ink);
+  padding: 9px 12px;
+  border-radius: 999px;
   cursor: pointer;
-  font-size: 0.7rem;
-  font-family: var(--font-heading);
-  transition: all 0.3s;
+  min-width: 38px;
 }
 
-.lang-btn:hover {
-  border-color: var(--color-gold);
-  background: rgba(201, 168, 76, 0.1);
-}
+.langs button.ar { font: 700 15px/1 var(--font-ar); padding: 7px 12px; }
+.langs button.on { background: var(--ink); color: var(--white); }
 
-.lang-btn.active {
-  background: var(--color-gold);
-  color: var(--color-navy);
-  border-color: var(--color-gold);
-}
-
-.lang-flag {
-  font-size: 0.85rem;
-}
-
-.lang-code {
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-/* Hamburger */
-.menu-toggle {
+.lang-mobile,
+.burger {
   display: none;
-  background: none;
-  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
   cursor: pointer;
-  width: 28px;
-  height: 22px;
-  position: relative;
+  align-items: center;
+  justify-content: center;
 }
 
-.menu-toggle span,
-.menu-toggle span::before,
-.menu-toggle span::after {
+.lang-mobile {
+  background: var(--paper);
+  color: var(--ink);
+  font: 700 16px/1 var(--font-ar);
+}
+
+.burger {
+  background: var(--ink);
+  flex-direction: column;
+  gap: 4px;
+}
+
+.burger i {
   display: block;
-  width: 100%;
+  width: 16px;
   height: 2px;
-  background: var(--color-gold);
-  position: absolute;
-  transition: all 0.3s;
+  background: var(--white);
+  transition: transform 0.25s;
 }
 
-.menu-toggle span { top: 50%; transform: translateY(-50%); }
-.menu-toggle span::before { content: ''; top: -8px; }
-.menu-toggle span::after { content: ''; top: 8px; }
-.menu-toggle span.open { background: transparent; }
-.menu-toggle span.open::before { top: 0; transform: rotate(45deg); }
-.menu-toggle span.open::after { top: 0; transform: rotate(-45deg); }
+.burger.open i:first-child { transform: translateY(3px) rotate(45deg); }
+.burger.open i:last-child { transform: translateY(-3px) rotate(-45deg); }
 
-@media (max-width: 900px) {
-  .menu-toggle { display: block; }
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 75%;
-    height: 100vh;
-    flex-direction: column;
-    background: var(--color-navy);
-    padding: 5rem 2rem 2rem;
-    gap: 1.5rem;
-    transition: right 0.3s;
-    z-index: 999;
-  }
-  .nav-links.open { right: 0; }
-  .dropdown-menu {
-    position: static;
-    display: block;
-    transform: none;
-    background: rgba(26, 26, 46, 0.5);
-    box-shadow: none;
-    border: none;
-    min-width: auto;
-    padding-left: 1rem;
-  }
+/* Tiroir */
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(22, 19, 15, 0.35);
+  padding: calc(env(safe-area-inset-top, 0px) + 76px) var(--gutter) var(--gutter);
+  overflow-y: auto;
+}
+
+.drawer-panel {
+  background: var(--white);
+  border-radius: 28px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.d-main {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: var(--paper);
+  font: 800 20px/1 var(--font-display);
+  color: var(--ink);
+}
+
+.d-title {
+  font: 700 12px/1 var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--purple);
+  margin: 4px 4px 8px;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.d-grid a {
+  padding: 12px 14px;
+  min-height: 44px;
+  border-radius: 14px;
+  background: var(--paper);
+  font: 500 14px/1.25 var(--font-body);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+}
+
+.d-grid a.router-link-exact-active,
+.d-main.router-link-exact-active { background: var(--ink); color: var(--white); }
+
+.d-flat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.d-flat .d-main { font-size: 16px; text-align: center; padding: 14px 8px; }
+
+.d-langs { display: flex; gap: 6px; }
+
+.d-langs button {
+  flex: 1;
+  border: 0;
+  background: var(--paper);
+  border-radius: 999px;
+  padding: 12px 8px;
+  min-height: 44px;
+  font: 600 14px/1 var(--font-body);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.d-langs button.on { background: var(--ink); color: var(--white); }
+
+.drawer-enter-active, .drawer-leave-active { transition: opacity 0.2s; }
+.drawer-enter-active .drawer-panel, .drawer-leave-active .drawer-panel { transition: transform 0.25s; }
+.drawer-enter-from, .drawer-leave-to { opacity: 0; }
+.drawer-enter-from .drawer-panel, .drawer-leave-to .drawer-panel { transform: translateY(-12px); }
+
+@media (max-width: 1180px) {
+  .lk { padding: 12px 10px; font-size: 14px; }
+}
+
+@media (max-width: 1040px) {
+  .links, .langs { display: none; }
+  .lang-mobile, .burger { display: inline-flex; }
+  .nav { padding: 6px 6px 6px 18px; }
+  [dir="rtl"] .nav { padding: 6px 18px 6px 6px; }
+}
+
+@media (max-width: 400px) {
+  .d-grid { grid-template-columns: minmax(0, 1fr); }
+  .d-flat { grid-template-columns: minmax(0, 1fr); }
+  .brand-name { font-size: 18px; }
 }
 </style>

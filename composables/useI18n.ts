@@ -4,6 +4,7 @@ import { ar } from '~/i18n/ar'
 
 const locales: Record<string, typeof fr> = { fr, en, ar }
 
+// Langue lue dans l'URL (/fr, /en, /ar). `lang` et `dir` sur <html> sont posés par le layout (useHead).
 export const useI18n = () => {
   const route = useRoute()
 
@@ -15,30 +16,17 @@ export const useI18n = () => {
   const t = computed(() => locales[locale.value] || fr)
 
   const setLocale = (newLocale: string) => {
-    if (locales[newLocale]) {
-      const currentPath = route.path
-      const currentLang = locale.value
-      const newPath = currentPath.replace(`/${currentLang}`, `/${newLocale}`)
-      if (typeof document !== 'undefined') {
-        document.documentElement.setAttribute('dir', locales[newLocale].dir)
-        document.documentElement.setAttribute('lang', locales[newLocale].lang)
-      }
-      navigateTo(newPath)
-    }
+    if (!locales[newLocale] || newLocale === locale.value) return
+    const rest = route.path.replace(/^\/(fr|en|ar)(?=\/|$)/, '')
+    navigateTo({ path: `/${newLocale}${rest}`, hash: route.hash })
   }
 
-  // Set dir/lang on mount
-  if (typeof document !== 'undefined') {
-    document.documentElement.setAttribute('dir', t.value.dir)
-    document.documentElement.setAttribute('lang', t.value.lang)
-  }
-
-  const localePath = (path: string) => `/${locale.value}${path}`
+  const localePath = (path: string) => (path === '/' ? `/${locale.value}` : `/${locale.value}${path}`)
 
   const availableLocales = [
-    { code: 'fr', label: 'Français', flag: '🇫🇷' },
-    { code: 'en', label: 'English', flag: '🇬🇧' },
-    { code: 'ar', label: 'العربية', flag: '🇹🇳' },
+    { code: 'fr', label: 'Français' },
+    { code: 'en', label: 'English' },
+    { code: 'ar', label: 'العربية' }
   ]
 
   return { t, locale, setLocale, localePath, availableLocales }
