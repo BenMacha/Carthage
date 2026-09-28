@@ -66,7 +66,7 @@ const { locale, localePath } = useI18n()
 
 const C = {
   fr: {
-    metaTitle: 'Les dieux de Carthage — Baal Hammon, Tanit, Melqart, Eshmoun | Carthage',
+    metaTitle: 'Les dieux de Carthage — Baal Hammon, Tanit, Melqart, Eshmoun',
     metaDesc: "La religion carthaginoise : Baal Hammon, Tanit, Melqart et Eshmoun, dieux venus de Tyr, et le débat sur le tophet de Salammbô.",
     chip: 'Carthage · Religion',
     title: 'Les dieux de Carthage',
@@ -92,7 +92,7 @@ const C = {
     tags: ['VIIIe – IIe s. av. J.-C.', 'Stèles gravées en punique']
   },
   en: {
-    metaTitle: 'The gods of Carthage — Baal Hammon, Tanit, Melqart, Eshmun | Carthage',
+    metaTitle: 'The gods of Carthage — Baal Hammon, Tanit, Melqart, Eshmun',
     metaDesc: 'Carthaginian religion: Baal Hammon, Tanit, Melqart and Eshmun, gods from Tyre, and the debate over the tophet of Salammbô.',
     chip: 'Carthage · Religion',
     title: 'The gods of Carthage',
@@ -118,7 +118,7 @@ const C = {
     tags: ['8th – 2nd c. BC', 'Stelae inscribed in Punic']
   },
   ar: {
-    metaTitle: 'آلهة قرطاج — بعل حمون، تانيت، ملقرت، أشمون | قرطاج',
+    metaTitle: 'آلهة قرطاج — بعل حمون، تانيت، ملقرت، أشمون',
     metaDesc: 'ديانة قرطاج: بعل حمون وتانيت وملقرت وأشمون، آلهة قدمت من صور، والجدل حول توفيت صلامبو.',
     chip: 'قرطاج · الديانة',
     title: 'آلهة قرطاج',

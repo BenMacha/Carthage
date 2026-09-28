@@ -172,7 +172,7 @@ const factTones = ['', 'tile--navy', '', '', '', 'tile--purple']
 const C = {
   fr: {
     meta: {
-      title: "L'Afrique et son nom — Carthage",
+      title: "L'Afrique et son nom",
       desc: "Afri, Africa, Ifriqiya : comment le nom de la terre de Carthage, l'actuelle Tunisie, est devenu celui de tout un continent."
     },
     hero: {
@@ -268,7 +268,7 @@ const C = {
   },
   en: {
     meta: {
-      title: 'Africa and its name — Carthage',
+      title: 'Africa and its name',
       desc: 'Afri, Africa, Ifriqiya: how the name of the land of Carthage, present-day Tunisia, became the name of an entire continent.'
     },
     hero: {
@@ -364,7 +364,7 @@ const C = {
   },
   ar: {
     meta: {
-      title: 'إفريقيا واسمها — قرطاج',
+      title: 'إفريقيا واسمها',
       desc: 'أفري، أفريكا، إفريقية: كيف صار اسم أرض قرطاج، تونس الحالية، اسمًا لقارة بأكملها.'
     },
     hero: {

@@ -180,7 +180,7 @@ const keyTones = ['', '', 'tile--gold', 'tile--purple']
 const C = {
   fr: {
     meta: {
-      title: 'Sophonisbe, la princesse qui choisit la mort — Carthage',
+      title: 'Sophonisbe, la princesse qui choisit la mort',
       desc: "Fille d'Hasdrubal fils de Giscon, épouse de Syphax puis de Masinissa, Sophonisbe boit le poison en 203 av. J.-C. plutôt que d'orner le triomphe de Scipion."
     },
     hero: {
@@ -290,7 +290,7 @@ const C = {
   },
   en: {
     meta: {
-      title: 'Sophonisba, the princess who chose death — Carthage',
+      title: 'Sophonisba, the princess who chose death',
       desc: "Daughter of Hasdrubal son of Gisco, wife of Syphax then of Masinissa, Sophonisba drank poison in 203 BC rather than grace Scipio's triumph."
     },
     hero: {
@@ -400,7 +400,7 @@ const C = {
   },
   ar: {
     meta: {
-      title: 'صوفونيسبا، الأميرة التي اختارت الموت — قرطاج',
+      title: 'صوفونيسبا، الأميرة التي اختارت الموت',
       desc: 'ابنة حسدربعل بن جسكون، زوجة سيفاكس ثم ماسينيسا، شربت صوفونيسبا السم سنة 203 ق.م بدل أن تُساق في موكب نصر سكيبيو.'
     },
     hero: {

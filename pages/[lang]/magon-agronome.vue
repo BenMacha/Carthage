@@ -155,7 +155,7 @@ const { locale, localePath } = useI18n()
 
 const C = {
   fr: {
-    metaTitle: "Magon l'Agronome — le traité punique en 28 livres | Carthage",
+    metaTitle: "Magon l'Agronome — le traité punique en 28 livres",
     metaDesc: "Magon, agronome carthaginois : un traité d'agriculture en 28 livres, seul ouvrage punique traduit en latin sur ordre du Sénat romain, cité par Varron, Columelle et Pline.",
     heroAlt: 'Mosaïque du Dominus Julius, musée du Bardo',
     heroCap: "Mosaïque du Dominus Julius (Bardo) : la vie d'un grand domaine africain, héritier des méthodes puniques",
@@ -229,7 +229,7 @@ const C = {
     ]
   },
   en: {
-    metaTitle: 'Mago the Agronomist — the Punic treatise in 28 books | Carthage',
+    metaTitle: 'Mago the Agronomist — the Punic treatise in 28 books',
     metaDesc: 'Mago, Carthaginian agronomist: a 28-book treatise on agriculture, the only Punic work translated into Latin by order of the Roman Senate, cited by Varro, Columella and Pliny.',
     heroAlt: 'Dominus Julius mosaic, Bardo Museum',
     heroCap: 'The Dominus Julius mosaic (Bardo): life on a great African estate, heir to Punic methods',
@@ -303,7 +303,7 @@ const C = {
     ]
   },
   ar: {
-    metaTitle: 'ماغون الفلاحي — الموسوعة البونيقية في 28 كتابًا | قرطاج',
+    metaTitle: 'ماغون الفلاحي — الموسوعة البونيقية في 28 كتابًا',
     metaDesc: 'ماغون، عالم الفلاحة القرطاجي: موسوعة في الفلاحة من 28 كتابًا، المؤلَّف البونيقي الوحيد الذي تُرجم إلى اللاتينية بأمر من مجلس الشيوخ الروماني، واستشهد به فارون وكولوميلا وبليني.',
     heroAlt: 'فسيفساء دومينوس يوليوس، متحف باردو',
     heroCap: 'فسيفساء دومينوس يوليوس (باردو): الحياة في ضيعة إفريقية كبرى، وريثة الأساليب البونيقية',

@@ -110,7 +110,7 @@ const { locale, localePath } = useI18n()
 const C = {
   fr: {
     meta: {
-      title: 'Pourquoi la richesse de Carthage exaspérait Rome — Carthage',
+      title: 'Pourquoi la richesse de Carthage exaspérait Rome',
       desc: "Vaincue deux fois, Carthage se relevait toujours : indemnités de 241 et 201, remboursement anticipé, figues de Caton, ultimatum de 149. Comment la prospérité de Carthage a fini par obséder Rome."
     },
     hero: {
@@ -194,7 +194,7 @@ const C = {
   },
   en: {
     meta: {
-      title: "Why Carthage's wealth exasperated Rome — Carthage",
+      title: "Why Carthage's wealth exasperated Rome",
       desc: "Defeated twice, Carthage always recovered: the indemnities of 241 and 201, the early repayment offer, Cato's figs, the ultimatum of 149. How Carthage's prosperity came to obsess Rome."
     },
     hero: {
@@ -278,7 +278,7 @@ const C = {
   },
   ar: {
     meta: {
-      title: 'لماذا أثار ثراء قرطاج حنق روما — قرطاج',
+      title: 'لماذا أثار ثراء قرطاج حنق روما',
       desc: 'هُزمت قرطاج مرتين لكنها نهضت دائمًا: تعويضات 241 و201، عرض السداد المبكر، تين كاتون، إنذار 149. كيف صار ثراء قرطاج هاجسًا لروما.'
     },
     hero: {

@@ -74,7 +74,7 @@ const view = ref('known')
 
 const C = {
   fr: {
-    meta: { title: "L'histoire écrite par le vainqueur — Carthage", desc: "Presque tout ce que l'on lit sur Carthage a été écrit par ses ennemis. Ce que Rome a raconté, ce que l'on sait." },
+    meta: { title: "L'histoire écrite par le vainqueur", desc: "Presque tout ce que l'on lit sur Carthage a été écrit par ses ennemis. Ce que Rome a raconté, ce que l'on sait." },
     hero: {
       chip: 'Sources & relectures',
       title: "L'histoire écrite par le vainqueur",
@@ -119,7 +119,7 @@ const C = {
     ]
   },
   en: {
-    meta: { title: 'History written by the victor — Carthage', desc: 'Almost everything we read about Carthage was written by its enemies. What Rome said, and what we know.' },
+    meta: { title: 'History written by the victor', desc: 'Almost everything we read about Carthage was written by its enemies. What Rome said, and what we know.' },
     hero: {
       chip: 'Sources & re-readings',
       title: 'History written by the victor',
@@ -164,7 +164,7 @@ const C = {
     ]
   },
   ar: {
-    meta: { title: 'التاريخ الذي كتبه المنتصر — قرطاج', desc: 'كل ما نقرؤه تقريبًا عن قرطاج كتبه أعداؤها. ما رواه الرومان، وما نعرفه.' },
+    meta: { title: 'التاريخ الذي كتبه المنتصر', desc: 'كل ما نقرؤه تقريبًا عن قرطاج كتبه أعداؤها. ما رواه الرومان، وما نعرفه.' },
     hero: {
       chip: 'المصادر وإعادة القراءة',
       title: 'التاريخ الذي كتبه المنتصر',

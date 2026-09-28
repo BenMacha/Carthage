@@ -24,8 +24,9 @@ useHead(() => ({
   htmlAttrs: { lang: t.value.lang, dir: t.value.dir },
   // Suffixe « — Carthage » seulement si le titre ne nomme pas déjà Carthage
   titleTemplate: (title) => {
-    if (!title) return 'Carthage — Qart-Ḥadasht'
-    return /Carthag|قرطاج/.test(title) ? title : `${title} — Carthage`
+    const brand = locale.value === 'ar' ? 'قرطاج' : 'Carthage'
+    if (!title) return `${brand} — Qart-Ḥadasht`
+    return /Carthag|قرطاج/.test(title) ? title : `${title} — ${brand}`
   },
   link: [
     { rel: 'canonical', href: urlFor(locale.value) },

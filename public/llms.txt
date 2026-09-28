@@ -43,5 +43,6 @@ Le contenu s'appuie sur les sources antiques (Polybe, Tite-Live, Appien, Plutarq
 ## Optional
 - [English version](https://carthage.benmacha.tn/en)
 - [النسخة العربية](https://carthage.benmacha.tn/ar)
+- [Plan du site](https://carthage.benmacha.tn/fr/plan-du-site)
 - [Crédits des images (Wikimedia Commons)](https://carthage.benmacha.tn/fr/credits)
 - [Sitemap XML](https://carthage.benmacha.tn/sitemap.xml)

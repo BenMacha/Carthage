@@ -169,7 +169,7 @@ const { locale, localePath } = useI18n()
 
 const C = {
   fr: {
-    metaTitle: "Hannon le Navigateur — le Périple vers l'Afrique de l'Ouest | Carthage",
+    metaTitle: "Hannon le Navigateur — le Périple vers l'Afrique de l'Ouest",
     metaDesc: "Hannon le Navigateur, amiral carthaginois : 60 navires, 30 000 colons, Thymiaterion, Kerné, le « Char des Dieux » et les « gorilles ». Le Périple et les débats sur son itinéraire.",
     heroAlt: 'Galère antique à rames, dessin',
     heroCap: 'Galère antique à rames et à voile',
@@ -249,7 +249,7 @@ const C = {
     ]
   },
   en: {
-    metaTitle: 'Hanno the Navigator — the Periplus to West Africa | Carthage',
+    metaTitle: 'Hanno the Navigator — the Periplus to West Africa',
     metaDesc: 'Hanno the Navigator, Carthaginian admiral: 60 ships, 30,000 colonists, Thymiaterion, Kerne, the “Chariot of the Gods” and the “gorillas”. The Periplus and the debates over its route.',
     heroAlt: 'Ancient oared galley, drawing',
     heroCap: 'An ancient galley under oar and sail',
@@ -329,7 +329,7 @@ const C = {
     ]
   },
   ar: {
-    metaTitle: 'حنّون الملاح — الرحلة إلى غرب إفريقيا | قرطاج',
+    metaTitle: 'حنّون الملاح — الرحلة إلى غرب إفريقيا',
     metaDesc: 'حنّون الملاح، أميرال قرطاجي: 60 سفينة و30 ألف مستوطن، ثيمياتيريون وكيرني و«عربة الآلهة» و«الغوريلا». نص الرحلة والجدل حول مسارها.',
     heroAlt: 'سفينة قديمة بالمجاذيف، رسم',
     heroCap: 'سفينة قديمة بالمجاذيف والشراع',

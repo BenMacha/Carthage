@@ -254,7 +254,7 @@ const dots = ['#1D3F66', '#B8492A', '#16130F']
 const C = {
   fr: {
     meta: {
-      title: 'Les guerres puniques (264–146 av. J.-C.) — Carthage',
+      title: 'Les guerres puniques (264–146 av. J.-C.)',
       desc: "Les trois guerres entre Carthage et Rome : Mylae, Ecnomus, les Égades, la guerre des Mercenaires, Hannibal, Cannes, Zama, le siège de 149–146, les traités et les indemnités."
     },
     hero: {
@@ -428,7 +428,7 @@ const C = {
   },
   en: {
     meta: {
-      title: 'The Punic Wars (264–146 BC) — Carthage',
+      title: 'The Punic Wars (264–146 BC)',
       desc: 'The three wars between Carthage and Rome: Mylae, Ecnomus, the Aegates, the Mercenary War, Hannibal, Cannae, Zama, the siege of 149–146, the treaties and indemnities.'
     },
     hero: {
@@ -602,7 +602,7 @@ const C = {
   },
   ar: {
     meta: {
-      title: 'الحروب البونيقية (264–146 ق.م) — قرطاج',
+      title: 'الحروب البونيقية (264–146 ق.م)',
       desc: 'الحروب الثلاث بين قرطاج وروما: ميلاي وإكنوموس وجزر إيغادي، حرب المرتزقة، حنبعل وكاناي وزاما، حصار 149–146، المعاهدات والتعويضات.'
     },
     hero: {

@@ -110,7 +110,7 @@ const today = (t) => [
 
 const C = {
   fr: {
-    meta: { title: 'Carthage vit en Tunisie — Carthage', desc: "La cité d'Élissa et d'Hannibal a donné à la Tunisie son premier grand État, et au monde le nom même de l'Afrique." },
+    meta: { title: 'Carthage vit en Tunisie', desc: "La cité d'Élissa et d'Hannibal a donné à la Tunisie son premier grand État, et au monde le nom même de l'Afrique." },
     hero: {
       chip: "Tunisie · 3 000 ans d'histoire",
       title: 'Carthage vit en Tunisie',
@@ -167,7 +167,7 @@ const C = {
     }
   },
   en: {
-    meta: { title: 'Carthage lives in Tunisia — Carthage', desc: "The city of Elissa and Hannibal gave Tunisia its first great state, and gave the world the very name of Africa." },
+    meta: { title: 'Carthage lives in Tunisia', desc: "The city of Elissa and Hannibal gave Tunisia its first great state, and gave the world the very name of Africa." },
     hero: {
       chip: 'Tunisia · 3,000 years of history',
       title: 'Carthage lives in Tunisia',
@@ -224,7 +224,7 @@ const C = {
     }
   },
   ar: {
-    meta: { title: 'قرطاج تحيا في تونس — قرطاج', desc: 'منحت مدينة عليسة وحنبعل تونسَ أولى دولها الكبرى، ومنحت العالم اسم إفريقيا نفسه.' },
+    meta: { title: 'قرطاج تحيا في تونس', desc: 'منحت مدينة عليسة وحنبعل تونسَ أولى دولها الكبرى، ومنحت العالم اسم إفريقيا نفسه.' },
     hero: {
       chip: 'تونس · 3000 سنة من التاريخ',
       title: 'قرطاج تحيا في تونس',

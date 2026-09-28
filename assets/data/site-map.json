@@ -1,0 +1,75 @@
+{
+  "_comment": "Source unique du plan du site : page /plan-du-site, sitemap.xml et son habillage XSL (scripts/generate-sitemap.mjs). Toute page de pages/[lang]/ doit y figurer.",
+  "groups": [
+    {
+      "key": "reperes",
+      "tone": "purple",
+      "label": { "fr": "Repères", "en": "Essentials", "ar": "معالم" },
+      "pages": [
+        { "slug": "", "label": { "fr": "Accueil", "en": "Home", "ar": "الرئيسية" }, "desc": { "fr": "Carthage en un coup d'œil : dates clés, héritage, figures.", "en": "Carthage at a glance: key dates, legacy, figures.", "ar": "قرطاج في لمحة: تواريخ مفصلية وإرث وشخصيات." } },
+        { "slug": "chronologie", "label": { "fr": "Chronologie", "en": "Timeline", "ar": "التسلسل الزمني" }, "desc": { "fr": "De 814 à 146 av. J.-C., filtrée par époque.", "en": "From 814 to 146 BC, filterable by era.", "ar": "من 814 إلى 146 ق.م، حسب الحقبة." } },
+        { "slug": "carte", "label": { "fr": "Carte animée", "en": "Animated map", "ar": "الخريطة المتحركة" }, "desc": { "fr": "Territoires, campagne d'Hannibal, voyages, alliés.", "en": "Territories, Hannibal's campaign, voyages, allies.", "ar": "الأراضي وحملة حنبعل والرحلات والحلفاء." } },
+        { "slug": "tunisie", "label": { "fr": "Carthage vit en Tunisie", "en": "Carthage lives in Tunisia", "ar": "قرطاج تحيا في تونس" }, "desc": { "fr": "Le nom, l'Afrique, l'héritage d'aujourd'hui.", "en": "The name, Africa, today's legacy.", "ar": "الاسم وإفريقيا وإرث اليوم." } },
+        { "slug": "histoire-des-vainqueurs", "label": { "fr": "Histoire des vainqueurs", "en": "The victors' history", "ar": "تاريخ المنتصرين" }, "desc": { "fr": "Ce que Rome a raconté, ce que l'on sait.", "en": "What Rome said, what we know.", "ar": "ما رواه الرومان وما نعرفه." } }
+      ]
+    },
+    {
+      "key": "histoire",
+      "tone": "terra",
+      "label": { "fr": "Histoire", "en": "History", "ar": "التاريخ" },
+      "pages": [
+        { "slug": "fondation", "label": { "fr": "La fondation", "en": "The founding", "ar": "التأسيس" }, "desc": { "fr": "Élissa, Tyr et la colline de Byrsa.", "en": "Elissa, Tyre and Byrsa hill.", "ar": "عليسة وصور وتلة بيرصا." } },
+        { "slug": "guerres-puniques", "label": { "fr": "Les guerres puniques", "en": "The Punic Wars", "ar": "الحروب البونيقية" }, "desc": { "fr": "Trois guerres contre Rome, 264–146.", "en": "Three wars against Rome, 264–146.", "ar": "ثلاث حروب ضد روما، 264–146." } },
+        { "slug": "prise-de-carthage", "label": { "fr": "La prise de Carthage", "en": "The fall of Carthage", "ar": "سقوط قرطاج" }, "desc": { "fr": "Le siège de 149–146 et ses suites.", "en": "The siege of 149–146 and its aftermath.", "ar": "حصار 149–146 وما تلاه." } },
+        { "slug": "richesse-rome", "label": { "fr": "La richesse et Rome", "en": "Wealth and Rome", "ar": "الثروة وروما" }, "desc": { "fr": "Pourquoi la prospérité de Carthage inquiétait Rome.", "en": "Why Carthage's prosperity worried Rome.", "ar": "لماذا أقلق رخاء قرطاج روما." } },
+        { "slug": "afrique", "label": { "fr": "L'Afrique et son nom", "en": "Africa and its name", "ar": "إفريقيا واسمها" }, "desc": { "fr": "Afri, Africa, Ifriqiya.", "en": "Afri, Africa, Ifriqiya.", "ar": "أفري، أفريكا، إفريقية." } },
+        { "slug": "lieux", "label": { "fr": "Lieux historiques", "en": "Historic places", "ar": "أماكن تاريخية" }, "desc": { "fr": "Sites puniques et villes qui portent son nom.", "en": "Punic sites and towns bearing its name.", "ar": "مواقع بونيقية ومدن تحمل اسمها." } }
+      ]
+    },
+    {
+      "key": "guerre",
+      "tone": "ink",
+      "label": { "fr": "Hannibal & la guerre", "en": "Hannibal & war", "ar": "حنبعل والحرب" },
+      "pages": [
+        { "slug": "hannibal", "label": { "fr": "Hannibal Barca", "en": "Hannibal Barca", "ar": "حنبعل برقا" }, "desc": { "fr": "Le stratège qui fit trembler Rome.", "en": "The strategist who made Rome tremble.", "ar": "القائد الذي أرعب روما." } },
+        { "slug": "tactiques", "label": { "fr": "Les tactiques", "en": "Tactics", "ar": "التكتيكات" }, "desc": { "fr": "Trébie, Trasimène, Cannes, Zama en schémas.", "en": "Trebia, Trasimene, Cannae, Zama in diagrams.", "ar": "تريبيا وتراسيمينو وكاناي وزاما بالمخططات." } },
+        { "slug": "elephants", "label": { "fr": "Les éléphants et les Alpes", "en": "Elephants and the Alps", "ar": "الفيلة وجبال الألب" }, "desc": { "fr": "Du Rhône aux cols alpins, 218 av. J.-C.", "en": "From the Rhône to the Alpine passes, 218 BC.", "ar": "من الرون إلى ممرات الألب، 218 ق.م." } },
+        { "slug": "armee", "label": { "fr": "L'armée de Carthage", "en": "Carthage's army", "ar": "جيش قرطاج" }, "desc": { "fr": "Une armée de peuples, une flotte de géants.", "en": "An army of peoples, a fleet of giants.", "ar": "جيش من الشعوب وأسطول من العمالقة." } }
+      ]
+    },
+    {
+      "key": "civilisation",
+      "tone": "gold",
+      "label": { "fr": "Civilisation", "en": "Civilisation", "ar": "الحضارة" },
+      "pages": [
+        { "slug": "economie", "label": { "fr": "Économie", "en": "Economy", "ar": "الاقتصاد" }, "desc": { "fr": "Routes, ports, métaux et monnaie.", "en": "Routes, harbours, metals and coinage.", "ar": "الطرق والموانئ والمعادن والنقود." } },
+        { "slug": "agriculture", "label": { "fr": "Agriculture", "en": "Agriculture", "ar": "الفلاحة" }, "desc": { "fr": "Magon, l'olivier et le blé du Cap Bon.", "en": "Mago, the olive and the wheat of Cap Bon.", "ar": "ماغون والزيتون وقمح الوطن القبلي." } },
+        { "slug": "religion", "label": { "fr": "Religion", "en": "Religion", "ar": "الديانة" }, "desc": { "fr": "Baal Hammon, Tanit, Melqart, Eshmoun.", "en": "Baal Hammon, Tanit, Melqart, Eshmun.", "ar": "بعل حمون وتانيت وملقرت وأشمون." } }
+      ]
+    },
+    {
+      "key": "personnages",
+      "tone": "navy",
+      "label": { "fr": "Personnages", "en": "People", "ar": "الشخصيات" },
+      "pages": [
+        { "slug": "biographies", "label": { "fr": "Tous les personnages", "en": "All people", "ar": "كل الشخصيات" }, "desc": { "fr": "L'arbre des Barcides et 15 figures.", "en": "The Barcid family tree and 15 figures.", "ar": "شجرة البرقيين و15 شخصية." } },
+        { "slug": "didon", "label": { "fr": "Élissa / Didon", "en": "Elissa / Dido", "ar": "عليسة / ديدون" }, "desc": { "fr": "La reine fondatrice.", "en": "The founding queen.", "ar": "الملكة المؤسِّسة." } },
+        { "slug": "hamilcar", "label": { "fr": "Hamilcar Barca", "en": "Hamilcar Barca", "ar": "حملقار برقا" }, "desc": { "fr": "Le père, de la Sicile à l'Hispanie.", "en": "The father, from Sicily to Hispania.", "ar": "الأب، من صقلية إلى هسبانيا." } },
+        { "slug": "hasdrubal", "label": { "fr": "Les deux Hasdrubal", "en": "The two Hasdrubals", "ar": "صدربعل الاثنان" }, "desc": { "fr": "Le Beau et Barca.", "en": "The Fair and Barca.", "ar": "الجميل وبرقا." } },
+        { "slug": "magon-barca", "label": { "fr": "Magon Barca", "en": "Mago Barca", "ar": "ماغون برقا" }, "desc": { "fr": "Le cadet, de la Trébie à la Ligurie.", "en": "The youngest, from the Trebia to Liguria.", "ar": "الأصغر، من تريبيا إلى ليغوريا." } },
+        { "slug": "hannon", "label": { "fr": "Hannon le Navigateur", "en": "Hanno the Navigator", "ar": "حنون الملاح" }, "desc": { "fr": "Le Périple vers l'Afrique de l'Ouest.", "en": "The Periplus to West Africa.", "ar": "الرحلة نحو غرب إفريقيا." } },
+        { "slug": "magon-agronome", "label": { "fr": "Magon l'Agronome", "en": "Mago the Agronomist", "ar": "ماغون المهندس الزراعي" }, "desc": { "fr": "Le traité en 28 livres.", "en": "The treatise in 28 books.", "ar": "المؤلَّف في 28 كتاباً." } },
+        { "slug": "sophonisbe", "label": { "fr": "Sophonisbe", "en": "Sophonisba", "ar": "صفنبعل" }, "desc": { "fr": "Entre Syphax et Massinissa.", "en": "Between Syphax and Masinissa.", "ar": "بين سيفاقس وماسينيسا." } }
+      ]
+    },
+    {
+      "key": "site",
+      "tone": "sand",
+      "label": { "fr": "À propos du site", "en": "About the site", "ar": "عن الموقع" },
+      "pages": [
+        { "slug": "plan-du-site", "label": { "fr": "Plan du site", "en": "Site map", "ar": "خريطة الموقع" }, "desc": { "fr": "Toutes les pages, par thème.", "en": "Every page, by theme.", "ar": "كل الصفحات حسب الموضوع." } },
+        { "slug": "credits", "label": { "fr": "Crédits", "en": "Credits", "ar": "الحقوق" }, "desc": { "fr": "Images, carte et typographies.", "en": "Images, map and typefaces.", "ar": "الصور والخريطة والخطوط." } }
+      ]
+    }
+  ]
+}

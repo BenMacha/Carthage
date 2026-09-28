@@ -129,7 +129,7 @@ const PLACES = [
 const C = {
   fr: {
     meta: {
-      title: 'Lieux historiques et villes qui portent son nom — Carthage',
+      title: 'Lieux historiques et villes qui portent son nom',
       desc: "De Carthagène à Ibiza, de Kerkouane à Trasimène, jusqu'à Hannibal (Missouri) et Cartagena de Indias : les lieux où l'on marche encore sur les traces de Carthage."
     },
     hero: {
@@ -268,7 +268,7 @@ const C = {
   },
   en: {
     meta: {
-      title: 'Historic sites and the towns that bear its name — Carthage',
+      title: 'Historic sites and the towns that bear its name',
       desc: 'From Cartagena to Ibiza, from Kerkouane to Trasimene, all the way to Hannibal (Missouri) and Cartagena de Indias: the places where you can still walk in the footsteps of Carthage.'
     },
     hero: {
@@ -407,7 +407,7 @@ const C = {
   },
   ar: {
     meta: {
-      title: 'مواقع تاريخية ومدن تحمل اسمها — قرطاج',
+      title: 'مواقع تاريخية ومدن تحمل اسمها',
       desc: 'من قرطاجنة إلى إيبيزا، ومن كركوان إلى ترازيمينو، وصولًا إلى هانيبال (ميزوري) وقرطاجنة الهند: أماكن ما زلنا نسير فيها على خطى قرطاج.'
     },
     hero: {

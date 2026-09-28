@@ -20,7 +20,11 @@
       </div>
       <div class="f-bottom">
         <span>{{ t.footer.copyright }}</span>
-        <NuxtLink :to="localePath('/credits')">{{ F.credits }}</NuxtLink>
+        <nav class="f-legal" :aria-label="F.legal">
+          <NuxtLink :to="localePath('/plan-du-site')">{{ F.plan }}</NuxtLink>
+          <a href="/sitemap.xml">sitemap.xml</a>
+          <NuxtLink :to="localePath('/credits')">{{ F.credits }}</NuxtLink>
+        </nav>
       </div>
     </div>
   </footer>
@@ -32,19 +36,19 @@ const { t, locale, localePath } = useI18n()
 const FOOT = {
   fr: {
     note: 'Qart-Ḥadasht · 814 – 146 av. J.-C.',
-    credits: 'Images : Wikimedia Commons, domaine public / CC — crédits',
+    credits: 'Crédits des images', plan: 'Plan du site', legal: 'Informations sur le site',
     explore: 'Explorer', periods: 'Époques', people: 'Personnages',
     tunisie: 'Carthage vit en Tunisie', carte: 'Carte animée', sources: 'Histoire des vainqueurs', tactiques: "Les tactiques d'Hannibal", richesse: 'La richesse et Rome', lieux: 'Lieux historiques', religion: 'Religion', agriculture: 'Agriculture', armee: "L'armée", bios: 'Toutes les biographies', didon: 'Élissa / Didon', hamilcar: 'Hamilcar Barca', hannon: 'Hannon le Navigateur', sophonisbe: 'Sophonisbe'
   },
   en: {
     note: 'Qart-Ḥadasht · 814 – 146 BC',
-    credits: 'Images: Wikimedia Commons, public domain / CC — credits',
+    credits: 'Image credits', plan: 'Site map', legal: 'Site information',
     explore: 'Explore', periods: 'Eras', people: 'People',
     tunisie: 'Carthage lives in Tunisia', carte: 'Animated map', sources: "The victors' history", tactiques: "Hannibal's tactics", richesse: 'Wealth and Rome', lieux: 'Historic places', religion: 'Religion', agriculture: 'Agriculture', armee: 'The army', bios: 'All biographies', didon: 'Elissa / Dido', hamilcar: 'Hamilcar Barca', hannon: 'Hanno the Navigator', sophonisbe: 'Sophonisba'
   },
   ar: {
     note: 'قرت حدشت · 814 – 146 ق.م',
-    credits: 'الصور: ويكيميديا كومنز، ملك عام / CC — المصادر',
+    credits: 'حقوق الصور', plan: 'خريطة الموقع', legal: 'معلومات الموقع',
     explore: 'استكشف', periods: 'الحقب', people: 'الشخصيات',
     tunisie: 'قرطاج تحيا في تونس', carte: 'الخريطة المتحركة', sources: 'تاريخ المنتصرين', tactiques: 'تكتيكات حنبعل', richesse: 'الثروة وروما', lieux: 'أماكن تاريخية', religion: 'الديانة', agriculture: 'الفلاحة', armee: 'الجيش', bios: 'كل السير', didon: 'عليسة / ديدون', hamilcar: 'حملقار برقا', hannon: 'حنون الملاح', sophonisbe: 'صفنبعل'
   }
@@ -178,7 +182,8 @@ const cols = computed(() => [
   color: #A9A094;
 }
 
-.f-bottom a { color: #A9A094; text-decoration: underline; text-underline-offset: 3px; }
+.f-legal { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.f-bottom a { color: #A9A094; text-decoration: underline; text-underline-offset: 3px; display: inline-block; padding-block: 4px; }
 .f-bottom a:hover { color: var(--white); }
 
 @media (max-width: 1100px) {

@@ -290,7 +290,7 @@ const { locale, localePath } = useI18n()
 const C = {
   fr: {
     meta: {
-      title: 'Hannibal Barca (247–183 av. J.-C.) — Carthage',
+      title: 'Hannibal Barca (247–183 av. J.-C.)',
       desc: "Hannibal Barca : le serment, les Alpes, la Trébie, Trasimène, Cannes, Zama, l'exil et la mort à Libyssa. La vie du stratège de Carthage."
     },
     hero: {
@@ -454,7 +454,7 @@ const C = {
   },
   en: {
     meta: {
-      title: 'Hannibal Barca (247–183 BC) — Carthage',
+      title: 'Hannibal Barca (247–183 BC)',
       desc: 'Hannibal Barca: the oath, the Alps, the Trebia, Trasimene, Cannae, Zama, exile and death at Libyssa. The life of Carthage’s strategist.'
     },
     hero: {
@@ -618,7 +618,7 @@ const C = {
   },
   ar: {
     meta: {
-      title: 'حنبعل برقا (247–183 ق.م) — قرطاج',
+      title: 'حنبعل برقا (247–183 ق.م)',
       desc: 'حنبعل برقا: القسم، جبال الألب، تريبيا، ترازيمين، كاناي، زاما، المنفى والموت في ليبيسا. سيرة استراتيجي قرطاج.'
     },
     hero: {

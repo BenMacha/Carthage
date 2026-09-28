@@ -36,17 +36,40 @@
           <div class="kids">
             <div v-for="(k, i) in c.kids" :key="i" class="kid">
               <div class="drop" aria-hidden="true" />
-              <component
-                :is="k.to ? NuxtLinkComp : 'div'"
-                v-bind="k.to ? { to: localePath(k.to) } : {}"
-                class="node"
-                :class="{ 'node--main': k.main }"
-              >
-                <div class="n-name">{{ k.name }}</div>
-                <div class="n-meta" v-html="k.meta" />
-              </component>
+              <div class="kid-body">
+                <component
+                  :is="k.to ? NuxtLinkComp : 'div'"
+                  v-bind="k.to ? { to: localePath(k.to) } : {}"
+                  class="node"
+                  :class="{ 'node--main': k.main }"
+                >
+                  <div class="n-name">{{ k.name }}</div>
+                  <div v-if="k.meta" class="n-meta" v-html="k.meta" />
+                </component>
+                <component
+                  :is="k.spouse.to ? NuxtLinkComp : 'div'"
+                  v-if="k.spouse"
+                  v-bind="k.spouse.to ? { to: localePath(k.spouse.to) } : {}"
+                  class="spouse"
+                  :class="{ 'is-uncertain': k.spouse.uncertain }"
+                >
+                  <span class="ring" aria-hidden="true">∞</span>
+                  <span>
+                    <b>{{ k.spouse.name }}</b>
+                    <span class="s-meta">{{ k.spouse.meta }}</span>
+                  </span>
+                </component>
+                <template v-if="k.issue">
+                  <div class="drop drop--sm" :class="{ 'is-uncertain': k.issue.uncertain }" aria-hidden="true" />
+                  <div class="node node--gen3" :class="{ 'is-uncertain': k.issue.uncertain }">
+                    <div class="n-name">{{ k.issue.name }}</div>
+                    <div class="n-meta">{{ k.issue.meta }}</div>
+                  </div>
+                </template>
+              </div>
             </div>
           </div>
+          <p class="tree-note"><span class="dash" aria-hidden="true" />{{ c.treeNote }}</p>
         </div>
       </div>
     </section>
@@ -127,22 +150,24 @@ const PEOPLE = [
 
 const C = {
   fr: {
-    metaTitle: 'Personnages — les Barca, les généraux, les navigateurs | Carthage',
+    metaTitle: 'Personnages — les Barca, les généraux, les navigateurs',
     metaDesc: "La famille Barca, les généraux, les navigateurs et les reines de Carthage : Hamilcar, Hannibal, Hasdrubal, Magon, Hannon, Himilcon, Élissa, Sophonisbe, Massinissa.",
     heroAlt: 'Hamilcar Barca',
     heroCap: 'Hamilcar Barca, le père',
     chip: 'Personnages · 15 figures, 8 biographies',
     title: 'Les Barca, la « Foudre »',
-    lede: "Barca viendrait du punique baraq, « l'éclair ». Un père, trois fils, deux gendres : une famille qui a tenu tête à Rome pendant un demi-siècle.",
+    lede: "Barca viendrait du punique baraq, « l'éclair ». Un père, trois fils, trois filles et leurs alliances : une famille qui a tenu tête à Rome pendant un demi-siècle.",
     treeTitle: "L'arbre des Barcides",
     root: { name: 'Hamilcar Barca', meta: "~275 – 228 av. J.-C. · conquiert l'Hispanie", to: '/hamilcar' },
     kids: [
-      { name: 'Une fille', meta: 'épouse <b>Hasdrubal le Beau</b> (†221), fondateur de Carthagène' },
-      { name: 'Hannibal', meta: '247 – 183 · les Alpes, Cannes, puis suffète', to: '/hannibal', main: true },
+      { name: 'Une fille', meta: '', spouse: { name: 'Bomilcar', meta: 'suffète' }, issue: { name: 'Hannon', meta: "fils de Bomilcar · mène la cavalerie qui franchit le Rhône en amont (218)", uncertain: true } },
+      { name: 'Une fille', meta: '', spouse: { name: 'Hasdrubal le Beau', meta: '†221 · fonde Carthagène ; épouse ensuite une princesse ibère', to: '/hasdrubal' } },
+      { name: 'Hannibal', meta: '247 – 183 · les Alpes, Cannes, puis suffète', to: '/hannibal', main: true, spouse: { name: 'Imilce', meta: 'princesse ibère de Castulo (Tite-Live)' }, issue: { name: 'Un fils ?', meta: 'mentionné par le seul poète Silius Italicus', uncertain: true } },
       { name: 'Hasdrubal Barca', meta: '~245 – 207 · franchit à son tour les Alpes, tué au Métaure', to: '/hasdrubal' },
       { name: 'Magon Barca', meta: "~243 – 203 · l'embuscade de la Trébie, la Ligurie", to: '/magon-barca' },
-      { name: 'Une fille', meta: 'épouse <b>Bomilcar</b> ; leur fils Hannon mène la cavalerie au Rhône' }
+      { name: 'Une fille', meta: 'promise pendant la guerre des Mercenaires', spouse: { name: 'Naravas', meta: 'prince numide rallié à Hamilcar (Polybe)', uncertain: true } }
     ],
+    treeNote: "Pointillés : lien incertain, reconstruit ou connu par une seule source tardive. Les noms des filles d'Hamilcar ne sont pas parvenus jusqu'à nous.",
     gridTitle: 'Généraux & figures',
     filterLabel: 'Filtrer les personnages',
     filters: [
@@ -185,22 +210,24 @@ const C = {
     ]
   },
   en: {
-    metaTitle: 'People — the Barcids, the generals, the navigators | Carthage',
+    metaTitle: 'People — the Barcids, the generals, the navigators',
     metaDesc: "The Barca family, Carthage's generals, navigators and queens: Hamilcar, Hannibal, Hasdrubal, Mago, Hanno, Himilco, Elissa, Sophonisba, Masinissa.",
     heroAlt: 'Hamilcar Barca',
     heroCap: 'Hamilcar Barca, the father',
     chip: 'People · 15 figures, 8 biographies',
     title: 'The Barcas, the “Thunderbolt”',
-    lede: 'Barca is thought to come from the Punic baraq, “lightning”. One father, three sons, two sons-in-law: a family that stood up to Rome for half a century.',
+    lede: 'Barca is thought to come from the Punic baraq, “lightning”. One father, three sons, three daughters and their marriages: a family that stood up to Rome for half a century.',
     treeTitle: 'The Barcid family tree',
     root: { name: 'Hamilcar Barca', meta: 'c. 275 – 228 BC · conquers Hispania', to: '/hamilcar' },
     kids: [
-      { name: 'A daughter', meta: 'marries <b>Hasdrubal the Fair</b> (†221), founder of Cartagena' },
-      { name: 'Hannibal', meta: '247 – 183 · the Alps, Cannae, then suffete', to: '/hannibal', main: true },
+      { name: 'A daughter', meta: '', spouse: { name: 'Bomilcar', meta: 'suffete' }, issue: { name: 'Hanno', meta: 'son of Bomilcar · leads the cavalry that crosses the Rhône upstream (218)', uncertain: true } },
+      { name: 'A daughter', meta: '', spouse: { name: 'Hasdrubal the Fair', meta: '†221 · founds Cartagena; later marries an Iberian princess', to: '/hasdrubal' } },
+      { name: 'Hannibal', meta: '247 – 183 · the Alps, Cannae, then suffete', to: '/hannibal', main: true, spouse: { name: 'Imilce', meta: 'Iberian princess from Castulo (Livy)' }, issue: { name: 'A son?', meta: 'mentioned only by the poet Silius Italicus', uncertain: true } },
       { name: 'Hasdrubal Barca', meta: 'c. 245 – 207 · crosses the Alps in turn, killed at the Metaurus', to: '/hasdrubal' },
       { name: 'Mago Barca', meta: 'c. 243 – 203 · the ambush at the Trebia, Liguria', to: '/magon-barca' },
-      { name: 'A daughter', meta: 'marries <b>Bomilcar</b>; their son Hanno leads the cavalry at the Rhône' }
+      { name: 'A daughter', meta: 'promised during the Mercenary War', spouse: { name: 'Naravas', meta: 'Numidian prince who joined Hamilcar (Polybius)', uncertain: true } }
     ],
+    treeNote: "Dashed: uncertain link, a modern reconstruction or known from a single late source. The names of Hamilcar's daughters have not come down to us.",
     gridTitle: 'Generals & figures',
     filterLabel: 'Filter people',
     filters: [
@@ -243,22 +270,24 @@ const C = {
     ]
   },
   ar: {
-    metaTitle: 'الشخصيات — آل برقا والقادة والملاحون | قرطاج',
+    metaTitle: 'الشخصيات — آل برقا والقادة والملاحون',
     metaDesc: 'أسرة برقا وقادة قرطاج وملاحوها وملكاتها: حملقار وحنبعل وصدربعل وماغون وحنون وحملكون وعليسة وصفنبعل وماسينيسا.',
     heroAlt: 'حملقار برقا',
     heroCap: 'حملقار برقا، الأب',
     chip: 'الشخصيات · 15 شخصية و8 سِيَر',
     title: 'آل برقا، «الصاعقة»',
-    lede: 'يُرجَّح أن اسم برقا مشتق من الكلمة البونيقية «برق». أب وثلاثة أبناء وصهران: أسرة صمدت في وجه روما نصف قرن.',
+    lede: 'يُرجَّح أن اسم برقا مشتق من الكلمة البونيقية «برق». أب وثلاثة أبناء وثلاث بنات ومصاهراتهم: أسرة صمدت في وجه روما نصف قرن.',
     treeTitle: 'شجرة آل برقا',
     root: { name: 'حملقار برقا', meta: 'نحو 275 – 228 ق.م · يفتح هسبانيا', to: '/hamilcar' },
     kids: [
-      { name: 'ابنة', meta: 'تتزوج <b>صدربعل الجميل</b> (†221)، مؤسس قرطاجنة' },
-      { name: 'حنبعل', meta: '247 – 183 · الألب، كاناي، ثم شفط', to: '/hannibal', main: true },
+      { name: 'ابنة', meta: '', spouse: { name: 'بوملقار', meta: 'شفط' }, issue: { name: 'حنون', meta: 'ابن بوملقار · يقود الفرسان الذين عبروا الرون من أعلى النهر (218)', uncertain: true } },
+      { name: 'ابنة', meta: '', spouse: { name: 'صدربعل الجميل', meta: '†221 · مؤسس قرطاجنة؛ تزوج لاحقاً أميرة إيبيرية', to: '/hasdrubal' } },
+      { name: 'حنبعل', meta: '247 – 183 · الألب، كاناي، ثم شفط', to: '/hannibal', main: true, spouse: { name: 'إيميلكي', meta: 'أميرة إيبيرية من كاستولو (تيتوس ليفيوس)' }, issue: { name: 'ابن؟', meta: 'لم يذكره إلا الشاعر سيليوس إيتاليكوس', uncertain: true } },
       { name: 'صدربعل برقا', meta: 'نحو 245 – 207 · يعبر الألب بدوره، ويُقتل عند الميتاورو', to: '/hasdrubal' },
       { name: 'ماغون برقا', meta: 'نحو 243 – 203 · كمين تريبيا، ليغوريا', to: '/magon-barca' },
-      { name: 'ابنة', meta: 'تتزوج <b>بوملقار</b>؛ ابنهما حنون يقود الفرسان عند الرون' }
+      { name: 'ابنة', meta: 'وُعِد بها خلال حرب المرتزقة', spouse: { name: 'نارافاس', meta: 'أمير نوميدي انضم إلى حملقار (بوليبيوس)', uncertain: true } }
     ],
+    treeNote: 'الخط المتقطع: صلة غير مؤكدة أو مُعاد بناؤها أو معروفة من مصدر متأخر واحد. أسماء بنات حملقار لم تصلنا.',
     gridTitle: 'قادة وشخصيات',
     filterLabel: 'تصفية الشخصيات',
     filters: [
@@ -346,8 +375,42 @@ a.node:hover { color: inherit; transform: translateY(-2px); box-shadow: 0 8px 20
 .node--root .n-meta { font-size: 13px; color: var(--on-dark); margin-top: 8px; }
 .node--main .n-meta { color: var(--purple-soft); }
 .stem { width: 2px; height: 28px; background: var(--ink); }
-.bar { width: 84%; height: 2px; background: var(--ink); }
-.kids { width: 100%; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.bar { width: calc(100% * 5 / 6); height: 2px; background: var(--ink); }
+.kids { width: 100%; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.kid-body { width: 100%; display: flex; flex-direction: column; align-items: center; }
+.spouse {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--sand);
+  border-radius: 14px;
+  text-align: start;
+  color: var(--ink);
+  font: 500 12px/1.35 var(--font-body);
+}
+a.spouse:hover { color: var(--ink); border-color: var(--purple); }
+.spouse b { display: block; font: 800 14px/1.15 var(--font-display); }
+.s-meta { display: block; color: var(--muted); margin-top: 2px; }
+.ring { font: 700 16px/1 var(--font-body); color: var(--purple); margin-top: 1px; }
+.drop--sm { height: 18px; }
+.drop.is-uncertain { background: none; border-inline-start: 2px dashed var(--ink); width: 0; }
+.node--gen3 { background: var(--white); border: 1.5px solid var(--ink); padding: 12px; }
+.node--gen3 .n-name { font-size: 15px; }
+.is-uncertain.node--gen3, .spouse.is-uncertain { border-style: dashed; }
+.tree-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  font: 400 13px/1.45 var(--font-body);
+  color: var(--muted);
+  max-width: 760px;
+  align-self: flex-start;
+}
+.dash { flex: none; width: 28px; border-top: 2px dashed var(--ink); }
 .kid { display: flex; flex-direction: column; align-items: center; }
 .drop { width: 2px; height: 24px; background: var(--ink); }
 
@@ -355,13 +418,14 @@ a.node:hover { color: inherit; transform: translateY(-2px); box-shadow: 0 8px 20
 .k-gold { color: var(--gold-light) !important; }
 .p-short { display: none; }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .kids { gap: 8px; }
   .n-name { font-size: 16px; }
+  .spouse { padding: 8px 10px; }
 }
 
 /* Arbre — mobile : liste verticale avec ligne de rattachement */
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .tree { align-items: stretch; }
   .node--root { text-align: start; }
   .stem, .bar { display: none; }
@@ -375,7 +439,14 @@ a.node:hover { color: inherit; transform: translateY(-2px); box-shadow: 0 8px 20
   }
   .kid { flex-direction: row; align-items: center; }
   .drop { width: 18px; height: 2px; margin-inline-start: -22px; flex: none; }
+  .kid > .drop { margin-top: 26px; align-self: flex-start; }
+  .kid-body { align-items: stretch; }
+  .kid-body .drop--sm { width: 2px; height: 14px; margin-inline-start: 20px; }
+  .kid-body .drop--sm.is-uncertain { width: 0; }
   .node { text-align: start; }
+}
+
+@media (max-width: 640px) {
 
   /* Cartes compactes */
   .people .person {

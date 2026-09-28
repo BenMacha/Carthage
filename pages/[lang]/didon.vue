@@ -181,7 +181,7 @@ const keyTones = ['tile--ink', '', '', 'tile--gold']
 const C = {
   fr: {
     meta: {
-      title: 'Élissa-Didon, reine fondatrice de Carthage — Carthage',
+      title: 'Élissa-Didon, reine fondatrice de Carthage',
       desc: "Princesse de Tyr, fugitive, fondatrice de Carthage vers 814 av. J.-C. : la vie d'Élissa-Didon selon Timée et Justin, et sa réinvention par Virgile."
     },
     hero: {
@@ -292,7 +292,7 @@ const C = {
   },
   en: {
     meta: {
-      title: 'Elissa-Dido, founding queen of Carthage — Carthage',
+      title: 'Elissa-Dido, founding queen of Carthage',
       desc: 'Princess of Tyre, fugitive, founder of Carthage around 814 BC: the life of Elissa-Dido according to Timaeus and Justin, and her reinvention by Virgil.'
     },
     hero: {
@@ -403,7 +403,7 @@ const C = {
   },
   ar: {
     meta: {
-      title: 'عليسة-ديدون، الملكة المؤسِّسة لقرطاج — قرطاج',
+      title: 'عليسة-ديدون، الملكة المؤسِّسة لقرطاج',
       desc: 'أميرة صور، الهاربة، مؤسِّسة قرطاج نحو 814 ق.م: حياة عليسة-ديدون كما رواها تيمايوس ويوستينوس، وإعادة ابتكارها عند فرجيل.'
     },
     hero: {
