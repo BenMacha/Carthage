@@ -134,6 +134,8 @@
       </div>
     </div>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec">
       <h2 class="h-block block-title">{{ c.moreTitle }}</h2>
@@ -221,6 +223,13 @@ const C = {
       { kicker: 'Afrique romaine', title: 'Le grenier de Rome', text: "Les grands domaines de l'Afrique romaine — blé, huile, vin — prolongent un savoir-faire que Carthage avait porté à son sommet." },
       { kicker: 'Mémoire', title: 'Un nom sauvé', text: "Presque toute la littérature punique a disparu. Magon est l'un des rares auteurs carthaginois dont nous connaissons le nom et une partie de l'œuvre.", tone: 'tile--ink' }
     ],
+    sources: [
+      { type: 'ancient', author: 'Columelle', work: "De l'agriculture (De re rustica)", ref: 'I, 1, 13 ; I, 1, 18 ; III, 12, 5 ; VI, 1, 3 ; XII, 39', note: 'principaux fragments conservés de Magon' },
+      { type: 'ancient', author: "Pline l'Ancien", work: 'Histoire naturelle', ref: 'XVII, 93 ; XVIII, 22 ; XVIII, 35', note: 'traduction ordonnée par le Sénat' },
+      { type: 'ancient', author: 'Varron', work: "De l'agriculture (Res rusticae)", note: 'Magon en tête des auteurs de référence' },
+      { type: 'modern', author: 'Stéphane Gsell', work: "Histoire ancienne de l'Afrique du Nord", ref: 'Hachette, 1920', note: 'ouvrage de référence de la bibliographie du site' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: 'Fayard, 1992', note: 'ouvrage de référence de la bibliographie du site' }
+    ],
     moreTitle: 'À lire aussi',
     links: [
       { to: '/agriculture', kicker: 'Terres & savoirs', title: "L'agriculture carthaginoise", text: 'Olivier, vigne et blé : les campagnes de Carthage.', tone: 'tile--olive' },
@@ -295,6 +304,13 @@ const C = {
       { kicker: 'Roman Africa', title: 'The granary of Rome', text: 'The great estates of Roman Africa — grain, oil, wine — carried on a know-how that Carthage had brought to its peak.' },
       { kicker: 'Memory', title: 'A name saved', text: 'Almost all Punic literature is lost. Mago is one of the few Carthaginian authors whose name and part of whose work we know.', tone: 'tile--ink' }
     ],
+    sources: [
+      { type: 'ancient', author: 'Columella', work: 'On Agriculture (De re rustica)', ref: 'I, 1, 13; I, 1, 18; III, 12, 5; VI, 1, 3; XII, 39', note: 'main surviving fragments of Mago' },
+      { type: 'ancient', author: 'Pliny the Elder', work: 'Natural History', ref: 'XVII, 93; XVIII, 22; XVIII, 35', note: 'the translation ordered by the Senate' },
+      { type: 'ancient', author: 'Varro', work: 'On Agriculture (Res rusticae)', note: 'Mago at the head of the reference authors' },
+      { type: 'modern', author: 'Stéphane Gsell', work: "Histoire ancienne de l'Afrique du Nord", ref: 'Hachette, 1920', note: 'standard work from the site bibliography' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: 'Fayard, 1992', note: 'standard work from the site bibliography' }
+    ],
     moreTitle: 'Read also',
     links: [
       { to: '/agriculture', kicker: 'Land & knowledge', title: 'Carthaginian agriculture', text: 'Olive, vine and wheat: the countryside of Carthage.', tone: 'tile--olive' },
@@ -368,6 +384,13 @@ const C = {
       { kicker: 'الفلاحة اللاتينية', title: 'مصدر رئيسي', text: 'ينهل فارون وكولوميلا وبليني من ماغون؛ وعبرهم انتقلت الأساليب البونيقية إلى الفلاحة الرومانية ثم الوسيطية.', tone: 'tile--olive' },
       { kicker: 'إفريقيا الرومانية', title: 'مخزن حبوب روما', text: 'واصلت الضيعات الكبرى في إفريقيا الرومانية — قمحًا وزيتًا ونبيذًا — دراية بلغت بها قرطاج ذروتها.' },
       { kicker: 'الذاكرة', title: 'اسم أُنقذ', text: 'ضاع الأدب البونيقي كله تقريبًا. وماغون من القلائل من المؤلفين القرطاجيين الذين نعرف اسمهم وجزءًا من مؤلَّفهم.', tone: 'tile--ink' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'كولوميلا', work: '«في الفلاحة»', ref: '1، 1، 13؛ 1، 1، 18؛ 3، 12، 5؛ 6، 1، 3؛ 12، 39', note: 'أهم الشذرات الباقية من ماغون' },
+      { type: 'ancient', author: 'بلينيوس الأكبر', work: '«التاريخ الطبيعي»', ref: '17، 93؛ 18، 22؛ 18، 35', note: 'الترجمة التي أمر بها مجلس الشيوخ' },
+      { type: 'ancient', author: 'فارون', work: '«في الفلاحة»', note: 'ماغون على رأس المؤلفين المرجعيين' },
+      { type: 'modern', author: 'ستيفان غزيل', work: "Histoire ancienne de l'Afrique du Nord", ref: 'Hachette, 1920', note: 'مرجع أساسي من قائمة مراجع الموقع' },
+      { type: 'modern', author: 'سيرج لانسل', work: 'Carthage', ref: 'Fayard, 1992', note: 'مرجع أساسي من قائمة مراجع الموقع' }
     ],
     moreTitle: 'اقرأ أيضًا',
     links: [

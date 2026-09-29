@@ -181,11 +181,12 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec sec--wide">
       <div class="sec-head">
         <h2 class="h-section">{{ c.relatedTitle }}</h2>
-        <p>{{ c.sources }}</p>
       </div>
     </section>
     <div class="cols cols-3">
@@ -337,7 +338,22 @@ const C = {
       link: "Carthage l'Africaine →"
     },
     relatedTitle: 'À lire aussi',
-    sources: "Sources antiques : Aristote, Polybe, Diodore, Justin, Tite-Live. Travaux : M. Sznycer, S. Bessis, H. Dridi, E. Lipinski.",
+    sources: [
+      { type: "ancient", author: "Aristote", work: "Politique", ref: "II, 11" },
+      { type: "ancient", author: "Polybe", work: "Histoires", ref: "I, 72 ; VI, 43 ; VI, 51 ; VI, 56" },
+      { type: "ancient", author: "Diodore de Sicile", work: "Bibliothèque historique", ref: "XX, 9 ; XX, 44" },
+      { type: "ancient", author: "Justin", work: "Abrégé des Histoires philippiques de Trogue Pompée", ref: "XVIII–XIX ; XIX, 2" },
+      { type: "ancient", author: "Tite-Live", work: "Histoire romaine", ref: "XXXIII, 46–47" },
+      { type: "ancient", author: "Sénèque", work: "De la tranquillité de l'âme", ref: "IV, 5" },
+      { type: "modern", author: "Maurice Sznycer", work: "Carthage et la civilisation punique", ref: "PUF, 1978" },
+      { type: "modern", author: "Sophie Bessis", work: "Histoire de la Tunisie : de Carthage à nos jours", ref: "Tallandier, 2019" },
+      { type: "modern", author: "Hédi Dridi", work: "Carthage et le monde punique", ref: "Les Belles Lettres, 2006" },
+      { type: "modern", author: "Edward Lipinski (dir.)", work: "Dictionnaire de la civilisation phénicienne et punique", ref: "Brepols, 1992" },
+      { type: "modern", author: "Stéphane Gsell", work: "Histoire ancienne de l'Afrique du Nord", ref: "Hachette, 1920" },
+      { type: "modern", author: "Karl Julius Beloch", note: "cité dans la page (thèse d'une monarchie carthaginoise)" },
+      { type: "modern", author: "Gilbert Charles-Picard", note: "cité dans la page (thèse d'une monarchie carthaginoise)" },
+      { type: "modern", author: "Wikipédia", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0, contenus reformulés" }
+    ],
     related: [
       { to: '/hannibal', cls: 'tile--ink', kick: 'Biographie', title: 'Hannibal', text: "Le stratège de Cannes fut aussi un suffète réformateur, chassé par l'oligarchie." },
       { to: '/richesse-rome', cls: 'tile--gold', kick: 'Économie', title: 'Trop riche pour Rome', text: "Pourquoi la prospérité de Carthage, bien plus que ses armes, obséda Rome." },
@@ -458,7 +474,22 @@ const C = {
       link: 'African Carthage →'
     },
     relatedTitle: 'Read also',
-    sources: 'Ancient sources: Aristotle, Polybius, Diodorus, Justin, Livy. Scholarship: M. Sznycer, S. Bessis, H. Dridi, E. Lipinski.',
+    sources: [
+      { type: "ancient", author: "Aristotle", work: "Politics", ref: "II, 11" },
+      { type: "ancient", author: "Polybius", work: "Histories", ref: "I, 72; VI, 43; VI, 51; VI, 56" },
+      { type: "ancient", author: "Diodorus Siculus", work: "Library of History", ref: "XX, 9; XX, 44" },
+      { type: "ancient", author: "Justin", work: "Epitome of Pompeius Trogus' Philippic Histories", ref: "XVIII–XIX; XIX, 2" },
+      { type: "ancient", author: "Livy", work: "History of Rome", ref: "XXXIII, 46–47" },
+      { type: "ancient", author: "Seneca", work: "On Tranquillity of Mind", ref: "IV, 5" },
+      { type: "modern", author: "Maurice Sznycer", work: "Carthage et la civilisation punique", ref: "PUF, 1978" },
+      { type: "modern", author: "Sophie Bessis", work: "Histoire de la Tunisie : de Carthage à nos jours", ref: "Tallandier, 2019" },
+      { type: "modern", author: "Hédi Dridi", work: "Carthage et le monde punique", ref: "Les Belles Lettres, 2006" },
+      { type: "modern", author: "Edward Lipinski (ed.)", work: "Dictionnaire de la civilisation phénicienne et punique", ref: "Brepols, 1992" },
+      { type: "modern", author: "Stéphane Gsell", work: "Histoire ancienne de l'Afrique du Nord", ref: "Hachette, 1920" },
+      { type: "modern", author: "Karl Julius Beloch", note: "cited on this page (theory of a Carthaginian monarchy)" },
+      { type: "modern", author: "Gilbert Charles-Picard", note: "cited on this page (theory of a Carthaginian monarchy)" },
+      { type: "modern", author: "Wikipedia (French)", work: "Carthage; Civilisation carthaginoise", note: "CC BY-SA 4.0, content rephrased" }
+    ],
     related: [
       { to: '/hannibal', cls: 'tile--ink', kick: 'Biography', title: 'Hannibal', text: 'The strategist of Cannae was also a reforming suffete, driven out by the oligarchy.' },
       { to: '/richesse-rome', cls: 'tile--gold', kick: 'Economy', title: 'Too rich for Rome', text: 'Why Carthage’s prosperity, far more than its weapons, obsessed Rome.' },
@@ -509,12 +540,12 @@ const C = {
       }
     },
     organs: [
-      { cls: 'tile--paper', kick: 'التنفيذ والقضاء', t: 'الشفطان', d: 'من الكلمة الفينيقية «شفط» أي «القاضي». حاكمان يُنتخبان كل سنة، سمّاهما الإغريق والرومان «ملكين» لافتقارهم إلى لفظ مكافئ. كانا يترأسان مجلس الشيوخ ويقضيان بين الناس ويديران شؤون المدينة، لكنهما لا يقودان الجيوش. ولا نعرف من كان ينتخبهما: الأعيان أم الشعب.', src: 'زنيسر؛ سينيكا، في طمأنينة النفس، IV، 5' },
-      { cls: 'tile--ink', kick: 'قلب الأوليغارشية', t: 'مجلس الشيوخ', d: 'تتحدث النصوص عن «شيوخ قرطاج». كان أعضاؤه من كبرى العائلات، ولعلّ عددهم بلغ عدة مئات. الحرب والسلم والدبلوماسية: كان يفصل في كبرى القضايا، وإليه يقدّم القادة العسكريون حسابهم.', src: 'زنيسر؛ تيتوس ليفيوس' },
+      { cls: 'tile--paper', kick: 'التنفيذ والقضاء', t: 'الشفطان', d: 'من الكلمة الفينيقية «شفط» أي «القاضي». حاكمان يُنتخبان كل سنة، سمّاهما الإغريق والرومان «ملكين» لافتقارهم إلى لفظ مكافئ. كانا يترأسان مجلس الشيوخ ويقضيان بين الناس ويديران شؤون المدينة، لكنهما لا يقودان الجيوش. ولا نعرف من كان ينتخبهما: الأعيان أم الشعب.', src: 'شنيسر؛ سينيكا، في طمأنينة النفس، IV، 5' },
+      { cls: 'tile--ink', kick: 'قلب الأوليغارشية', t: 'مجلس الشيوخ', d: 'تتحدث النصوص عن «شيوخ قرطاج». كان أعضاؤه من كبرى العائلات، ولعلّ عددهم بلغ عدة مئات. الحرب والسلم والدبلوماسية: كان يفصل في كبرى القضايا، وإليه يقدّم القادة العسكريون حسابهم.', src: 'شنيسر؛ تيتوس ليفيوس' },
       { cls: 'tile--gold', kick: 'الرقابة', t: 'المئة والأربعة', d: 'مجلس مصغّر لا يسمّيه بهذا الاسم سوى أرسطو («المئة والأربعة» أو «المئة»). وبحسب يوستينوس، كان مئة قاضٍ يُختارون من مجلس الشيوخ يحاسبون القادة العسكريين عند عودتهم. وكانوا يُعيَّنون مدى الحياة حتى إصلاح حنبعل.', src: 'أرسطو، السياسة، II، 11؛ يوستينوس، XIX، 2' },
       { cls: 'tile--sand', kick: 'غامضة', t: 'اللجان الخماسية', d: 'لجان من خمسة أعضاء لم يذكرها سوى أرسطو. كانت تجدّد أعضاءها بنفسها، وتنظر في شؤون مهمة، وتعيّن أعضاء المئة والأربعة. ولا تزال طريقة عملها غامضة.', src: 'أرسطو، السياسة، II، 11' },
       { cls: 'tile--purple', kick: 'العنصر الديمقراطي', t: 'جمعية الشعب', d: 'الرجال الأحرار مجتمعين في الساحة العامة بحسب ديودوروس. وإذا اختلف الشفطان ومجلس الشيوخ رُفع الأمر إليها، وكان لكل فرد أن يعترض على المقترحات (أرسطو). ويرى بوليبيوس أنها صارت صاحبة الكلمة العليا في زمن الحروب البونيقية.', src: 'أرسطو؛ ديودوروس، XX، 9؛ بوليبيوس، VI، 51' },
-      { cls: 'tile--sand', kick: 'خارج سلطة الشفطين', t: 'القادة العسكريون', d: 'كانت القيادة العسكرية منفصلة عن المناصب المدنية. يُختار قادة الجيوش من كبرى العائلات ويُنتخبون على حدة، والأرجح أن جمعية الشعب هي التي تنتخبهم. وكانوا مسؤولين أمام مجلس الشيوخ، وقد يحاكمهم المئة والأربعة بعد الحملة.', src: 'زنيسر؛ يوستينوس، XIX، 2' }
+      { cls: 'tile--sand', kick: 'خارج سلطة الشفطين', t: 'القادة العسكريون', d: 'كانت القيادة العسكرية منفصلة عن المناصب المدنية. يُختار قادة الجيوش من كبرى العائلات ويُنتخبون على حدة، والأرجح أن جمعية الشعب هي التي تنتخبهم. وكانوا مسؤولين أمام مجلس الشيوخ، وقد يحاكمهم المئة والأربعة بعد الحملة.', src: 'شنيسر؛ يوستينوس، XIX، 2' }
     ],
     aristo: {
       kick: 'أرسطو، السياسة، II، 11',
@@ -522,7 +553,7 @@ const C = {
       quote: '«يُعَدّ حكم قرطاج حكمًا صالحًا […]. ومن علامات حسن نظامها أن الشعب يظل وفيًّا له، وأنه لم تقع فيها فتنة تستحق الذكر، ولا قام فيها طاغية.»',
       cite: 'أرسطو، السياسة، II، 11 (نحو 330 ق.م) — ترجمة بتصرّف',
       text: 'يضع أرسطو قرطاج، وهي المدينة الوحيدة غير الإغريقية في عرضه، إلى جانب إسبرطة وكريت بين أنجح الدساتير: نظام «مختلط» يجمع الملكية (الشفطان) والأرستقراطية (مجلس الشيوخ) والديمقراطية (جمعية الشعب). وسيشير بوليبيوس بدوره إلى سمعة هذه المؤسسات الممتازة (VI، 43).',
-      debate: 'لقطة لا نموذج ثابت: نوقشت قيمة هذا النص منذ ستيفان غزيل، ويسلّم المؤرخون اليوم بأن هذه المؤسسات تطورت عبر القرون (زنيسر).'
+      debate: 'لقطة لا نموذج ثابت: نوقشت قيمة هذا النص منذ ستيفان غزيل، ويسلّم المؤرخون اليوم بأن هذه المؤسسات تطورت عبر القرون (شنيسر).'
     },
     critics: {
       kick: 'تحفّظات الفيلسوف',
@@ -540,11 +571,11 @@ const C = {
       title: 'مؤسسات تتطور',
       link: 'حنبعل، من ساحة القتال إلى منصب الشفط ←',
       rows: [
-        { k: 'البدايات', t: 'لا ملك مؤكَّدًا. ', v: 'كانت ديدون من سلالة ملكية، لكن الأسطورة لا تصفها أبدًا بالملكة. و«الملوك» في النصوص الإغريقية واللاتينية هم على الأرجح الشفطان. أما نظرية الملكية القرطاجية التي دافع عنها ك. ي. بيلوخ ثم ج. شارل-بيكار، فيرفضها اليوم معظم المؤرخين؛ وحتى في صور لم يكن للملوك سلطان مطلق (زنيسر).' },
+        { k: 'البدايات', t: 'لا ملك مؤكَّدًا. ', v: 'كانت ديدون من سلالة ملكية، لكن الأسطورة لا تصفها أبدًا بالملكة. و«الملوك» في النصوص الإغريقية واللاتينية هم على الأرجح الشفطان. أما نظرية الملكية القرطاجية التي دافع عنها ك. ي. بيلوخ ثم ج. شارل-بيكار، فيرفضها اليوم معظم المؤرخين؛ وحتى في صور لم يكن للملوك سلطان مطلق (شنيسر).' },
         { k: 'ق 6–5', t: 'عصر الماغونيين. ', v: 'طوال عدة أجيال، قدّم أحفاد رجل يُدعى ماغون للمدينة قادة حروبها (يوستينوس، XVIII–XIX). هيمنة عائلية أكثر منها ملكية؛ وقد هُزم أحدهم، حملقار، في هيميرا سنة 480.' },
         { k: 'ق 5', t: 'سلطة مضادة. ', v: 'حتى لا تهدد عائلة من القادة الحرية بعد ذلك، أُنشئت محكمة من مئة قاضٍ يُختارون من أعضاء مجلس الشيوخ، يقدّم إليها القادة حسابهم عند عودتهم (يوستينوس، XIX، 2). وهي على الأرجح أصل «المئة والأربعة» عند أرسطو.' },
         { k: 'ق 4', t: 'الدستور «المختلط». ', v: 'هذه هي الحالة التي يصفها أرسطو. وقد أخفقت محاولات الحكم الفردي: ففي سنة 308، أثناء غزو أغاثوكليس، حاول القائد بوملقار الاستيلاء على السلطة داخل المدينة، فهُزم وأُعدم (ديودوروس، XX، 44).' },
-        { k: 'ق 3', t: 'حنون الكبير في مواجهة البرقيين. ', v: 'تصادمت سياستان: حنون، لسان كبار ملّاك الأرض، يفضّل الداخل الإفريقي ويعارض حروب البرقيين؛ أما هؤلاء فيستندون إلى إسبانيا وإلى تأييد الشعب (بوليبيوس). وقد استبعد م. زنيسر فكرة سعي البرقيين إلى ملكية على الطراز الهلنستي.' },
+        { k: 'ق 3', t: 'حنون الكبير في مواجهة البرقيين. ', v: 'تصادمت سياستان: حنون، لسان كبار ملّاك الأرض، يفضّل الداخل الإفريقي ويعارض حروب البرقيين؛ أما هؤلاء فيستندون إلى إسبانيا وإلى تأييد الشعب (بوليبيوس). وقد استبعد م. شنيسر فكرة سعي البرقيين إلى ملكية على الطراز الهلنستي.' },
         { k: '196', t: 'حنبعل شفطًا. ', v: 'بعد زاما، انتُخب حنبعل شفطًا. فأخضع أحد المسؤولين عن المال العام كان قد تحدّاه، واستصدر قانونًا يجعل قضاة المئة والأربعة، وكانوا يُعيَّنون مدى الحياة، يُنتخبون لسنة واحدة ولا يُجدَّد لهم في السنة التالية، ثم لاحق الاختلاسات: فصار ممكنًا دفع الغرامة المستحقة لروما دون ضريبة جديدة (تيتوس ليفيوس، XXXIII، 46-47). وبعد أن وشى به خصومه إلى روما، لجأ إلى المنفى سنة 195.' },
         { k: 'بعد 146', t: 'شفطون تحت حكم روما. ', v: 'زالت قرطاج ولم تزل مؤسساتها: فقد ظلت مدن في إفريقيا الرومانية تنتخب الشفطين حتى القرن الثاني الميلادي، وأحيانًا ثلاثة بدل اثنين — وهي إضافة أمازيغية في رأي بعض المختصين (ليبينسكي).' }
       ]
@@ -579,7 +610,22 @@ const C = {
       link: 'قرطاج الإفريقية ←'
     },
     relatedTitle: 'اقرأ أيضًا',
-    sources: 'المصادر القديمة: أرسطو، بوليبيوس، ديودوروس، يوستينوس، تيتوس ليفيوس. الدراسات: م. زنيسر، ص. بسيس، ح. دريدي، إ. ليبينسكي.',
+    sources: [
+      { type: "ancient", author: "أرسطو", work: "السياسة", ref: "II، 11" },
+      { type: "ancient", author: "بوليبيوس", work: "التواريخ", ref: "I، 72؛ VI، 43؛ VI، 51؛ VI، 56" },
+      { type: "ancient", author: "ديودوروس الصقلي", work: "المكتبة التاريخية", ref: "XX، 9؛ XX، 44" },
+      { type: "ancient", author: "يوستينوس", work: "مختصر التواريخ الفيليبية لتروغوس بومبيوس", ref: "XVIII–XIX؛ XIX، 2" },
+      { type: "ancient", author: "تيتوس ليفيوس", work: "تاريخ روما", ref: "XXXIII، 46–47" },
+      { type: "ancient", author: "سينيكا", work: "في طمأنينة النفس", ref: "IV، 5" },
+      { type: "modern", author: "موريس شنيسر", work: "Carthage et la civilisation punique", ref: "PUF, 1978" },
+      { type: "modern", author: "صوفي بسيس", work: "Histoire de la Tunisie : de Carthage à nos jours", ref: "Tallandier, 2019" },
+      { type: "modern", author: "هادي دريدي", work: "Carthage et le monde punique", ref: "Les Belles Lettres, 2006" },
+      { type: "modern", author: "إدوارد ليبينسكي (إشراف)", work: "Dictionnaire de la civilisation phénicienne et punique", ref: "Brepols, 1992" },
+      { type: "modern", author: "ستيفان غزيل", work: "Histoire ancienne de l'Afrique du Nord", ref: "Hachette, 1920" },
+      { type: "modern", author: "كارل يوليوس بيلوخ", note: "مذكور في هذه الصفحة (نظرية الملكية القرطاجية)" },
+      { type: "modern", author: "جيلبير شارل-بيكار", note: "مذكور في هذه الصفحة (نظرية الملكية القرطاجية)" },
+      { type: "modern", author: "ويكيبيديا (بالفرنسية)", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0، محتوى أعيدت صياغته" }
+    ],
     related: [
       { to: '/hannibal', cls: 'tile--ink', kick: 'سيرة', title: 'حنبعل', text: 'لم يكن قائد كاناي استراتيجيًا فحسب، بل كان أيضًا شفطًا مصلحًا طردته الأوليغارشية.' },
       { to: '/richesse-rome', cls: 'tile--gold', kick: 'الاقتصاد', title: 'أغنى مما تحتمله روما', text: 'لماذا أرّق رخاءُ قرطاج روما أكثر بكثير من سلاحها.' },

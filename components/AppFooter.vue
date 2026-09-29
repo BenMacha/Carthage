@@ -37,19 +37,19 @@ const FOOT = {
   fr: {
     note: 'Qart-Ḥadasht · 814 – 146 av. J.-C.',
     credits: 'Crédits des images', plan: 'Plan du site', legal: 'Informations sur le site',
-    explore: 'Explorer', periods: 'Époques', civ: 'Civilisation', people: 'Personnages', biblio: 'Sources et bibliographie', apres: 'Carthage après 146', institutions: 'Institutions et société', art: 'Art et artisanat', langue: 'Langue et écriture',
+    explore: 'Explorer', periods: 'Époques', civ: 'Civilisation', people: 'Personnages', biblio: 'Sources et bibliographie', glossaire: 'Glossaire', quiz: 'Quiz', mercenaires: 'La guerre des Mercenaires', monde: 'Le monde punique', vie: 'La vie quotidienne', heritage: "L'héritage culturel", massinissa: 'Massinissa', apres: 'Carthage après 146', institutions: 'Institutions et société', art: 'Art et artisanat', langue: 'Langue et écriture',
     tunisie: 'Carthage vit en Tunisie', carte: 'Carte animée', sources: 'Histoire des vainqueurs', tactiques: "Les tactiques d'Hannibal", richesse: 'La richesse et Rome', lieux: 'Lieux historiques', religion: 'Religion', agriculture: 'Agriculture', armee: "L'armée", bios: 'Toutes les biographies', didon: 'Élissa / Didon', hamilcar: 'Hamilcar Barca', hannon: 'Hannon le Navigateur', sophonisbe: 'Sophonisbe'
   },
   en: {
     note: 'Qart-Ḥadasht · 814 – 146 BC',
     credits: 'Image credits', plan: 'Site map', legal: 'Site information',
-    explore: 'Explore', periods: 'Eras', civ: 'Civilisation', people: 'People', biblio: 'Sources and bibliography', apres: 'Carthage after 146', institutions: 'Institutions and society', art: 'Art and crafts', langue: 'Language and writing',
+    explore: 'Explore', periods: 'Eras', civ: 'Civilisation', people: 'People', biblio: 'Sources and bibliography', glossaire: 'Glossary', quiz: 'Quiz', mercenaires: 'The Mercenary War', monde: 'The Punic world', vie: 'Daily life', heritage: 'Cultural legacy', massinissa: 'Masinissa', apres: 'Carthage after 146', institutions: 'Institutions and society', art: 'Art and crafts', langue: 'Language and writing',
     tunisie: 'Carthage lives in Tunisia', carte: 'Animated map', sources: "The victors' history", tactiques: "Hannibal's tactics", richesse: 'Wealth and Rome', lieux: 'Historic places', religion: 'Religion', agriculture: 'Agriculture', armee: 'The army', bios: 'All biographies', didon: 'Elissa / Dido', hamilcar: 'Hamilcar Barca', hannon: 'Hanno the Navigator', sophonisbe: 'Sophonisba'
   },
   ar: {
     note: 'قرت حدشت · 814 – 146 ق.م',
     credits: 'حقوق الصور', plan: 'خريطة الموقع', legal: 'معلومات الموقع',
-    explore: 'استكشف', periods: 'الحقب', civ: 'الحضارة', people: 'الشخصيات', biblio: 'المصادر والمراجع', apres: 'قرطاج بعد 146', institutions: 'المؤسسات والمجتمع', art: 'الفن والحِرف', langue: 'اللغة والكتابة',
+    explore: 'استكشف', periods: 'الحقب', civ: 'الحضارة', people: 'الشخصيات', biblio: 'المصادر والمراجع', glossaire: 'المعجم', quiz: 'اختبار', mercenaires: 'حرب المرتزقة', monde: 'العالم البونيقي', vie: 'الحياة اليومية', heritage: 'الإرث الثقافي', massinissa: 'ماسينيسا', apres: 'قرطاج بعد 146', institutions: 'المؤسسات والمجتمع', art: 'الفن والحِرف', langue: 'اللغة والكتابة',
     tunisie: 'قرطاج تحيا في تونس', carte: 'الخريطة المتحركة', sources: 'تاريخ المنتصرين', tactiques: 'تكتيكات حنبعل', richesse: 'الثروة وروما', lieux: 'أماكن تاريخية', religion: 'الديانة', agriculture: 'الفلاحة', armee: 'الجيش', bios: 'كل السير', didon: 'عليسة / ديدون', hamilcar: 'حملقار برقا', hannon: 'حنون الملاح', sophonisbe: 'صفنبعل'
   }
 }
@@ -66,7 +66,10 @@ const cols = computed(() => [
       { to: '/histoire-des-vainqueurs', label: F.value.sources },
       { to: '/lieux', label: F.value.lieux },
       { to: '/afrique', label: t.value.footer.africa },
-      { to: '/bibliographie', label: F.value.biblio }
+      { to: '/monde-punique', label: F.value.monde },
+      { to: '/bibliographie', label: F.value.biblio },
+      { to: '/glossaire', label: F.value.glossaire },
+      { to: '/quiz', label: F.value.quiz }
     ]
   },
   {
@@ -76,6 +79,7 @@ const cols = computed(() => [
       { to: '/guerres-puniques', label: t.value.footer.punicWars },
       { to: '/elephants', label: t.value.footer.elephantPassage },
       { to: '/tactiques', label: F.value.tactiques },
+      { to: '/guerre-des-mercenaires', label: F.value.mercenaires },
       { to: '/richesse-rome', label: F.value.richesse },
       { to: '/prise-de-carthage', label: t.value.footer.fall },
       { to: '/apres-146', label: F.value.apres }
@@ -90,6 +94,8 @@ const cols = computed(() => [
       { to: '/religion', label: F.value.religion },
       { to: '/art-et-artisanat', label: F.value.art },
       { to: '/langue-ecriture', label: F.value.langue },
+      { to: '/vie-quotidienne', label: F.value.vie },
+      { to: '/heritage', label: F.value.heritage },
       { to: '/armee', label: F.value.armee }
     ]
   },
@@ -101,6 +107,7 @@ const cols = computed(() => [
       { to: '/hamilcar', label: F.value.hamilcar },
       { to: '/hannibal', label: t.value.footer.hannibal },
       { to: '/hannon', label: F.value.hannon },
+      { to: '/massinissa', label: F.value.massinissa },
       { to: '/sophonisbe', label: F.value.sophonisbe }
     ]
   }

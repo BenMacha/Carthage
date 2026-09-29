@@ -265,6 +265,8 @@
         <span class="cta-arrow" aria-hidden="true">→</span>
       </NuxtLink>
     </section>
+
+    <PageSources :items="c.sources" />
   </div>
 </template>
 
@@ -395,7 +397,23 @@ const C = {
       { kicker: 'Fidélité', title: 'Seize ans sans mutinerie', text: "Selon Polybe, l'armée multinationale d'Hannibal ne se mutina jamais pendant seize ans de guerre en Italie, malgré les privations.", tone: 'tile--navy' }
     ],
     mapKicker: "Campagne d'Hannibal · 219–202",
-    mapCta: 'Voir la campagne sur la carte animée'
+    mapCta: 'Voir la campagne sur la carte animée',
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'I, 26 ; I, 49–51', note: 'quinquérèmes, Drépane, effectifs de l\'armée d\'Hannibal, éléphants de Zama' },
+      { type: 'ancient', author: 'Diodore de Sicile', work: 'Bibliothèque historique', ref: 'XIII, 54 ; XIV, 41–42 ; XXV, 8', note: 'Bataillon sacré, siège de Sélinonte, quinquérème, désignation des généraux' },
+      { type: 'ancient', author: 'Appien', work: 'Libyca', note: 'les 220 loges du port circulaire' },
+      { type: 'ancient', author: 'Strabon', work: 'Géographie', ref: 'II, 3, 4', note: 'frondeurs baléares, hippoi de Gadès' },
+      { type: 'ancient', author: 'Pline l\'Ancien', work: 'Histoire naturelle', ref: 'VII, 207', note: 'quadrirème ; voyage d’Himilcon' },
+      { type: 'ancient', author: 'Hérodote', work: 'Histoires', ref: 'III, 136 ; IV, 42', note: 'gauloi ; circumnavigation de l’Afrique' },
+      { type: 'ancient', author: 'Aviénus', work: 'Ora maritima', note: 'voyage d’Himilcon' },
+      { type: 'ancient', author: 'Pseudo-Aristote', work: 'De mirabilibus auscultationibus', ref: '84', note: 'l\'île interdite' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: 'Fayard, 1992' },
+      { type: 'modern', author: 'Hédi Dridi', work: 'Carthage et le monde punique', ref: 'Les Belles Lettres, 2006' },
+      { type: 'modern', author: 'Khaled Melliti', work: 'Carthage', ref: 'Perrin, 2023' },
+      { type: 'modern', author: 'Madeleine Hours-Miédan', work: 'Carthage', ref: 'PUF, 1982', note: 'sur le Périple d’Hannon' },
+      { type: 'modern', author: 'Philippe Leveau', note: 'cité dans la page (hypothèse sur la race des éléphants)' },
+      { type: 'modern', author: 'Wikipédia', work: 'Carthage ; Civilisation carthaginoise', note: 'CC BY-SA 4.0, contenus reformulés' }
+    ]
   },
   en: {
     metaTitle: "Carthage's army — an army of peoples, a fleet of giants",
@@ -517,7 +535,23 @@ const C = {
       { kicker: 'Loyalty', title: 'Sixteen years without mutiny', text: "According to Polybius, Hannibal's multinational army never mutinied during sixteen years of war in Italy, despite hardship.", tone: 'tile--navy' }
     ],
     mapKicker: "Hannibal's campaign · 219–202",
-    mapCta: 'See the campaign on the animated map'
+    mapCta: 'See the campaign on the animated map',
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: 'I, 26; I, 49–51', note: 'quinqueremes, Drepana, the strength of Hannibal\'s army, the elephants at Zama' },
+      { type: 'ancient', author: 'Diodorus Siculus', work: 'Library of History', ref: 'XIII, 54; XIV, 41–42; XXV, 8', note: 'Sacred Band, siege of Selinus, the quinquereme, appointment of generals' },
+      { type: 'ancient', author: 'Appian', work: 'Libyca', note: 'the 220 berths of the circular harbour' },
+      { type: 'ancient', author: 'Strabo', work: 'Geography', ref: 'II, 3, 4', note: 'Balearic slingers, the hippoi of Gades' },
+      { type: 'ancient', author: 'Pliny the Elder', work: 'Natural History', ref: 'VII, 207', note: 'the quadrireme; Himilco\'s voyage' },
+      { type: 'ancient', author: 'Herodotus', work: 'Histories', ref: 'III, 136; IV, 42', note: 'gauloi; the circumnavigation of Africa' },
+      { type: 'ancient', author: 'Avienus', work: 'Ora maritima', note: 'Himilco\'s voyage' },
+      { type: 'ancient', author: 'Pseudo-Aristotle', work: 'On Marvellous Things Heard', ref: '84', note: 'the forbidden island' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: 'Fayard, 1992' },
+      { type: 'modern', author: 'Hédi Dridi', work: 'Carthage et le monde punique', ref: 'Les Belles Lettres, 2006' },
+      { type: 'modern', author: 'Khaled Melliti', work: 'Carthage', ref: 'Perrin, 2023' },
+      { type: 'modern', author: 'Madeleine Hours-Miédan', work: 'Carthage', ref: 'PUF, 1982', note: 'on the Periplus of Hanno' },
+      { type: 'modern', author: 'Philippe Leveau', note: 'cited on this page (hypothesis on the elephant breed)' },
+      { type: 'modern', author: 'Wikipedia (French)', work: 'Carthage; Civilisation carthaginoise', note: 'CC BY-SA 4.0, content rephrased' }
+    ]
   },
   ar: {
     metaTitle: 'جيش قرطاج — جيش من الشعوب وأسطول من العمالقة',
@@ -531,7 +565,7 @@ const C = {
     warsCta: 'كاناي والحروب البونيقية ←',
     more: 'اعرف المزيد ←',
     units: [
-      { tone: 'tile--purple', origin: 'قرطاج', name: 'الكتيبة المقدسة', text: 'نحو 2500 مواطن من النخبة، مدججين بالسلاح، حسب ديودور. وكان الضباط قرطاجيين.' },
+      { tone: 'tile--purple', origin: 'قرطاج', name: 'الكتيبة المقدسة', text: 'نحو 2500 مواطن من النخبة، مدججين بالسلاح، حسب ديودوروس. وكان الضباط قرطاجيين.' },
       { origin: 'تونس الحالية', name: 'المشاة الليبيون', text: 'قلب الجيش: مشاة منضبطون بالرمح والترس، تسلّحوا في كاناي بالأسلحة التي غنموها من الرومان.' },
       { origin: 'نوميديا', name: 'الفرسان النوميديون', text: 'بلا سرج ولا لجام، خفاف يصعب الإمساك بهم: مناوشة وتظاهر بالفرار ثم كرّ مباغت. أفضل فرسان البحر الأبيض المتوسط.' },
       { img: '/img/slinger.jpg', alt: 'مقلاعي بلياري', origin: 'جزر البليار', name: 'رماة المقلاع', text: 'تدرّبوا منذ الطفولة، وحملوا ثلاثة مقاليع للرمي على مسافات مختلفة (سترابون)، فرموا الحجارة وكرات الرصاص.' },
@@ -544,7 +578,7 @@ const C = {
     navyTitle: 'سادة البحر',
     navyText: 'كانت السفن البونيقية تُبنى بالجملة: حملت قطعها حروف تركيب، كما كشف حطام مرسالا. ونسخت روما سفينة قرطاجية جانحة لتبني أول أسطول لها.',
     stats: [
-      { n: '220', t: 'حوضًا في الميناء الدائري (أبيان)' },
+      { n: '220', t: 'حوضًا في الميناء الدائري (أبيانوس)' },
       { n: '~300', t: 'مجدّف في كل سفينة خماسية' },
       { n: '10', t: 'سفن مسموح بها بعد 201' }
     ],
@@ -577,7 +611,7 @@ const C = {
     ships: [
       { k: 'منذ القرن السادس ق.م', name: 'السفينة ثلاثية المجاديف', text: 'ثلاث طبقات من المجدّفين بعضها فوق بعض ومِهماز في المقدمة: سفينة الخط الكلاسيكية، على متنها نحو 200 رجل، منهم قرابة 170 مجدّفًا.', src: 'لانسيل، قرطاج، 1992' },
       { k: 'القرن الرابع ق.م', name: 'السفينة الرباعية', text: 'أربعة مجدّفين في كل وحدة تجديف، لسفينة أثقل وأكثر ثباتًا. وينسب بلينيوس، نقلًا عن أرسطو، اختراعها إلى القرطاجيين.', src: 'بلينيوس، التاريخ الطبيعي، 7، 207' },
-      { tone: 'tile--navy', k: 'سفينة الحروب البونيقية', name: 'السفينة الخماسية', text: 'ظهرت في سرقوسة نحو 399 في عهد ديونيسيوس الأول، ثم صارت سفينة الخط في الحروب ضد روما: نحو 300 مجدّف و120 جنديًا بحريًا حسب بوليبيوس.', src: 'ديودور، 14، 41-42 · بوليبيوس، 1، 26' },
+      { tone: 'tile--navy', k: 'سفينة الحروب البونيقية', name: 'السفينة الخماسية', text: 'ظهرت في سرقوسة نحو 399 في عهد ديونيسيوس الأول، ثم صارت سفينة الخط في الحروب ضد روما: نحو 300 مجدّف و120 جنديًا بحريًا حسب بوليبيوس.', src: 'ديودوروس، 14، 41-42 · بوليبيوس، 1، 26' },
       { k: 'الأسطول التجاري', name: 'الغاولوي', text: 'سمّى الإغريق السفينة الفينيقية المستديرة «غاولوس»: بدن عريض وشراع مربع ومجاديف قليلة. وكانت هذه السفن تنقل أيضًا المؤن والعتاد للأساطيل الحربية.', src: 'هيرودوت، 3، 136' },
       { tone: 'tile--terra', k: 'قوارب صغيرة', name: 'الهيبوي', text: 'قوارب نُحتت مقدمتها على هيئة رأس حصان — ومن هنا اسمها الإغريقي «الخيول». وحسب سترابون، كان صيادو قادس البسطاء يستعملونها للصيد على طول سواحل موريطانيا حتى نهر لكسوس.', src: 'سترابون، الجغرافيا، 2، 3، 4' }
     ],
@@ -586,7 +620,7 @@ const C = {
     peripl: [
       { k: 'جبل طارق', v: 'منذ البداية، حمى الأسطول البونيقي طرق التجارة وحفظ أسرارها: فالسيطرة على المضيق تعني إغلاق الأطلسي أمام المنافسين الإغريق، ولا سيما الفوكيين.' },
       { k: 'حنون', v: 'أبحر أسطول على طول الساحل الأطلسي لإفريقيا. يمدّ بعضهم رحلته إلى خليج غينيا، ويقصّرها آخرون كثيرًا: فمدى الرحلة ما يزال موضع نقاش. ويُرجَّح أن النص الإغريقي ترجمة لنقش بونيقي كان معروضًا في معبد (أور-ميدان).' },
-      { k: 'هيملكون', v: 'نحو الشمال وراء قادس، على طريق قصدير جزر الكاسيتريد، باتجاه الجزر البريطانية (بلينيوس، أفيينوس).' },
+      { k: 'حملكون', v: 'نحو الشمال وراء قادس، على طريق قصدير جزر الكاسيتريد، باتجاه الجزر البريطانية (بلينيوس، أفيينوس).' },
       { k: 'نحو 600 ق.م', v: 'يروي هيرودوت أن بحارة فينيقيين في خدمة الفرعون نخاو الثاني داروا حول إفريقيا في ثلاث سنوات: تقليد الجرأة الذي ورثته قرطاج (هيرودوت، 4، 42).' }
     ],
     periplLink: 'حنون الملاح ←',
@@ -597,7 +631,7 @@ const C = {
     cmdKicker: 'التجنيد والقيادة',
     cmdTitle: 'من كان يقود؟',
     cmd: [
-      { k: 'القادة', v: 'كانوا من كبرى العائلات، وتعيّنهم جمعية الشعب حسب ديودور (25، 8). والتسلسل العسكري غير معروف جيدًا؛ ويبدو أن لقب القائد يقابل الكلمة البونيقية «رب».' },
+      { k: 'القادة', v: 'كانوا من كبرى العائلات، وتعيّنهم جمعية الشعب حسب ديودوروس (25، 8). والتسلسل العسكري غير معروف جيدًا؛ ويبدو أن لقب القائد يقابل الكلمة البونيقية «رب».' },
       { k: 'العقاب', v: 'لم تكن المدينة تتسامح مع الهزيمة: تذكر النصوص قادة مهزومين كثيرين صُلبوا أو أُعدموا (دريدي).' },
       { k: 'فكرة شائعة تحتاج إلى تدقيق', v: 'منذ العصور القديمة نُسبت هزيمة قرطاج إلى مرتزقتها وإلى فتور مواطنيها. وهذا يُغفل أن الأسطول الحربي كان يقوم على المواطنين، وأن الشعب كله قاتل في المعارك الأخيرة.' },
       { k: 'العمود الفقري', v: 'يرى المؤرخ خالد المليتي أن النواة الثابتة للمشاة كانت دائمًا من الليبيين سكان الداخل، ثم من إيبيريي إسبانيا البرقية، تكمّلهم المدن الفينيقية في إفريقيا مثل أوتيكا وحضرموت: كانوا يؤطّرون المرتزقة المتقلّبين والمجنّدين الجدد.' }
@@ -617,7 +651,7 @@ const C = {
     landTactics: [
       { kicker: 'إرث مقدوني', title: 'الكتيبة والمعسكرات', text: 'اقتبست قرطاج من العالم الإغريقي والمقدوني نظام الكتيبة، وترتيب الجيش في الحملة، وتنظيم المعسكرات (دريدي).' },
       { tone: 'tile--purple', kicker: 'ابتكارات حنبعل', title: 'الفرسان والتطويق', text: 'صار الفرسان سلاحًا حاسمًا؛ وطُوّق العدو في كاناي (216)؛ وعوّض كمين بحيرة ترازيمين (217) النقص في العدد.' },
-      { tone: 'tile--terra', kicker: 'فن الحصار', title: 'حصار المدن', text: 'أبراج حصار وكِباش ومنجنيقات: سنة 409 استولى جيش حنبعل الماغوني على سيلينونتي بأبراج متحركة عالية وكِباش (ديودور، 13، 54).' }
+      { tone: 'tile--terra', kicker: 'فن الحصار', title: 'حصار المدن', text: 'أبراج حصار وكِباش ومنجنيقات: سنة 409 استولى جيش حنبعل الماغوني على سيلينونتي بأبراج متحركة عالية وكِباش (ديودوروس، 13، 54).' }
     ],
     seaKicker: 'الحرب البحرية القديمة',
     seaTitle: 'النطح والاختراق والالتفاف',
@@ -639,7 +673,23 @@ const C = {
       { kicker: 'الوفاء', title: 'ست عشرة سنة بلا تمرد', text: 'بحسب بوليبيوس، لم يتمرد جيش حنبعل المتعدد الشعوب قط طوال ست عشرة سنة من الحرب في إيطاليا، رغم الحرمان.', tone: 'tile--navy' }
     ],
     mapKicker: 'حملة حنبعل · 219–202',
-    mapCta: 'شاهد الحملة على الخريطة المتحركة'
+    mapCta: 'شاهد الحملة على الخريطة المتحركة',
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', ref: '1، 26؛ 1، 49–51', note: 'السفن الخماسية، دريبانون، تعداد جيش حنبعل، فيلة زاما' },
+      { type: 'ancient', author: 'ديودوروس الصقلي', work: 'المكتبة التاريخية', ref: '13، 54؛ 14، 41–42؛ 25، 8', note: 'الكتيبة المقدسة، حصار سيلينونتي، السفينة الخماسية، تعيين القادة' },
+      { type: 'ancient', author: 'أبيانوس', work: 'ليبيكا', note: 'المرافئ الـ220 للميناء الدائري' },
+      { type: 'ancient', author: 'سترابون', work: 'الجغرافيا', ref: '2، 3، 4', note: 'مقلاعيو البليار، قوارب «الخيول» في قادس' },
+      { type: 'ancient', author: 'بلينيوس الأكبر', work: 'التاريخ الطبيعي', ref: '7، 207', note: 'السفينة الرباعية؛ رحلة حِملقون' },
+      { type: 'ancient', author: 'هيرودوت', work: 'التواريخ', ref: '3، 136؛ 4، 42', note: 'السفن المستديرة؛ الطواف حول إفريقيا' },
+      { type: 'ancient', author: 'أفيينوس', work: 'السواحل البحرية', note: 'رحلة حِملقون' },
+      { type: 'ancient', author: 'أرسطو المنحول', work: 'في العجائب المسموعة', ref: '84', note: 'الجزيرة المحظورة' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: 'Fayard، 1992' },
+      { type: 'modern', author: 'Hédi Dridi', work: 'Carthage et le monde punique', ref: 'Les Belles Lettres، 2006' },
+      { type: 'modern', author: 'Khaled Melliti', work: 'Carthage', ref: 'Perrin، 2023' },
+      { type: 'modern', author: 'Madeleine Hours-Miédan', work: 'Carthage', ref: 'PUF، 1982', note: 'حول رحلة حنون' },
+      { type: 'modern', author: 'Philippe Leveau', note: 'مذكور في الصفحة (فرضية حول سلالة الفيلة)' },
+      { type: 'modern', author: 'ويكيبيديا (بالفرنسية)', work: 'Carthage ; Civilisation carthaginoise', note: 'رخصة CC BY-SA 4.0، محتوى معاد صياغته' }
+    ]
   }
 }
 

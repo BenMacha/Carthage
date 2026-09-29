@@ -165,6 +165,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec sec--wide">
       <h2 class="h-section related-title">{{ c.relatedTitle }}</h2>
@@ -363,6 +365,22 @@ const C = {
       { to: '/lieux', kick: 'Lieux', title: 'Sur les traces de Carthage', text: 'De Kerkouane à Carthagène, les sites à visiter.', cls: '' },
       { to: '/tunisie', kick: "Aujourd'hui", title: 'Carthage vit en Tunisie', text: 'Le nom de l\'Afrique, la commune, les festivals.', cls: 'tile--purple' },
       { to: '/histoire-des-vainqueurs', kick: 'Sources', title: "L'histoire écrite par le vainqueur", text: 'Ce que Rome a raconté, ce que l\'on sait.', cls: '' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'Salluste', work: 'Guerre de Jugurtha', ref: 'XVII', note: 'bibliothèques puniques remises aux rois numides' },
+      { type: 'ancient', author: 'Tertullien', work: 'Apologétique' },
+      { type: 'ancient', author: 'Anonyme', work: 'Passion de Perpétue et Félicité', note: 'reprend le journal de Perpétue' },
+      { type: 'ancient', author: 'Augustin d\'Hippone' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: '1992' },
+      { type: 'modern', author: 'Stéphane Gsell', work: 'Histoire ancienne de l\'Afrique du Nord, t. IV', ref: '1920' },
+      { type: 'modern', author: 'Colette Picard', work: 'Carthage', ref: '1951' },
+      { type: 'modern', author: 'Edward Lipinski (dir.)', work: 'Dictionnaire de la civilisation phénicienne et punique', ref: '1992' },
+      { type: 'modern', author: 'M\'hamed Hassine Fantar', work: 'Carthage, approche d\'une civilisation', ref: '1993' },
+      { type: 'modern', author: 'Abdelmajid Ennabli', work: 'Pour sauver Carthage', ref: '1992', note: 'campagne internationale de l\'UNESCO' },
+      { type: 'modern', author: 'Sabatino Moscati', work: 'L\'épopée des Phéniciens', ref: '1971' },
+      { type: 'modern', author: 'Edward Gibbon', work: 'The History of the Decline and Fall of the Roman Empire' },
+      { type: 'modern', author: 'Yann Le Bohec', note: 'cité dans la page (cimetière des officiales)' },
+      { type: 'modern', author: 'Wikipédia', work: 'Carthage ; Civilisation carthaginoise', note: 'CC BY-SA 4.0, contenus reformulés' }
     ]
   },
 
@@ -534,6 +552,22 @@ const C = {
       { to: '/lieux', kick: 'Places', title: 'In the footsteps of Carthage', text: 'From Kerkouane to Cartagena, the sites to visit.', cls: '' },
       { to: '/tunisie', kick: 'Today', title: 'Carthage lives in Tunisia', text: 'The name of Africa, the town, the festivals.', cls: 'tile--purple' },
       { to: '/histoire-des-vainqueurs', kick: 'Sources', title: 'History written by the victor', text: 'What Rome told, what we know.', cls: '' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'Sallust', work: 'The Jugurthine War', ref: 'XVII', note: 'Punic libraries handed to the Numidian kings' },
+      { type: 'ancient', author: 'Tertullian', work: 'Apology' },
+      { type: 'ancient', author: 'Anonymous', work: 'Passion of Perpetua and Felicity', note: 'draws on Perpetua\'s diary' },
+      { type: 'ancient', author: 'Augustine of Hippo' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: '1992' },
+      { type: 'modern', author: 'Stéphane Gsell', work: 'Histoire ancienne de l\'Afrique du Nord, vol. IV', ref: '1920' },
+      { type: 'modern', author: 'Colette Picard', work: 'Carthage', ref: '1951' },
+      { type: 'modern', author: 'Edward Lipinski (ed.)', work: 'Dictionnaire de la civilisation phénicienne et punique', ref: '1992' },
+      { type: 'modern', author: 'M\'hamed Hassine Fantar', work: 'Carthage, approche d\'une civilisation', ref: '1993' },
+      { type: 'modern', author: 'Abdelmajid Ennabli', work: 'Pour sauver Carthage', ref: '1992', note: 'UNESCO international campaign' },
+      { type: 'modern', author: 'Sabatino Moscati', work: 'L\'épopée des Phéniciens', ref: '1971' },
+      { type: 'modern', author: 'Edward Gibbon', work: 'The History of the Decline and Fall of the Roman Empire' },
+      { type: 'modern', author: 'Yann Le Bohec', note: 'cited on this page (cemetery of the officiales)' },
+      { type: 'modern', author: 'Wikipedia (French)', work: 'Carthage ; Civilisation carthaginoise', note: 'CC BY-SA 4.0, content rephrased' }
     ]
   },
 
@@ -545,7 +579,7 @@ const C = {
     hero: {
       chip: '146 ق.م ← اليوم',
       title: 'قرطاج بعد قرطاج',
-      lede: 'احترقت المدينة البونية سنة 146. وعلى أنقاضها عاشت قرطاج أخرى سبعة قرون، ثم خبت وصارت مقلعًا للحجارة، قبل أن تولد من جديد بلديةً وموقعًا من التراث العالمي.',
+      lede: 'احترقت المدينة البونيقية سنة 146. وعلى أنقاضها عاشت قرطاج أخرى سبعة قرون، ثم خبت وصارت مقلعًا للحجارة، قبل أن تولد من جديد بلديةً وموقعًا من التراث العالمي.',
       alt: 'أطلال حمّامات أنطونيوس على خليج تونس',
       caption: 'حمّامات أنطونيوس، القرن الثاني — قرطاج الرومانية على الخليج'
     },
@@ -564,7 +598,7 @@ const C = {
           cls: 'tile--purple', dark: true, kicker: 'العصر الروماني', dates: '29 ق.م – 439', title: 'قرطاج تُبعث من جديد',
           rows: [
             { k: '122 ق.م', v: 'يحاول غايوس غراكوس إقامة مستعمرة باسم يونونيا قرب الموقع الملعون، فيموت المشروع بموته.' },
-            { k: '44 – 29 ق.م', v: 'قرّر قيصر إعادة التأسيس ونُفّذت في عهد أغسطس: تقوم «كولونيا يوليا كونكورديا قرطاجو» على موقع المدينة البونية ذاته.' },
+            { k: '44 – 29 ق.م', v: 'قرّر قيصر إعادة التأسيس ونُفّذت في عهد أغسطس: تقوم «كولونيا يوليا كونكورديا قرطاجو» على موقع المدينة البونيقية ذاته.' },
             { k: 'القرن 1', v: 'عاصمة ولاية إفريقية البروقنصلية. تُسوّى قمة بيرصا لتحمل الساحة العامة (الفوروم).' },
             { k: '145 – 162', v: 'بعد حريق كبير تُشيَّد حمّامات أنطونيوس على شاطئ البحر (كوليت بيكار).' },
             { k: 'القرنان 3 – 4', v: 'تعتنق المدينة المسيحية وتمرّ بالاضطهادات، ثم تصبح من كبرى المراكز الروحية في الغرب اللاتيني.' }
@@ -619,7 +653,7 @@ const C = {
             { k: '1960', v: 'يختار بورقيبة فيلا من العهد الاستعماري على شاطئ البحر لتصبح القصر الرئاسي.' },
             { k: '1972', v: 'أمام الزحف العمراني تطلق اليونسكو حملة دولية كبرى لإنقاذ قرطاج.' },
             { k: '1979', v: 'تسجيل الموقع الأثري في قائمة التراث العالمي.' },
-            { k: '1985', v: 'يوقّع رئيسا بلديتي روما وقرطاج، أوغو فيتيري والشاذلي القليبي، معاهدة سلام رمزية تُنهي الحرب البونية الثالثة.' },
+            { k: '1985', v: 'يوقّع رئيسا بلديتي روما وقرطاج، أوغو فيتيري والشاذلي القليبي، معاهدة سلام رمزية تُنهي الحرب البونيقية الثالثة.' },
             { k: '2003', v: 'افتتاح جامع مالك بن أنس على هضبة الأوديون.' }
           ]
         }
@@ -643,14 +677,14 @@ const C = {
     },
     surv: {
       title: 'ما بقي بعد روما',
-      aside: 'اللغة البونية والشُّفطيون والآلهة بأسماء جديدة: انظر أيضًا',
+      aside: 'اللغة البونيقية والشُّفطيون والآلهة بأسماء جديدة: انظر أيضًا',
       link: 'سقوط قرطاج',
       items: [
         { kicker: 'العمارة', title: 'البناء الإفريقي (opus africanum)', text: 'هذا البناء بدعامات حجرية، الموجود في كركوان، يتواصل في العصر الروماني حتى في كابيتول دقّة.' },
         { kicker: 'الفن', title: 'فسيفسائيو إفريقية', text: 'بفضل رخام محلي جيّد، نشرت ورشات إفريقية حيواناتها ومشاهدها الأسطورية في أرجاء الإمبراطورية.' },
-        { kicker: 'العبادات', title: 'معابد بونية جديدة', text: 'تينيسوت، بوقرنين، الحفرة قرب سيرتا، ونصب «الغرفة»: ظلّ ساتورن الإفريقي، وريث بعل، معبودًا حتى مطلع القرن الرابع (لانسيل).' },
+        { kicker: 'العبادات', title: 'معابد بونيقية جديدة', text: 'تينيسوت، بوقرنين، الحفرة قرب سيرتا، ونصب «الغرفة»: ظلّ ساتورن الإفريقي، وريث بعل، معبودًا حتى مطلع القرن الرابع (لانسيل).' },
         { kicker: 'المؤسسات', title: 'شُفطيون، وأحيانًا ثلاثة', text: 'ظلّت مدن رومانية في إفريقية تنتخب شُفطيين في القرن الثاني، وبعضها ثلاثة، وهو ما يراه بعض الساميين إسهامًا أمازيغيًا (ليبينسكي).' },
-        { kicker: 'الكتب', title: 'المكتبات البونية', text: 'سُلّمت لملوك نوميديا سنة 146، وربما استعان بها سالوست في «حرب يوغرطة»؛ والمسألة خلافية، وفي زمن أوغسطين لم تعد سوى ذكرى.' },
+        { kicker: 'الكتب', title: 'المكتبات البونيقية', text: 'سُلّمت لملوك نوميديا سنة 146، وربما استعان بها سالوست في «حرب يوغرطة»؛ والمسألة خلافية، وفي زمن أوغسطين لم تعد سوى ذكرى.' },
         { kicker: 'اللغة', title: 'جسر نحو العربية؟', text: 'يرى ستيفان غزيل، ثم محمد حسين فنطر، أن بقاء لغة سامية زمنًا طويلًا ربما يسّر تعريب المغرب.' }
       ]
     },
@@ -659,12 +693,12 @@ const C = {
       title: 'من نقّب في قرطاج؟',
       rows: [
         { k: '1833', who: 'كريستيان توكسن فالبي', v: 'قنصل الدنمارك يضع أول مخطط دقيق للأطلال.' },
-        { k: '1859', who: 'شارل إرنست بوليه', v: 'يُجري أسبارًا في هضبة بيرصا والموانئ بحثًا عن المدينة البونية.' },
-        { k: 'منذ 1875', who: 'الأب دولاتر', v: 'هذا الراهب من الآباء البيض نقّب عقودًا في المقابر البونية والبازيليكات، ومجموعاته أصل المتحف الوطني بقرطاج.' },
-        { k: '1892 – 1905', who: 'بول غوكلر', v: 'مدير الآثار في الإيالة، استكشف خصوصًا المقابر البونية.' },
-        { k: '1921', who: 'التوفِت', v: 'اكتشاف معبد صلامبو، الذي نُقّب فيه خلال السنوات التالية.' },
+        { k: '1859', who: 'شارل إرنست بوليه', v: 'يُجري أسبارًا في هضبة بيرصا والموانئ بحثًا عن المدينة البونيقية.' },
+        { k: 'منذ 1875', who: 'الأب دولاتر', v: 'هذا الراهب من الآباء البيض نقّب عقودًا في المقابر البونيقية والبازيليكات، ومجموعاته أصل المتحف الوطني بقرطاج.' },
+        { k: '1892 – 1905', who: 'بول غوكلر', v: 'مدير الآثار في الإيالة، استكشف خصوصًا المقابر البونيقية.' },
+        { k: '1921', who: 'التوفيت', v: 'اكتشاف معبد صلامبو، الذي نُقّب فيه خلال السنوات التالية.' },
         { k: 'بعد 1956', who: 'المدرسة التونسية', v: 'محمد حسين فنطر، عبد المجيد النابلي، عز الدين بشاوش… الذي نبّه الرأي العام إلى خطر العمران على الموقع.' },
-        { k: '1972 – 1995', who: 'لننقذ قرطاج', v: 'حملة اليونسكو الدولية: ألمان (ف. راكوب، سور القرن 5 ق.م وحيّ الساحل)، أمريكيون (ل. ستاغر، التوفِت والميناء التجاري)، بريطانيون (ه. هيرست، جزيرة الأميرالية)، فرنسيون (س. لانسيل، الحي البوني ببيرصا)…' }
+        { k: '1972 – 1995', who: 'لننقذ قرطاج', v: 'حملة اليونسكو الدولية: ألمان (ف. راكوب، سور القرن 5 ق.م وحيّ الساحل)، أمريكيون (ل. ستاغر، التوفيت والميناء التجاري)، بريطانيون (ه. هيرست، جزيرة الأميرالية)، فرنسيون (س. لانسيل، الحي البونيقي ببيرصا)…' }
       ]
     },
     redisc: {
@@ -682,12 +716,12 @@ const C = {
     site: {
       kicker: 'تراث عالمي',
       title: 'الموقع الأثري اليوم',
-      aside: 'آثار رومانية في معظمها، مع جزر بونية، متناثرة في مدينة سكنية.',
+      aside: 'آثار رومانية في معظمها، مع جزر بونيقية، متناثرة في مدينة سكنية.',
       cards: [
         { chips: ['القرن 2', 'على البحر'], name: 'حمّامات أنطونيوس', alt: 'حمّامات أنطونيوس', text: 'شُيّدت بين 145 و162 بعد حريق كبير، وهي من أكبر حمّامات الإمبراطورية الرومانية. لم يبقَ منها إلا الطابق السفلي، طابق قاعات الخدمة (النابلي وسليم).' },
-        { chips: ['بوني · روماني', 'المتحف الوطني'], name: 'هضبة بيرصا', alt: 'الحي البوني على هضبة بيرصا', text: 'تحت الفوروم الروماني، حيّ سكني من مطلع القرن 2 ق.م: دكان على الشارع، وصهريج تحت الأرض، ورواق يؤدي إلى فناء (ليبينسكي). وفي القمة المتحف الوطني والأكروبوليوم، الكاتدرائية سابقًا.', toLabel: 'التأسيس' },
-        { chips: ['صلامبو'], name: 'الموانئ البونية', alt: 'بحيرتا الموانئ البونية', text: 'تحفظ بحيرتان شكل الحوضين: الميناء التجاري والميناء الحربي الدائري بجزيرة الأميرالية (ستاغر، هيرست).', toLabel: 'الاقتصاد' },
-        { chips: ['صلامبو', 'نقاش مفتوح'], name: 'التوفِت', alt: 'نصب توفِت صلامبو', text: 'حرم مقدّس لتانيت وبعل حمون. فرضية التضحية بالأطفال، السائدة طويلًا، يعترض عليها مختصون مثل سباتينو موسكاتي.', toLabel: 'الديانة' },
+        { chips: ['بونيقي · روماني', 'المتحف الوطني'], name: 'هضبة بيرصا', alt: 'الحي البونيقي على هضبة بيرصا', text: 'تحت الفوروم الروماني، حيّ سكني من مطلع القرن 2 ق.م: دكان على الشارع، وصهريج تحت الأرض، ورواق يؤدي إلى فناء (ليبينسكي). وفي القمة المتحف الوطني والأكروبوليوم، الكاتدرائية سابقًا.', toLabel: 'التأسيس' },
+        { chips: ['صلامبو'], name: 'الموانئ البونيقية', alt: 'بحيرتا الموانئ البونيقية', text: 'تحفظ بحيرتان شكل الحوضين: الميناء التجاري والميناء الحربي الدائري بجزيرة الأميرالية (ستاغر، هيرست).', toLabel: 'الاقتصاد' },
+        { chips: ['صلامبو', 'نقاش مفتوح'], name: 'التوفيت', alt: 'نصب توفيت صلامبو', text: 'حرم مقدّس لتانيت وبعل حمون. فرضية التضحية بالأطفال، السائدة طويلًا، يعترض عليها مختصون مثل سباتينو موسكاتي.', toLabel: 'الديانة' },
         { chips: ['هضبة الأوديون', 'باردو'], name: 'منتزه الفيلات الرومانية', alt: 'فسيفساء السيد يوليوس، عُثر عليها في قرطاج (متحف باردو)', text: 'قرب المسرح، تستمدّ «فيلا القفص» اسمها من فسيفسائها. أما كبرى فسيفساءات قرطاج، مثل فسيفساء السيد يوليوس، ففي متحف باردو.' }
       ],
       minor: [
@@ -705,6 +739,22 @@ const C = {
       { to: '/lieux', kick: 'أماكن', title: 'على خطى قرطاج', text: 'من كركوان إلى قرطاجنة، مواقع تستحق الزيارة.', cls: '' },
       { to: '/tunisie', kick: 'اليوم', title: 'قرطاج تحيا في تونس', text: 'اسم إفريقيا، والبلدية، والمهرجانات.', cls: 'tile--purple' },
       { to: '/histoire-des-vainqueurs', kick: 'المصادر', title: 'التاريخ يكتبه المنتصر', text: 'ما روته روما، وما نعرفه.', cls: '' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'سالوست', work: 'حرب يوغرطة', ref: 'XVII', note: 'المكتبات البونيقية المسلَّمة إلى الملوك النوميديين' },
+      { type: 'ancient', author: 'ترتليانوس', work: 'الدفاع عن المسيحيين (Apologeticum)' },
+      { type: 'ancient', author: 'مجهول المؤلف', work: 'استشهاد بربتوا وفيليسيتي', note: 'يعتمد على يوميات بربتوا' },
+      { type: 'ancient', author: 'أوغسطين' },
+      { type: 'modern', author: 'سيرج لانسيل', work: 'Carthage', ref: '1992' },
+      { type: 'modern', author: 'ستيفان غزيل', work: 'Histoire ancienne de l\'Afrique du Nord, t. IV', ref: '1920' },
+      { type: 'modern', author: 'كوليت بيكار', work: 'Carthage', ref: '1951' },
+      { type: 'modern', author: 'إدوارد ليبينسكي (إشراف)', work: 'Dictionnaire de la civilisation phénicienne et punique', ref: '1992' },
+      { type: 'modern', author: 'محمد حسين فنطر', work: 'Carthage, approche d\'une civilisation', ref: '1993' },
+      { type: 'modern', author: 'عبد المجيد النابلي', work: 'Pour sauver Carthage', ref: '1992', note: 'حملة اليونسكو الدولية' },
+      { type: 'modern', author: 'سباتينو موسكاتي', work: 'L\'épopée des Phéniciens', ref: '1971' },
+      { type: 'modern', author: 'إدوارد غيبون', work: 'The History of the Decline and Fall of the Roman Empire' },
+      { type: 'modern', author: 'يان لوبوهيك', note: 'مذكور في الصفحة (مقبرة الموظفين officiales)' },
+      { type: 'modern', author: 'ويكيبيديا (بالفرنسية)', work: 'Carthage ; Civilisation carthaginoise', note: 'رخصة CC BY-SA 4.0، مع إعادة صياغة المحتوى' }
     ]
   }
 }

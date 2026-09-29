@@ -17,11 +17,13 @@ Le contenu s'appuie sur les sources antiques (Polybe, Tite-Live, Appien, Plutarq
 - [La prise de Carthage (149–146 av. J.-C.)](https://carthage.benmacha.tn/fr/prise-de-carthage)
 - [Carthage après 146 : romaine, vandale, byzantine, arabe, moderne](https://carthage.benmacha.tn/fr/apres-146)
 - [La richesse de Carthage et l'hostilité de Rome](https://carthage.benmacha.tn/fr/richesse-rome)
+- [Le monde punique : Sicile, Sardaigne, Ibiza, Malte, Libye](https://carthage.benmacha.tn/fr/monde-punique)
 - [Carthage et l'Afrique : origine du nom Africa / Ifriqiya](https://carthage.benmacha.tn/fr/afrique)
 - [Lieux historiques et villes portant le nom de Carthage ou d'Hannibal](https://carthage.benmacha.tn/fr/lieux)
 
 ## Hannibal et la guerre
 - [Hannibal Barca, biographie](https://carthage.benmacha.tn/fr/hannibal)
+- [La guerre des Mercenaires (241–237 av. J.-C.)](https://carthage.benmacha.tn/fr/guerre-des-mercenaires)
 - [Les tactiques d'Hannibal : Trébie, Trasimène, Cannes, Zama](https://carthage.benmacha.tn/fr/tactiques)
 - [Les éléphants et le passage des Alpes (218 av. J.-C.)](https://carthage.benmacha.tn/fr/elephants)
 - [L'armée carthaginoise](https://carthage.benmacha.tn/fr/armee)
@@ -33,6 +35,8 @@ Le contenu s'appuie sur les sources antiques (Polybe, Tite-Live, Appien, Plutarq
 - [Religion punique : Baal Hammon, Tanit, Melqart, Eshmoun, le tophet](https://carthage.benmacha.tn/fr/religion)
 - [Art et artisanat puniques](https://carthage.benmacha.tn/fr/art-et-artisanat)
 - [Langue et écriture puniques, alphabet phénicien](https://carthage.benmacha.tn/fr/langue-ecriture)
+- [La vie quotidienne à Carthage](https://carthage.benmacha.tn/fr/vie-quotidienne)
+- [L'héritage de Carthage dans la culture](https://carthage.benmacha.tn/fr/heritage)
 
 ## Personnages
 - [Index des personnages et arbre des Barcides](https://carthage.benmacha.tn/fr/biographies)
@@ -43,11 +47,15 @@ Le contenu s'appuie sur les sources antiques (Polybe, Tite-Live, Appien, Plutarq
 - [Hannon le Navigateur et le Périple](https://carthage.benmacha.tn/fr/hannon)
 - [Magon l'agronome](https://carthage.benmacha.tn/fr/magon-agronome)
 - [Sophonisbe](https://carthage.benmacha.tn/fr/sophonisbe)
+- [Massinissa, roi de Numidie](https://carthage.benmacha.tn/fr/massinissa)
+- [Hannon le Grand](https://carthage.benmacha.tn/fr/hannon-le-grand)
 
 ## Optional
 - [English version](https://carthage.benmacha.tn/en)
 - [النسخة العربية](https://carthage.benmacha.tn/ar)
 - [Sources antiques et bibliographie](https://carthage.benmacha.tn/fr/bibliographie)
+- [Glossaire du monde punique](https://carthage.benmacha.tn/fr/glossaire)
+- [Quiz : six thèmes pour tester ses connaissances](https://carthage.benmacha.tn/fr/quiz)
 - [Plan du site](https://carthage.benmacha.tn/fr/plan-du-site)
 - [Crédits des images (Wikimedia Commons)](https://carthage.benmacha.tn/fr/credits)
 - [Sitemap XML](https://carthage.benmacha.tn/sitemap.xml)

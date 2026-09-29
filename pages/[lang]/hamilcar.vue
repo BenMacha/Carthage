@@ -165,6 +165,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- La famille / liens -->
     <section class="sec sec--wide">
       <div class="sec-head">
@@ -295,6 +297,16 @@ const C = {
         { t: 'Une dynastie', d: "Hannibal, Hasdrubal, Magon et son gendre Hasdrubal le Beau poursuivent son œuvre. Polybe voit dans sa colère l'une des causes de la deuxième guerre punique." }
       ]
     },
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'I, 64 ; III, 11', note: 'Sicile, guerre des Mercenaires, serment d’Hannibal' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', ref: 'XXI, 1', note: 'le serment' },
+      { type: 'ancient', author: 'Diodore de Sicile', work: 'Bibliothèque historique', note: 'conquête de l’Hispanie (Istolatios, Indortès)' },
+      { type: 'ancient', author: 'Dion Cassius', work: 'Histoire romaine', note: 'réponse à l’ambassade romaine de 231' },
+      { type: 'ancient', author: 'Plutarque', work: 'Vie de Caton l’Ancien', ref: '8', note: 'jugement de Caton' },
+      { type: 'ancient', author: 'Valère Maxime', work: 'Faits et dits mémorables', ref: 'IX, 3', note: 'les « lionceaux »' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'ouvrage de référence (bibliographie du site)' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: '1992', note: 'ouvrage de référence (bibliographie du site)' }
+    ],
     family: {
       title: 'La famille Barca',
       all: 'Tous les personnages',
@@ -413,6 +425,16 @@ const C = {
         { t: 'A dynasty', d: 'Hannibal, Hasdrubal, Mago and his son-in-law Hasdrubal the Fair carry on his work. Polybius sees his anger as one of the causes of the Second Punic War.' }
       ]
     },
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: 'I, 64; III, 11', note: 'Sicily, the Mercenary War, Hannibal’s oath' },
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', ref: 'XXI, 1', note: 'the oath' },
+      { type: 'ancient', author: 'Diodorus Siculus', work: 'Library of History', note: 'conquest of Hispania (Istolatios, Indortes)' },
+      { type: 'ancient', author: 'Cassius Dio', work: 'Roman History', note: 'reply to the Roman embassy of 231' },
+      { type: 'ancient', author: 'Plutarch', work: 'Life of Cato the Elder', ref: '8', note: 'Cato’s verdict' },
+      { type: 'ancient', author: 'Valerius Maximus', work: 'Memorable Deeds and Sayings', ref: 'IX, 3', note: 'the “lion cubs”' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'reference work (site bibliography)' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: '1992', note: 'reference work (site bibliography)' }
+    ],
     family: {
       title: 'The Barca family',
       all: 'All people',
@@ -494,7 +516,7 @@ const C = {
       aside: 'بعد أن خسرت صقلية وسردينيا، وجدت قرطاج في هسبانيا الفضة والرجال وقاعدة جديدة.',
       kicker: 'الفتح · 237–229/228',
       paras: [
-        'في 237 نزل حملقار في قادش، المدينة الفينيقية العريقة. وفي تسع سنوات، بالحرب والدبلوماسية، أخضع التورديتانيين وشعوب الجنوب — ويذكر ديودور الزعيمين إستولاتيوس وإندورتيس — وسيطر على مناجم الفضة الغنية في سييرا مورينا.',
+        'في 237 نزل حملقار في قادش، المدينة الفينيقية العريقة. وفي تسع سنوات، بالحرب والدبلوماسية، أخضع التورديتانيين وشعوب الجنوب — ويذكر ديودوروس الزعيمين إستولاتيوس وإندورتيس — وسيطر على مناجم الفضة الغنية في سييرا مورينا.',
         'وهناك بنى الآلة العسكرية البرقية: جيش محترف متمرّس، يدين بالولاء لأسرة برقا بقدر ولائه لمجلس قرطاج. وستصبح هذه القوة الأداة التي غزا بها حنبعل إيطاليا.',
         'وأسس «أكرا لوكي» أي «الرأس الأبيض» (ربما قرب أليكانتي)، وسكّ نقودًا فضية عالية الجودة. وأجاب مبعوثي روما الذين جاؤوا يستفسرون سنة 231 بأنه يقاتل الإيبيريين ليدفع ما على قرطاج لروما.'
       ],
@@ -518,7 +540,7 @@ const C = {
       title: 'ما قاله القدماء',
       items: [
         { q: '«كان أفضل قادة تلك الحرب، حكمةً وجرأةً، حملقار الملقّب برقا.»', cite: 'بوليبيوس، التواريخ، الكتاب الأول، 64' },
-        { q: '«لا ملك يستحق أن يُقارن بإبامينونداس أو بريكليس أو ثيميستوكليس أو مانيوس كوريوس أو حملقار برقا.»', cite: 'كاتون الأكبر، عند بلوتارخ، حياة كاتون، 8' },
+        { q: '«لا ملك يستحق أن يُقارن بإبامينونداس أو بريكليس أو ثيميستوكليس أو مانيوس كوريوس أو حملقار برقا.»', cite: 'كاتو الأكبر، عند بلوتارخ، حياة كاتو، 8' },
         { q: 'كان حملقار ينظر إلى أبنائه الصغار ويقول إنه يربّي أشبال أسود لهلاك الإمبراطورية الرومانية.', cite: 'فاليريوس ماكسيموس، أعمال وأقوال مأثورة، 9، 3' }
       ]
     },
@@ -531,6 +553,16 @@ const C = {
         { t: 'سلالة', d: 'واصل حنبعل وصدربعل وماغون وصهره صدربعل الجميل عمله. ويرى بوليبيوس في غضبه أحد أسباب الحرب البونيقية الثانية.' }
       ]
     },
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: '«التواريخ»', ref: '1، 64 ؛ 3، 11', note: 'صقلية وحرب المرتزقة وقسم حنبعل' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: '«تاريخ روما»', ref: '21، 1', note: 'القسم' },
+      { type: 'ancient', author: 'ديودوروس الصقلي', work: '«المكتبة التاريخية»', note: 'فتح هسبانيا (إستولاتيوس وإندورتيس)' },
+      { type: 'ancient', author: 'ديو كاسيوس', work: '«التاريخ الروماني»', note: 'الرد على السفارة الرومانية سنة 231' },
+      { type: 'ancient', author: 'بلوتارخ', work: '«حياة كاتو الأكبر»', ref: '8', note: 'حكم كاتو' },
+      { type: 'ancient', author: 'فاليريوس ماكسيموس', work: '«أعمال وأقوال مأثورة»', ref: '9، 3', note: '«أشبال الأسود»' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'مرجع عام (قائمة مراجع الموقع)' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: '1992', note: 'مرجع عام (قائمة مراجع الموقع)' }
+    ],
     family: {
       title: 'أسرة برقا',
       all: 'كل الشخصيات',

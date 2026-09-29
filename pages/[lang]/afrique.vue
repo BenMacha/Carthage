@@ -198,6 +198,8 @@
       </div>
     </div>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec sec--wide">
       <h2 class="h-section facts-title">{{ c.more.title }}</h2>
@@ -364,7 +366,23 @@ const C = {
         { to: '/fondation', img: '/img/guerin-dido.jpg', alt: 'Didon, par P.-N. Guérin', kicker: '814 av. J.-C.', title: 'La fondation', text: "Élissa, la peau de bœuf et la naissance de Qart-Hadasht." },
         { to: '/hannon', img: '/img/hanno-galley.png', alt: "Galère d'Hannon", kicker: 'Explorateur', title: 'Hannon le Navigateur', text: "Le périple le long des côtes atlantiques de l'Afrique." }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Pline l\'Ancien', work: 'Histoire naturelle', ref: 'XVIII, 22', note: 'extension du nom Africa ; bibliothèques de Carthage remises aux rois numides' },
+      { type: 'ancient', author: 'Pomponius Mela', work: 'Chorographie', note: 'Africa pour tout le continent connu' },
+      { type: 'ancient', author: 'Appien d\'Alexandrie', work: 'Libyca (Le Livre africain)', note: 'maisons de six étages près de Byrsa' },
+      { type: 'ancient', author: 'Saint Augustin', note: 'punique parlé dans les campagnes ; paysans se disant « Chanani »' },
+      { type: 'ancient', author: 'Anonyme', work: 'Périple d\'Hannon', note: 'exploration de la côte atlantique de l\'Afrique' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: 'Fayard, 1992' },
+      { type: 'modern', author: 'Stéphane Gsell', work: 'Histoire ancienne de l\'Afrique du Nord', ref: 'Hachette, 1920 (t. IV)' },
+      { type: 'modern', author: 'M\'hamed Hassine Fantar', work: 'Carthage, approche d\'une civilisation', ref: 'Alif, 1993' },
+      { type: 'modern', author: 'Josephine Quinn', work: 'In Search of the Phoenicians', ref: 'Princeton University Press, 2018' },
+      { type: 'modern', author: 'Gabriel Camps', work: 'Les Berbères : mémoire et identité', ref: '1987' },
+      { type: 'modern', author: 'Marcel Le Glay', work: 'Saturne africain : histoire', ref: '1966' },
+      { type: 'modern', author: 'Matisoo-Smith et al. ; Olalde, Marcus, Sarno, De Angelis ; Moots et al. ; Ringbauer et al.', work: 'Études d\'ADN ancien', ref: '2016–2025 (Ringbauer et al., Nature, 2025)', note: 'cités dans la page' },
+      { type: 'modern', author: 'M.-C. Chamla et D. Ferembach ; S. O. Y. Keita ; Guatelli-Steinberg, Irish, Lukacs', work: 'Anthropologie biologique', note: 'crânes et dents, cités dans la page' },
+      { type: 'modern', author: 'Wikipédia', work: 'Carthage ; Civilisation carthaginoise', note: 'CC BY-SA 4.0, contenus reformulés' }
+    ]
   },
   en: {
     meta: {
@@ -508,7 +526,23 @@ const C = {
         { to: '/fondation', img: '/img/guerin-dido.jpg', alt: 'Dido, by P.-N. Guérin', kicker: '814 BC', title: 'The foundation', text: 'Elissa, the oxhide and the birth of Qart-Hadasht.' },
         { to: '/hannon', img: '/img/hanno-galley.png', alt: "Hanno's galley", kicker: 'Explorer', title: 'Hanno the Navigator', text: 'The voyage along the Atlantic coasts of Africa.' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Pliny the Elder', work: 'Natural History', ref: 'XVIII, 22', note: 'the spread of the name Africa; Carthage\'s libraries given to the Numidian kings' },
+      { type: 'ancient', author: 'Pomponius Mela', work: 'Description of the World (De chorographia)', note: 'Africa for the whole known continent' },
+      { type: 'ancient', author: 'Appian of Alexandria', work: 'Libyca (The African Book)', note: 'six-storey houses near Byrsa' },
+      { type: 'ancient', author: 'Saint Augustine', note: 'Punic spoken in the countryside; peasants calling themselves “Chanani”' },
+      { type: 'ancient', author: 'Anonymous', work: 'Periplus of Hanno', note: 'exploration of Africa\'s Atlantic coast' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: 'Fayard, 1992' },
+      { type: 'modern', author: 'Stéphane Gsell', work: 'Histoire ancienne de l\'Afrique du Nord', ref: 'Hachette, 1920 (vol. IV)' },
+      { type: 'modern', author: 'M\'hamed Hassine Fantar', work: 'Carthage, approche d\'une civilisation', ref: 'Alif, 1993' },
+      { type: 'modern', author: 'Josephine Quinn', work: 'In Search of the Phoenicians', ref: 'Princeton University Press, 2018' },
+      { type: 'modern', author: 'Gabriel Camps', work: 'Les Berbères : mémoire et identité', ref: '1987' },
+      { type: 'modern', author: 'Marcel Le Glay', work: 'Saturne africain : histoire', ref: '1966' },
+      { type: 'modern', author: 'Matisoo-Smith et al.; Olalde, Marcus, Sarno, De Angelis; Moots et al.; Ringbauer et al.', work: 'Ancient DNA studies', ref: '2016–2025 (Ringbauer et al., Nature, 2025)', note: 'cited on this page' },
+      { type: 'modern', author: 'M.-C. Chamla and D. Ferembach; S. O. Y. Keita; Guatelli-Steinberg, Irish, Lukacs', work: 'Biological anthropology', note: 'skulls and teeth, cited on this page' },
+      { type: 'modern', author: 'Wikipedia (French)', work: 'Carthage; Civilisation carthaginoise', note: 'CC BY-SA 4.0, content rephrased' }
+    ]
   },
   ar: {
     meta: {
@@ -568,10 +602,10 @@ const C = {
       alt: 'فسيفساء «سيدة قرطاج»',
       caption: '«سيدة قرطاج»، فسيفساء، متحف قرطاج',
       items: [
-        { title: 'امتزاج الثقافات', text: 'امتزجت التقاليد الفينيقية بالثقافات الليبية الأمازيغية، وكان الزواج المختلط شائعًا. فجاءت الثقافة البونية إفريقية الطابع.' },
+        { title: 'امتزاج الثقافات', text: 'امتزجت التقاليد الفينيقية بالثقافات الليبية الأمازيغية، وكان الزواج المختلط شائعًا. فجاءت الثقافة البونيقية إفريقية الطابع.' },
         { title: 'الديانة', text: 'بعل حمون وتانيت، القادمان من فينيقيا، اتخذا في قرطاج مكانة وأشكالًا جديدة؛ أما تأثير العبادات الليبية فمحلّ نقاش.', link: '/religion', linkLabel: 'الديانة ←' },
-        { title: 'اللغة البونية', text: 'بقيت البونية، المتفرعة عن الفينيقية، متداولة في شمال إفريقيا حتى القرن الخامس للميلاد، كما يشهد القديس أوغسطين.' },
-        { title: 'العمارة', text: 'يصف أبيان بيوتًا من ستة طوابق قرب بيرصا؛ وتكيّف العمران البوني مع الموقع والمناخ الإفريقيين.' },
+        { title: 'اللغة البونيقية', text: 'بقيت البونيقية، المتفرعة عن الفينيقية، متداولة في شمال إفريقيا حتى القرن الخامس للميلاد، كما يشهد القديس أوغسطين.' },
+        { title: 'العمارة', text: 'يصف أبيانوس بيوتًا من ستة طوابق قرب بيرصا؛ وتكيّف العمران البونيقي مع الموقع والمناخ الإفريقيين.' },
         { title: 'جيش من الشعوب', text: 'قاتل الليبيون والنوميديون والموريون إلى جانب الإيبيريين والبليار والغاليين: جيش يعكس تجذّر قرطاج في إفريقيا.', link: '/armee', linkLabel: 'الجيش ←' },
         { title: 'خبرة زراعية', text: 'أنتج امتزاج الخبرة الفينيقية بالمعرفة المحلية للتربة واحدة من أكثر الزراعات إنتاجًا في العصور القديمة.', link: '/agriculture', linkLabel: 'الزراعة ←' }
       ]
@@ -586,10 +620,10 @@ const C = {
         ] },
         { kicker: 'مصر وبلاد الإغريق', title: 'أعمال بثقافتين', paras: [
           'أقنعة زجاجية صغيرة توضع في القبور لطرد الشياطين، وزخرفة زهرة اللوتس: مصر حاضرة في كل مكان. ومنذ القرن الرابع ق.م تتراكب فوقها التأثيرات الإغريقية.',
-          'يلخّص فتى موتيا، وهو تمثال رخامي من القرن الخامس اكتُشف سنة 1979، المسألة كلها: ملقرت مُهلَّن، أم غنيمة حرب إغريقية، أم طلبية بونية من نحّات صقلي؟ ويرى سيرج لانسيل أن قرطاج كانت قبل كل شيء محورًا شديد الانفتاح على التأثيرات الخارجية.'
+          'يلخّص فتى موتيا، وهو تمثال رخامي من القرن الخامس اكتُشف سنة 1979، المسألة كلها: ملقرت مُهلَّن، أم غنيمة حرب إغريقية، أم طلبية بونيقية من نحّات صقلي؟ ويرى سيرج لانسيل أن قرطاج كانت قبل كل شيء محورًا شديد الانفتاح على التأثيرات الخارجية.'
         ] },
-        { kicker: 'إسهامات إفريقية', title: 'الليبي والبوني ممتزجان', paras: [
-          'يجمع الضريح الليبي البوني في دقة (القرن الثاني ق.م) بين التقاليد المصرية والإسهامات الإغريقية على أرض نوميدية. وفي الحفرة قرب سيرتا (قسنطينة)، يمزج أهم معبد بوني جديد جرى التنقيب فيه بين عناصر ليبية وبونية.',
+        { kicker: 'إسهامات إفريقية', title: 'الليبي والبونيقي ممتزجان', paras: [
+          'يجمع الضريح الليبي البونيقي في دقة (القرن الثاني ق.م) بين التقاليد المصرية والإسهامات الإغريقية على أرض نوميدية. وفي الحفرة قرب سيرتا (قسنطينة)، يمزج أهم معبد بونيقي جديد جرى التنقيب فيه بين عناصر ليبية وبونيقية.',
           'في مدن إفريقيا الرومانية، كان عدد الشفطين أحيانًا ثلاثة بدل اثنين: ويرى بعض المختصين في ذلك إسهامًا أمازيغيًا.'
         ] },
         { kicker: 'بعد 146', title: 'هوية تبقى', paras: [
@@ -601,18 +635,18 @@ const C = {
     dna: {
       kicker: 'علم الوراثة والأنثروبولوجيا',
       title: 'ماذا يقول الحمض النووي القديم',
-      lede: 'منذ نحو عشر سنوات يُستخدم الحمض النووي القديم لمساءلة أصول سكان العالم البوني. والنتائج، المبنية على عينات لا تزال محدودة، تشكّك في صورة سكان قدموا بأعداد كبيرة من المشرق.',
+      lede: 'منذ نحو عشر سنوات يُستخدم الحمض النووي القديم لمساءلة أصول سكان العالم البونيقي. والنتائج، المبنية على عينات لا تزال محدودة، تشكّك في صورة سكان قدموا بأعداد كبيرة من المشرق.',
       rows: [
         { key: '2016', title: 'فتى بيرصا.', text: 'دُفن في أواخر القرن السادس ق.م واكتُشف على تلة بيرصا، ويحمل حمضًا نوويًا ميتوكوندريًا (سلالة الأم) من المجموعة النادرة U5b2c1 ذات الأصل الأوروبي (ماتيسو-سميث وزملاؤها). فرد واحد فقط: مؤشر على اختلاط مبكر، لا صورة لشعب بأكمله.' },
-        { key: '2019–2021', title: 'إيبيريا وإيبيزا وسردينيا.', text: 'تكشف عدة دراسات (أولالدي، ماركوس، سارنو، دي أنجليس) عن أصول شمال إفريقية لدى أفراد بونيين: من 20 إلى 35% في فيلامار بسردينيا، مقابل نسبة ضئيلة جدًا في مونتي سيراي التي أسسها الفينيقيون قبل ذلك؛ ويتميز متوفى من مدفن بوني في إيبيزا (361–178 ق.م) بوضوح عن معاصريه في جزر البليار.' },
+        { key: '2019–2021', title: 'إيبيريا وإيبيزا وسردينيا.', text: 'تكشف عدة دراسات (أولالدي، ماركوس، سارنو، دي أنجليس) عن أصول شمال إفريقية لدى أفراد بونيقيين: من 20 إلى 35% في فيلامار بسردينيا، مقابل نسبة ضئيلة جدًا في مونتي سيراي التي أسسها الفينيقيون قبل ذلك؛ ويتميز متوفى من مدفن بونيقي في إيبيزا (361–178 ق.م) بوضوح عن معاصريه في جزر البليار.' },
         { key: '2022', title: 'كركوان.', text: 'الأفراد الاثنا عشر المدروسون (موتس وزملاؤها) شديدو التنوع: سبعة قريبون من صقليي العصر البرونزي، وأربعة في استمرارية مع مزارعي العصر الحجري الحديث في المغرب، وواحد قريب من المغاربة والمزابيين الحاليين. ولا أثر يُذكر لأصول مشرقية: ويشير الباحثون إلى حرق جثث المستوطنين الأوائل أو إلى قلة عددهم.' },
-        { key: '2025', title: 'مئتا جينوم.', text: 'دراسة لمعهد ماكس بلانك وجامعة هارفارد (رينغباور وزملاؤه، مجلة Nature) شملت نحو 200 فرد من 14 موقعًا. تكاد الأصول المشرقية تنعدم: ينحدر البونيون أساسًا من سكان قريبين من صقلية وبحر إيجه، والباقي في معظمه من شمال إفريقيا. وفي قرطاج، لدى 14 من أصل 17 فردًا أقل من 15% من الأصول الشمال إفريقية، ولدى الثلاثة الآخرين بين 20 و50%.' }
+        { key: '2025', title: 'مئتا جينوم.', text: 'دراسة لمعهد ماكس بلانك وجامعة هارفارد (رينغباور وزملاؤه، مجلة Nature) شملت نحو 200 فرد من 14 موقعًا. تكاد الأصول المشرقية تنعدم: ينحدر البونيقيون أساسًا من سكان قريبين من صقلية وبحر إيجه، والباقي في معظمه من شمال إفريقيا. وفي قرطاج، لدى 14 من أصل 17 فردًا أقل من 15% من الأصول الشمال إفريقية، ولدى الثلاثة الآخرين بين 20 و50%.' }
       ],
       sumK: 'الخلاصة',
       sumT: 'ثقافة سافرت أكثر من الجينات',
       sum: [
         'انتشرت الثقافة الفينيقية أساسًا عبر التجارة والاحتكاك والاندماج، لا عبر هجرة جماعية.',
-        'أسهم سكان شمال إفريقيا إسهامًا كبيرًا في سكان المدن البونية، بنسب تتفاوت من موقع إلى آخر.',
+        'أسهم سكان شمال إفريقيا إسهامًا كبيرًا في سكان المدن البونيقية، بنسب تتفاوت من موقع إلى آخر.',
         'الحذر واجب: عدد قليل من الأفراد في كل موقع، وحرق الجثث في القرون الأولى يحرم الباحثين من المستوطنين الأوائل.',
         'لا يخبرنا الحمض النووي بشيء عن اللغة أو الدين أو الهوية: فقد تكلم القرطاجيون الفينيقية وعبدوا آلهة صور.'
       ],
@@ -628,16 +662,16 @@ const C = {
       title: 'الإرث القرطاجي في إفريقيا',
       aside: 'ما خلّفته قرطاج للقارة.',
       items: [
-        { title: 'اسم القارة', text: 'الإرث الأبقى: اسم إفريقيا نفسه جاء من الأرض التي قامت عليها المدينة البونية.', items: ['Africa (اللاتينية) ← إفريقية (العربية) ← Afrique', 'من تونس إلى القارة كلها في ألفي عام', 'تستعمل معظم لغات العالم صيغة مشتقة منه'] },
+        { title: 'اسم القارة', text: 'الإرث الأبقى: اسم إفريقيا نفسه جاء من الأرض التي قامت عليها المدينة البونيقية.', items: ['Africa (اللاتينية) ← إفريقية (العربية) ← Afrique', 'من تونس إلى القارة كلها في ألفي عام', 'تستعمل معظم لغات العالم صيغة مشتقة منه'] },
         { title: 'استكشاف إفريقيا', text: 'كان القرطاجيون من أوائل مستكشفي السواحل الأطلسية لإفريقيا.', items: ['حنون يبحر على طول الساحل الغربي لإفريقيا (نحو 500 ق.م)', 'ربما بلغ خليج غينيا — ومدى رحلته محلّ نقاش', 'رحلته أقدم رواية عن استكشاف غرب إفريقيا'] },
-        { title: 'العمران في شمال إفريقيا', img: '/img/kerkouane.jpg', alt: 'كركوان، مدينة بونية في الوطن القبلي', text: 'وضعت قرطاج أسس المدينة في شمال إفريقيا؛ وكركوان في الوطن القبلي أفضل شاهد على ذلك.', items: ['شبكة مدن بونية من تونس إلى المغرب', 'نموذج عمراني تبنّاه الرومان ثم العرب', 'تقنيات بناء متكيّفة مع المناخ'] },
+        { title: 'العمران في شمال إفريقيا', img: '/img/kerkouane.jpg', alt: 'كركوان، مدينة بونيقية في الوطن القبلي', text: 'وضعت قرطاج أسس المدينة في شمال إفريقيا؛ وكركوان في الوطن القبلي أفضل شاهد على ذلك.', items: ['شبكة مدن بونيقية من تونس إلى المغرب', 'نموذج عمراني تبنّاه الرومان ثم العرب', 'تقنيات بناء متكيّفة مع المناخ'] },
         { title: 'الزراعة', text: 'غيّرت التقنيات القرطاجية أرياف شمال إفريقيا.', items: ['زراعة الزيتون المكثفة', 'الري في المناطق شبه الجافة', 'كتاب ماغون، المترجم إلى اللاتينية بأمر من مجلس الشيوخ، أثّر في الزراعة الرومانية'] }
       ]
     },
     facts: {
       title: 'هل تعلم؟',
       items: [
-        { title: 'القديس أوغسطين والبونية', text: 'يذكر أوغسطين الهيبوني (354–430)، الأمازيغي المتروّم، أن البونية كانت ما تزال تُتكلّم في الأرياف — بعد أكثر من 500 سنة من سقوط قرطاج.' },
+        { title: 'القديس أوغسطين والبونيقية', text: 'يذكر أوغسطين الهيبوني (354–430)، الأمازيغي المتروّم، أن البونيقية كانت ما تزال تُتكلّم في الأرياف — بعد أكثر من 500 سنة من سقوط قرطاج.' },
         { title: 'رحلة حنون', text: 'نحو 500 ق.م، 60 سفينة و30 ألف مستوطن على طول الساحل الأطلسي. تصف الرواية «غوريلات» — لعلها شمبانزي أو غوريلا — وجبلًا مشتعلًا.' },
         { title: 'قرطاج الرومانية', text: 'قرّر قيصر إعادة تأسيس قرطاج، ونُفّذ ذلك في عهد أغسطس (29 ق.م). فعادت من كبريات مدن الإمبراطورية وعاصمةً لإفريقية.' },
         { title: 'إفريقية', text: 'الكلمة العربية «إفريقية»، اسم تونس في العصر الوسيط، نقلٌ مباشر للّاتينية Africa.' },
@@ -652,7 +686,23 @@ const C = {
         { to: '/fondation', img: '/img/guerin-dido.jpg', alt: 'ديدون، بريشة غيران', kicker: '814 ق.م', title: 'التأسيس', text: 'عليسة وجلد الثور وميلاد قرت حدشت.' },
         { to: '/hannon', img: '/img/hanno-galley.png', alt: 'سفينة حنون', kicker: 'مستكشف', title: 'حنون الملاح', text: 'الرحلة على طول السواحل الأطلسية لإفريقيا.' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'بلينيوس الأكبر', work: 'التاريخ الطبيعي', ref: '18، 22', note: 'اتساع اسم Africa، وتسليم مكتبات قرطاج إلى الملوك النوميديين' },
+      { type: 'ancient', author: 'بومبونيوس ميلا', work: 'وصف العالم', note: 'اسم Africa للقارة المعروفة كلها' },
+      { type: 'ancient', author: 'أبيانوس السكندري', work: 'الحروب الليبية (الكتاب الإفريقي)', note: 'بيوت من ستة طوابق قرب بيرصا' },
+      { type: 'ancient', author: 'القديس أوغسطين', note: 'البونيقية في الأرياف، وفلاحون يسمّون أنفسهم «كنعانيين»' },
+      { type: 'ancient', author: 'مجهول المؤلف', work: 'رحلة حنون', note: 'استكشاف الساحل الأطلسي لإفريقيا' },
+      { type: 'modern', author: 'سيرج لانسيل', work: 'Carthage', ref: 'Fayard، 1992' },
+      { type: 'modern', author: 'ستيفان غزال', work: 'Histoire ancienne de l\'Afrique du Nord', ref: 'Hachette، 1920 (الجزء 4)' },
+      { type: 'modern', author: 'محمد حسين فنطر', work: 'Carthage, approche d\'une civilisation', ref: 'Alif، 1993' },
+      { type: 'modern', author: 'جوزفين كوين', work: 'In Search of the Phoenicians', ref: 'Princeton University Press، 2018' },
+      { type: 'modern', author: 'غابرييل كامب', work: 'Les Berbères : mémoire et identité', ref: '1987' },
+      { type: 'modern', author: 'مارسيل لوغلاي', work: 'Saturne africain : histoire', ref: '1966' },
+      { type: 'modern', author: 'ماتيسو-سميث وزملاؤها؛ أولالدي، ماركوس، سارنو، دي أنجليس؛ موتس وزملاؤها؛ رينغباور وزملاؤه', work: 'دراسات الحمض النووي القديم', ref: '2016–2025 (رينغباور وزملاؤه، Nature، 2025)', note: 'مذكورة في الصفحة' },
+      { type: 'modern', author: 'م.-ك. شاملا ود. فيرمباخ؛ س. أ. ي. كيتا؛ غواتيلي-شتاينبرغ، آيرش، لوكاكس', work: 'الأنثروبولوجيا البيولوجية', note: 'الجماجم والأسنان، مذكورة في الصفحة' },
+      { type: 'modern', author: 'ويكيبيديا', work: 'Carthage ؛ Civilisation carthaginoise', note: 'CC BY-SA 4.0، محتوى أعيدت صياغته' }
+    ]
   }
 }
 

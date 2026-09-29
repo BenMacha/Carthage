@@ -64,6 +64,8 @@
         </div>
       </div>
     </section>
+
+    <PageSources :items="c.sources" />
   </div>
 </template>
 
@@ -116,6 +118,16 @@ const C = {
       { k: 'Antiquité', t: 'Des auteurs engagés', d: "Polybe était l'ami de Scipion Émilien, qui détruisit Carthage. Tite-Live écrit sous Auguste une histoire à la gloire de Rome, où les défaites s'expliquent par la ruse de l'ennemi." },
       { k: 'XIXe siècle', t: 'Le regard colonial', d: "L'Europe s'identifie à Rome, « civilisatrice », et fait de Carthage un Orient barbare — l'image du <i>Salammbô</i> de Flaubert (1862), peu avant le protectorat français de 1881." },
       { k: "Aujourd'hui", t: 'Rendre la parole à Carthage', d: 'La campagne UNESCO « Sauvons Carthage » (1972–1995), les chercheurs tunisiens et les fouilles internationales reconstruisent la cité à partir de ses propres traces.' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', note: 'ami de Scipion Émilien, témoin de la chute de 146' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', ref: 'XXI, 4', note: 'la « perfidie plus que punique » d\'Hannibal' },
+      { type: 'ancient', author: 'Diodore de Sicile', work: 'Bibliothèque historique', ref: 'XX, 14', note: 'sacrifices d\'enfants' },
+      { type: 'ancient', author: 'Plutarque', work: 'De la superstition', note: 'sacrifices d\'enfants' },
+      { type: 'ancient', author: 'Pline l\'Ancien', work: 'Histoire naturelle', ref: 'XVIII, 22', note: 'bibliothèques de Carthage données aux rois numides ; traduction de Magon' },
+      { type: 'ancient', author: 'Magon', work: 'Traité d\'agriculture', note: 'œuvre perdue, connue par des citations latines' },
+      { type: 'modern', author: 'Gustave Flaubert', work: 'Salammbô', ref: '1862', note: 'roman, cité comme exemple du regard colonial' },
+      { type: 'modern', author: 'Abdelmajid Ennabli', work: 'Pour sauver Carthage', ref: 'Unesco/INAA, 1992', note: 'bilan de la campagne UNESCO « Sauvons Carthage »' }
     ]
   },
   en: {
@@ -161,6 +173,16 @@ const C = {
       { k: 'Antiquity', t: 'Partisan authors', d: 'Polybius was the friend of Scipio Aemilianus, who destroyed Carthage. Livy, writing under Augustus, produced a history to the glory of Rome, in which defeats are explained by the enemy\'s cunning.' },
       { k: '19th century', t: 'The colonial gaze', d: 'Europe identified with "civilising" Rome and turned Carthage into a barbarous Orient — the image of Flaubert\'s <i>Salammbô</i> (1862), shortly before the French protectorate of 1881.' },
       { k: 'Today', t: 'Giving Carthage back its voice', d: 'The UNESCO "Save Carthage" campaign (1972–1995), Tunisian scholars and international excavations are rebuilding the city from its own traces.' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', note: 'friend of Scipio Aemilianus, eyewitness of the fall of 146' },
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', ref: 'XXI, 4', note: 'Hannibal\'s "more than Punic perfidy"' },
+      { type: 'ancient', author: 'Diodorus Siculus', work: 'Library of History', ref: 'XX, 14', note: 'child sacrifice' },
+      { type: 'ancient', author: 'Plutarch', work: 'On Superstition', note: 'child sacrifice' },
+      { type: 'ancient', author: 'Pliny the Elder', work: 'Natural History', ref: 'XVIII, 22', note: 'Carthage\'s libraries given to the Numidian kings; translation of Mago' },
+      { type: 'ancient', author: 'Mago', work: 'Treatise on agriculture', note: 'lost work, known through Latin quotations' },
+      { type: 'modern', author: 'Gustave Flaubert', work: 'Salammbô', ref: '1862', note: 'novel, cited as an example of the colonial gaze' },
+      { type: 'modern', author: 'Abdelmajid Ennabli', work: 'Pour sauver Carthage', ref: 'Unesco/INAA, 1992', note: 'account of the UNESCO "Save Carthage" campaign' }
     ]
   },
   ar: {
@@ -174,8 +196,8 @@ const C = {
     },
     stats: [
       { n: '0', t: 'كتاب تاريخ قرطاجي وصل إلينا' },
-      { n: '1', t: 'مؤلف بوني ترجمته روما: ماغون، لأن كتابه في الفلاحة كان نافعًا لها' },
-      { n: '+6000', t: 'نقيشة بونية كشفها علم الآثار، أغلبها دينية' }
+      { n: '1', t: 'مؤلف بونيقي ترجمته روما: ماغون، لأن كتابه في الفلاحة كان نافعًا لها' },
+      { n: '+6000', t: 'نقيشة بونيقية كشفها علم الآثار، أغلبها دينية' }
     ],
     cmp: {
       title: 'ما قالته روما / ما نعرفه',
@@ -185,7 +207,7 @@ const C = {
       labelKnown: 'حالة المعارف',
       pairs: [
         {
-          rome: { t: '«Punica fides»', d: 'صار «الوفاء البوني» في اللاتينية مرادفًا للخيانة. ونسب تيتوس ليفيوس إلى حنبعل «غدرًا يفوق الغدر البوني».' },
+          rome: { t: '«Punica fides»', d: 'صار «الوفاء البونيقي» في اللاتينية مرادفًا للخيانة. ونسب تيتوس ليفيوس إلى حنبعل «غدرًا يفوق الغدر البونيقي».' },
           known: { t: 'شتيمة دعائية', d: 'وقّعت قرطاج معاهدات مع روما واحترمتها طوال قرون. وفي سنة 149 كانت روما هي من غيّر مطالبه بعد نزع سلاح المدينة.' }
         },
         {
@@ -198,7 +220,7 @@ const C = {
         },
         {
           rome: { t: 'شعب القرابين', d: 'يصف ديودوروس وبلوتارخوس تقديم الأطفال قرابين بشكل منهجي.' },
-          known: { t: 'نقاش مفتوح', d: 'ما يزال علماء الآثار منقسمين حول التوفة: يرى فيها بعضهم قرابين، ويرى آخرون أنها أساسًا مقبرة لرُضّع ماتوا لأسباب طبيعية.', link: { to: '/religion', label: 'التوفة وآلهة قرطاج' } }
+          known: { t: 'نقاش مفتوح', d: 'ما يزال علماء الآثار منقسمين حول التوفيت: يرى فيها بعضهم قرابين، ويرى آخرون أنها أساسًا مقبرة لرُضّع ماتوا لأسباب طبيعية.', link: { to: '/religion', label: 'التوفيت وآلهة قرطاج' } }
         }
       ]
     },
@@ -206,6 +228,16 @@ const C = {
       { k: 'العصور القديمة', t: 'مؤلفون منحازون', d: 'كان بوليبيوس صديق سكيبيو إيميليانوس الذي دمّر قرطاج. وكتب تيتوس ليفيوس في عهد أغسطس تاريخًا لمجد روما، تُفسَّر فيه الهزائم بمكر العدو.' },
       { k: 'القرن 19', t: 'النظرة الاستعمارية', d: 'تماهت أوروبا مع روما «المُحضِّرة» وجعلت من قرطاج شرقًا همجيًا — صورة رواية <i>سالامبو</i> لفلوبير (1862)، قبيل الحماية الفرنسية سنة 1881.' },
       { k: 'اليوم', t: 'إعادة الكلمة إلى قرطاج', d: 'حملة اليونسكو «لننقذ قرطاج» (1972–1995)، والباحثون التونسيون والحفريات الدولية يعيدون بناء المدينة انطلاقًا من آثارها هي.' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', note: 'صديق سكيبيو إيميليانوس وشاهد على سقوط 146' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: 'تاريخ روما', ref: 'XXI, 4', note: '«الغدر الذي يفوق الغدر البونيقي» المنسوب إلى حنبعل' },
+      { type: 'ancient', author: 'ديودوروس الصقلي', work: 'المكتبة التاريخية', ref: 'XX, 14', note: 'تقديم الأطفال قرابين' },
+      { type: 'ancient', author: 'بلوتارخ', work: 'في الخرافة', note: 'تقديم الأطفال قرابين' },
+      { type: 'ancient', author: 'بلينيوس الأكبر', work: 'التاريخ الطبيعي', ref: 'XVIII, 22', note: 'إهداء مكتبات قرطاج إلى الملوك النوميديين؛ ترجمة ماغون' },
+      { type: 'ancient', author: 'ماغون', work: 'كتاب الفلاحة', note: 'عمل مفقود، معروف من خلال اقتباسات لاتينية' },
+      { type: 'modern', author: 'غوستاف فلوبير', work: 'Salammbô', ref: '1862', note: 'رواية، مذكورة مثالًا على النظرة الاستعمارية' },
+      { type: 'modern', author: 'عبد المجيد النابلي', work: 'Pour sauver Carthage', ref: 'Unesco/INAA, 1992', note: 'حصيلة حملة اليونسكو «لننقذ قرطاج»' }
     ]
   }
 }

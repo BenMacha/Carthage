@@ -131,6 +131,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec sec--wide">
       <h2 class="h-section block-title">{{ c.moreTitle }}</h2>
@@ -221,6 +223,15 @@ const C = {
       { k: 'Greffe', v: "La greffe de l'olivier permettait d'accroître la productivité des vergers." },
       { k: 'Outillage', v: "Des représentations de charrues montrent un matériel qui tranche avec l'agriculture libyenne traditionnelle (Decret)." }
     ],
+    sources: [
+      { type: "ancient", author: "Polybe", work: "Histoires", ref: "I, 71–72 ; XII, 3" },
+      { type: "ancient", author: "Diodore de Sicile", work: "Bibliothèque historique", ref: "XX, 8" },
+      { type: "ancient", author: "Tite-Live", work: "Histoire romaine", ref: "XXXIV, 62" },
+      { type: "ancient", author: "Columelle", work: "De l'agriculture (De re rustica)", ref: "XII, 39, 1–2", note: "conserve des fragments de Magon" },
+      { type: "ancient", author: "Magon", work: "Traité d'agriculture", note: "perdu ; connu par des fragments" },
+      { type: "modern", author: "François Decret", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "Wikipédia", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0, contenus reformulés" }
+    ],
     moreTitle: 'À lire aussi',
     go: 'Lire →',
     moreItems: [
@@ -300,6 +311,15 @@ const C = {
       { k: 'Grafting', v: 'Grafting olive trees raised the productivity of the orchards.' },
       { k: 'Tools', v: 'Depictions of ploughs show equipment that contrasted with traditional Libyan farming (Decret).' }
     ],
+    sources: [
+      { type: "ancient", author: "Polybius", work: "Histories", ref: "I, 71–72; XII, 3" },
+      { type: "ancient", author: "Diodorus Siculus", work: "Library of History", ref: "XX, 8" },
+      { type: "ancient", author: "Livy", work: "History of Rome", ref: "XXXIV, 62" },
+      { type: "ancient", author: "Columella", work: "On Agriculture (De re rustica)", ref: "XII, 39, 1–2", note: "preserves fragments of Mago" },
+      { type: "ancient", author: "Mago", work: "Treatise on agriculture", note: "lost; known from fragments" },
+      { type: "modern", author: "François Decret", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "Wikipedia (French)", work: "Carthage; Civilisation carthaginoise", note: "CC BY-SA 4.0, content rephrased" }
+    ],
     moreTitle: 'Read also',
     go: 'Read →',
     moreItems: [
@@ -335,14 +355,14 @@ const C = {
       { n: '≈ 73 000 كم²', t: 'من الأراضي الإفريقية تحت سيطرة قرطاج عشية الحرب البونيقية الأولى (ديكري)' },
       { n: '< 25 000 كم²', t: 'سنة 146 ق.م، بعد نصف قرن من توسّع ماسينيسا على حسابها (ديكري)' },
       { n: '½', t: 'المحاصيل المفروضة على الفلاحين الليبيين أثناء الحرب البونيقية الأولى (بوليبيوس، 1، 72)' },
-      { n: '310', t: 'ينزل أغاثوكليس في إفريقيا ويجتاز ريفًا تغطيه الضياع (ديودور، 20، 8)' }
+      { n: '310', t: 'ينزل أغاثوكليس في إفريقيا ويجتاز ريفًا تغطيه الضياع (ديودوروس، 20، 8)' }
     ],
     landKicker: 'الأراضي الفلاحية',
     landTitle: '«خورا» قرطاج',
     landParas: [
       'يستعمل المؤرخون الكلمة الإغريقية «خورا» — أي «الريف» — للدلالة على الإقليم الريفي الذي كان يغذّي قرطاج. وكان يشمل جزءًا كبيرًا من تونس الحالية، وهي منطقة تكفي أمطارها لفلاحة وفيرة، ستستغلها روما بدورها في ولايتها الإفريقية (ديكري).',
       'وزّعت قرطاج الأدوار مبكرًا: قرب العاصمة ضياع مخصصة للزراعات التجارية؛ وأبعد منها الحبوب، متروكة للفلاحين الليبيين الخاضعين لجزية عينية. وفي زمن الحرب دفعهم ثقل هذه الجزية إلى الثورة، كما حدث سنة 241 (بوليبيوس، 1، 71-72).',
-      'حين نزل أغاثوكليس السرقوسي سنة 310، وجد جنوده بلادًا من البساتين والحدائق المسقية والدور الريفية والكروم والزياتين وقطعان الماشية ومراعي الخيل: ووصف ديودور لها (20، 8) هو أفضل شهادة قديمة على هذه الأرياف.'
+      'حين نزل أغاثوكليس السرقوسي سنة 310، وجد جنوده بلادًا من البساتين والحدائق المسقية والدور الريفية والكروم والزياتين وقطعان الماشية ومراعي الخيل: ووصف ديودوروس لها (20، 8) هو أفضل شهادة قديمة على هذه الأرياف.'
     ],
     zonesKicker: 'الأقاليم',
     zonesTitle: 'من شبه الجزيرة إلى السهول',
@@ -378,6 +398,15 @@ const C = {
       { k: 'غابات الزيتون', v: 'كانت تُغرس وفق قواعد دقيقة، لا سيما المسافة بين الأشجار — وهي معايير ما يزال بعضها متّبعًا إلى اليوم.' },
       { k: 'التطعيم', v: 'كان تطعيم الزيتون يرفع إنتاجية البساتين.' },
       { k: 'الأدوات', v: 'تُظهر صور المحاريث عتادًا يختلف عن الفلاحة الليبية التقليدية (ديكري).' }
+    ],
+    sources: [
+      { type: "ancient", author: "بوليبيوس", work: "التواريخ", ref: "1، 71–72؛ 12، 3" },
+      { type: "ancient", author: "ديودوروس الصقلي", work: "المكتبة التاريخية", ref: "20، 8" },
+      { type: "ancient", author: "تيتوس ليفيوس", work: "تاريخ روما", ref: "34، 62" },
+      { type: "ancient", author: "كولوميلا", work: "في الفلاحة", ref: "12، 39، 1–2", note: "يحفظ مقتطفات من ماغون" },
+      { type: "ancient", author: "ماغون", work: "موسوعة الزراعة", note: "مفقودة؛ لا تُعرف إلا من مقتطفات" },
+      { type: "modern", author: "فرانسوا ديكري", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "ويكيبيديا (بالفرنسية)", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0، محتوى أعيدت صياغته" }
     ],
     moreTitle: 'اقرأ أيضًا',
     go: 'اقرأ ←',

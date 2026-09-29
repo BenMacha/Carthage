@@ -1,0 +1,1273 @@
+{
+  "meta": {
+    "note": "Quiz du site : 6 thèmes × 10 questions. Chaque réponse est vérifiable sur la page indiquée par « page ». « answer » est l'index (0-3) de la bonne réponse dans « choices » ; l'ordre des choix est identique dans les trois langues."
+  },
+  "themes": [
+    {
+      "id": "fondation",
+      "title": { "fr": "Fondation et cité", "en": "Foundation and city", "ar": "التأسيس والمدينة" },
+      "desc": {
+        "fr": "Élissa, la peau de bœuf, Byrsa, le Cothon et les institutions de la république punique.",
+        "en": "Elissa, the ox-hide, Byrsa, the Cothon and the institutions of the Punic republic.",
+        "ar": "عليسة وجلد الثور وبيرصا والكوثون ومؤسسات الجمهورية البونيقية."
+      },
+      "questions": [
+        {
+          "id": "fondation-01",
+          "q": {
+            "fr": "Selon la date retenue par la tradition (l'historien grec Timée), en quelle année Carthage fut-elle fondée ?",
+            "en": "According to the date handed down by tradition (the Greek historian Timaeus), in which year was Carthage founded?",
+            "ar": "وفق التاريخ الذي حفظه التقليد (المؤرخ الإغريقي طيمايوس)، في أي سنة تأسست قرطاج؟"
+          },
+          "choices": {
+            "fr": ["509 av. J.-C.", "1101 av. J.-C.", "814 av. J.-C.", "146 av. J.-C."],
+            "en": ["509 BC", "1101 BC", "814 BC", "146 BC"],
+            "ar": ["509 ق.م", "1101 ق.م", "814 ق.م", "146 ق.م"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "Timée de Tauroménion date la fondation de 814/813 av. J.-C. Les plus anciens niveaux fouillés remontent à la seconde moitié du VIIIe siècle : la légende n'est pas loin de la vérité.",
+            "en": "Timaeus of Tauromenium dates the foundation to 814/813 BC. The oldest excavated layers go back to the second half of the 8th century: the legend is not far from the truth.",
+            "ar": "يؤرّخ طيمايوس التاورميني التأسيس بسنة 814/813 ق.م. وتعود أقدم الطبقات المنقَّب عنها إلى النصف الثاني من القرن الثامن ق.م: فالأسطورة ليست بعيدة عن الحقيقة."
+          },
+          "page": "/fondation"
+        },
+        {
+          "id": "fondation-02",
+          "q": {
+            "fr": "Que signifie Qart Hadasht, le nom phénicien de Carthage ?",
+            "en": "What does Qart Hadasht, the Phoenician name of Carthage, mean?",
+            "ar": "ما معنى «قرت حدشت»، الاسم الفينيقي لقرطاج؟"
+          },
+          "choices": {
+            "fr": ["La Ville nouvelle", "La Cité de Baal", "Le Port sacré", "La Colline du cuir"],
+            "en": ["The New City", "The City of Baal", "The Sacred Harbour", "The Hill of Leather"],
+            "ar": ["المدينة الجديدة", "مدينة بعل", "الميناء المقدّس", "تلّة الجلد"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "En phénicien, qart signifie « ville » et hadasht « nouvelle » : une nouvelle Tyr en Afrique. Carthagène, en Espagne, porta le même nom.",
+            "en": "In Phoenician, qart means “city” and hadasht “new”: a new Tyre in Africa. Cartagena, in Spain, bore the same name.",
+            "ar": "في الفينيقية تعني «قرت» المدينة و«حدشت» الجديدة: صور جديدة في إفريقيا. وقد حملت قرطاجنة في إسبانيا الاسم نفسه."
+          },
+          "page": "/fondation"
+        },
+        {
+          "id": "fondation-03",
+          "q": {
+            "fr": "Selon la légende, comment Élissa obtient-elle la colline de Byrsa ?",
+            "en": "According to the legend, how does Elissa obtain the hill of Byrsa?",
+            "ar": "بحسب الأسطورة، كيف حصلت عليسة على تلّة بيرصا؟"
+          },
+          "choices": {
+            "fr": ["En la recevant en dot de son frère Pygmalion", "En épousant le roi libyque Iarbas", "En remportant une bataille contre les Libyens", "En l'entourant de fines lanières découpées dans une peau de bœuf"],
+            "en": ["By receiving it as a dowry from her brother Pygmalion", "By marrying the Libyan king Iarbas", "By winning a battle against the Libyans", "By encircling it with thin strips cut from an ox-hide"],
+            "ar": ["تلقّتها مهرًا من أخيها بيغماليون", "تزوّجت الملك الليبي يارباس", "انتصرت في معركة على الليبيين", "أحاطتها بسيور رفيعة قُطعت من جلد ثور"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "Elle obtient autant de terre qu'une peau de bœuf peut en couvrir, puis la découpe en lanières si fines qu'elles encerclent toute la colline. Les Grecs expliquaient ainsi le nom de Byrsa (« le cuir »).",
+            "en": "She is granted as much land as an ox-hide can cover, then cuts it into strips so thin that they encircle the whole hill. The Greeks explained the name Byrsa (“the hide”) this way.",
+            "ar": "حصلت على أرض بقدر ما يغطّيه جلد ثور، ثم قطّعته سيورًا رفيعة جدًا أحاطت بالتلّة كلّها. وبهذا فسّر الإغريق اسم بيرصا («الجلد»)."
+          },
+          "page": "/didon"
+        },
+        {
+          "id": "fondation-04",
+          "q": {
+            "fr": "Qui fit assassiner Acherbas (Sychée), l'époux d'Élissa, pour s'emparer de ses trésors ?",
+            "en": "Who had Acherbas (Sychaeus), Elissa's husband, murdered to seize his treasures?",
+            "ar": "مَن دبّر اغتيال أخيرباس (سيخايوس)، زوج عليسة، للاستيلاء على كنوزه؟"
+          },
+          "choices": {
+            "fr": ["Le roi libyque Iarbas", "Son frère Pygmalion, roi de Tyr", "Le prince troyen Énée", "Le prêtre de Chypre"],
+            "en": ["The Libyan king Iarbas", "Her brother Pygmalion, king of Tyre", "The Trojan prince Aeneas", "The priest of Cyprus"],
+            "ar": ["الملك الليبي يارباس", "أخوها بيغماليون ملك صور", "الأمير الطروادي أينياس", "كاهن قبرص"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Pygmalion, roi de Tyr et frère d'Élissa, convoitait les trésors d'Acherbas, grand prêtre de Melqart. Ce crime poussa Élissa à fuir par la mer.",
+            "en": "Pygmalion, king of Tyre and Elissa's brother, coveted the treasures of Acherbas, high priest of Melqart. This crime drove Elissa to flee by sea.",
+            "ar": "كان بيغماليون، ملك صور وأخو عليسة، يطمع في كنوز أخيرباس كبير كهنة ملقرت. وقد دفعت هذه الجريمة عليسة إلى الفرار بحرًا."
+          },
+          "page": "/didon"
+        },
+        {
+          "id": "fondation-05",
+          "q": {
+            "fr": "Quel surnom les Libyens auraient-ils donné à Élissa, selon Timée ?",
+            "en": "What nickname did the Libyans supposedly give Elissa, according to Timaeus?",
+            "ar": "ما اللقب الذي أطلقه الليبيون على عليسة بحسب طيمايوس؟"
+          },
+          "choices": {
+            "fr": ["Didon, « l'errante »", "Tanit, « face de Baal »", "Byrsa, « la citadelle »", "Shofet, « le juge »"],
+            "en": ["Dido, “the wanderer”", "Tanit, “face of Baal”", "Byrsa, “the citadel”", "Shofet, “the judge”"],
+            "ar": ["ديدون، «التائهة»", "تانيت، «وجه بعل»", "بيرصا، «القلعة»", "شفط، «القاضي»"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Selon Timée, les Libyens l'auraient surnommée Deidô, « l'errante », à cause de ses longs voyages. C'est ce nom que retient Virgile.",
+            "en": "According to Timaeus, the Libyans nicknamed her Deidô, “the wanderer”, because of her long travels. Virgil kept this name.",
+            "ar": "بحسب طيمايوس لقّبها الليبيون «ديدو»، أي «التائهة»، بسبب أسفارها الطويلة. وهو الاسم الذي احتفظ به فرجيليوس."
+          },
+          "page": "/didon"
+        },
+        {
+          "id": "fondation-06",
+          "q": {
+            "fr": "En creusant les fondations de la ville, on trouve une tête de cheval. Que présage-t-elle ?",
+            "en": "While digging the city's foundations, a horse's head is found. What does it foretell?",
+            "ar": "عند حفر أسس المدينة عُثر على رأس حصان. بماذا كان ينبئ؟"
+          },
+          "choices": {
+            "fr": ["Une terre fertile mais la servitude", "Un peuple guerrier et puissant", "Une grande flotte marchande", "La chute future de la cité"],
+            "en": ["Fertile land but servitude", "A warlike and powerful people", "A great merchant fleet", "The city's future fall"],
+            "ar": ["أرض خصبة لكن مع العبودية", "شعب محارب وقوي", "أسطول تجاري عظيم", "سقوط المدينة في المستقبل"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Une tête de bœuf avait d'abord annoncé une terre fertile mais la servitude ; la tête de cheval, trouvée plus loin, promettait un peuple guerrier et puissant.",
+            "en": "An ox's head had first foretold fertile land but servitude; the horse's head, found further on, promised a warlike and powerful people.",
+            "ar": "كان رأس ثور قد أنبأ أولًا بأرض خصبة لكن مع العبودية؛ أما رأس الحصان، الذي وُجد أبعد منه، فبشّر بشعب محارب وقوي."
+          },
+          "page": "/didon"
+        },
+        {
+          "id": "fondation-07",
+          "q": {
+            "fr": "Combien de navires de guerre le port circulaire de Carthage (le Cothon) pouvait-il abriter ?",
+            "en": "How many warships could Carthage's circular harbour (the Cothon) shelter?",
+            "ar": "كم سفينة حربية كان الميناء الدائري لقرطاج (الكوثون) يتّسع لها؟"
+          },
+          "choices": {
+            "fr": ["60", "120", "220", "500"],
+            "en": ["60", "120", "220", "500"],
+            "ar": ["60", "120", "220", "500"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "Le port militaire circulaire comptait 220 cales couvertes, séparées par des colonnes ioniques, chacune abritant une galère de guerre. On n'y accédait que par le port de commerce.",
+            "en": "The circular military harbour had 220 covered ship-sheds, separated by Ionic columns, each housing a war galley. It could only be reached through the merchant harbour.",
+            "ar": "ضمّ الميناء الحربي الدائري 220 مرفأً مسقوفًا تفصل بينها أعمدة أيونية، يأوي كلٌّ منها سفينة حربية. ولم يكن يُبلغ إلا عبر الميناء التجاري."
+          },
+          "page": "/fondation"
+        },
+        {
+          "id": "fondation-08",
+          "q": {
+            "fr": "Le titre de « suffète », porté par les deux magistrats élus chaque année, vient du phénicien shofet. Que signifie-t-il ?",
+            "en": "The title “sufete”, held by the two magistrates elected each year, comes from the Phoenician shofet. What does it mean?",
+            "ar": "لقب «الشفط» الذي حمله القاضيان المنتخبان كل سنة مشتقّ من الفينيقية «شوفِط». ما معناه؟"
+          },
+          "choices": {
+            "fr": ["Roi", "Prêtre", "Général", "Juge"],
+            "en": ["King", "Priest", "General", "Judge"],
+            "ar": ["ملك", "كاهن", "قائد جيش", "قاضٍ"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "Shofet signifie « juge ». Grecs et Romains appelaient ces magistrats « rois » faute de mot équivalent, mais ils ne commandaient pas les armées.",
+            "en": "Shofet means “judge”. Greeks and Romans called these magistrates “kings” for lack of an equivalent word, but they did not command the armies.",
+            "ar": "«شوفِط» تعني القاضي. وقد سمّى الإغريق والرومان هؤلاء القضاة «ملوكًا» لغياب كلمة مقابلة، لكنهم لم يكونوا يقودون الجيوش."
+          },
+          "page": "/institutions"
+        },
+        {
+          "id": "fondation-09",
+          "q": {
+            "fr": "Quel philosophe grec range la constitution de Carthage parmi les plus réussies, aux côtés de Sparte et de la Crète ?",
+            "en": "Which Greek philosopher ranks Carthage's constitution among the most successful, alongside Sparta and Crete?",
+            "ar": "أي فيلسوف إغريقي صنّف دستور قرطاج بين أنجح الدساتير، إلى جانب إسبرطة وكريت؟"
+          },
+          "choices": {
+            "fr": ["Platon", "Aristote", "Hérodote", "Socrate"],
+            "en": ["Plato", "Aristotle", "Herodotus", "Socrates"],
+            "ar": ["أفلاطون", "أرسطو", "هيرودوت", "سقراط"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Dans sa Politique (II, 11), Aristote loue ce régime « mixte » : on n'y a vu, dit-il, ni sédition digne de ce nom, ni tyran.",
+            "en": "In his Politics (II, 11), Aristotle praises this “mixed” regime: it has seen, he says, neither serious sedition nor a tyrant.",
+            "ar": "في كتابه «السياسة» (II، 11) يمدح أرسطو هذا النظام «المختلط»: فلم تعرف المدينة، كما يقول، فتنة تُذكر ولا طاغية."
+          },
+          "page": "/institutions"
+        },
+        {
+          "id": "fondation-10",
+          "q": {
+            "fr": "Quel tribunal de Carthage examinait la conduite des généraux à leur retour de campagne ?",
+            "en": "Which Carthaginian court examined the conduct of generals on their return from campaign?",
+            "ar": "أي محكمة قرطاجية كانت تحاسب القادة على سلوكهم عند عودتهم من الحملات؟"
+          },
+          "choices": {
+            "fr": ["Les Cent-Quatre", "L'assemblée du peuple", "Les pentarchies", "Le conseil des suffètes"],
+            "en": ["The Hundred and Four", "The people's assembly", "The pentarchies", "The council of sufetes"],
+            "ar": ["المئة والأربعة", "جمعية الشعب", "اللجان الخماسية", "مجلس الشفطين"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Les Cent-Quatre (« les Cent » chez Justin), juges tirés du Sénat, jugeaient les généraux. Nommés à vie, ils furent élus pour un an après la réforme d'Hannibal en 196.",
+            "en": "The Hundred and Four (“the Hundred” in Justin), judges drawn from the Senate, tried the generals. Appointed for life, they were elected for one year after Hannibal's reform in 196.",
+            "ar": "كان «المئة والأربعة» («المئة» عند يوستينوس)، وهم قضاة من مجلس الشيوخ، يحاكمون القادة. وقد كانوا يُعيَّنون مدى الحياة، ثم صاروا يُنتخبون لسنة واحدة بعد إصلاح حنبعل سنة 196."
+          },
+          "page": "/institutions"
+        }
+      ]
+    },
+    {
+      "id": "guerres",
+      "title": { "fr": "Hannibal et les guerres", "en": "Hannibal and the wars", "ar": "حنبعل والحروب" },
+      "desc": {
+        "fr": "Le serment, les Alpes, la Trébie, Trasimène, Cannes, Zama et les trois guerres puniques.",
+        "en": "The oath, the Alps, the Trebia, Trasimene, Cannae, Zama and the three Punic Wars.",
+        "ar": "القسم وجبال الألب وتريبيا وترازيمينو وكاناي وزاما والحروب البونيقية الثلاث."
+      },
+      "questions": [
+        {
+          "id": "guerres-01",
+          "q": {
+            "fr": "Quel âge avait Hannibal lorsqu'il jura, la main sur l'autel, de ne jamais être l'ami des Romains ?",
+            "en": "How old was Hannibal when he swore, with his hand on the altar, never to be a friend of the Romans?",
+            "ar": "كم كان عمر حنبعل حين أقسم، ويده على المذبح، ألّا يكون صديقًا للرومان أبدًا؟"
+          },
+          "choices": {
+            "fr": ["9 ans", "16 ans", "21 ans", "26 ans"],
+            "en": ["9", "16", "21", "26"],
+            "ar": ["9 سنوات", "16 سنة", "21 سنة", "26 سنة"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "En 237 av. J.-C., avant de partir pour l'Espagne, Hamilcar fit prêter serment à son fils de neuf ans. Hannibal raconta lui-même la scène au roi Antiochos III.",
+            "en": "In 237 BC, before leaving for Spain, Hamilcar had his nine-year-old son take the oath. Hannibal himself later told the scene to King Antiochus III.",
+            "ar": "سنة 237 ق.م، قبل الرحيل إلى إسبانيا، جعل حملقار ابنه ذا السنوات التسع يؤدّي القسم. وقد روى حنبعل المشهد بنفسه لاحقًا للملك أنطيوخوس الثالث."
+          },
+          "page": "/hannibal"
+        },
+        {
+          "id": "guerres-02",
+          "q": {
+            "fr": "La prise de quelle ville, alliée de Rome, déclenche la deuxième guerre punique en 219 av. J.-C. ?",
+            "en": "The capture of which city, an ally of Rome, triggers the Second Punic War in 219 BC?",
+            "ar": "الاستيلاء على أي مدينة حليفة لروما أشعل الحرب البونيقية الثانية سنة 219 ق.م؟"
+          },
+          "choices": {
+            "fr": ["Carthagène", "Gadès", "Sagonte", "Messine"],
+            "en": ["Cartagena", "Gades", "Saguntum", "Messana"],
+            "ar": ["قرطاجنة", "قادس", "ساغونتوم", "ميسينا"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "Hannibal prend Sagonte après huit mois de siège, et Rome déclare la guerre. Messine, elle, avait été le point de départ de la première guerre, en 264.",
+            "en": "Hannibal takes Saguntum after an eight-month siege, and Rome declares war. Messana, for its part, had been the starting point of the First War, in 264.",
+            "ar": "استولى حنبعل على ساغونتوم بعد حصار دام ثمانية أشهر، فأعلنت روما الحرب. أما ميسينا فكانت منطلق الحرب الأولى سنة 264."
+          },
+          "page": "/guerres-puniques"
+        },
+        {
+          "id": "guerres-03",
+          "q": {
+            "fr": "Combien d'éléphants Hannibal emmène-t-il au départ d'Espagne, en 218 av. J.-C. ?",
+            "en": "How many elephants does Hannibal take with him when leaving Spain in 218 BC?",
+            "ar": "كم فيلًا اصطحب حنبعل عند انطلاقه من إسبانيا سنة 218 ق.م؟"
+          },
+          "choices": {
+            "fr": ["12", "37", "80", "300"],
+            "en": ["12", "37", "80", "300"],
+            "ar": ["12", "37", "80", "300"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Hannibal franchit les Pyrénées puis les Alpes avec 37 éléphants. Les 80 éléphants souvent cités sont ceux de Zama, en 202.",
+            "en": "Hannibal crosses the Pyrenees and then the Alps with 37 elephants. The 80 elephants often mentioned are those of Zama, in 202.",
+            "ar": "عبر حنبعل جبال البرانس ثم الألب ومعه 37 فيلًا. أما الفيلة الثمانون التي تُذكر كثيرًا فهي فيلة زاما سنة 202."
+          },
+          "page": "/hannibal"
+        },
+        {
+          "id": "guerres-04",
+          "q": {
+            "fr": "À la Trébie (décembre 218), qui surgit dans le dos des légions romaines avec 2 000 hommes cachés ?",
+            "en": "At the Trebia (December 218), who emerges behind the Roman legions with 2,000 hidden men?",
+            "ar": "في معركة تريبيا (ديسمبر 218)، مَن باغت الفيالق الرومانية من الخلف بألفي رجل مختبئين؟"
+          },
+          "choices": {
+            "fr": ["Maharbal", "Hasdrubal", "Hannon", "Magon, le frère d'Hannibal"],
+            "en": ["Maharbal", "Hasdrubal", "Hanno", "Mago, Hannibal's brother"],
+            "ar": ["مهربعل", "صدربعل", "حنون", "ماغون، أخو حنبعل"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "Hannibal avait caché son frère Magon avec 1 000 fantassins et 1 000 cavaliers dans un ravin. Les Romains, trempés par la rivière glacée, furent pris à revers.",
+            "en": "Hannibal had hidden his brother Mago with 1,000 infantry and 1,000 cavalry in a ravine. The Romans, soaked by the icy river, were taken from behind.",
+            "ar": "كان حنبعل قد أخفى أخاه ماغون مع ألف راجل وألف فارس في وادٍ. فأُخذ الرومان، المبلّلون بمياه النهر المتجمّدة، من الخلف."
+          },
+          "page": "/tactiques"
+        },
+        {
+          "id": "guerres-05",
+          "q": {
+            "fr": "Quel consul romain périt dans l'embuscade du lac Trasimène, en 217 av. J.-C. ?",
+            "en": "Which Roman consul died in the ambush at Lake Trasimene in 217 BC?",
+            "ar": "أي قنصل روماني لقي حتفه في كمين بحيرة ترازيمينو سنة 217 ق.م؟"
+          },
+          "choices": {
+            "fr": ["Caius Flaminius", "Paul Émile", "Varron", "Scipion"],
+            "en": ["Gaius Flaminius", "Aemilius Paullus", "Varro", "Scipio"],
+            "ar": ["غايوس فلامينيوس", "إيميليوس باولوس", "فارو", "سكيبيو"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Coincée entre le lac et les collines, dans le brouillard du matin, l'armée de Flaminius est détruite : environ 15 000 Romains tués, dont le consul. Paul Émile, lui, tombera à Cannes.",
+            "en": "Trapped between the lake and the hills in the morning fog, Flaminius's army is destroyed: some 15,000 Romans killed, including the consul. Aemilius Paullus would fall at Cannae.",
+            "ar": "حوصر جيش فلامينيوس بين البحيرة والتلال في ضباب الصباح فأُبيد: قُتل نحو 15 ألف روماني بينهم القنصل. أما إيميليوس باولوس فسيسقط في كاناي."
+          },
+          "page": "/tactiques"
+        },
+        {
+          "id": "guerres-06",
+          "q": {
+            "fr": "Quelle manœuvre fait de Cannes (216 av. J.-C.) une bataille encore étudiée dans les écoles de guerre ?",
+            "en": "Which manoeuvre makes Cannae (216 BC) a battle still studied in military academies?",
+            "ar": "أي مناورة جعلت معركة كاناي (216 ق.م) تُدرَّس حتى اليوم في المدارس العسكرية؟"
+          },
+          "choices": {
+            "fr": ["La charge des éléphants", "Le double enveloppement", "Le siège du camp romain", "L'attaque de nuit"],
+            "en": ["The elephant charge", "The double envelopment", "The siege of the Roman camp", "The night attack"],
+            "ar": ["هجوم الفيلة", "التطويق المزدوج", "حصار المعسكر الروماني", "الهجوم الليلي"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Le centre carthaginois recule sans rompre, l'infanterie libyenne frappe les flancs et la cavalerie referme le piège par l'arrière : c'est le double enveloppement.",
+            "en": "The Carthaginian centre falls back without breaking, the Libyan infantry strikes the flanks and the cavalry closes the trap from behind: this is the double envelopment.",
+            "ar": "تراجع القلب القرطاجي دون أن ينكسر، وضربت المشاة الليبية الجناحين، وأطبق الفرسان الفخّ من الخلف: إنه التطويق المزدوج."
+          },
+          "page": "/tactiques"
+        },
+        {
+          "id": "guerres-07",
+          "q": {
+            "fr": "Pourquoi Fabius Maximus reçut-il le surnom de « Cunctator », le Temporisateur ?",
+            "en": "Why was Fabius Maximus nicknamed “Cunctator”, the Delayer?",
+            "ar": "لماذا لُقّب فابيوس ماكسيموس بـ«كونكتاتور»، أي المماطل؟"
+          },
+          "choices": {
+            "fr": ["Il fit attendre les ambassadeurs de Carthage", "Il retarda le départ de la flotte romaine", "Il évitait de livrer bataille à Hannibal", "Il mit dix ans à prendre Syracuse"],
+            "en": ["He kept Carthage's ambassadors waiting", "He delayed the departure of the Roman fleet", "He avoided giving battle to Hannibal", "He took ten years to capture Syracuse"],
+            "ar": ["أطال انتظار سفراء قرطاج", "أخّر إبحار الأسطول الروماني", "كان يتجنّب خوض المعركة مع حنبعل", "استغرق عشر سنين للاستيلاء على سرقوسة"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "Nommé dictateur après Trasimène, Fabius refusa la bataille rangée pour user l'armée d'Hannibal. Cette « stratégie fabienne » a même donné son nom à la Fabian Society britannique.",
+            "en": "Appointed dictator after Trasimene, Fabius refused pitched battle in order to wear down Hannibal's army. This “Fabian strategy” even gave its name to Britain's Fabian Society.",
+            "ar": "عُيّن فابيوس دكتاتورًا بعد ترازيمينو فرفض المعركة النظامية لاستنزاف جيش حنبعل. وقد أعطت هذه «الاستراتيجية الفابية» اسمها حتى لجمعية «فابيان» البريطانية."
+          },
+          "page": "/tactiques"
+        },
+        {
+          "id": "guerres-08",
+          "q": {
+            "fr": "À Zama (202 av. J.-C.), comment Scipion neutralise-t-il les éléphants d'Hannibal ?",
+            "en": "At Zama (202 BC), how does Scipio neutralise Hannibal's elephants?",
+            "ar": "في زاما (202 ق.م)، كيف عطّل سكيبيو فيلة حنبعل؟"
+          },
+          "choices": {
+            "fr": ["En creusant des fossés remplis de pieux", "En leur opposant ses propres éléphants", "En attaquant leur camp avant la bataille", "En laissant des couloirs entre ses manipules"],
+            "en": ["By digging ditches filled with stakes", "By setting his own elephants against them", "By attacking their camp before the battle", "By leaving lanes between his maniples"],
+            "ar": ["بحفر خنادق مليئة بالأوتاد", "بمواجهتها بفيلته الخاصة", "بمهاجمة معسكرها قبل المعركة", "بترك ممرّات بين وحداته"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "Affolés par les trompettes, les éléphants passent dans les couloirs sans dégâts ou se retournent contre les Carthaginois. La cavalerie de Lélius et de Massinissa décide ensuite de la bataille.",
+            "en": "Panicked by the trumpets, the elephants pass harmlessly through the lanes or turn against the Carthaginians. The cavalry of Laelius and Masinissa then decides the battle.",
+            "ar": "مذعورةً من الأبواق، مرّت الفيلة في الممرّات دون أذى أو ارتدّت على القرطاجيين. ثم حسم فرسان ليليوس وماسينيسا المعركة."
+          },
+          "page": "/tactiques"
+        },
+        {
+          "id": "guerres-09",
+          "q": {
+            "fr": "Quelle invention permet à Rome, puissance terrestre, de remporter sa première victoire navale à Mylae (260 av. J.-C.) ?",
+            "en": "Which invention allows Rome, a land power, to win its first naval victory at Mylae (260 BC)?",
+            "ar": "أي ابتكار مكّن روما، القوة البرية، من تحقيق أول نصر بحري لها في ميلاي (260 ق.م)؟"
+          },
+          "choices": {
+            "fr": ["Le feu grégeois", "Le corvus, une passerelle d'abordage", "La quinquérème à double éperon", "Le port circulaire"],
+            "en": ["Greek fire", "The corvus, a boarding bridge", "The double-rammed quinquereme", "The circular harbour"],
+            "ar": ["النار الإغريقية", "«الغراب» (كورفوس)، جسر للاقتحام", "السفينة الخماسية ذات المهمازين", "الميناء الدائري"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Le corvus transforme la bataille navale en combat d'infanterie. Rome avait aussi construit sa flotte en copiant un navire carthaginois échoué.",
+            "en": "The corvus turns naval battle into an infantry fight. Rome had also built its fleet by copying a stranded Carthaginian ship.",
+            "ar": "حوّل «الغراب» المعركة البحرية إلى قتال بين المشاة. وكانت روما قد بنت أسطولها أيضًا بنسخ سفينة قرطاجية جانحة."
+          },
+          "page": "/guerres-puniques"
+        },
+        {
+          "id": "guerres-10",
+          "q": {
+            "fr": "Quelle indemnité Rome impose-t-elle à Carthage par la paix de 201 av. J.-C. ?",
+            "en": "What indemnity does Rome impose on Carthage in the peace of 201 BC?",
+            "ar": "ما الغرامة التي فرضتها روما على قرطاج في صلح سنة 201 ق.م؟"
+          },
+          "choices": {
+            "fr": ["10 000 talents en 50 ans", "3 200 talents en 10 ans", "1 200 talents et la Sardaigne", "Aucune : la ville est détruite"],
+            "en": ["10,000 talents over 50 years", "3,200 talents over 10 years", "1,200 talents and Sardinia", "None: the city is destroyed"],
+            "ar": ["10 آلاف تالنت على 50 سنة", "3200 تالنت على 10 سنوات", "1200 تالنت وسردينيا", "لا شيء: دُمّرت المدينة"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Le traité de 201 impose 10 000 talents d'argent en 50 annuités, ne laisse que 10 trirèmes et interdit toute guerre sans l'accord de Rome. Les 3 200 talents étaient le prix de la première guerre.",
+            "en": "The treaty of 201 imposes 10,000 silver talents in 50 annual instalments, leaves only 10 triremes and forbids any war without Rome's consent. The 3,200 talents were the price of the First War.",
+            "ar": "فرضت معاهدة 201 عشرة آلاف تالنت من الفضة على 50 قسطًا سنويًا، ولم تُبقِ سوى 10 سفن ثلاثية المجاديف، وحظرت أي حرب دون موافقة روما. أما الـ3200 تالنت فكانت ثمن الحرب الأولى."
+          },
+          "page": "/guerres-puniques"
+        }
+      ]
+    },
+    {
+      "id": "religion",
+      "title": { "fr": "Religion et culture", "en": "Religion and culture", "ar": "الديانة والثقافة" },
+      "desc": {
+        "fr": "Baal Hammon, Tanit, Melqart, l'alphabet de 22 lettres, les noms-prières et l'art punique.",
+        "en": "Baal Hammon, Tanit, Melqart, the 22-letter alphabet, prayer-names and Punic art.",
+        "ar": "بعل حمون وتانيت وملقرت والأبجدية ذات الاثنين والعشرين حرفًا والأسماء-الأدعية والفن البونيقي."
+      },
+      "questions": [
+        {
+          "id": "religion-01",
+          "q": {
+            "fr": "Quel dieu, maître du ciel et de la fertilité, est représenté âgé et barbu sur un trône flanqué de sphinx ?",
+            "en": "Which god, master of the sky and of fertility, is shown old and bearded on a throne flanked by sphinxes?",
+            "ar": "أي إله، سيّد السماء والخصوبة، يُصوَّر شيخًا ملتحيًا على عرش تحفّ به أبو الهول؟"
+          },
+          "choices": {
+            "fr": ["Melqart", "Baal Hammon", "Eshmoun", "Reshef"],
+            "en": ["Melqart", "Baal Hammon", "Eshmun", "Reshef"],
+            "ar": ["ملقرت", "بعل حمون", "أشمون", "رشف"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Baal Hammon est le dieu suprême de Carthage. Sous Rome, il survit sous les traits du Saturne africain.",
+            "en": "Baal Hammon is the supreme god of Carthage. Under Rome, he lives on as the African Saturn.",
+            "ar": "بعل حمون هو الإله الأعلى في قرطاج. وفي العهد الروماني استمرّ في صورة ساتورن الإفريقي."
+          },
+          "page": "/religion"
+        },
+        {
+          "id": "religion-02",
+          "q": {
+            "fr": "Comment les stèles de Carthage désignent-elles la déesse Tanit ?",
+            "en": "How do the stelae of Carthage refer to the goddess Tanit?",
+            "ar": "كيف تسمّي نُصُب قرطاج الإلهة تانيت؟"
+          },
+          "choices": {
+            "fr": ["« Reine du ciel »", "« Mère des dieux »", "« Face de Baal »", "« Dame de Byrsa »"],
+            "en": ["“Queen of Heaven”", "“Mother of the gods”", "“Face of Baal”", "“Lady of Byrsa”"],
+            "ar": ["«ملكة السماء»", "«أمّ الآلهة»", "«وجه بعل»", "«سيّدة بيرصا»"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "« À la Dame Tanit, face de Baal, et au Seigneur Baal Hammon » : la formule ouvre une grande partie des stèles. Son signe — un triangle, une barre, un disque — est partout.",
+            "en": "“To the Lady Tanit, face of Baal, and to the Lord Baal Hammon”: this formula opens a large share of the stelae. Her sign — a triangle, a bar, a disc — is everywhere.",
+            "ar": "«إلى السيّدة تانيت وجه بعل، وإلى السيّد بعل حمون»: بهذه الصيغة يبدأ جزء كبير من النُّصُب. وعلامتها — مثلث وخطّ وقرص — حاضرة في كل مكان."
+          },
+          "page": "/religion"
+        },
+        {
+          "id": "religion-03",
+          "q": {
+            "fr": "Que signifie le nom de Melqart, le dieu venu de Tyr ?",
+            "en": "What does the name Melqart, the god from Tyre, mean?",
+            "ar": "ما معنى اسم ملقرت، الإله القادم من صور؟"
+          },
+          "choices": {
+            "fr": ["« Roi de la ville »", "« Seigneur des cieux »", "« Grâce de Baal »", "« Ville nouvelle »"],
+            "en": ["“King of the city”", "“Lord of the heavens”", "“Grace of Baal”", "“New city”"],
+            "ar": ["«ملك المدينة»", "«سيّد السماوات»", "«نعمة بعل»", "«المدينة الجديدة»"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Melqart, « roi de la ville », était le dieu de Tyr ; Carthage lui envoyait chaque année une offrande, et les Barcides le firent figurer sur leurs monnaies.",
+            "en": "Melqart, “king of the city”, was the god of Tyre; Carthage sent him an offering every year, and the Barcids put him on their coins.",
+            "ar": "ملقرت، «ملك المدينة»، هو إله صور؛ وكانت قرطاج ترسل إليه قربانًا كل سنة، وقد صوّره البرقيون على نقودهم."
+          },
+          "page": "/religion"
+        },
+        {
+          "id": "religion-04",
+          "q": {
+            "fr": "Quel dieu guérisseur avait son temple au sommet de la colline de Byrsa ?",
+            "en": "Which healing god had his temple on the summit of the Byrsa hill?",
+            "ar": "أي إله شافٍ كان معبده على قمّة تلّة بيرصا؟"
+          },
+          "choices": {
+            "fr": ["Reshef", "Sakon", "Baal Shamim", "Eshmoun"],
+            "en": ["Reshef", "Sakon", "Baal Shamim", "Eshmun"],
+            "ar": ["رشف", "سكون", "بعل شميم", "أشمون"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "Le temple d'Eshmoun, le plus grand de Carthage selon Appien, couronnait Byrsa. Les derniers défenseurs s'y réfugièrent en 146.",
+            "en": "The temple of Eshmun, the largest in Carthage according to Appian, crowned Byrsa. The last defenders took refuge there in 146.",
+            "ar": "كان معبد أشمون، أكبر معابد قرطاج بحسب أبيانوس، يتوّج بيرصا. وفيه لجأ آخر المدافعين سنة 146."
+          },
+          "page": "/religion"
+        },
+        {
+          "id": "religion-05",
+          "q": {
+            "fr": "Quelles déesses grecques Carthage adopte-t-elle en 396 av. J.-C., après qu'une épidémie a décimé son armée en Sicile ?",
+            "en": "Which Greek goddesses does Carthage adopt in 396 BC, after an epidemic decimated its army in Sicily?",
+            "ar": "أي إلهتين إغريقيتين تبنّت قرطاج عبادتهما سنة 396 ق.م بعد أن فتك وباء بجيشها في صقلية؟"
+          },
+          "choices": {
+            "fr": ["Athéna et Artémis", "Héra et Aphrodite", "Déméter et Korè", "Isis et Hathor"],
+            "en": ["Athena and Artemis", "Hera and Aphrodite", "Demeter and Kore", "Isis and Hathor"],
+            "ar": ["أثينا وأرتميس", "هيرا وأفروديت", "ديميتر وكوري", "إيزيس وحتحور"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "L'armée d'Himilcon avait pillé leur sanctuaire près de Syracuse. Pour apaiser les déesses, Carthage adopta leur culte et le confia à des prêtres grecs (Diodore).",
+            "en": "Himilco's army had looted their sanctuary near Syracuse. To appease the goddesses, Carthage adopted their cult and entrusted it to Greek priests (Diodorus).",
+            "ar": "كان جيش حملكون قد نهب معبدهما قرب سرقوسة. ولاسترضاء الإلهتين تبنّت قرطاج عبادتهما وعهدت بها إلى كهنة إغريق (ديودوروس)."
+          },
+          "page": "/religion"
+        },
+        {
+          "id": "religion-06",
+          "q": {
+            "fr": "Combien de lettres compte l'alphabet phénicien ?",
+            "en": "How many letters does the Phoenician alphabet have?",
+            "ar": "كم حرفًا تضمّ الأبجدية الفينيقية؟"
+          },
+          "choices": {
+            "fr": ["22", "26", "28", "32"],
+            "en": ["22", "26", "28", "32"],
+            "ar": ["22", "26", "28", "32"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Vingt-deux lettres, toutes des consonnes : aucune voyelle n'était notée dans l'écriture phénicienne classique.",
+            "en": "Twenty-two letters, all consonants: no vowel was written in classical Phoenician script.",
+            "ar": "اثنان وعشرون حرفًا، كلّها صوامت: لم تكن الكتابة الفينيقية الكلاسيكية تدوّن أي حرف صائت."
+          },
+          "page": "/langue-ecriture"
+        },
+        {
+          "id": "religion-07",
+          "q": {
+            "fr": "Dans quel sens s'écrit l'alphabet phénicien ?",
+            "en": "In which direction is the Phoenician alphabet written?",
+            "ar": "في أي اتجاه تُكتب الأبجدية الفينيقية؟"
+          },
+          "choices": {
+            "fr": ["De gauche à droite", "De haut en bas", "Alternativement dans les deux sens", "De droite à gauche"],
+            "en": ["Left to right", "Top to bottom", "Alternately in both directions", "Right to left"],
+            "ar": ["من اليسار إلى اليمين", "من الأعلى إلى الأسفل", "في الاتجاهين بالتناوب", "من اليمين إلى اليسار"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "Le phénicien s'écrit de droite à gauche. Emprunté par les Grecs, qui y ajoutèrent des voyelles, il est à l'origine de notre alphabet — et, par l'araméen, de l'alphabet arabe.",
+            "en": "Phoenician is written right to left. Borrowed by the Greeks, who added vowels, it is the origin of our alphabet — and, through Aramaic, of the Arabic alphabet.",
+            "ar": "تُكتب الفينيقية من اليمين إلى اليسار. وقد أخذها الإغريق وأضافوا إليها الصوائت، فهي أصل الأبجدية اللاتينية، ومنها عبر الآرامية جاءت الأبجدية العربية."
+          },
+          "page": "/langue-ecriture"
+        },
+        {
+          "id": "religion-08",
+          "q": {
+            "fr": "Que signifie le nom punique Hannibal ?",
+            "en": "What does the Punic name Hannibal mean?",
+            "ar": "ما معنى الاسم البونيقي حنبعل؟"
+          },
+          "choices": {
+            "fr": ["« Frère de Melqart »", "« Grâce de Baal »", "« Baal est mon aide »", "« Serviteur de Melqart »"],
+            "en": ["“Brother of Melqart”", "“Grace of Baal”", "“Baal is my help”", "“Servant of Melqart”"],
+            "ar": ["«أخو ملقرت»", "«نعمة بعل»", "«بعل عوني»", "«عبد ملقرت»"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Hannibal (Ḥnbʿl) signifie « grâce de Baal ». Les noms puniques sont souvent de courtes prières : Hasdrubal, « Baal est mon aide » ; Hamilcar, « frère de Melqart ».",
+            "en": "Hannibal (Ḥnbʿl) means “grace of Baal”. Punic names are often short prayers: Hasdrubal, “Baal is my help”; Hamilcar, “brother of Melqart”.",
+            "ar": "حنبعل (Ḥnbʿl) يعني «نعمة بعل». والأسماء البونيقية كثيرًا ما تكون أدعية قصيرة: صدربعل «بعل عوني»، وحملقار «أخو ملقرت»."
+          },
+          "page": "/vie-quotidienne"
+        },
+        {
+          "id": "religion-09",
+          "q": {
+            "fr": "À quoi servaient les masques grimaçants en terre cuite retrouvés à Carthage ?",
+            "en": "What were the grimacing terracotta masks found at Carthage used for?",
+            "ar": "فيمَ كانت تُستعمل الأقنعة المتجهّمة المصنوعة من الطين المشوي التي عُثر عليها في قرطاج؟"
+          },
+          "choices": {
+            "fr": ["À éloigner les démons", "Au théâtre comique", "Aux couronnements des suffètes", "Aux fêtes de la moisson"],
+            "en": ["To ward off demons", "For comic theatre", "For the investiture of sufetes", "For harvest festivals"],
+            "ar": ["لإبعاد الشياطين", "للمسرح الهزلي", "لتنصيب الشفطين", "لأعياد الحصاد"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Rides creusées, bouche tordue : ces masques, d'origine sans doute levantine, étaient suspendus ou déposés dans les tombes pour protéger des démons.",
+            "en": "Deep wrinkles, twisted mouth: these masks, probably of Levantine origin, were hung up or placed in tombs to protect against demons.",
+            "ar": "تجاعيد عميقة وفم ملتوٍ: هذه الأقنعة، المشرقية الأصل على الأرجح، كانت تُعلَّق أو توضع في القبور للحماية من الشياطين."
+          },
+          "page": "/art-et-artisanat"
+        },
+        {
+          "id": "religion-10",
+          "q": {
+            "fr": "L'inscription bilingue du mausolée de Dougga associe le punique et :",
+            "en": "The bilingual inscription from the Dougga mausoleum combines Punic and:",
+            "ar": "يجمع النقش الثنائي اللغة في ضريح دقة بين البونيقية و:"
+          },
+          "choices": {
+            "fr": ["le grec", "le latin", "le libyque", "l'étrusque"],
+            "en": ["Greek", "Latin", "Libyan (Libyco-Berber)", "Etruscan"],
+            "ar": ["الإغريقية", "اللاتينية", "الليبية", "الإتروسكية"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "Ce texte en punique et en libyque est une clé pour déchiffrer l'écriture libyque. Arraché en 1842 par le consul britannique Thomas Reade, il se trouve au British Museum.",
+            "en": "This text in Punic and Libyan is a key to deciphering the Libyan script. Torn off in 1842 by the British consul Thomas Reade, it is now in the British Museum.",
+            "ar": "هذا النص بالبونيقية والليبية مفتاح لفكّ الكتابة الليبية. انتزعه القنصل البريطاني توماس ريد سنة 1842، وهو اليوم في المتحف البريطاني."
+          },
+          "page": "/langue-ecriture"
+        }
+      ]
+    },
+    {
+      "id": "economie",
+      "title": { "fr": "Économie et vie quotidienne", "en": "Economy and daily life", "ar": "الاقتصاد والحياة اليومية" },
+      "desc": {
+        "fr": "Pourpre, étain, garum, le traité de Magon, la table et la maison puniques.",
+        "en": "Purple dye, tin, garum, Mago's treatise, the Punic table and home.",
+        "ar": "الأرجوان والقصدير والغاروم وكتاب ماغون والمائدة والبيت البونيقيان."
+      },
+      "questions": [
+        {
+          "id": "economie-01",
+          "q": {
+            "fr": "De quel coquillage les Carthaginois tiraient-ils la teinture pourpre ?",
+            "en": "From which shellfish did the Carthaginians extract purple dye?",
+            "ar": "من أي صدفة بحرية كان القرطاجيون يستخرجون صبغة الأرجوان؟"
+          },
+          "choices": {
+            "fr": ["L'huître", "La moule", "Le murex", "La coquille Saint-Jacques"],
+            "en": ["The oyster", "The mussel", "The murex", "The scallop"],
+            "ar": ["المحار", "بلح البحر", "الموريكس", "الإسقلوب"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "Il fallait des milliers de murex pour quelques grammes de colorant. À Kerkouane, des amas de coquilles broyées signalent les ateliers de teinture.",
+            "en": "Thousands of murex shells were needed for a few grams of dye. At Kerkouane, heaps of crushed shells mark the dye workshops.",
+            "ar": "كانت آلاف من أصداف الموريكس لازمة لبضعة غرامات من الصبغ. وفي كركوان تدلّ أكوام الأصداف المسحوقة على ورشات الصباغة."
+          },
+          "page": "/economie"
+        },
+        {
+          "id": "economie-02",
+          "q": {
+            "fr": "En combien de livres l'agronome carthaginois Magon rédigea-t-il son traité d'agriculture ?",
+            "en": "In how many books did the Carthaginian agronomist Mago write his treatise on agriculture?",
+            "ar": "في كم كتابًا ألّف المهندس الزراعي القرطاجي ماغون موسوعته في الفلاحة؟"
+          },
+          "choices": {
+            "fr": ["6", "28", "12", "50"],
+            "en": ["6", "28", "12", "50"],
+            "ar": ["6", "28", "12", "50"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Ce traité en 28 livres est le seul ouvrage punique que le Sénat romain fit traduire en latin, après la prise de Carthage en 146.",
+            "en": "This 28-book treatise is the only Punic work the Roman Senate had translated into Latin, after the capture of Carthage in 146.",
+            "ar": "هذه الموسوعة ذات الثمانية والعشرين كتابًا هي المؤلَّف البونيقي الوحيد الذي أمر مجلس الشيوخ الروماني بترجمته إلى اللاتينية بعد سقوط قرطاج سنة 146."
+          },
+          "page": "/magon-agronome"
+        },
+        {
+          "id": "economie-03",
+          "q": {
+            "fr": "Quel agronome romain appelle Magon « le père de l'agriculture » ?",
+            "en": "Which Roman agronomist calls Mago “the father of agriculture”?",
+            "ar": "أي مهندس زراعي روماني سمّى ماغون «أبا الفلاحة»؟"
+          },
+          "choices": {
+            "fr": ["Caton l'Ancien", "Varron", "Pline l'Ancien", "Columelle"],
+            "en": ["Cato the Elder", "Varro", "Pliny the Elder", "Columella"],
+            "ar": ["كاتو الأكبر", "فارو", "بلينيوس الأكبر", "كولوميلا"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "« Magon le Carthaginois, père de l'agriculture » (Columelle, I, 1, 13). Columelle a aussi conservé sa recette du passum, un vin de raisins séchés.",
+            "en": "“Mago the Carthaginian, father of agriculture” (Columella, I, 1, 13). Columella also preserved his recipe for passum, a wine made from dried grapes.",
+            "ar": "«ماغون القرطاجي، أبو الفلاحة» (كولوميلا، I، 1، 13). وقد حفظ كولوميلا أيضًا وصفته لـ«الباسوم»، وهو نبيذ من العنب المجفّف."
+          },
+          "page": "/magon-agronome"
+        },
+        {
+          "id": "economie-04",
+          "q": {
+            "fr": "Selon Hérodote, comment les Carthaginois commerçaient-ils avec les peuples vivant au-delà des Colonnes d'Hercule ?",
+            "en": "According to Herodotus, how did the Carthaginians trade with the peoples living beyond the Pillars of Hercules?",
+            "ar": "بحسب هيرودوت، كيف كان القرطاجيون يتاجرون مع الشعوب المقيمة وراء أعمدة هرقل؟"
+          },
+          "choices": {
+            "fr": ["Par l'intermédiaire d'interprètes libyens", "En déposant leurs marchandises sur la plage, sans jamais parler aux habitants", "En payant en monnaies d'argent", "Par des caravanes à travers le Sahara"],
+            "en": ["Through Libyan interpreters", "By leaving their goods on the beach, without ever speaking to the inhabitants", "By paying in silver coins", "Through caravans across the Sahara"],
+            "ar": ["بواسطة تراجمة ليبيين", "بوضع بضائعهم على الشاطئ دون أن يكلّموا السكان قطّ", "بالدفع بنقود فضية", "بقوافل تعبر الصحراء"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Les Carthaginois déposaient leurs marchandises et se retiraient ; les habitants posaient de l'or à côté. On recommençait jusqu'à l'accord — sans tricher, dit Hérodote.",
+            "en": "The Carthaginians laid out their goods and withdrew; the inhabitants placed gold beside them. This was repeated until both agreed — without cheating, says Herodotus.",
+            "ar": "كان القرطاجيون يضعون بضائعهم وينسحبون، فيضع السكان الذهب بجانبها، ويتكرّر ذلك حتى يتّفق الطرفان — دون غشّ، كما يقول هيرودوت."
+          },
+          "page": "/economie"
+        },
+        {
+          "id": "economie-05",
+          "q": {
+            "fr": "Pourquoi l'étain des « îles Cassitérides » était-il si précieux pour Carthage ?",
+            "en": "Why was tin from the “Cassiterides islands” so valuable to Carthage?",
+            "ar": "لماذا كان قصدير «جزر القصدير» (الكاسيتيريدات) ثمينًا إلى هذا الحدّ لدى قرطاج؟"
+          },
+          "choices": {
+            "fr": ["Il était indispensable pour fabriquer le bronze", "Il servait à teindre les étoffes", "On en frappait les monnaies", "Il entrait dans la fabrication du verre"],
+            "en": ["It was essential for making bronze", "It was used to dye fabrics", "Coins were struck from it", "It was used to make glass"],
+            "ar": ["لأنه لا غنى عنه لصنع البرونز", "لأنه يُستعمل في صبغ الأقمشة", "لأن النقود كانت تُسكّ منه", "لأنه يدخل في صناعة الزجاج"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Sans étain, pas de bronze. Venu du nord-ouest de l'Europe, il suivait une route atlantique qu'explora Himilcon et dont Carthage gardait jalousement le secret.",
+            "en": "No tin, no bronze. Coming from north-western Europe, it followed an Atlantic route explored by Himilco, which Carthage jealously kept secret.",
+            "ar": "لا برونز بلا قصدير. وكان يأتي من شمال غرب أوروبا عبر طريق أطلسية استكشفها حملكون، وكانت قرطاج تكتم سرّها بحرص."
+          },
+          "page": "/economie"
+        },
+        {
+          "id": "economie-06",
+          "q": {
+            "fr": "Qu'est-ce que le garum, dont le monde punique a répandu l'usage en Méditerranée ?",
+            "en": "What is garum, whose use the Punic world spread around the Mediterranean?",
+            "ar": "ما هو الغاروم الذي نشر العالم البونيقي استعماله في المتوسط؟"
+          },
+          "choices": {
+            "fr": ["Un vin de raisins séchés", "Une bouillie de céréales", "Une teinture rouge", "Une sauce de poisson"],
+            "en": ["A wine made from dried grapes", "A cereal porridge", "A red dye", "A fish sauce"],
+            "ar": ["نبيذ من العنب المجفّف", "عصيدة من الحبوب", "صبغة حمراء", "صلصة سمك"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "Le garum, sauce de poissons gras, servait en cuisine et comme remède. Rome en reprendra la production à grande échelle.",
+            "en": "Garum, a sauce made from oily fish, was used in cooking and as a remedy. Rome would take over its production on a large scale.",
+            "ar": "الغاروم صلصة من الأسماك الدهنية، كانت تُستعمل في الطبخ وكدواء. وستتولّى روما إنتاجه على نطاق واسع."
+          },
+          "page": "/economie"
+        },
+        {
+          "id": "economie-07",
+          "q": {
+            "fr": "Quel fruit les Romains appelaient-ils malum punicum, la « pomme punique » ?",
+            "en": "Which fruit did the Romans call malum punicum, the “Punic apple”?",
+            "ar": "أي ثمرة سمّاها الرومان «مالوم بونيكوم»، أي «التفاحة البونيقية»؟"
+          },
+          "choices": {
+            "fr": ["La figue", "La grenade", "La datte", "Le coing"],
+            "en": ["The fig", "The pomegranate", "The date", "The quince"],
+            "ar": ["التين", "الرمّان", "التمر", "السفرجل"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "La grenade, cultivée dans les vergers de Carthage aux côtés du figuier et de l'amandier, portait ce nom chez les Romains.",
+            "en": "The pomegranate, grown in Carthage's orchards alongside the fig and almond trees, bore this name among the Romans.",
+            "ar": "الرمّان، الذي كان يُزرع في بساتين قرطاج إلى جانب التين واللوز، حمل هذا الاسم عند الرومان."
+          },
+          "page": "/agriculture"
+        },
+        {
+          "id": "economie-08",
+          "q": {
+            "fr": "Selon Pline, qu'aurait brandi Caton au Sénat pour montrer que Carthage n'était qu'à trois jours de mer ?",
+            "en": "According to Pliny, what did Cato brandish in the Senate to show that Carthage was only three days away by sea?",
+            "ar": "بحسب بلينيوس، ماذا رفع كاتو في مجلس الشيوخ ليُثبت أن قرطاج لا تبعد سوى ثلاثة أيام بحرًا؟"
+          },
+          "choices": {
+            "fr": ["Une amphore d'huile", "Une pièce d'or punique", "Une figue fraîche cueillie à Carthage", "Une grenade"],
+            "en": ["An amphora of oil", "A Punic gold coin", "A fresh fig picked at Carthage", "A pomegranate"],
+            "ar": ["جرّة زيت", "قطعة نقد ذهبية بونيقية", "تينة طازجة قُطفت في قرطاج", "رمّانة"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "La figue, encore fraîche, prouvait la proximité de l'ennemi. Caton concluait ses discours par « Carthago delenda est » : il faut détruire Carthage.",
+            "en": "The fig, still fresh, proved how close the enemy was. Cato ended his speeches with “Carthago delenda est”: Carthage must be destroyed.",
+            "ar": "كانت التينة، وهي لا تزال طازجة، دليلًا على قرب العدو. وكان كاتو يختم خطبه بعبارة «يجب تدمير قرطاج»."
+          },
+          "page": "/vie-quotidienne"
+        },
+        {
+          "id": "economie-09",
+          "q": {
+            "fr": "La « puls punica » dont Caton donne la recette est une bouillie de céréales mêlée de :",
+            "en": "The “puls punica” whose recipe Cato gives is a cereal porridge mixed with:",
+            "ar": "«العصيدة البونيقية» التي أورد كاتو وصفتها هي عصيدة حبوب ممزوجة بـ:"
+          },
+          "choices": {
+            "fr": ["fromage frais, miel et œuf", "poisson et garum", "dattes et lait de chèvre", "huile d'olive et lentilles"],
+            "en": ["fresh cheese, honey and egg", "fish and garum", "dates and goat's milk", "olive oil and lentils"],
+            "ar": ["جبن طري وعسل وبيضة", "سمك وغاروم", "تمر وحليب ماعز", "زيت زيتون وعدس"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Caton (De agricultura, 85) mêle une livre d'alica à du fromage frais, du miel et un œuf. C'est une recette romaine « à la punique », pas forcément le repas quotidien des Carthaginois.",
+            "en": "Cato (De agricultura, 85) mixes a pound of alica with fresh cheese, honey and an egg. It is a Roman recipe “in the Punic style”, not necessarily what Carthaginians ate every day.",
+            "ar": "يمزج كاتو (في الفلاحة، 85) رطلًا من «الأليكا» بجبن طري وعسل وبيضة. إنها وصفة رومانية «على الطريقة البونيقية»، لا بالضرورة طعام القرطاجيين اليومي."
+          },
+          "page": "/vie-quotidienne"
+        },
+        {
+          "id": "economie-10",
+          "q": {
+            "fr": "Quel équipement, rare dans le monde antique de l'époque, trouve-t-on dans de nombreuses maisons de Kerkouane ?",
+            "en": "What amenity, rare in the ancient world at the time, is found in many houses at Kerkouane?",
+            "ar": "أي مرفق، نادر في العالم القديم آنذاك، يوجد في كثير من بيوت كركوان؟"
+          },
+          "choices": {
+            "fr": ["Une salle d'eau avec baignoire-sabot", "Une cheminée", "Un four à pain collectif", "Une fontaine publique devant chaque maison"],
+            "en": ["A washroom with a hip-bath", "A fireplace", "A shared bread oven", "A public fountain in front of each house"],
+            "ar": ["حمّام صغير بحوض استحمام جلوسي", "مدفأة", "فرن خبز جماعي", "نافورة عمومية أمام كل بيت"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Beaucoup de maisons possèdent une petite salle d'eau avec une baignoire-sabot enduite, munie d'un siège. Chaque foyer avait aussi sa citerne remplie par les eaux de pluie.",
+            "en": "Many houses have a small washroom with a plastered hip-bath fitted with a seat. Each household also had its own cistern filled by rainwater.",
+            "ar": "في كثير من البيوت حمّام صغير بحوض جلوسي مطليّ مزوّد بمقعد. وكان لكل أسرة أيضًا صهريجها الذي تملؤه مياه الأمطار."
+          },
+          "page": "/vie-quotidienne"
+        }
+      ]
+    },
+    {
+      "id": "personnages",
+      "title": { "fr": "Personnages", "en": "People", "ar": "الشخصيات" },
+      "desc": {
+        "fr": "Les Barcides, Sophonisbe, Hannon le Navigateur, Massinissa et Hannon le Grand.",
+        "en": "The Barcids, Sophonisba, Hanno the Navigator, Masinissa and Hanno the Great.",
+        "ar": "البرقيون وصوفونيسبا وحنون الملّاح وماسينيسا وحنون الكبير."
+      },
+      "questions": [
+        {
+          "id": "personnages-01",
+          "q": {
+            "fr": "Que signifie le surnom Barca d'Hamilcar, venu du punique baraq ?",
+            "en": "What does Hamilcar's surname Barca, from the Punic baraq, mean?",
+            "ar": "ما معنى لقب «برقا» الذي حمله حملقار، المشتقّ من البونيقية «براق»؟"
+          },
+          "choices": {
+            "fr": ["« Le lion »", "« La foudre »", "« Le navire »", "« Le fidèle »"],
+            "en": ["“The lion”", "“The thunderbolt”", "“The ship”", "“The faithful”"],
+            "ar": ["«الأسد»", "«الصاعقة»", "«السفينة»", "«الوفيّ»"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Barca viendrait de baraq, « l'éclair », « la foudre ». Invaincu en Sicile, Hamilcar est jugé par Polybe le meilleur général de la première guerre punique.",
+            "en": "Barca is thought to come from baraq, “lightning”, “thunderbolt”. Undefeated in Sicily, Hamilcar is judged by Polybius the best general of the First Punic War.",
+            "ar": "يُرجَّح أن «برقا» مشتقّة من «براق»، أي البرق والصاعقة. ولم يُهزم حملقار في صقلية، ويعدّه بوليبيوس أفضل قادة الحرب البونيقية الأولى."
+          },
+          "page": "/hamilcar"
+        },
+        {
+          "id": "personnages-02",
+          "q": {
+            "fr": "Comment meurt Hamilcar Barca, en 229/228 av. J.-C. ?",
+            "en": "How does Hamilcar Barca die, in 229/228 BC?",
+            "ar": "كيف مات حملقار برقا سنة 229/228 ق.م؟"
+          },
+          "choices": {
+            "fr": ["Assassiné dans sa résidence par un Celte", "Empoisonné sur ordre du Sénat", "Noyé dans une rivière en couvrant la fuite de ses fils", "Tué au combat aux îles Égates"],
+            "en": ["Murdered in his residence by a Celt", "Poisoned on the Senate's orders", "Drowned in a river while covering his sons' escape", "Killed in battle at the Aegates Islands"],
+            "ar": ["اغتاله رجل كلتي في مقرّه", "سُمّم بأمر من مجلس الشيوخ", "غرق في نهر وهو يحمي فرار أبنائه", "قُتل في معركة جزر إيغاتس"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "Trahi par le roi des Orissi pendant le siège d'Héliké, en Hispanie, il se noie en protégeant ses fils. C'est son gendre Hasdrubal le Beau qui sera, lui, assassiné par un Celte en 221.",
+            "en": "Betrayed by the king of the Orissi during the siege of Helike, in Hispania, he drowns while protecting his sons. It is his son-in-law Hasdrubal the Fair who would be murdered by a Celt in 221.",
+            "ar": "خانه ملك الأوريسيين أثناء حصار هيليكي في هسبانيا، فغرق وهو يحمي أبناءه. أما صهره صدربعل الجميل فهو الذي اغتاله رجل كلتي سنة 221."
+          },
+          "page": "/hamilcar"
+        },
+        {
+          "id": "personnages-03",
+          "q": {
+            "fr": "Qui fonde, vers 227 av. J.-C., Qart Hadasht, la future Carthagène, en Espagne ?",
+            "en": "Who founds Qart Hadasht, the future Cartagena, in Spain around 227 BC?",
+            "ar": "مَن أسّس نحو سنة 227 ق.م «قرت حدشت»، أي قرطاجنة لاحقًا، في إسبانيا؟"
+          },
+          "choices": {
+            "fr": ["Hasdrubal le Beau", "Hamilcar Barca", "Hannibal", "Magon Barca"],
+            "en": ["Hasdrubal the Fair", "Hamilcar Barca", "Hannibal", "Mago Barca"],
+            "ar": ["صدربعل الجميل", "حملقار برقا", "حنبعل", "ماغون برقا"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Gendre d'Hamilcar, Hasdrubal le Beau fonde la « Ville nouvelle », capitale de l'Hispanie barcide, près des mines d'argent. Hamilcar, lui, avait fondé Akra Leukè.",
+            "en": "Hamilcar's son-in-law, Hasdrubal the Fair, founds the “New City”, capital of Barcid Hispania, near the silver mines. Hamilcar, for his part, had founded Akra Leuke.",
+            "ar": "أسّس صدربعل الجميل، صهر حملقار، «المدينة الجديدة» عاصمةً لهسبانيا البرقية قرب مناجم الفضة. أما حملقار فكان قد أسّس «أكرا لوكي»."
+          },
+          "page": "/hasdrubal"
+        },
+        {
+          "id": "personnages-04",
+          "q": {
+            "fr": "Où meurt Hasdrubal Barca en 207 av. J.-C., en tentant de rejoindre son frère Hannibal en Italie ?",
+            "en": "Where does Hasdrubal Barca die in 207 BC, while trying to join his brother Hannibal in Italy?",
+            "ar": "أين قُتل صدربعل برقا سنة 207 ق.م وهو يحاول اللحاق بأخيه حنبعل في إيطاليا؟"
+          },
+          "choices": {
+            "fr": ["À Ilipa", "À Zama", "À Sagonte", "Au Métaure"],
+            "en": ["At Ilipa", "At Zama", "At Saguntum", "At the Metaurus"],
+            "ar": ["في إيليبا", "في زاما", "في ساغونتوم", "عند نهر الميتاورو"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "Hasdrubal franchit à son tour les Alpes, mais le consul Néron amène 7 000 soldats d'élite à marches forcées. Il est tué au Métaure ; sa tête est jetée devant le camp d'Hannibal.",
+            "en": "Hasdrubal crosses the Alps in turn, but the consul Nero brings 7,000 elite soldiers by forced marches. He is killed at the Metaurus; his head is thrown in front of Hannibal's camp.",
+            "ar": "عبر صدربعل جبال الألب بدوره، لكن القنصل نيرون جاء بسبعة آلاف جندي من النخبة في مسيرات مُجهِدة. قُتل عند الميتاورو، ورُمي رأسه أمام معسكر حنبعل."
+          },
+          "page": "/hasdrubal"
+        },
+        {
+          "id": "personnages-05",
+          "q": {
+            "fr": "Qu'apporte Magon Barca au Sénat de Carthage pour prouver la victoire de Cannes ?",
+            "en": "What does Mago Barca bring to the Senate of Carthage to prove the victory of Cannae?",
+            "ar": "ماذا حمل ماغون برقا إلى مجلس شيوخ قرطاج دليلًا على النصر في كاناي؟"
+          },
+          "choices": {
+            "fr": ["Les aigles des légions", "Les anneaux d'or des chevaliers romains tués", "La tête du consul Paul Émile", "Le trésor du camp romain"],
+            "en": ["The legions' eagles", "The gold rings of the Roman knights killed", "The head of the consul Aemilius Paullus", "The treasure of the Roman camp"],
+            "ar": ["نسور الفيالق", "الخواتم الذهبية للفرسان الرومان القتلى", "رأس القنصل إيميليوس باولوس", "خزينة المعسكر الروماني"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Il fit répandre sur le seuil de la curie les anneaux d'or, insigne de l'élite romaine. Hannon ironisa : si Hannibal est vainqueur, pourquoi réclame-t-il des hommes et de l'argent ?",
+            "en": "He had the gold rings, insignia of the Roman elite, poured out on the threshold of the senate house. Hanno scoffed: if Hannibal is victorious, why does he ask for men and money?",
+            "ar": "نثر الخواتم الذهبية، شارة النخبة الرومانية، على عتبة قاعة المجلس. فسخر حنون: إن كان حنبعل منتصرًا فلماذا يطلب الرجال والمال؟"
+          },
+          "page": "/magon-barca"
+        },
+        {
+          "id": "personnages-06",
+          "q": {
+            "fr": "Quel port des Baléares tirerait son nom de Magon Barca, qui y hiverna en 206/205 av. J.-C. ?",
+            "en": "Which Balearic port supposedly takes its name from Mago Barca, who wintered there in 206/205 BC?",
+            "ar": "أي ميناء في جزر البليار يُقال إنه أخذ اسمه من ماغون برقا الذي قضى فيه شتاء 206/205 ق.م؟"
+          },
+          "choices": {
+            "fr": ["Palma, à Majorque", "Ibiza", "Mahón, à Minorque", "Ciutadella, à Minorque"],
+            "en": ["Palma, on Majorca", "Ibiza", "Mahón, on Minorca", "Ciutadella, on Minorca"],
+            "ar": ["بالما في مايوركا", "إيبيزا", "ماهون في مينوركا", "سيوتاديلا في مينوركا"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "Repoussé à Majorque par les frondeurs, Magon débarque à Minorque et y hiverne. La tradition fait dériver le nom de Mahón de Portus Magonis, le « port de Magon ».",
+            "en": "Driven off Majorca by the slingers, Mago lands on Minorca and winters there. Tradition derives the name Mahón from Portus Magonis, “Mago's port”.",
+            "ar": "صدّه رماة المقلاع عن مايوركا، فنزل في مينوركا وقضى فيها الشتاء. ويشتقّ التقليد اسم ماهون من «بورتوس ماغونيس»، أي «ميناء ماغون»."
+          },
+          "page": "/magon-barca"
+        },
+        {
+          "id": "personnages-07",
+          "q": {
+            "fr": "Quels rois numides Sophonisbe épouse-t-elle successivement ?",
+            "en": "Which Numidian kings does Sophonisba marry in succession?",
+            "ar": "أي ملكين نوميديين تزوّجت صوفونيسبا على التوالي؟"
+          },
+          "choices": {
+            "fr": ["Syphax, puis Massinissa", "Massinissa, puis Syphax", "Gaïa, puis Syphax", "Micipsa, puis Massinissa"],
+            "en": ["Syphax, then Masinissa", "Masinissa, then Syphax", "Gaia, then Syphax", "Micipsa, then Masinissa"],
+            "ar": ["سيفاكس ثم ماسينيسا", "ماسينيسا ثم سيفاكس", "غايا ثم سيفاكس", "ميكيبسا ثم ماسينيسا"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Donnée à Syphax pour sceller l'alliance numide, elle épouse Massinissa le jour même de la chute de Cirta, en 203. Réclamée par Scipion pour son triomphe, elle boit le poison.",
+            "en": "Given to Syphax to seal the Numidian alliance, she marries Masinissa on the very day Cirta falls, in 203. Claimed by Scipio for his triumph, she drinks the poison.",
+            "ar": "زُوّجت من سيفاكس لتوثيق التحالف النوميدي، ثم تزوّجت ماسينيسا يوم سقوط سيرتا نفسه سنة 203. ولمّا طالب بها سكيبيو لموكب نصره شربت السمّ."
+          },
+          "page": "/sophonisbe"
+        },
+        {
+          "id": "personnages-08",
+          "q": {
+            "fr": "Quel mot, tiré du Périple d'Hannon, a servi en 1847 à nommer un grand singe d'Afrique ?",
+            "en": "Which word, taken from the Periplus of Hanno, was used in 1847 to name a great ape of Africa?",
+            "ar": "أي كلمة مأخوذة من «رحلة حنون» استُعملت سنة 1847 لتسمية قرد إفريقي كبير؟"
+          },
+          "choices": {
+            "fr": ["Chimpanzé", "Babouin", "Orang-outan", "Gorille"],
+            "en": ["Chimpanzee", "Baboon", "Orangutan", "Gorilla"],
+            "ar": ["شمبانزي", "بابون", "أورانغوتان", "غوريلا"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "Le Périple décrit des êtres velus que les interprètes appelaient « gorilles ». Les naturalistes Savage et Wyman reprirent le mot pour le grand singe d'Afrique centrale.",
+            "en": "The Periplus describes hairy beings that the interpreters called “gorillas”. The naturalists Savage and Wyman reused the word for the great ape of Central Africa.",
+            "ar": "تصف «الرحلة» كائنات مكسوّة بالشعر كان التراجمة يسمّونها «غوريلا». وقد أخذ عالما الطبيعة سافاج ووايمان الكلمة لتسمية القرد الكبير في وسط إفريقيا."
+          },
+          "page": "/hannon"
+        },
+        {
+          "id": "personnages-09",
+          "q": {
+            "fr": "Où Massinissa, futur roi de Numidie, fut-il éduqué dans sa jeunesse, selon Appien ?",
+            "en": "Where was Masinissa, future king of Numidia, educated in his youth, according to Appian?",
+            "ar": "أين تلقّى ماسينيسا، ملك نوميديا لاحقًا، تعليمه في شبابه بحسب أبيانوس؟"
+          },
+          "choices": {
+            "fr": ["À Rome", "À Carthage", "À Athènes", "À Syracuse"],
+            "en": ["In Rome", "In Carthage", "In Athens", "In Syracuse"],
+            "ar": ["في روما", "في قرطاج", "في أثينا", "في سرقوسة"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Formé à Carthage, il combat d'abord pour elle en Hispanie, puis passe à Rome en 206 et décide de la victoire de Zama avec sa cavalerie.",
+            "en": "Educated at Carthage, he first fights for her in Hispania, then goes over to Rome in 206 and decides the victory of Zama with his cavalry.",
+            "ar": "تكوّن في قرطاج وقاتل أولًا إلى جانبها في هسبانيا، ثم انحاز إلى روما سنة 206 وحسم بفرسانه النصر في زاما."
+          },
+          "page": "/massinissa"
+        },
+        {
+          "id": "personnages-10",
+          "q": {
+            "fr": "Après la prise de Sagonte, que propose Hannon le Grand au Sénat de Carthage, selon Tite-Live ?",
+            "en": "After the fall of Saguntum, what does Hanno the Great propose to the Senate of Carthage, according to Livy?",
+            "ar": "بعد سقوط ساغونتوم، ماذا اقترح حنون الكبير على مجلس شيوخ قرطاج بحسب تيتوس ليفيوس؟"
+          },
+          "choices": {
+            "fr": ["De livrer Hannibal aux Romains", "De déclarer la guerre à Rome", "D'envoyer des renforts en Espagne", "De s'allier à la Macédoine"],
+            "en": ["To hand Hannibal over to the Romans", "To declare war on Rome", "To send reinforcements to Spain", "To ally with Macedon"],
+            "ar": ["تسليم حنبعل للرومان", "إعلان الحرب على روما", "إرسال تعزيزات إلى إسبانيا", "التحالف مع مقدونيا"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Adversaire des Barcides, Hannon rappelle la paix jurée et propose de livrer Hannibal pour éviter la guerre. Le Sénat choisit la guerre.",
+            "en": "An opponent of the Barcids, Hanno recalls the sworn peace and proposes handing Hannibal over to avoid war. The Senate chooses war.",
+            "ar": "ذكّر حنون، خصم البرقيين، بالصلح المُقسَم عليه واقترح تسليم حنبعل تجنّبًا للحرب. لكن المجلس اختار الحرب."
+          },
+          "page": "/hannon-le-grand"
+        }
+      ]
+    },
+    {
+      "id": "tunisie",
+      "title": { "fr": "Carthage et la Tunisie d'aujourd'hui", "en": "Carthage and today's Tunisia", "ar": "قرطاج وتونس اليوم" },
+      "desc": {
+        "fr": "Le nom de l'Afrique, Kairouan, le palais présidentiel, l'UNESCO et la paix signée avec Rome en 1985.",
+        "en": "The name of Africa, Kairouan, the presidential palace, UNESCO and the peace signed with Rome in 1985.",
+        "ar": "اسم إفريقيا والقيروان والقصر الرئاسي واليونسكو والصلح الموقَّع مع روما سنة 1985."
+      },
+      "questions": [
+        {
+          "id": "tunisie-01",
+          "q": {
+            "fr": "D'où vient le nom du continent africain ?",
+            "en": "Where does the name of the African continent come from?",
+            "ar": "من أين جاء اسم القارة الإفريقية؟"
+          },
+          "choices": {
+            "fr": ["Des Afri, nom que les Romains donnaient aux habitants de la région de Carthage", "D'un roi libyque nommé Afer", "D'une déesse égyptienne du désert", "Du nom grec du détroit de Gibraltar"],
+            "en": ["From the Afri, the name the Romans gave to the people of the Carthage region", "From a Libyan king named Afer", "From an Egyptian desert goddess", "From the Greek name of the Strait of Gibraltar"],
+            "ar": ["من «الأفري»، الاسم الذي أطلقه الرومان على سكان منطقة قرطاج", "من ملك ليبي يُدعى أفر", "من إلهة مصرية للصحراء", "من الاسم الإغريقي لمضيق جبل طارق"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Après 146 av. J.-C., Rome crée la province d'Africa dans le nord-est de l'actuelle Tunisie. L'origine du mot Afri, elle, reste discutée.",
+            "en": "After 146 BC, Rome creates the province of Africa in the north-east of present-day Tunisia. The origin of the word Afri itself remains debated.",
+            "ar": "بعد سنة 146 ق.م أنشأت روما ولاية «أفريكا» في شمال شرق تونس الحالية. أما أصل كلمة «أفري» نفسها فلا يزال محلّ نقاش."
+          },
+          "page": "/tunisie"
+        },
+        {
+          "id": "tunisie-02",
+          "q": {
+            "fr": "Au VIIe siècle, l'ancienne province d'Africa devient l'Ifriqiya. Quelle en est la capitale ?",
+            "en": "In the 7th century, the former province of Africa becomes Ifriqiya. What is its capital?",
+            "ar": "في القرن السابع صارت ولاية «أفريكا» القديمة «إفريقية». ما عاصمتها؟"
+          },
+          "choices": {
+            "fr": ["Tunis", "Mahdia", "Kairouan", "Carthage"],
+            "en": ["Tunis", "Mahdia", "Kairouan", "Carthage"],
+            "ar": ["تونس", "المهدية", "القيروان", "قرطاج"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "Le nom devient Ifriqiya, avec Kairouan pour capitale. Aujourd'hui, le nom de cette région tunisienne désigne tout un continent de 54 pays.",
+            "en": "The name becomes Ifriqiya, with Kairouan as its capital. Today the name of this Tunisian region designates a whole continent of 54 countries.",
+            "ar": "صار الاسم «إفريقية» وعاصمتها القيروان. واليوم يدلّ اسم هذا الإقليم التونسي على قارة كاملة تضمّ 54 دولة."
+          },
+          "page": "/tunisie"
+        },
+        {
+          "id": "tunisie-03",
+          "q": {
+            "fr": "Après la prise de Carthage par Hassan Ibn Numan en 698, vers quelle ville ses habitants sont-ils transférés ?",
+            "en": "After Hassan ibn al-Nu'man takes Carthage in 698, to which city are its inhabitants moved?",
+            "ar": "بعد استيلاء حسان بن النعمان على قرطاج سنة 698، إلى أي مدينة نُقل سكانها؟"
+          },
+          "choices": {
+            "fr": ["Kairouan", "Tunis", "Utique", "Bizerte"],
+            "en": ["Kairouan", "Tunis", "Utica", "Bizerte"],
+            "ar": ["القيروان", "تونس", "أوتيكا", "بنزرت"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "La ville, pillée et incendiée, est vidée de ses habitants, transférés à Tunis. Tunis devient la ville principale et donnera son nom au pays.",
+            "en": "The city, looted and burned, is emptied of its inhabitants, who are moved to Tunis. Tunis becomes the main city and will give its name to the country.",
+            "ar": "نُهبت المدينة وأُحرقت وأُفرغت من سكانها الذين نُقلوا إلى تونس. فصارت تونس المدينة الرئيسية، وستعطي اسمها للبلاد."
+          },
+          "page": "/apres-146"
+        },
+        {
+          "id": "tunisie-04",
+          "q": {
+            "fr": "En quelle année le site archéologique de Carthage est-il inscrit au patrimoine mondial de l'UNESCO ?",
+            "en": "In which year was the archaeological site of Carthage inscribed on UNESCO's World Heritage List?",
+            "ar": "في أي سنة أُدرج موقع قرطاج الأثري في قائمة التراث العالمي لليونسكو؟"
+          },
+          "choices": {
+            "fr": ["1956", "1972", "1985", "1979"],
+            "en": ["1956", "1972", "1985", "1979"],
+            "ar": ["1956", "1972", "1985", "1979"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "L'inscription date de 1979. Elle suit la grande campagne internationale pour sauver Carthage, lancée par l'UNESCO en 1972 face à l'urbanisation.",
+            "en": "The inscription dates from 1979. It followed the major international campaign to save Carthage, launched by UNESCO in 1972 in the face of urban growth.",
+            "ar": "يعود الإدراج إلى سنة 1979، وقد جاء بعد الحملة الدولية الكبرى لإنقاذ قرطاج التي أطلقتها اليونسكو سنة 1972 في مواجهة الزحف العمراني."
+          },
+          "page": "/apres-146"
+        },
+        {
+          "id": "tunisie-05",
+          "q": {
+            "fr": "Quelle institution siège aujourd'hui au palais de Carthage ?",
+            "en": "Which institution is housed today in the Palace of Carthage?",
+            "ar": "أي مؤسسة يقع مقرّها اليوم في قصر قرطاج؟"
+          },
+          "choices": {
+            "fr": ["La présidence de la République", "Le Parlement", "Le musée national", "L'Université de Carthage"],
+            "en": ["The Presidency of the Republic", "The Parliament", "The National Museum", "The University of Carthage"],
+            "ar": ["رئاسة الجمهورية", "البرلمان", "المتحف الوطني", "جامعة قرطاج"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "En 1960, Bourguiba fait d'une villa de l'époque coloniale, au bord de la mer, le palais présidentiel. Tunis garde l'administration et l'économie.",
+            "en": "In 1960, Bourguiba turned a colonial-era villa by the sea into the presidential palace. Tunis kept the administration and the economy.",
+            "ar": "سنة 1960 جعل بورقيبة من فيلا تعود إلى الحقبة الاستعمارية، على شاطئ البحر، قصرًا رئاسيًا، فيما احتفظت تونس العاصمة بالإدارة والاقتصاد."
+          },
+          "page": "/tunisie"
+        },
+        {
+          "id": "tunisie-06",
+          "q": {
+            "fr": "Quel est le surnom de l'équipe nationale tunisienne de football ?",
+            "en": "What is the nickname of Tunisia's national football team?",
+            "ar": "ما لقب المنتخب الوطني التونسي لكرة القدم؟"
+          },
+          "choices": {
+            "fr": ["Les Lions de l'Atlas", "Les Aigles de Carthage", "Les Fennecs", "Les Pharaons"],
+            "en": ["The Atlas Lions", "The Eagles of Carthage", "The Fennecs", "The Pharaohs"],
+            "ar": ["أسود الأطلس", "نسور قرطاج", "ثعالب الصحراء", "الفراعنة"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "« Les Aigles de Carthage » : vingt-deux siècles après 146 av. J.-C., le nom de la cité punique reste le symbole de la Tunisie.",
+            "en": "“The Eagles of Carthage”: twenty-two centuries after 146 BC, the name of the Punic city remains the symbol of Tunisia.",
+            "ar": "«نسور قرطاج»: بعد اثنين وعشرين قرنًا من سنة 146 ق.م، لا يزال اسم المدينة البونيقية رمزًا لتونس."
+          },
+          "page": "/tunisie"
+        },
+        {
+          "id": "tunisie-07",
+          "q": {
+            "fr": "Quel événement, créé en 1966, est le plus ancien festival de cinéma d'Afrique et du monde arabe ?",
+            "en": "Which event, created in 1966, is the oldest film festival in Africa and the Arab world?",
+            "ar": "أي تظاهرة أُسّست سنة 1966 وتُعدّ أقدم مهرجان سينمائي في إفريقيا والعالم العربي؟"
+          },
+          "choices": {
+            "fr": ["Le Festival international de Carthage", "Les Journées théâtrales de Carthage", "Les Journées cinématographiques de Carthage", "Jazz à Carthage"],
+            "en": ["The Carthage International Festival", "The Carthage Theatre Days", "The Carthage Film Festival (JCC)", "Jazz à Carthage"],
+            "ar": ["مهرجان قرطاج الدولي", "أيام قرطاج المسرحية", "أيام قرطاج السينمائية", "جاز قرطاج"]
+          },
+          "answer": 2,
+          "explain": {
+            "fr": "Les Journées cinématographiques de Carthage existent depuis 1966. Le Festival international de Carthage (1964), lui, se tient chaque été dans le théâtre antique.",
+            "en": "The Carthage Film Festival has existed since 1966. The Carthage International Festival (1964) is held every summer in the ancient theatre.",
+            "ar": "تُقام أيام قرطاج السينمائية منذ 1966. أما مهرجان قرطاج الدولي (1964) فيُقام كل صيف في المسرح الأثري."
+          },
+          "page": "/tunisie"
+        },
+        {
+          "id": "tunisie-08",
+          "q": {
+            "fr": "Que signent en 1985 les maires de Rome et de Carthage, Ugo Vetere et Chedli Klibi ?",
+            "en": "What do the mayors of Rome and Carthage, Ugo Vetere and Chedli Klibi, sign in 1985?",
+            "ar": "ماذا وقّع رئيسا بلديتي روما وقرطاج، أوغو فيتيري والشاذلي القليبي، سنة 1985؟"
+          },
+          "choices": {
+            "fr": ["Un accord de jumelage", "Un traité de paix symbolique mettant fin à la troisième guerre punique", "Une convention de fouilles archéologiques", "La restitution d'objets puniques"],
+            "en": ["A twinning agreement", "A symbolic peace treaty ending the Third Punic War", "An archaeological excavation agreement", "The return of Punic artefacts"],
+            "ar": ["اتفاقية توأمة", "معاهدة صلح رمزية تُنهي الحرب البونيقية الثالثة", "اتفاقية حفريات أثرية", "إعادة قطع أثرية بونيقية"]
+          },
+          "answer": 1,
+          "explain": {
+            "fr": "Plus de 2 100 ans après 146 av. J.-C., ce traité symbolique met officiellement fin à la troisième guerre punique.",
+            "en": "More than 2,100 years after 146 BC, this symbolic treaty officially ends the Third Punic War.",
+            "ar": "بعد أكثر من 2100 سنة من 146 ق.م، أنهت هذه المعاهدة الرمزية رسميًا الحرب البونيقية الثالثة."
+          },
+          "page": "/tunisie"
+        },
+        {
+          "id": "tunisie-09",
+          "q": {
+            "fr": "Rome a-t-elle semé du sel sur les ruines de Carthage en 146 av. J.-C. ?",
+            "en": "Did Rome sow salt on the ruins of Carthage in 146 BC?",
+            "ar": "هل نثرت روما الملح على أنقاض قرطاج سنة 146 ق.م؟"
+          },
+          "choices": {
+            "fr": ["Oui, selon Polybe, témoin du siège", "Oui, mais seulement sur la colline de Byrsa", "Oui, selon Appien", "Non : aucune source antique n'en parle, c'est une invention moderne"],
+            "en": ["Yes, according to Polybius, who witnessed the siege", "Yes, but only on the Byrsa hill", "Yes, according to Appian", "No: no ancient source mentions it, it is a modern invention"],
+            "ar": ["نعم، بحسب بوليبيوس شاهد الحصار", "نعم، ولكن على تلّة بيرصا فقط", "نعم، بحسب أبيانوس", "لا: لا يذكر ذلك أي مصدر قديم، إنه اختلاق حديث"]
+          },
+          "answer": 3,
+          "explain": {
+            "fr": "La ville fut incendiée et son sol maudit, mais l'histoire du sel apparaît chez des auteurs européens des XIXe–XXe siècles. Rome refonda d'ailleurs Carthage un siècle plus tard.",
+            "en": "The city was burned and its ground cursed, but the salt story appears in European authors of the 19th–20th centuries. Rome in fact refounded Carthage a century later.",
+            "ar": "أُحرقت المدينة ولُعنت أرضها، لكن حكاية الملح لم تظهر إلا عند كتّاب أوروبيين في القرنين التاسع عشر والعشرين. بل إن روما أعادت تأسيس قرطاج بعد قرن."
+          },
+          "page": "/histoire-des-vainqueurs"
+        },
+        {
+          "id": "tunisie-10",
+          "q": {
+            "fr": "Avec quelle ville du Liban, d'où serait partie Élissa, Carthage est-elle jumelée depuis 2002 ?",
+            "en": "Which Lebanese city, from which Elissa is said to have set out, has been twinned with Carthage since 2002?",
+            "ar": "مع أي مدينة لبنانية، يُقال إن عليسة انطلقت منها، تتوأم قرطاج منذ 2002؟"
+          },
+          "choices": {
+            "fr": ["Tyr", "Sidon", "Byblos", "Beyrouth"],
+            "en": ["Tyre", "Sidon", "Byblos", "Beirut"],
+            "ar": ["صور", "صيدا", "جبيل", "بيروت"]
+          },
+          "answer": 0,
+          "explain": {
+            "fr": "Carthage est aussi jumelée avec Carthagène (1989), l'autre Qart Hadasht, ainsi qu'avec Aix-en-Provence (1993) et Versailles (1998).",
+            "en": "Carthage is also twinned with Cartagena (1989), the other Qart Hadasht, as well as Aix-en-Provence (1993) and Versailles (1998).",
+            "ar": "تتوأم قرطاج أيضًا مع قرطاجنة (1989)، «قرت حدشت» الأخرى، ومع إكس أون بروفانس (1993) وفرساي (1998)."
+          },
+          "page": "/tunisie"
+        }
+      ]
+    }
+  ]
+}

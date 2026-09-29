@@ -196,6 +196,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- Explorer -->
     <section class="sec">
       <div class="sec-head head-pad">
@@ -224,6 +226,7 @@
         </NuxtLink>
       </div>
     </section>
+
   </div>
 </template>
 
@@ -374,7 +377,15 @@ const C = {
         { kick: 'Art de la guerre', title: 'Les tactiques' },
         { kick: 'Croyances', title: 'La religion punique' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Timée de Tauroménion', work: 'Histoires (perdues)', ref: 'cité par Denys d\'Halicarnasse, Antiquités romaines I, 74', note: 'date de fondation : 814 av. J.-C.' },
+      { type: 'ancient', author: 'Justin', work: 'Abrégé des Histoires philippiques de Trogue Pompée', ref: 'XVIII, 4–6', note: 'Didon (Élissa) et la peau de bœuf de Byrsa' },
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', note: 'les guerres puniques, la traversée des Alpes' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', note: 'la deuxième guerre punique, de Sagonte à Zama' },
+      { type: 'ancient', author: 'Appien', work: 'Libyca', ref: '96', note: 'le port circulaire et ses 220 loges' },
+      { type: 'modern', author: 'UNESCO', work: 'Site archéologique de Carthage', ref: 'Liste du patrimoine mondial, 1979' }
+    ]
   }),
 
   en: build({
@@ -468,7 +479,15 @@ const C = {
         { kick: 'Art of war', title: 'Tactics' },
         { kick: 'Beliefs', title: 'Punic religion' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Timaeus of Tauromenium', work: 'Histories (lost)', ref: 'quoted by Dionysius of Halicarnassus, Roman Antiquities I, 74', note: 'foundation date: 814 BC' },
+      { type: 'ancient', author: 'Justin', work: 'Epitome of the Philippic History of Pompeius Trogus', ref: 'XVIII, 4–6', note: 'Dido (Elissa) and the oxhide of Byrsa' },
+      { type: 'ancient', author: 'Polybius', work: 'Histories', note: 'the Punic Wars, the crossing of the Alps' },
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', note: 'the Second Punic War, from Saguntum to Zama' },
+      { type: 'ancient', author: 'Appian', work: 'Libyca', ref: '96', note: 'the circular harbour and its 220 ship-sheds' },
+      { type: 'modern', author: 'UNESCO', work: 'Archaeological Site of Carthage', ref: 'World Heritage List, 1979' }
+    ]
   }),
 
   ar: build({
@@ -520,7 +539,7 @@ const C = {
       items: [
         { name: 'نصب عليه علامة تانيت', meta: 'حجر جيري · متحف الفنون الجميلة بليون', alt: 'نصب بونيقي منقوش بعلامة تانيت' },
         { name: 'قناع متجهّم', meta: 'فخار · متحف باردو', alt: 'قناع بونيقي متجهّم من الفخار' },
-        { name: 'شيكل الفيل', meta: 'فضة · 213–210 ق.م · المتحف البريطاني', alt: 'عملة قرطاجية فضية عليها فيل' },
+        { name: 'شيقل الفيل', meta: 'فضة · 213–210 ق.م · المتحف البريطاني', alt: 'عملة قرطاجية فضية عليها فيل' },
         { name: 'أنصاب التوفيت', meta: 'حجر جيري · متحف اللوفر', alt: 'أنصاب نذرية من توفيت قرطاج' },
         { name: 'تانيت في الفسيفساء', meta: 'أرضية بونيقية · كركوان، يونسكو', alt: 'علامة تانيت في أرضية بونيقية بكركوان' }
       ]
@@ -562,7 +581,15 @@ const C = {
         { kick: 'فن الحرب', title: 'التكتيكات' },
         { kick: 'المعتقدات', title: 'الديانة البونيقية' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'تيمايوس التاورميني', work: 'التواريخ (مفقودة)', ref: 'نقلها ديونيسيوس الهاليكارناسي، الآثار الرومانية I, 74', note: 'تاريخ التأسيس: 814 ق.م' },
+      { type: 'ancient', author: 'يوستينوس', work: 'مختصر التواريخ الفيليبية لتروغوس بومبيوس', ref: 'XVIII, 4–6', note: 'ديدون (عليسة) وجلد الثور في بيرصا' },
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', note: 'الحروب البونيقية، عبور جبال الألب' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: 'تاريخ روما', note: 'الحرب البونيقية الثانية، من ساغونتوم إلى زاما' },
+      { type: 'ancient', author: 'أبيانوس', work: 'الكتاب الليبي', ref: '96', note: 'الميناء الدائري ومراسيه الـ220' },
+      { type: 'modern', author: 'اليونسكو', work: 'موقع قرطاج الأثري', ref: 'قائمة التراث العالمي، 1979' }
+    ]
   })
 }
 

@@ -126,6 +126,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec">
       <h2 class="h-block more-title">{{ c.more.title }}</h2>
@@ -243,7 +245,20 @@ const C = {
         { to: '/prise-de-carthage', kick: '149 – 146 av. J.-C.', title: 'La prise de Carthage', text: 'Le siège, la chute de Byrsa et ce que disent les fouilles.', cls: 'tile--ink' },
         { to: '/carte', kick: 'Carte animée', title: 'Carthage et la Méditerranée', text: "Territoires de 814 à 146, campagne d'Hannibal, voyages et alliés.", cls: 'tile--navy' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Hérodote', work: 'Histoires', ref: 'I, 166', note: 'bataille d\'Alalia' },
+      { type: 'ancient', author: 'Timée de Tauroménion', note: 'œuvre perdue ; date de fondation (814) transmise par la tradition' },
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'III, 22–26 ; III, 56', note: 'traités entre Rome et Carthage, « traité de Philinos », armée d\'Hannibal en Italie' },
+      { type: 'ancient', author: 'Diodore de Sicile', work: 'Bibliothèque historique', ref: 'V, 16', note: 'fondation d\'Ebusus (Ibiza)' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', ref: 'IX, 43', note: 'renouvellement de l\'alliance en 306' },
+      { type: 'ancient', author: 'Justin', work: 'Abrégé des Histoires philippiques de Trogue Pompée', ref: 'XVIII–XIX', note: 'loyer versé aux Africains' },
+      { type: 'ancient', author: 'Plutarque', work: 'Vie de Pyrrhus', ref: '23' },
+      { type: 'ancient', author: 'Appien', work: 'Libyca', note: 'troisième guerre punique et prise de 146' },
+      { type: 'ancient', author: 'Anonyme', work: 'Périple d\'Hannon' },
+      { type: 'ancient', author: 'Augustin d\'Hippone', note: 'survie du punique au Ve siècle apr. J.-C.' },
+      { type: 'modern', author: 'Wikipédia', work: 'Carthage ; Civilisation carthaginoise', note: 'CC BY-SA 4.0, contenus reformulés' }
+    ]
   },
 
   en: {
@@ -339,7 +354,20 @@ const C = {
         { to: '/prise-de-carthage', kick: '149 – 146 BC', title: 'The capture of Carthage', text: 'The siege, the fall of Byrsa and what the excavations tell us.', cls: 'tile--ink' },
         { to: '/carte', kick: 'Animated map', title: 'Carthage and the Mediterranean', text: "Territories from 814 to 146, Hannibal's campaign, voyages and allies.", cls: 'tile--navy' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Herodotus', work: 'Histories', ref: 'I, 166', note: 'battle of Alalia' },
+      { type: 'ancient', author: 'Timaeus of Tauromenium', note: 'lost work; foundation date (814) handed down by tradition' },
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: 'III, 22–26 ; III, 56', note: 'Rome–Carthage treaties, the “Philinus treaty”, Hannibal\'s army in Italy' },
+      { type: 'ancient', author: 'Diodorus Siculus', work: 'Library of History', ref: 'V, 16', note: 'foundation of Ebusus (Ibiza)' },
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', ref: 'IX, 43', note: 'renewal of the alliance in 306' },
+      { type: 'ancient', author: 'Justin', work: 'Epitome of Pompeius Trogus\' Philippic Histories', ref: 'XVIII–XIX', note: 'rent paid to the Africans' },
+      { type: 'ancient', author: 'Plutarch', work: 'Life of Pyrrhus', ref: '23' },
+      { type: 'ancient', author: 'Appian', work: 'Libyca', note: 'Third Punic War and the fall of 146' },
+      { type: 'ancient', author: 'Anonymous', work: 'Periplus of Hanno' },
+      { type: 'ancient', author: 'Augustine of Hippo', note: 'survival of Punic in the 5th century AD' },
+      { type: 'modern', author: 'Wikipedia (French)', work: 'Carthage ; Civilisation carthaginoise', note: 'CC BY-SA 4.0, content rephrased' }
+    ]
   },
 
   ar: {
@@ -364,7 +392,7 @@ const C = {
         { era: '814–550 ق.م', short: '814–550', span: 264, tone: 'b-purple', name: 'العصر القديم', desc: 'تأسيس المدينة ونموها. تتحول قرطاج من مجرد مركز تجاري فينيقي إلى الحاضرة المهيمنة على غرب المتوسط، على رأس شبكة واسعة من المستعمرات والمراكز التجارية.' },
         { era: '550–264 ق.م', short: '550–264', span: 286, tone: 'b-soft', name: 'العصر الذهبي', desc: 'ذروة القوة القرطاجية: هيمنة بحرية، وحروب ضد إغريق صقلية، وزراعة علمية، وتجارة على نطاق القارة.' },
         { era: '264–201 ق.م', short: '264–201', span: 63, tone: 'b-terra', name: 'الحروب البونيقية', desc: 'الصراع العملاق مع روما على السيادة في المتوسط، وقد طبعته حملات حنبعل برقا الأسطورية في إيطاليا.' },
-        { era: '201–146 ق.م', short: '201–146', span: 55, tone: 'b-ink', name: 'السقوط والاستمرارية', desc: 'بعد زاما، تعرف قرطاج نهضة اقتصادية لافتة. وفي سنة 146 تستولي روما على المدينة بالقوة، لكن الثقافة واللغة والشعب البوني يبقون بعدها.' }
+        { era: '201–146 ق.م', short: '201–146', span: 55, tone: 'b-ink', name: 'السقوط والاستمرارية', desc: 'بعد زاما، تعرف قرطاج نهضة اقتصادية لافتة. وفي سنة 146 تستولي روما على المدينة بالقوة، لكن الثقافة واللغة والشعب البونيقي يبقون بعدها.' }
       ]
     },
     list: { title: 'التواريخ الكبرى', filter: 'التصفية حسب الحقبة', all: 'الكل', bios: 'كل السير' },
@@ -377,17 +405,17 @@ const C = {
       { era: 'found', y: '814', tag: 'تأسيس', title: 'تأسيس قرطاج', text: 'الأميرة الفينيقية ديدون (عليسة)، هاربةً من صور بعد اغتيال زوجها سيخايوس على يد أخيها بيغماليون، تؤسس قرطاج — «قرت حدشت»، المدينة الجديدة — على ساحل تونس الحالية. وتصبح تلة بيرصا قلب المدينة. نقل هذا التاريخ المؤرخ الإغريقي تيمايوس، وتعود أقدم البقايا المكتشفة إلى النصف الثاني من القرن الثامن ق.م.', links: ['/fondation', '/didon'], img: 'turner-dido.jpg', alt: 'تيرنر — ديدون تبني قرطاج' },
       { era: 'found', y: 'ق 7', tag: 'توسع', title: 'التوسع في المتوسط', text: 'تنشئ قرطاج مراكز تجارية في سردينيا وغرب صقلية وجزر البليار — وتأسست إيبيزا (إيبوسوس) نحو 654 حسب ديودوروس — وعلى سواحل شمال إفريقيا، فتصبح القوة الفينيقية الأولى في غرب المتوسط.', links: ['/carte'] },
       { era: 'found', y: '535', tag: 'معركة', title: 'معركة ألاليا', text: 'بالتحالف مع الإتروسكيين، يواجه القرطاجيون إغريق فوقية قبالة كورسيكا. حسب هيرودوت انتصر الفوقيون لكنهم خسروا 40 من سفنهم الستين وتخلّوا عن الجزيرة: نصر استراتيجي لقرطاج كبح التوسع الإغريقي في غرب المتوسط.' },
-      { era: 'found', y: '509', tag: 'دبلوماسية', title: 'أول معاهدة مع روما', text: 'معاهدة تجارة وعدم اعتداء نقلها بوليبيوس، تحدد مناطق النفوذ: لا يجوز للسفن الرومانية الإبحار إلى ما وراء «الرأس الجميل» قرب قرطاج. وتعترف الجمهورية الفتية بالتفوق البحري البوني.', links: ['/economie'] },
+      { era: 'found', y: '509', tag: 'دبلوماسية', title: 'أول معاهدة مع روما', text: 'معاهدة تجارة وعدم اعتداء نقلها بوليبيوس، تحدد مناطق النفوذ: لا يجوز للسفن الرومانية الإبحار إلى ما وراء «الرأس الجميل» قرب قرطاج. وتعترف الجمهورية الفتية بالتفوق البحري البونيقي.', links: ['/economie'] },
       { era: 'found', y: '480', tag: 'معركة', title: 'معركة هيميرا', text: 'في صقلية، يُهزم حملقار الماغوني أمام جيلون حاكم سرقوسة وثيرون حاكم أكراغاس. أوقفت هذه النكسة التوسع القرطاجي في الجزيرة لعقود، وأدت إلى إصلاحات سياسية في قرطاج.' },
-      { era: 'found', y: 'ق 5', tag: 'استكشاف', title: 'رحلتا حنون وحِملكون', text: 'يبحر حنون على طول الساحل الأطلسي لإفريقيا بأسطول من المستوطنين، ويستكشف حِملكون السواحل الأطلسية لأوروبا. وقد وصلنا نص رحلة حنون مترجمًا إلى الإغريقية.', links: ['/hannon', '/carte'] },
+      { era: 'found', y: 'ق 5', tag: 'استكشاف', title: 'رحلتا حنون وحملكون', text: 'يبحر حنون على طول الساحل الأطلسي لإفريقيا بأسطول من المستوطنين، ويستكشف حملكون السواحل الأطلسية لأوروبا. وقد وصلنا نص رحلة حنون مترجمًا إلى الإغريقية.', links: ['/hannon', '/carte'] },
       { era: 'found', y: 'ق 5', tag: 'إفريقيا', title: 'قرطاج تتجه نحو إفريقيا', text: 'حسب يوستينوس، كانت قرطاج تدفع للأفارقة منذ تأسيسها إتاوة سنوية مقابل أرض المدينة؛ وفي عهد الماغونيين تكفّ عن دفعها وتُخضع الداخل. ورأى فيه بعضهم نتيجةً لهزيمة هيميرا، بينما يفضّل مؤرخون آخرون الحديث عن توسع تدريجي.', links: ['/fondation'] },
-      { era: 'found', y: '409–405', tag: 'حرب', title: 'العودة إلى صقلية', text: 'يدمّر حنبعل، حفيد حملقار، سيلينونتي وهيميرا (409). ثم يموت بالطاعون أمام أكراغاس التي يستولي عليها خلفه حِملكون (406). ولم يكن الصلح المعقود مع ديونيسيوس السرقوسي (405) سوى هدنة.', links: ['/guerres-puniques'] },
-      { era: 'found', y: '398–396', tag: 'حرب', title: 'ديونيسيوس السرقوسي ضد قرطاج', text: 'يستولي ديونيسيوس على موتيا، المعقل البوني في غرب صقلية. ويقود الرد القرطاجي إلى حصار سرقوسة الذي رُفع سنة 396 بسبب وباء. وتتجدد الحرب على فترات طوال ستين عامًا.' },
+      { era: 'found', y: '409–405', tag: 'حرب', title: 'العودة إلى صقلية', text: 'يدمّر حنبعل، حفيد حملقار، سيلينونتي وهيميرا (409). ثم يموت بالطاعون أمام أكراغاس التي يستولي عليها خلفه حملكون (406). ولم يكن الصلح المعقود مع ديونيسيوس السرقوسي (405) سوى هدنة.', links: ['/guerres-puniques'] },
+      { era: 'found', y: '398–396', tag: 'حرب', title: 'ديونيسيوس السرقوسي ضد قرطاج', text: 'يستولي ديونيسيوس على موتيا، المعقل البونيقي في غرب صقلية. ويقود الرد القرطاجي إلى حصار سرقوسة الذي رُفع سنة 396 بسبب وباء. وتتجدد الحرب على فترات طوال ستين عامًا.' },
       { era: 'found', y: '348', tag: 'دبلوماسية', title: 'المعاهدة الثانية مع روما', text: 'أوردها بوليبيوس (3، 24)، وهي توسّع المنطقة المحظورة على الرومان حتى ماستيا في إسبانيا، وتغلق في وجوههم سردينيا وليبيا.', links: ['/guerres-puniques'] },
       { era: 'found', y: '310', tag: 'حرب', title: 'أغاثوكليس يغزو إفريقيا', text: 'ينزل طاغية سرقوسة في الوطن القبلي ويهدد قرطاج مباشرة. صُدّ في النهاية (307)، لكن الغزو كشف هشاشة الأراضي الإفريقية للمدينة.' },
       { era: 'found', y: '306', tag: 'دبلوماسية', title: '«معاهدة فيلينوس»', text: 'حسب المؤرخ فيلينوس الأكراغاسي، تكون روما قد امتنعت عن صقلية وقرطاج عن إيطاليا. يشكك بوليبيوس في وجود هذه المعاهدة، ويذكر تيتوس ليفيوس تجديدًا للتحالف في تلك السنة. ولا تزال المسألة موضع جدل.', links: ['/guerres-puniques'] },
       { era: 'found', y: '279', tag: 'دبلوماسية', title: 'تحالف ضد بيروس', text: 'تتعهد روما وقرطاج بالتعاون المتبادل ضد بيروس ملك إبيروس (بوليبيوس، 3، 25). وهي آخر معاهدة بينهما قبل الحرب.' },
-      { era: 'found', y: '278–276', tag: 'حرب', title: 'بيروس في صقلية', text: 'يستنجد به إغريق صقلية، فيستولي بيروس على الغرب البوني كله تقريبًا، لكنه يعجز أمام ليليبايوم ويغادر الجزيرة. وحسب بلوتارخوس، كان يرى فيها منذئذ ساحة القتال المقبلة بين روما وقرطاج.', links: ['/guerres-puniques', '/elephants'] },
+      { era: 'found', y: '278–276', tag: 'حرب', title: 'بيروس في صقلية', text: 'يستنجد به إغريق صقلية، فيستولي بيروس على الغرب البونيقي كله تقريبًا، لكنه يعجز أمام ليليبايوم ويغادر الجزيرة. وحسب بلوتارخوس، كان يرى فيها منذئذ ساحة القتال المقبلة بين روما وقرطاج.', links: ['/guerres-puniques', '/elephants'] },
 
       { era: 'punic', y: '264–241', tag: 'حرب بونيقية', title: 'الحرب البونيقية الأولى', text: 'أول صراع كبير بين روما وقرطاج، من أجل صقلية. بعد 23 عامًا من الحرب البحرية والبرية، انتهت بهزيمة جزر إيغاتس (241)، تفقد قرطاج صقلية وتصبح روما قوة بحرية.', links: ['/guerres-puniques'] },
       { era: 'punic', y: '241–238', tag: 'حرب أهلية', title: 'حرب المرتزقة', text: 'يتمرد المرتزقة الذين لم يتقاضوا أجورهم ويجرّون معهم جزءًا من الليبيين. يسحقهم حملقار برقا بعد حرب فظيعة رسّخت قوة الأسرة البرقية. وتستغل روما الأزمة للاستيلاء على سردينيا وكورسيكا.', links: ['/hamilcar'] },
@@ -403,11 +431,11 @@ const C = {
       { era: 'punic', y: '202', tag: 'هزيمة حاسمة', title: 'معركة زاما', text: 'يواجه سكيبيو، متحالفًا مع النوميدي ماسينيسا، حنبعلَ قرب زاما. تُستعمل تكتيكات حنبعل ضده: تخسر قرطاج الحرب وتضطر إلى قبول شروط سلام مذلة.', links: ['/hannibal', '/guerres-puniques'], img: 'zama.jpg', alt: 'معركة زاما، نقش لكورنيليس كورت' },
 
       { era: 'fall', y: '201', tag: 'دبلوماسية', title: 'سلام المهزوم', text: 'على قرطاج أن تدفع 10,000 تالنت على 50 عامًا، وأن تسلم فيلتها، وتقلّص أسطولها إلى عشر سفن، وألا تخوض أي حرب دون موافقة روما.', links: ['/guerres-puniques'] },
-      { era: 'fall', y: '196–195', tag: 'إصلاح', title: 'حنبعل شوفيطًا', text: 'بعد انتخابه شوفيطًا، يُصلح حنبعل المالية ويجعل ولاية قضاة محكمة المئة والأربعة سنوية. وتعرف المدينة نهضة اقتصادية لافتة. ثم يشي به خصومه لدى روما فيضطر إلى المنفى في الشرق (195).', links: ['/hannibal', '/economie'] },
+      { era: 'fall', y: '196–195', tag: 'إصلاح', title: 'حنبعل شفطًا', text: 'بعد انتخابه شفطًا، يُصلح حنبعل المالية ويجعل ولاية قضاة محكمة المئة والأربعة سنوية. وتعرف المدينة نهضة اقتصادية لافتة. ثم يشي به خصومه لدى روما فيضطر إلى المنفى في الشرق (195).', links: ['/hannibal', '/economie'] },
       { era: 'fall', y: '183', tag: 'منفى', title: 'موت حنبعل', text: 'لاجئًا لدى ملوك هلنستيين وملاحَقًا من روما، يتجرع حنبعل السم في ليبيسا ببيثينيا كي لا يُسلَّم.', links: ['/hannibal'] },
       { era: 'fall', y: '151', tag: 'ذريعة', title: 'القسط الأخير', text: 'تنهي قرطاج دفع غرامة الحرب وتحمل السلاح ضد تعديات ماسينيسا. وفي روما، حيث يردد كاتو «يجب تدمير قرطاج»، يُعدّ ذلك خرقًا للمعاهدة.', links: ['/prise-de-carthage'] },
       { era: 'fall', y: '149–146', tag: 'حرب بونيقية', title: 'الحرب البونيقية الثالثة', text: 'تسلّم قرطاج أسلحتها، ثم تطالب روما سكانها بهجر المدينة والاستقرار بعيدًا عن البحر. يرفضون: فيبدأ حصار دام ثلاث سنوات، حتى اقتحم سكيبيو إيميليانوس المدينة.', links: ['/prise-de-carthage'] },
-      { era: 'fall', y: '146', tag: 'استيلاء روماني', hl: true, title: 'الاستيلاء على قرطاج', text: 'في الربيع، يخترق سكيبيو إيميليانوس الدفاعات، وتقود ستة أيام من قتال الشوارع إلى بيرصا. تُحرق المدينة ويُباع الناجون عبيدًا، وتصبح الأرض ولاية إفريقيا الرومانية.', note: 'ملاحظة أثرية — تُظهر حفريات بيرصا طبقة حريق تعود إلى سنة 146، تحتها بيوت بونية محفوظة. أما نثر الملح على الأطلال فأسطورة حديثة؛ وقد أعادت روما تأسيس قرطاج في الموقع نفسه بعد قرن.', links: ['/prise-de-carthage', '/histoire-des-vainqueurs'] }
+      { era: 'fall', y: '146', tag: 'استيلاء روماني', hl: true, title: 'الاستيلاء على قرطاج', text: 'في الربيع، يخترق سكيبيو إيميليانوس الدفاعات، وتقود ستة أيام من قتال الشوارع إلى بيرصا. تُحرق المدينة ويُباع الناجون عبيدًا، وتصبح الأرض ولاية إفريقيا الرومانية.', note: 'ملاحظة أثرية — تُظهر حفريات بيرصا طبقة حريق تعود إلى سنة 146، تحتها بيوت بونيقية محفوظة. أما نثر الملح على الأطلال فأسطورة حديثة؛ وقد أعادت روما تأسيس قرطاج في الموقع نفسه بعد قرن.', links: ['/prise-de-carthage', '/histoire-des-vainqueurs'] }
     ],
     links: {
       '/fondation': 'التأسيس', '/didon': 'ديدون', '/carte': 'الخريطة المتحركة', '/economie': 'الاقتصاد', '/hannon': 'حنون',
@@ -421,7 +449,7 @@ const C = {
       rows: [
         { key: '122 ق.م', val: 'يحاول غايوس غراكوس إقامة مستعمرة يونونيا الرومانية في الموقع، فيفشل المشروع.' },
         { key: '44–29 ق.م', val: 'قرّر قيصر إعادة التأسيس ونُفّذت في عهد أغسطس: تصبح «كولونيا يوليا كونكورديا قرطاج» عاصمة إفريقيا الرومانية.' },
-        { key: 'ق 5 م', val: 'يشهد القديس أوغسطين أن البونية ما تزال تُتكلَّم في أرياف إفريقيا.' },
+        { key: 'ق 5 م', val: 'يشهد القديس أوغسطين أن البونيقية ما تزال تُتكلَّم في أرياف إفريقيا.' },
         { key: '1979', val: 'يُدرج موقع قرطاج الأثري في قائمة التراث العالمي لليونسكو.' }
       ],
       k2: 'المصادر',
@@ -435,7 +463,20 @@ const C = {
         { to: '/prise-de-carthage', kick: '149 – 146 ق.م', title: 'الاستيلاء على قرطاج', text: 'الحصار وسقوط بيرصا وما تقوله الحفريات.', cls: 'tile--ink' },
         { to: '/carte', kick: 'الخريطة المتحركة', title: 'قرطاج والمتوسط', text: 'الأراضي من 814 إلى 146، وحملة حنبعل، والرحلات والحلفاء.', cls: 'tile--navy' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'هيرودوت', work: 'التواريخ', ref: 'I, 166', note: 'معركة ألاليا' },
+      { type: 'ancient', author: 'تيمايوس التاورميني', note: 'مؤلَّف مفقود؛ تاريخ التأسيس (814) منقول عبر التقليد' },
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', ref: 'III, 22–26 ; III, 56', note: 'المعاهدات بين روما وقرطاج، «معاهدة فيلينوس»، جيش حنبعل في إيطاليا' },
+      { type: 'ancient', author: 'ديودوروس الصقلي', work: 'المكتبة التاريخية', ref: 'V, 16', note: 'تأسيس إيبوسوس (إيبيزا)' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: 'تاريخ روما', ref: 'IX, 43', note: 'تجديد التحالف سنة 306' },
+      { type: 'ancient', author: 'يوستينوس', work: 'مختصر التواريخ الفيليبية لتروغوس بومبيوس', ref: 'XVIII–XIX', note: 'الإتاوة المدفوعة للأفارقة' },
+      { type: 'ancient', author: 'بلوتارخ', work: 'سيرة بيروس', ref: '23' },
+      { type: 'ancient', author: 'أبيانوس', work: 'الكتاب الليبي (ليبيكا)', note: 'الحرب البونيقية الثالثة وسقوط 146' },
+      { type: 'ancient', author: 'مجهول المؤلف', work: 'رحلة حنون' },
+      { type: 'ancient', author: 'أوغسطين', note: 'بقاء البونيقية في القرن 5 م' },
+      { type: 'modern', author: 'ويكيبيديا (بالفرنسية)', work: 'Carthage ; Civilisation carthaginoise', note: 'رخصة CC BY-SA 4.0، مع إعادة صياغة المحتوى' }
+    ]
   }
 }
 

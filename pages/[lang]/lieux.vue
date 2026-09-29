@@ -88,6 +88,8 @@
       <MapsAnimatedMap compact initial-mode="terr" :modes="['terr', 'hann']" />
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec sec--wide">
       <h2 class="h-section related-title">{{ c.relatedTitle }}</h2>
@@ -264,6 +266,14 @@ const C = {
       { to: '/carte', kick: 'Carte animée', title: 'Carthage et la Méditerranée', text: "Territoires, campagne d'Hannibal, voyages d'Hannon et d'Himilcon.", cls: 'tile--navy' },
       { to: '/tunisie', kick: 'Aujourd’hui', title: 'Carthage vit en Tunisie', text: "Du nom de l'Afrique au palais de Carthage : une continuité tunisienne.", cls: '' },
       { to: '/richesse-rome', kick: 'Économie & politique', title: 'Trop riche pour Rome', text: "Pourquoi la prospérité de Carthage exaspérait Rome.", cls: 'tile--gold' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', ref: 'XXI, 15 ; XXI, 21', note: 'siège de Sagonte ; vœux d\'Hannibal à Melqart de Gadès' },
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'III, 84 ; III, 117', note: 'pertes romaines à Trasimène et à Cannes' },
+      { type: 'ancient', author: 'Appien', work: 'Libyca', ref: '96', note: 'le port circulaire et ses 220 loges' },
+      { type: 'ancient', author: 'Diodore de Sicile', work: 'Bibliothèque historique', ref: 'XIV, 47–53', note: 'siège et destruction de Motyé (397)' },
+      { type: 'ancient', author: 'Justin', work: 'Abrégé des Histoires philippiques de Trogue Pompée', ref: 'XVIII, 5', note: 'Élissa et la peau de bœuf de Byrsa' },
+      { type: 'modern', author: 'M\'hamed Hassine Fantar', work: 'Kerkouane, cité punique au pays berbère de Tamezrat', ref: 'Alif, 2005', note: 'ouvrage de référence sur le site' }
     ]
   },
   en: {
@@ -403,6 +413,14 @@ const C = {
       { to: '/carte', kick: 'Animated map', title: 'Carthage and the Mediterranean', text: "Territories, Hannibal's campaign, the voyages of Hanno and Himilco.", cls: 'tile--navy' },
       { to: '/tunisie', kick: 'Today', title: 'Carthage lives in Tunisia', text: 'From the name of Africa to Carthage Palace: a Tunisian continuity.', cls: '' },
       { to: '/richesse-rome', kick: 'Economy & politics', title: 'Too rich for Rome', text: "Why Carthage's prosperity exasperated Rome.", cls: 'tile--gold' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', ref: 'XXI, 15 ; XXI, 21', note: 'siege of Saguntum; Hannibal\'s vows to Melqart at Gades' },
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: 'III, 84 ; III, 117', note: 'Roman losses at Trasimene and Cannae' },
+      { type: 'ancient', author: 'Appian', work: 'Libyca', ref: '96', note: 'the circular harbour and its 220 ship-sheds' },
+      { type: 'ancient', author: 'Diodorus Siculus', work: 'Library of History', ref: 'XIV, 47–53', note: 'siege and destruction of Motya (397)' },
+      { type: 'ancient', author: 'Justin', work: 'Epitome of the Philippic History of Pompeius Trogus', ref: 'XVIII, 5', note: 'Elissa and the oxhide of Byrsa' },
+      { type: 'modern', author: 'M\'hamed Hassine Fantar', work: 'Kerkouane, cité punique au pays berbère de Tamezrat', ref: 'Alif, 2005', note: 'standard work on the site' }
     ]
   },
   ar: {
@@ -414,8 +432,8 @@ const C = {
       chip: 'قرطاج · المواقع',
       title: 'على خطى قرطاج',
       lede: 'من قرطاجنة إلى إيبيزا، ومن كركوان إلى ترازيمينو — وصولًا إلى ميزوري.',
-      alt: 'السور البوني في قرطاجنة',
-      caption: 'السور البوني في قرطاجنة (قرت حدشت)، إسبانيا'
+      alt: 'السور البونيقي في قرطاجنة',
+      caption: 'السور البونيقي في قرطاجنة (قرت حدشت)، إسبانيا'
     },
     gridTitle: 'المواقع',
     filterLabel: 'تصفية المواقع حسب البلد',
@@ -429,7 +447,7 @@ const C = {
         chips: ['إسبانيا', 'نحو 227 ق.م'],
         name: 'قرطاجنة',
         alt: 'المسرح الروماني في قرطاجنة',
-        text: 'أسسها صدربعل الجميل وأعطاها اسم قرطاج نفسه: قرت حدشت، «المدينة الجديدة». كانت عاصمة البرقيين في إيبيريا قرب مناجم فضة غنية، وقاعدة حنبعل قبل إيطاليا. استولى عليها سكيبيو سنة 209 ق.م، وسورها البوني مفتوح للزوار اليوم.',
+        text: 'أسسها صدربعل الجميل وأعطاها اسم قرطاج نفسه: قرت حدشت، «المدينة الجديدة». كانت عاصمة البرقيين في إيبيريا قرب مناجم فضة غنية، وقاعدة حنبعل قبل إيطاليا. استولى عليها سكيبيو سنة 209 ق.م، وسورها البونيقي مفتوح للزوار اليوم.',
         note: 'كل سبتمبر: مهرجان «القرطاجيين والرومان»',
         toLabel: 'حنبعل'
       },
@@ -437,14 +455,14 @@ const C = {
         chips: ['إسبانيا', '219 ق.م'],
         name: 'ساغونتوم',
         alt: 'قلعة ساغونتو',
-        text: 'حليفة روما، حاصرها حنبعل ثمانية أشهر (تيتوس ليفيوس): أشعل سقوطها الحرب البونية الثانية.',
-        toLabel: 'الحروب البونية'
+        text: 'حليفة روما، حاصرها حنبعل ثمانية أشهر (تيتوس ليفيوس): أشعل سقوطها الحرب البونيقية الثانية.',
+        toLabel: 'الحروب البونيقية'
       },
       ibiza: {
         chips: ['إسبانيا', 'اليونسكو'],
         name: 'إيبيزا (إيبوسوس)',
         alt: 'مقبرة بويغ دي مولينس، إيبيزا',
-        text: 'مستعمرة «يبشم» البونية؛ وتضم مقبرة بويغ دي مولينس آلاف القبور منها.'
+        text: 'مستعمرة «يبشم» البونيقية؛ وتضم مقبرة بويغ دي مولينس آلاف القبور منها.'
       },
       gadir: {
         chips: ['إسبانيا', 'الأطلسي'],
@@ -462,27 +480,27 @@ const C = {
       byrsa: {
         chips: ['تونس', 'اليونسكو'],
         name: 'بيرصا، قرطاج',
-        alt: 'الحي البوني في بيرصا',
-        text: 'أكروبول أسطورة عليسة وجلد الثور. وعلى سفحها «حي حنبعل»: بيوت بونية من القرن الثاني ق.م.',
+        alt: 'الحي البونيقي في بيرصا',
+        text: 'أكروبول أسطورة عليسة وجلد الثور. وعلى سفحها «حي حنبعل»: بيوت بونيقية من القرن الثاني ق.م.',
         toLabel: 'التأسيس'
       },
       kerkouane: {
         chips: ['تونس', 'اليونسكو'],
         name: 'كركوان',
         alt: 'آثار كركوان، الوطن القبلي',
-        text: 'المدينة البونية الوحيدة التي عُثر عليها سليمة، هُجرت في القرن الثالث ق.م ولم يُعِد الرومان بناءها: شوارع وبيوت وأحواض استحمام.'
+        text: 'المدينة البونيقية الوحيدة التي عُثر عليها سليمة، هُجرت في القرن الثالث ق.م ولم يُعِد الرومان بناءها: شوارع وبيوت وأحواض استحمام.'
       },
       tophet: {
         chips: ['تونس', 'صلامبو'],
-        name: 'التوفِت',
-        alt: 'أنصاب توفِت صلامبو',
+        name: 'التوفيت',
+        alt: 'أنصاب توفيت صلامبو',
         text: 'حرم بعل حمون وتانيت، استُعمل من القرن الثامن حتى 146 ق.م: آلاف الجرار والأنصاب، وتفسيرها ما زال محلّ نقاش.',
         toLabel: 'الديانة'
       },
       ports: {
         chips: ['تونس', 'قرطاج'],
-        name: 'الموانئ البونية',
-        alt: 'الموانئ البونية في قرطاج',
+        name: 'الموانئ البونيقية',
+        alt: 'الموانئ البونيقية في قرطاج',
         text: 'كان الميناء الدائري يؤوي الأسطول الحربي — 220 حوضًا حسب أبيانوس — والميناء المستطيل للتجارة.',
         toLabel: 'الاقتصاد'
       },
@@ -490,14 +508,14 @@ const C = {
         chips: ['تونس', 'تونس العاصمة'],
         name: 'متحف باردو',
         alt: 'المتحف الوطني بباردو، تونس',
-        text: 'أنصاب التوفِت، أقنعة، حليّ وتمائم: إحدى أكبر المجموعات البونية في العالم.'
+        text: 'أنصاب التوفيت، أقنعة، حليّ وتمائم: إحدى أكبر المجموعات البونيقية في العالم.'
       },
       zama: {
         chips: ['تونس', '202 ق.م'],
         name: 'زاما',
         alt: 'معركة زاما، نقش لكورنيليس كورت',
         text: 'هنا هزم سكيبيو حنبعل. ويبقى الموقع الدقيق محلّ نقاش، في شمال غرب تونس الحالية.',
-        toLabel: 'الحروب البونية'
+        toLabel: 'الحروب البونيقية'
       },
       trasimene: {
         chips: ['إيطاليا', '217 ق.م'],
@@ -515,8 +533,8 @@ const C = {
       marsala: {
         chips: ['إيطاليا · صقلية', '397–241 ق.م'],
         name: 'مرسالا (ليليبايوم)',
-        alt: 'حطام السفينة البونية في مرسالا',
-        text: 'تأسست بعد تدمير موتيا، وصمدت القلعة البونية في صقلية أمام الحصار الروماني حتى 241. ويعرض متحفها حطام سفينة حربية بونية اكتُشفت سنة 1971.',
+        alt: 'حطام السفينة البونيقية في مرسالا',
+        text: 'تأسست بعد تدمير موتيا، وصمدت القلعة البونيقية في صقلية أمام الحصار الروماني حتى 241. ويعرض متحفها حطام سفينة حربية بونيقية اكتُشفت سنة 1971.',
         toLabel: 'الجيش'
       }
     },
@@ -528,7 +546,7 @@ const C = {
       rows: [
         { key: 'هانيبال، ميزوري', val: 'تحمل اسم جدول «هانيبال» الذي سمّاه المسّاح أنطونيو سولار سنة 1800 تكريمًا للقائد. وهي أيضًا مدينة طفولة مارك توين.' },
         { key: 'هانيبال، نيويورك', val: 'إحدى البلدات ذات الأسماء القديمة في «المقاطعة العسكرية»، إلى جانب تروي وإيثاكا وسيراكيوز.' },
-        { key: 'مدن «قرطاج»', val: 'ميزوري، تكساس، نيويورك، إلينوي، تينيسي… أكثر من عشر مدن أمريكية تحمل اسم المدينة البونية.' },
+        { key: 'مدن «قرطاج»', val: 'ميزوري، تكساس، نيويورك، إلينوي، تينيسي… أكثر من عشر مدن أمريكية تحمل اسم المدينة البونيقية.' },
         { key: 'قرطاجنة الهند', gold: true, val: 'المدينة الكولومبية، التي تأسست سنة 1533، أخذت اسمها من قرطاجنة الإسبانية — أي في الأصل من قرت حدشت.' }
       ]
     },
@@ -539,9 +557,17 @@ const C = {
     },
     relatedTitle: 'اقرأ أيضًا',
     related: [
-      { to: '/carte', kick: 'خريطة متحركة', title: 'قرطاج والبحر المتوسط', text: 'الأراضي، حملة حنبعل، رحلات حنّون وحِملكون.', cls: 'tile--navy' },
+      { to: '/carte', kick: 'خريطة متحركة', title: 'قرطاج والبحر المتوسط', text: 'الأراضي، حملة حنبعل، رحلات حنون وحملكون.', cls: 'tile--navy' },
       { to: '/tunisie', kick: 'اليوم', title: 'قرطاج تحيا في تونس', text: 'من اسم إفريقيا إلى قصر قرطاج: استمرارية تونسية.', cls: '' },
       { to: '/richesse-rome', kick: 'اقتصاد وسياسة', title: 'أغنى مما تحتمله روما', text: 'لماذا أثار ثراء قرطاج حنق روما.', cls: 'tile--gold' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: 'تاريخ روما', ref: 'XXI, 15 ; XXI, 21', note: 'حصار ساغونتوم؛ نذور حنبعل لملقرت في قادس' },
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', ref: 'III, 84 ; III, 117', note: 'خسائر الرومان في ترازيمينو وكاناي' },
+      { type: 'ancient', author: 'أبيانوس', work: 'الكتاب الليبي', ref: '96', note: 'الميناء الدائري ومراسيه الـ220' },
+      { type: 'ancient', author: 'ديودوروس الصقلي', work: 'المكتبة التاريخية', ref: 'XIV, 47–53', note: 'حصار موتيا وتدميرها (397)' },
+      { type: 'ancient', author: 'يوستينوس', work: 'مختصر التواريخ الفيليبية لتروغوس بومبيوس', ref: 'XVIII, 5', note: 'عليسة وجلد الثور في بيرصا' },
+      { type: 'modern', author: 'محمد حسين فنطر', work: 'Kerkouane, cité punique au pays berbère de Tamezrat', ref: 'Alif, 2005', note: 'المرجع الأساسي عن الموقع' }
     ]
   }
 }

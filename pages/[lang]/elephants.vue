@@ -175,6 +175,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec">
       <h2 class="h-block related-title">{{ c.relatedTitle }}</h2>
@@ -291,6 +293,13 @@ const C = {
       { img: '/img/goya.jpg', alt: "Goya — Hannibal contemplant l'Italie depuis les Alpes", cap: "F. de Goya — Hannibal contemplant l'Italie, 1771" },
       { img: '/img/oath.jpg', alt: "Benjamin West — Le serment d'Hannibal", cap: "B. West — Le serment d'Hannibal enfant, 1770" }
     ],
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'III', note: 'le Rhône, les Alpes, un seul éléphant survivant à l’hiver 218' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', ref: 'XXI–XXIII', note: 'le feu et le vinaigre, les marais de l’Arno' },
+      { type: 'ancient', author: 'Pline l’Ancien', work: 'Histoire naturelle', ref: 'VIII', note: 'l’éléphant Surus' },
+      { type: 'ancient', author: 'Caton l’Ancien', work: 'Origines', note: 'cité par Pline ; œuvre perdue' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'lecture complémentaire (bibliographie du site)' }
+    ],
     relatedTitle: 'À lire aussi',
     links: [
       { to: '/hannibal', kick: 'Biographie', title: 'Hannibal Barca', text: 'De Carthagène à Zama, la vie du stratège qui fit trembler Rome.', cls: 'tile--purple' },
@@ -372,6 +381,13 @@ const C = {
       { img: '/img/goya.jpg', alt: 'Goya — Hannibal viewing Italy from the Alps', cap: 'F. de Goya — Hannibal viewing Italy, 1771' },
       { img: '/img/oath.jpg', alt: 'Benjamin West — Hannibal taking the oath', cap: "B. West — Young Hannibal's oath, 1770" }
     ],
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: 'book 3', note: 'the Rhône, the Alps, a single elephant surviving the winter of 218' },
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', ref: 'books 21–23', note: 'fire and vinegar, the Arno marshes' },
+      { type: 'ancient', author: 'Pliny the Elder', work: 'Natural History', ref: 'book 8', note: 'the elephant Surus' },
+      { type: 'ancient', author: 'Cato the Elder', work: 'Origines', note: 'quoted by Pliny; lost work' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'further reading (site bibliography)' }
+    ],
     relatedTitle: 'Read also',
     links: [
       { to: '/hannibal', kick: 'Biography', title: 'Hannibal Barca', text: 'From Carthago Nova to Zama, the life of the strategist who made Rome tremble.', cls: 'tile--purple' },
@@ -452,6 +468,13 @@ const C = {
       { img: '/img/leutemann.jpg', alt: 'هاينريش لويتمان — جيش حنبعل يعبر الألب', pos: '50% 60%', cap: 'ه. لويتمان — عبور الألب، القرن 19' },
       { img: '/img/goya.jpg', alt: 'غويا — حنبعل يتأمل إيطاليا من جبال الألب', cap: 'ف. دي غويا — حنبعل يتأمل إيطاليا، 1771' },
       { img: '/img/oath.jpg', alt: 'بنجامين وست — قسم حنبعل', cap: 'ب. وست — قسم حنبعل الطفل، 1770' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', ref: 'الكتاب 3', note: 'الرون والألب وفيل واحد نجا من شتاء 218' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: 'تاريخ روما', ref: 'الكتب 21–23', note: 'النار والخل ومستنقعات الأرنو' },
+      { type: 'ancient', author: 'بلينيوس الأكبر', work: 'التاريخ الطبيعي', ref: 'الكتاب 8', note: 'الفيل سوروس' },
+      { type: 'ancient', author: 'كاتو الأكبر', work: 'الأصول', note: 'نقله بلينيوس؛ مؤلَّف مفقود' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'قراءة إضافية (قائمة مراجع الموقع)' }
     ],
     relatedTitle: 'اقرأ أيضًا',
     links: [

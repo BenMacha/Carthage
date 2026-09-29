@@ -153,6 +153,8 @@
       </div>
     </div>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec sec--wide">
       <h2 class="h-section block-title">{{ c.readTitle }}</h2>
@@ -248,6 +250,19 @@ const C = {
     quoteK: 'François Decret',
     quote: '« Pour ce peuple de marins, la Cité céleste était le dernier port où aborder. »',
     quoteSrc: 'F. Decret, Carthage ou l’empire de la mer (1977)',
+    sources: [
+      { type: "ancient", author: "Polybe", work: "Histoires", ref: "VII, 9", note: "serment de 215" },
+      { type: "ancient", author: "Diodore de Sicile", work: "Bibliothèque historique", ref: "XIV, 63 ; XIV, 77" },
+      { type: "ancient", author: "Appien", work: "Libyca (Le Livre africain)", note: "le temple d'Eshmoun sur Byrsa" },
+      { type: "ancient", author: "Inscription punique", work: "Tarif sacrificiel de Marseille", note: "d'origine carthaginoise" },
+      { type: "modern", author: "Maurice Sznycer", work: "Carthage et la civilisation punique", ref: "PUF, 1978" },
+      { type: "modern", author: "Azedine Beschaouch", work: "La légende de Carthage", ref: "Gallimard, 1993" },
+      { type: "modern", author: "Hédi Dridi", work: "Carthage et le monde punique", ref: "Les Belles Lettres, 2006" },
+      { type: "modern", author: "Serge Lancel", work: "Carthage", ref: "Fayard, 1992" },
+      { type: "modern", author: "Picard", note: "cité dans la page (nécropoles)" },
+      { type: "modern", author: "François Decret", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "Wikipédia", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0, contenus reformulés" }
+    ],
     readTitle: 'À lire aussi',
     go: 'Lire →',
     read: [
@@ -331,6 +346,19 @@ const C = {
     quoteK: 'François Decret',
     quote: '“For this seafaring people, the heavenly City was the last harbour to put in at.”',
     quoteSrc: 'F. Decret, Carthage ou l’empire de la mer (1977)',
+    sources: [
+      { type: "ancient", author: "Polybius", work: "Histories", ref: "VII, 9", note: "oath of 215" },
+      { type: "ancient", author: "Diodorus Siculus", work: "Library of History", ref: "XIV, 63; XIV, 77" },
+      { type: "ancient", author: "Appian", work: "Libyca (The African Book)", note: "the temple of Eshmun on Byrsa" },
+      { type: "ancient", author: "Punic inscription", work: "Marseille sacrificial tariff", note: "of Carthaginian origin" },
+      { type: "modern", author: "Maurice Sznycer", work: "Carthage et la civilisation punique", ref: "PUF, 1978" },
+      { type: "modern", author: "Azedine Beschaouch", work: "La légende de Carthage", ref: "Gallimard, 1993" },
+      { type: "modern", author: "Hédi Dridi", work: "Carthage et le monde punique", ref: "Les Belles Lettres, 2006" },
+      { type: "modern", author: "Serge Lancel", work: "Carthage", ref: "Fayard, 1992" },
+      { type: "modern", author: "Picard", note: "cited on this page (cemeteries)" },
+      { type: "modern", author: "François Decret", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "Wikipedia (French)", work: "Carthage; Civilisation carthaginoise", note: "CC BY-SA 4.0, content rephrased" }
+    ],
     readTitle: 'Read also',
     go: 'Read →',
     read: [
@@ -373,7 +401,7 @@ const C = {
       { glyph: '𐤁𐤏𐤋 𐤔𐤌𐤌', k: '«سيد السماوات»', name: 'بعل شميم', text: 'إله السماء الأكبر عند الفينيقيين. ويشهد إهداء من جزيرة سان بييترو في سردينيا على عبادته في الغرب البونيقي.' },
       { glyph: '𐤑𐤃', k: 'إله مدينة في سردينيا', name: 'صيد', text: 'عُبد في سردينيا، حيث سيسمّيه الرومان «سردوس باتر» (معبد أنتاس). وفي قرطاج تقرنه الإهداءات بتانيت: صيد-تانيت.' },
       { k: 'تأثيرات مصرية', name: 'إيزيس وحورس وبس', text: 'نشرت التمائم والجعلان والأمواس المنقوشة الآلهة المصرية، مستوردة منذ القرن السابع أو منسوخة محليًا، ولا سيما في قبور النساء والأطفال.' },
-      { tone: 'tile--terra', k: 'أُدخلتا سنة 396', name: 'ديميتر وكوري', text: 'نهب جيش هيملكون معبدهما قرب سرقوسة، ثم فتك به الطاعون. ولاسترضاء الإلهتين، تبنّت قرطاج عبادتهما وعهدت بها إلى كهنة إغريق (ديودور، 14، 63 و77).' },
+      { tone: 'tile--terra', k: 'أُدخلتا سنة 396', name: 'ديميتر وكوري', text: 'نهب جيش حملكون معبدهما قرب سرقوسة، ثم فتك به الطاعون. ولاسترضاء الإلهتين، تبنّت قرطاج عبادتهما وعهدت بها إلى كهنة إغريق (ديودوروس، 14، 63 و77).' },
       { tone: 'tile--ink', k: 'تحوّلات', name: 'آلهة تتبدّل', text: 'اتخذ ملقرت ملامح هرقل؛ واقترب بعل حمون من آمون الليبي ذي الكبش ثم من جوبيتر. وفي العهد الروماني بقي باسم «ساتورن الإفريقي»، وتانيت باسم «كايليستيس».' }
     ],
     oathKicker: 'بوليبيوس، 7، 9 · 215 ق.م',
@@ -383,7 +411,7 @@ const C = {
     sanctKicker: 'أماكن العبادة',
     sanctTitle: 'المعابد والمقامات',
     sanct: [
-      { k: 'بيرصا', v: 'حسب أبيان، كان معبد أشمون، أكبر معابد قرطاج، يتوّج الأكروبول. ولم تحفظ القمة، التي سُوّيت في العهد الروماني، شيئًا منه (بشاوش).' },
+      { k: 'بيرصا', v: 'حسب أبيانوس، كان معبد أشمون، أكبر معابد قرطاج، يتوّج الأكروبول. ولم تحفظ القمة، التي سُوّيت في العهد الروماني، شيئًا منه (بشاوش).' },
       { k: 'قادس', v: 'ظل معبد ملقرت ذائع الصيت حتى العصر الروماني.' },
       { k: 'صلامبو', v: 'معابد أكثر تواضعًا قرب محطة قطار صلامبو الحالية وعند سفح سيدي بو سعيد. وعلى شاطئ البحر، كانت المعابد تتلقى قرابين الغرباء ونذورهم.' },
       { k: 'تينيسوت', v: 'في الوطن القبلي، معبد ريفي من بداية العهد الإمبراطوري، بساحات متجاورة على الطراز الشرقي، كشف عن تماثيل من الطين المشوي لبعل حمون بين أبي هول، ولتانيت برأس أسد، ولديميتر.' },
@@ -414,6 +442,19 @@ const C = {
     quoteK: 'فرانسوا ديكري',
     quote: '«بالنسبة إلى هذا الشعب من البحارة، كانت المدينة السماوية آخر ميناء يُرسى فيه.»',
     quoteSrc: 'ف. ديكري، قرطاج أو إمبراطورية البحر (1977)',
+    sources: [
+      { type: "ancient", author: "بوليبيوس", work: "التواريخ", ref: "7، 9", note: "قسم سنة 215" },
+      { type: "ancient", author: "ديودوروس الصقلي", work: "المكتبة التاريخية", ref: "14، 63؛ 14، 77" },
+      { type: "ancient", author: "أبيانوس", work: "ليبيكا (الكتاب الإفريقي)", note: "معبد أشمون على بيرصا" },
+      { type: "ancient", author: "نقش بونيقي", work: "تعرفة مرسيليا", note: "قرطاجي الأصل" },
+      { type: "modern", author: "موريس شنيسر", work: "Carthage et la civilisation punique", ref: "PUF, 1978" },
+      { type: "modern", author: "عز الدين بشاوش", work: "La légende de Carthage", ref: "Gallimard, 1993" },
+      { type: "modern", author: "هادي دريدي", work: "Carthage et le monde punique", ref: "Les Belles Lettres, 2006" },
+      { type: "modern", author: "سيرج لانسيل", work: "Carthage", ref: "Fayard, 1992" },
+      { type: "modern", author: "بيكار", note: "مذكور في هذه الصفحة (المقابر)" },
+      { type: "modern", author: "فرانسوا ديكري", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "ويكيبيديا (بالفرنسية)", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0، محتوى أعيدت صياغته" }
+    ],
     readTitle: 'اقرأ أيضًا',
     go: 'اقرأ ←',
     read: [

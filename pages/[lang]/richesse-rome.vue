@@ -88,6 +88,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec sec--wide">
       <h2 class="h-section related-title">{{ c.relatedTitle }}</h2>
@@ -190,6 +192,15 @@ const C = {
       { to: '/economie', kick: 'Économie', title: 'Une puissance marchande', text: 'Commerce, agriculture, monnaie : les sources de la richesse carthaginoise.', cls: 'tile--gold' },
       { to: '/prise-de-carthage', kick: '146 av. J.-C.', title: 'La prise de Carthage', text: "Ce que Rome a fait, et ce qu'elle a prétendu avoir fait.", cls: 'tile--ink' },
       { to: '/histoire-des-vainqueurs', kick: 'Historiographie', title: "L'histoire des vainqueurs", text: 'Carthage racontée par ses ennemis : lire les sources avec prudence.', cls: '' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'I, 62–63 ; I, 88 ; III, 10 ; XV, 18 ; XVIII, 35', note: 'indemnités de 241 et 201, Sardaigne (237), « la cité la plus riche du monde »' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', ref: 'XXXIII, 46–47 ; XXXVI, 4', note: 'Hannibal suffète ; offre de remboursement anticipé' },
+      { type: 'ancient', author: 'Plutarque', work: 'Vie de Caton l\'Ancien', ref: '27', note: 'les figues de Caton, la réplique de Scipion Nasica' },
+      { type: 'ancient', author: 'Pline l\'Ancien', work: 'Histoire naturelle', ref: 'XV, 74–76 ; XVIII, 22 ; XXXIII, 96–97', note: 'figues de Caton, traduction de Magon, puits de Baebelo' },
+      { type: 'ancient', author: 'Strabon', work: 'Géographie', ref: 'XVII, 3, 15', note: '700 000 habitants en 149' },
+      { type: 'ancient', author: 'Appien', work: 'Libyca', note: 'otages, désarmement et ultimatum de 149' },
+      { type: 'ancient', author: 'Salluste', work: 'Guerre de Jugurtha ; Conjuration de Catilina', ref: 'Jug. 41 ; Cat. 10', note: 'la disparition de Carthage, début de la décadence' }
     ]
   },
   en: {
@@ -274,12 +285,21 @@ const C = {
       { to: '/economie', kick: 'Economy', title: 'A merchant power', text: 'Trade, agriculture, coinage: the sources of Carthaginian wealth.', cls: 'tile--gold' },
       { to: '/prise-de-carthage', kick: '146 BC', title: 'The fall of Carthage', text: 'What Rome did, and what it claimed to have done.', cls: 'tile--ink' },
       { to: '/histoire-des-vainqueurs', kick: 'Historiography', title: "The victors' history", text: 'Carthage as told by its enemies: reading the sources with care.', cls: '' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: 'I, 62–63 ; I, 88 ; III, 10 ; XV, 18 ; XVIII, 35', note: 'indemnities of 241 and 201, Sardinia (237), "the wealthiest city in the world"' },
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', ref: 'XXXIII, 46–47 ; XXXVI, 4', note: 'Hannibal as sufete; offer of early repayment' },
+      { type: 'ancient', author: 'Plutarch', work: 'Life of Cato the Elder', ref: '27', note: 'Cato\'s figs, Scipio Nasica\'s reply' },
+      { type: 'ancient', author: 'Pliny the Elder', work: 'Natural History', ref: 'XV, 74–76 ; XVIII, 22 ; XXXIII, 96–97', note: 'Cato\'s figs, translation of Mago, the Baebelo mine' },
+      { type: 'ancient', author: 'Strabo', work: 'Geography', ref: 'XVII, 3, 15', note: '700,000 inhabitants in 149' },
+      { type: 'ancient', author: 'Appian', work: 'Libyca', note: 'hostages, disarmament and the ultimatum of 149' },
+      { type: 'ancient', author: 'Sallust', work: 'The Jugurthine War ; The Conspiracy of Catiline', ref: 'Jug. 41 ; Cat. 10', note: 'the end of Carthage as the start of Rome\'s decline' }
     ]
   },
   ar: {
     meta: {
       title: 'لماذا أثار ثراء قرطاج حنق روما',
-      desc: 'هُزمت قرطاج مرتين لكنها نهضت دائمًا: تعويضات 241 و201، عرض السداد المبكر، تين كاتون، إنذار 149. كيف صار ثراء قرطاج هاجسًا لروما.'
+      desc: 'هُزمت قرطاج مرتين لكنها نهضت دائمًا: تعويضات 241 و201، عرض السداد المبكر، تين كاتو، إنذار 149. كيف صار ثراء قرطاج هاجسًا لروما.'
     },
     hero: {
       alt: 'شيقل فضي قرطاجي: رأس ملقرت وفيل',
@@ -302,7 +322,7 @@ const C = {
         { y: '201', t: 'سلام لإفلاس قرطاج', d: 'بعد زاما: أسطول مقلّص إلى 10 سفن، تسليم الفيلة، 100 رهينة، منع الحرب دون موافقة روما، و10 آلاف تالنت من الفضة تُدفع على مدى 50 سنة.' },
         { y: '196', t: 'حنبعل شُفِط', d: 'انتُخب القاضي الأول، فحارب فساد الأوليغارشية وبيّن أن مداخيل الدولة تكفي لدفع الجزية لروما دون ضرائب جديدة (تيتوس ليفيوس). وشى به خصومه إلى روما، فرحل إلى المنفى سنة 195.' },
         { y: '191', t: '«نستطيع دفع كل شيء»', d: 'حسب تيتوس ليفيوس، عرضت قرطاج تسديد ما تبقى من التعويض دفعة واحدة. رفضت روما: فالدَّين كان أيضًا قيدًا.' },
-        { y: '~150', t: 'تين كاتون', d: 'عاد كاتون من سفارة إلى إفريقيا فأسقط في مجلس الشيوخ تينًا ما زال طريًا: الأرض التي تنبته، قال، لا تبعد سوى ثلاثة أيام بحرًا (بلوتارخوس، بلينيوس). الغريمة مزدهرة وقريبة. ومنذئذ صار يختم كل خطبه بالمطالبة بتدمير قرطاج.' },
+        { y: '~150', t: 'تين كاتو', d: 'عاد كاتو من سفارة إلى إفريقيا فأسقط في مجلس الشيوخ تينًا ما زال طريًا: الأرض التي تنبته، قال، لا تبعد سوى ثلاثة أيام بحرًا (بلوتارخوس، بلينيوس). الغريمة مزدهرة وقريبة. ومنذئذ صار يختم كل خطبه بالمطالبة بتدمير قرطاج.' },
         { y: '151–150', t: 'الذريعة النوميدية', d: 'دُفع آخر قسط من التعويض. وتحت ضغط ماسينيسا، جنّدت قرطاج جيشًا للدفاع عن نفسها دون موافقة روما — ما عُدّ خرقًا لمعاهدة 201 ومنح روما ذريعة الحرب.' },
         { y: '149', t: 'الإنذار', d: 'حسب أبيانوس، سلّمت قرطاج 300 طفل رهائن، ثم 200 ألف درع وألفي منجنيق… قبل أن تطالبها روما بهجر المدينة والاستقرار على بعد 80 غلوة (≈ 15 كم) من البحر. رفضت، وصمدت المدينة ثلاث سنوات حتى 146.' }
       ]
@@ -313,12 +333,12 @@ const C = {
       items: [
         {
           cls: 'tile--paper tile--outline',
-          kick: 'كاتون الأكبر',
+          kick: 'كاتو الأكبر',
           title: '«يجب تدمير قرطاج»',
           quote: 'Ceterum censeo Carthaginem esse delendam.',
           quoteLang: 'la',
           cite: '«وفوق ذلك، أرى أنه يجب تدمير قرطاج.»',
-          text: 'يروي بلوتارخوس أن كاتون كان يختم كل رأي يبديه بهذا المطلب؛ أما الصيغة اللاتينية الشهيرة فهي إعادة صياغة متأخرة، و«Carthago delenda est» صيغتها المختصرة.'
+          text: 'يروي بلوتارخوس أن كاتو كان يختم كل رأي يبديه بهذا المطلب؛ أما الصيغة اللاتينية الشهيرة فهي إعادة صياغة متأخرة، و«Carthago delenda est» صيغتها المختصرة.'
         },
         {
           cls: '',
@@ -343,14 +363,14 @@ const C = {
       rows: [
         ['الثروة', 'من التجارة البحرية والفلاحة', 'من الغزو والجزية'],
         ['الجيش', 'مرتزقة محترفون', 'مواطنون جنود (فيالق)'],
-        ['البحرية', 'تفوّق بحري عريق', 'أسطول بُني خلال الحرب البونية الأولى'],
+        ['البحرية', 'تفوّق بحري عريق', 'أسطول بُني خلال الحرب البونيقية الأولى'],
         ['الحكم', 'شُفِطان، أوليغارشية تجارية', 'قناصل، أرستقراطية'],
         ['العملة', 'إلكتروم، ذهب، فضة، برونز', 'الدينار الفضي']
       ]
     },
     ports: {
-      alt: 'الموانئ البونية في قرطاج اليوم',
-      b: 'الموانئ البونية اليوم.',
+      alt: 'الموانئ البونيقية في قرطاج اليوم',
+      b: 'الموانئ البونيقية اليوم.',
       text: 'كان الميناء الدائري يؤوي الأسطول الحربي، والميناء المستطيل للتجارة.'
     },
     relatedTitle: 'اقرأ أيضًا',
@@ -358,6 +378,15 @@ const C = {
       { to: '/economie', kick: 'الاقتصاد', title: 'قوة تجارية', text: 'التجارة والفلاحة والعملة: مصادر الثروة القرطاجية.', cls: 'tile--gold' },
       { to: '/prise-de-carthage', kick: '146 ق.م', title: 'سقوط قرطاج', text: 'ما فعلته روما وما ادّعت أنها فعلته.', cls: 'tile--ink' },
       { to: '/histoire-des-vainqueurs', kick: 'التأريخ', title: 'تاريخ المنتصرين', text: 'قرطاج كما رواها أعداؤها: قراءة المصادر بحذر.', cls: '' }
+    ],
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', ref: 'I, 62–63 ; I, 88 ; III, 10 ; XV, 18 ; XVIII, 35', note: 'تعويضات 241 و201، سردينيا (237)، «أغنى مدينة في العالم»' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: 'تاريخ روما', ref: 'XXXIII, 46–47 ; XXXVI, 4', note: 'حنبعل شوفطًا؛ عرض السداد المسبق' },
+      { type: 'ancient', author: 'بلوتارخ', work: 'سيرة كاتو الأكبر', ref: '27', note: 'تين كاتو، وردّ سكيبيو ناسيكا' },
+      { type: 'ancient', author: 'بلينيوس الأكبر', work: 'التاريخ الطبيعي', ref: 'XV, 74–76 ; XVIII, 22 ; XXXIII, 96–97', note: 'تين كاتو، ترجمة ماغون، منجم بايبيلو' },
+      { type: 'ancient', author: 'سترابون', work: 'الجغرافيا', ref: 'XVII, 3, 15', note: '700 ألف ساكن سنة 149' },
+      { type: 'ancient', author: 'أبيانوس', work: 'الكتاب الليبي', note: 'الرهائن ونزع السلاح وإنذار 149' },
+      { type: 'ancient', author: 'سالوستيوس', work: 'حرب يوغرطة؛ مؤامرة كاتلينا', ref: 'Jug. 41 ; Cat. 10', note: 'زوال قرطاج بداية انحطاط روما' }
     ]
   }
 }

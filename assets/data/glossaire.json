@@ -1,0 +1,901 @@
+{
+  "meta": {
+    "note": "Glossaire du site : termes du monde punique employés dans les pages. Formes arabes harmonisées (voir rapport de rédaction) : شفط (pl. شفطون), التوفيت, البونيقي/البونيقية, شيقل, تالنت, أشمون, عشتارت, قادس.",
+    "categories": [
+      { "key": "institutions", "fr": "Institutions", "en": "Institutions", "ar": "المؤسسات" },
+      { "key": "religion", "fr": "Religion", "en": "Religion", "ar": "الديانة" },
+      { "key": "guerre", "fr": "Guerre", "en": "Warfare", "ar": "الحرب" },
+      { "key": "economie", "fr": "Économie", "en": "Economy", "ar": "الاقتصاد" },
+      { "key": "lieux", "fr": "Lieux", "en": "Places", "ar": "الأماكن" },
+      { "key": "langue", "fr": "Langue", "en": "Language", "ar": "اللغة" },
+      { "key": "art", "fr": "Art", "en": "Art", "ar": "الفن" },
+      { "key": "histoire", "fr": "Histoire", "en": "History", "ar": "التاريخ" }
+    ]
+  },
+  "terms": [
+    {
+      "id": "suffete",
+      "term": { "fr": "Suffète", "en": "Sufete", "ar": "شفط" },
+      "phoen": "𐤔𐤐𐤈",
+      "def": {
+        "fr": "Du phénicien shofet, « juge ». Carthage élisait chaque année deux suffètes, que Grecs et Romains appelaient « rois » : ils présidaient le Sénat et rendaient la justice, sans commander les armées (Aristote, Politique, II, 11). Des villes d'Afrique romaine en élisent encore au IIe siècle apr. J.-C.",
+        "en": "From Phoenician shofet, “judge”. Carthage elected two sufetes every year, whom Greeks and Romans called “kings”: they presided over the Senate and dispensed justice, but did not command the armies (Aristotle, Politics, II, 11). Towns of Roman Africa were still electing them in the 2nd century AD.",
+        "ar": "من الفينيقية «شفط» أي «القاضي»، والجمع شفطون. كانت قرطاج تنتخب كل سنة شفطين سمّاهما الإغريق والرومان «ملكين»: يرأسان مجلس الشيوخ ويقضيان بين الناس دون أن يقودا الجيوش (أرسطو، السياسة، II، 11). وظلت مدن في إفريقيا الرومانية تنتخبهم حتى القرن الثاني للميلاد."
+      },
+      "alias": ["shofet", "sufet", "suffetes", "شفطون", "شفطان", "شفط", "سوفيت"],
+      "see": ["/institutions", "/hannibal", "/apres-146"],
+      "cat": "institutions"
+    },
+    {
+      "id": "senat",
+      "term": { "fr": "Sénat", "en": "Senate", "ar": "مجلس الشيوخ" },
+      "phoen": null,
+      "def": {
+        "fr": "Le conseil des « Anciens » de Carthage (gerontes pour les Grecs, seniores pour les Romains), recruté dans les grandes familles et fort sans doute de plusieurs centaines de membres. Il décidait de la guerre, de la paix et de la diplomatie ; les généraux venaient lui rendre compte.",
+        "en": "The council of the “Elders” of Carthage (gerontes to the Greeks, seniores to the Romans), drawn from the great families and probably several hundred strong. It decided on war, peace and diplomacy, and generals had to report to it.",
+        "ar": "مجلس «القدماء» في قرطاج (gerontes عند الإغريق وseniores عند الرومان)، يُختار أعضاؤه من كبرى العائلات، وكان يضم على الأرجح عدة مئات. كان يقرر الحرب والسلم والدبلوماسية، وإليه يرفع القادة حساب أعمالهم."
+      },
+      "alias": ["Anciens", "Elders", "gerousia", "مجلس القدماء"],
+      "see": ["/institutions"],
+      "cat": "institutions"
+    },
+    {
+      "id": "cent-quatre",
+      "term": { "fr": "Cent-Quatre", "en": "Hundred and Four", "ar": "المئة والأربعة" },
+      "phoen": null,
+      "def": {
+        "fr": "Conseil restreint ainsi nommé par Aristote. Selon Justin (XIX, 2), cent juges tirés du Sénat examinaient la conduite des généraux à leur retour, pour brider l'emprise des Magonides. Nommés à vie, ils virent leur mandat réduit à un an par Hannibal, suffète en 196 av. J.-C.",
+        "en": "A select council named thus by Aristotle. According to Justin (XIX, 2), a hundred judges taken from the Senate reviewed the conduct of generals on their return, to curb the grip of the Magonids. Appointed for life, their term was cut to one year by Hannibal as sufete in 196 BC.",
+        "ar": "مجلس مصغّر بهذا الاسم عند أرسطو. وحسب يوستينوس (XIX، 2)، كان مئة قاضٍ يُختارون من مجلس الشيوخ يحاسبون القادة عند عودتهم، للحدّ من نفوذ الماغونيين. كانوا يُعيَّنون مدى الحياة إلى أن جعل حنبعل ولايتهم سنة واحدة حين صار شفطًا سنة 196 ق.م."
+      },
+      "alias": ["Cent", "tribunal des Cent-Quatre", "Hundred", "محكمة المئة والأربعة"],
+      "see": ["/institutions", "/hannibal"],
+      "cat": "institutions"
+    },
+    {
+      "id": "pentarchie",
+      "term": { "fr": "Pentarchie", "en": "Pentarchy", "ar": "اللجان الخماسية" },
+      "phoen": null,
+      "def": {
+        "fr": "Commission de cinq membres connue par le seul Aristote (Politique, II, 11). Les pentarchies se recrutaient elles-mêmes, traitaient d'affaires importantes et désignaient les membres des Cent-Quatre ; leur fonctionnement exact reste obscur.",
+        "en": "A board of five members known only from Aristotle (Politics, II, 11). The pentarchies filled their own ranks, handled important business and chose the members of the Hundred and Four; how they worked remains obscure.",
+        "ar": "لجنة من خمسة أعضاء لا نعرفها إلا من أرسطو (السياسة، II، 11). كانت هذه اللجان تجدّد أعضاءها بنفسها، وتنظر في شؤون مهمة، وتعيّن أعضاء المئة والأربعة؛ ولا تزال طريقة عملها غامضة."
+      },
+      "alias": ["pentarchies", "لجنة خماسية"],
+      "see": ["/institutions"],
+      "cat": "institutions"
+    },
+    {
+      "id": "assemblee-du-peuple",
+      "term": { "fr": "Assemblée du peuple", "en": "People's assembly", "ar": "جمعية الشعب" },
+      "phoen": "𐤏𐤌",
+      "def": {
+        "fr": "La réunion des citoyens libres sur l'agora (Diodore) ; le punique ʿm, « peuple », la désigne dans les inscriptions. Elle tranchait quand suffètes et Sénat étaient en désaccord, et chacun pouvait y contredire les propositions (Aristote). Polybe (VI, 51) estime qu'elle avait pris l'ascendant au temps des guerres puniques.",
+        "en": "The gathering of free citizens in the agora (Diodorus); the Punic word ʿm, “people”, refers to it in inscriptions. It decided when the sufetes and the Senate disagreed, and anyone could then speak against the proposals (Aristotle). Polybius (VI, 51) held that it had gained the upper hand by the time of the Punic Wars.",
+        "ar": "اجتماع المواطنين الأحرار في الساحة العامة (ديودوروس)، وتسميه النقوش البونيقية «عم» أي «الشعب». كانت تفصل حين يختلف الشفطان ومجلس الشيوخ، ولكل فرد أن يعترض على المقترحات (أرسطو). ويرى بوليبيوس (VI، 51) أنها صارت صاحبة الكلمة العليا في عهد الحروب البونيقية."
+      },
+      "alias": ["peuple", "people", "ʿm", "الشعب"],
+      "see": ["/institutions"],
+      "cat": "institutions"
+    },
+    {
+      "id": "rab",
+      "term": { "fr": "Rab", "en": "Rab", "ar": "رب" },
+      "phoen": "𐤓𐤁",
+      "def": {
+        "fr": "Mot punique signifiant « chef », « maître », porté dans les inscriptions par des titulaires de charges variées. Le titre de général des armées carthaginoises y correspondrait (rb mḥnt, « chef du camp »), mais la hiérarchie militaire reste mal connue.",
+        "en": "A Punic word meaning “chief” or “master”, borne in inscriptions by holders of various offices. The title of general of the Carthaginian armies seems to match it (rb mḥnt, “chief of the camp”), but the military hierarchy is poorly known.",
+        "ar": "كلمة بونيقية معناها «الرئيس» أو «السيد»، يحملها في النقوش أصحاب مناصب مختلفة. ويبدو أن لقب قائد الجيش القرطاجي يقابلها («رب محنت» أي «رئيس المعسكر»)، لكن التسلسل العسكري لا يزال غير معروف جيدًا."
+      },
+      "alias": ["rb", "général", "general", "قائد"],
+      "see": ["/armee", "/institutions"],
+      "cat": "institutions"
+    },
+    {
+      "id": "tophet",
+      "term": { "fr": "Tophet", "en": "Tophet", "ar": "التوفيت" },
+      "phoen": null,
+      "def": {
+        "fr": "Nom biblique (Jérémie, 7, 31) donné par les archéologues aux sanctuaires à ciel ouvert où s'accumulent des urnes de restes d'enfants et de jeunes animaux, surmontées de stèles dédiées à Baal Hammon et Tanit. Celui de Salammbô, à Carthage, servit du VIIIe siècle à 146 av. J.-C. Sacrifices ou nécropole de nourrissons : le débat reste ouvert.",
+        "en": "A biblical name (Jeremiah 7:31) given by archaeologists to open-air sanctuaries filled with urns holding the remains of children and young animals, topped by stelae dedicated to Baal Hammon and Tanit. The Salammbô tophet in Carthage was used from the 8th century to 146 BC. Sacrifices or an infant cemetery: the debate remains open.",
+        "ar": "اسم توراتي (سفر إرميا، 7، 31) أطلقه علماء الآثار على معابد مكشوفة تتراكم فيها جرار تحوي رفات أطفال وصغار حيوانات، تعلوها نُصُب مهداة إلى بعل حمون وتانيت. استُعمل توفيت صلامبو في قرطاج من القرن الثامن حتى 146 ق.م. أهي قرابين أم مقبرة للرضّع؟ الجدل ما زال قائمًا."
+      },
+      "alias": ["tofet", "توفيت", "التوفيت", "توفيت"],
+      "see": ["/religion", "/histoire-des-vainqueurs"],
+      "cat": "religion"
+    },
+    {
+      "id": "tanit",
+      "term": { "fr": "Tanit", "en": "Tanit", "ar": "تانيت" },
+      "phoen": "𐤕𐤍𐤕",
+      "def": {
+        "fr": "Grande déesse de Carthage, appelée « Face de Baal » (pn bʿl) dans les dédicaces, où elle précède Baal Hammon à partir du Ve siècle av. J.-C. Protectrice de la cité, elle survit à l'époque romaine sous le nom de Caelestis.",
+        "en": "The great goddess of Carthage, called “Face of Baal” (pn bʿl) in dedications, where she is named before Baal Hammon from the 5th century BC. Protector of the city, she lived on in Roman times as Caelestis.",
+        "ar": "الإلهة الكبرى في قرطاج، تُلقَّب في الإهداءات بـ«وجه بعل» (فن بعل)، وتتقدّم فيها على بعل حمون منذ القرن الخامس ق.م. كانت حامية المدينة، وبقيت في العهد الروماني باسم كايليستيس."
+      },
+      "alias": ["Tinnit", "Face de Baal", "Face of Baal", "وجه بعل"],
+      "see": ["/religion"],
+      "cat": "religion"
+    },
+    {
+      "id": "signe-de-tanit",
+      "term": { "fr": "Signe de Tanit", "en": "Sign of Tanit", "ar": "علامة تانيت" },
+      "phoen": null,
+      "def": {
+        "fr": "Symbole formé d'un triangle, d'une barre horizontale et d'un disque, qui évoque une silhouette aux bras levés. Il se répand sur les stèles, les sols et les objets à partir des Ve–IVe siècles av. J.-C. ; longtemps cru propre à l'Occident, il est aussi attesté au Levant.",
+        "en": "A symbol made of a triangle, a horizontal bar and a disc, suggesting a figure with raised arms. It spread on stelae, floors and objects from the 5th–4th centuries BC; long thought to be purely western, it is also found in the Levant.",
+        "ar": "رمز مؤلف من مثلث وخط أفقي وقرص، يوحي بهيئة إنسان رافع ذراعيه. انتشر على النُّصُب والأرضيات والأدوات منذ القرنين الخامس والرابع ق.م؛ وظُنّ طويلًا أنه خاص بالغرب، لكنه وُجد أيضًا في المشرق."
+      },
+      "alias": ["symbole de Tanit", "Tanit sign", "رمز تانيت"],
+      "see": ["/religion", "/art-et-artisanat"],
+      "cat": "religion"
+    },
+    {
+      "id": "baal-hammon",
+      "term": { "fr": "Baal Hammon", "en": "Baal Hammon", "ar": "بعل حمون" },
+      "phoen": "𐤁𐤏𐤋 𐤇𐤌𐤍",
+      "def": {
+        "fr": "Dieu suprême de Carthage, maître du ciel et de la fécondité, à qui sont dédiées avec Tanit les stèles du tophet. Rapproché de l'Ammon libyen au bélier, puis de Kronos et de Jupiter, il survit sous Rome en Saturne africain.",
+        "en": "The supreme god of Carthage, lord of the sky and of fertility, to whom the tophet stelae are dedicated together with Tanit. Likened to the ram-headed Libyan Ammon, then to Kronos and Jupiter, he survived under Rome as the African Saturn.",
+        "ar": "الإله الأعلى في قرطاج، سيد السماء والخصب، وإليه وإلى تانيت تُهدى نُصُب التوفيت. قُرّب من آمون الليبي ذي الكبش ثم من كرونوس وجوبيتر، وبقي في العهد الروماني باسم ساتورن الإفريقي."
+      },
+      "alias": ["Baal", "بعل"],
+      "see": ["/religion"],
+      "cat": "religion"
+    },
+    {
+      "id": "baal-shamim",
+      "term": { "fr": "Baal Shamim", "en": "Baal Shamim", "ar": "بعل شميم" },
+      "phoen": "𐤁𐤏𐤋 𐤔𐤌𐤌",
+      "def": {
+        "fr": "« Seigneur des cieux », grand dieu du ciel honoré dans tout le monde phénicien et araméen, présent aussi dans les dédicaces de Carthage.",
+        "en": "“Lord of the heavens”, a great sky god worshipped throughout the Phoenician and Aramaean world, and also found in Carthaginian dedications.",
+        "ar": "«سيد السماوات»، إله السماء الكبير المعبود في العالم الفينيقي والآرامي كله، ويرد اسمه أيضًا في إهداءات قرطاج."
+      },
+      "alias": ["Baalshamin", "Seigneur des cieux"],
+      "see": ["/religion"],
+      "cat": "religion"
+    },
+    {
+      "id": "melqart",
+      "term": { "fr": "Melqart", "en": "Melqart", "ar": "ملقرت" },
+      "phoen": "𐤌𐤋𐤒𐤓𐤕",
+      "def": {
+        "fr": "« Roi de la ville », dieu de Tyr, la métropole. Carthage envoyait chaque année une offrande à son temple de Tyr (Diodore, XX, 14) ; les Grecs l'identifiaient à Héraclès, et les Barcides le font figurer sur leurs monnaies. Son temple de Gadès resta célèbre jusqu'à l'époque romaine.",
+        "en": "“King of the city”, god of Tyre, the mother city. Carthage sent a yearly offering to his temple at Tyre (Diodorus, XX, 14); the Greeks equated him with Heracles, and the Barcids put him on their coins. His temple at Gades remained famous into Roman times.",
+        "ar": "«ملك المدينة»، إله صور، المدينة الأم. كانت قرطاج ترسل كل عام قربانًا إلى معبده في صور (ديودوروس، XX، 14)؛ وماهاه الإغريق بهرقل، ونقش البرقيون صورته على نقودهم. وبقي معبده في قادس مشهورًا حتى العهد الروماني."
+      },
+      "alias": ["Melkart", "Héraclès", "Heracles", "ملقرت"],
+      "see": ["/religion", "/lieux"],
+      "cat": "religion"
+    },
+    {
+      "id": "eshmoun",
+      "term": { "fr": "Eshmoun", "en": "Eshmun", "ar": "أشمون" },
+      "phoen": "𐤀𐤔𐤌𐤍",
+      "def": {
+        "fr": "Dieu guérisseur, rapproché de l'Asclépios grec. Selon Appien (Libyca, 130), son temple, le plus vaste de Carthage, couronnait Byrsa : les derniers défenseurs s'y enfermèrent et l'incendièrent en 146 av. J.-C.",
+        "en": "The healing god, likened to the Greek Asclepius. According to Appian (Libyca, 130), his temple, the largest in Carthage, crowned Byrsa: the last defenders shut themselves in it and set it on fire in 146 BC.",
+        "ar": "إله الشفاء، قُرّب من أسكليبيوس الإغريقي. وحسب أبيانوس (الليبيات، 130)، كان معبده، أكبر معابد قرطاج، يتوّج بيرصا: وفيه تحصّن آخر المدافعين وأضرموا فيه النار سنة 146 ق.م."
+      },
+      "alias": ["Eshmoun", "Asclépios", "Asclepius", "أشمون"],
+      "see": ["/religion", "/prise-de-carthage"],
+      "cat": "religion"
+    },
+    {
+      "id": "astarte",
+      "term": { "fr": "Astarté", "en": "Astarte", "ar": "عشتارت" },
+      "phoen": "𐤏𐤔𐤕𐤓𐤕",
+      "def": {
+        "fr": "Déesse phénicienne de la fécondité et de la guerre, toujours honorée à Carthage. À Pyrgi, port de Caere en Étrurie, des lamelles d'or bilingues (vers 500 av. J.-C.) l'associent à l'Uni étrusque.",
+        "en": "Phoenician goddess of fertility and war, still worshipped at Carthage. At Pyrgi, the port of Caere in Etruria, bilingual gold tablets (c. 500 BC) link her with the Etruscan Uni.",
+        "ar": "إلهة الخصب والحرب الفينيقية، بقيت معبودة في قرطاج. وفي بيرجي، ميناء كايري في إتروريا، تقرن بها صفائح ذهبية ثنائية اللغة (نحو 500 ق.م) الإلهةَ الإتروسكية أوني."
+      },
+      "alias": ["Ashtart", "Uni-Astarté", "عشتار", "عشتروت"],
+      "see": ["/religion", "/langue-ecriture"],
+      "cat": "religion"
+    },
+    {
+      "id": "demeter-et-kore",
+      "term": { "fr": "Déméter et Korè", "en": "Demeter and Kore", "ar": "ديميتر وكوري" },
+      "phoen": null,
+      "def": {
+        "fr": "Déesses grecques adoptées officiellement par Carthage en 396 av. J.-C. : l'armée d'Himilcon avait pillé leur sanctuaire près de Syracuse avant d'être décimée par la peste. Pour les apaiser, la cité leur confia un culte servi par des Grecs (Diodore, XIV, 77).",
+        "en": "Greek goddesses officially adopted by Carthage in 396 BC: Himilco's army had plundered their sanctuary near Syracuse before being ravaged by plague. To appease them, the city gave them a cult served by Greeks (Diodorus, XIV, 77).",
+        "ar": "إلهتان إغريقيتان تبنّت قرطاج عبادتهما رسميًا سنة 396 ق.م: فقد نهب جيش حملكون معبدهما قرب سرقوسة ثم فتك به الطاعون. ولاسترضائهما أقامت المدينة لهما عبادة يتولاها إغريق (ديودوروس، XIV، 77)."
+      },
+      "alias": ["Cérès", "Cereres", "Perséphone"],
+      "see": ["/religion"],
+      "cat": "religion"
+    },
+    {
+      "id": "saturne-africain",
+      "term": { "fr": "Saturne africain", "en": "African Saturn", "ar": "ساتورن الإفريقي" },
+      "phoen": null,
+      "def": {
+        "fr": "Nom romain de Baal Hammon après 146 av. J.-C. Ses sanctuaires néopuniques (Thinissut, Bou Kornine, El Hofra près de Cirta, stèles de la Ghorfa) restent fréquentés jusqu'au début du IVe siècle apr. J.-C. (Lancel, Le Glay).",
+        "en": "The Roman name of Baal Hammon after 146 BC. His Neo-Punic sanctuaries (Thinissut, Bou Kornine, El Hofra near Cirta, the Ghorfa stelae) remained in use until the early 4th century AD (Lancel, Le Glay).",
+        "ar": "الاسم الروماني لبعل حمون بعد 146 ق.م. وظلت معابده البونيقية الجديدة (ثينيسوت، بوقرنين، الحفرة قرب سيرتا، نُصُب الغرفة) مقصودة حتى مطلع القرن الرابع للميلاد (لانسيل، لوغلاي)."
+      },
+      "alias": ["Saturnus", "Saturn", "ساتورن الإفريقي", "ساتورن"],
+      "see": ["/apres-146", "/religion", "/afrique"],
+      "cat": "religion"
+    },
+    {
+      "id": "caelestis",
+      "term": { "fr": "Caelestis", "en": "Caelestis", "ar": "كايليستيس" },
+      "phoen": null,
+      "def": {
+        "fr": "« La Céleste » : nom sous lequel Tanit continue d'être vénérée dans l'Afrique romaine, et d'abord à Carthage, sur les mêmes sanctuaires et avec des stèles héritées du modèle punique.",
+        "en": "“The Heavenly One”: the name under which Tanit went on being worshipped in Roman Africa, above all at Carthage, in the same sanctuaries and with stelae inherited from Punic models.",
+        "ar": "«السماوية»: الاسم الذي ظلت تانيت تُعبد به في إفريقيا الرومانية، وفي قرطاج أولًا، في المعابد نفسها وبنُصُب موروثة عن النموذج البونيقي."
+      },
+      "alias": ["Dea Caelestis", "Coelestis", "Juno Caelestis"],
+      "see": ["/apres-146", "/religion"],
+      "cat": "religion"
+    },
+    {
+      "id": "tarif-de-marseille",
+      "term": { "fr": "Tarif de Marseille", "en": "Marseille Tariff", "ar": "تعرفة مرسيليا" },
+      "phoen": null,
+      "def": {
+        "fr": "Inscription punique trouvée dans le port de Marseille en 1845, d'origine carthaginoise. Elle fixe, animal par animal, la part de l'offrande qui revient au prêtre et celle qui revient au fidèle. Elle est conservée au musée d'Archéologie méditerranéenne de la Vieille Charité.",
+        "en": "A Punic inscription found in the port of Marseille in 1845, of Carthaginian origin. It sets out, animal by animal, the share of each offering due to the priest and the share left to the worshipper. It is kept in the Museum of Mediterranean Archaeology at the Vieille Charité.",
+        "ar": "نقش بونيقي عُثر عليه في ميناء مرسيليا سنة 1845، قرطاجي الأصل. يحدّد، حيوانًا حيوانًا، نصيب الكاهن ونصيب المتعبّد من كل قربان. وهو محفوظ في متحف آثار المتوسط بـ«لا فياي شاريتيه»."
+      },
+      "alias": ["Marseille", "tariff", "مرسيليا"],
+      "see": ["/religion", "/langue-ecriture"],
+      "cat": "religion"
+    },
+    {
+      "id": "stele",
+      "term": { "fr": "Stèle", "en": "Stele", "ar": "نُصُب" },
+      "phoen": "𐤍𐤑𐤁",
+      "def": {
+        "fr": "Pierre dressée portant une dédicace ou une image (en punique nṣb). Au tophet, des milliers de stèles votives portent le signe de Tanit, des symboles et des inscriptions ; taillées d'abord dans le grès, puis dans le calcaire, elles se couvrent de motifs d'influence grecque.",
+        "en": "An upright stone bearing a dedication or an image (Punic nṣb). In the tophet, thousands of votive stelae carry the sign of Tanit, symbols and inscriptions; first cut from sandstone, then from limestone, they came to be covered with Greek-influenced motifs.",
+        "ar": "حجر منتصب يحمل إهداءً أو صورة (بالبونيقية «نصب»، ومفرده في الموقع أيضًا «نصيبة»). في التوفيت آلاف النُّصُب النذرية التي تحمل علامة تانيت ورموزًا ونقوشًا؛ نُحتت أولًا من الحجر الرملي ثم من الكلس، وكست سطوحها زخارف متأثرة بالفن الإغريقي."
+      },
+      "alias": ["stèles", "cippe", "nṣb", "نصيبة", "النصب", "شاهد"],
+      "see": ["/art-et-artisanat", "/religion"],
+      "cat": "art"
+    },
+    {
+      "id": "quinquereme",
+      "term": { "fr": "Quinquérème", "en": "Quinquereme", "ar": "السفينة الخماسية" },
+      "phoen": null,
+      "def": {
+        "fr": "Navire de guerre né à Syracuse vers 399 av. J.-C. sous Denys l'Ancien (Diodore, XIV, 41–42), devenu le vaisseau de ligne des guerres puniques : environ 300 rameurs et 120 soldats. Le nom renvoie sans doute à des groupes de cinq rameurs, non à cinq rangs de rames superposés.",
+        "en": "A warship that appeared at Syracuse around 399 BC under Dionysius the Elder (Diodorus, XIV, 41–42) and became the ship of the line of the Punic Wars: about 300 rowers and 120 soldiers. The name probably refers to groups of five rowers, not to five superimposed banks of oars.",
+        "ar": "سفينة حربية ظهرت في سرقوسة نحو 399 ق.م في عهد ديونيسيوس الأكبر (ديودوروس، XIV، 41–42)، وصارت سفينة الخط في الحروب البونيقية: نحو 300 مجدّف و120 جنديًا. ويشير الاسم على الأرجح إلى مجموعات من خمسة مجدّفين، لا إلى خمسة صفوف من المجاديف بعضها فوق بعض."
+      },
+      "alias": ["quinquérèmes", "penteres", "خماسية"],
+      "see": ["/armee", "/guerres-puniques"],
+      "cat": "guerre"
+    },
+    {
+      "id": "trireme",
+      "term": { "fr": "Trirème", "en": "Trireme", "ar": "السفينة ثلاثية المجاديف" },
+      "phoen": null,
+      "def": {
+        "fr": "Navire de guerre à trois niveaux de rameurs superposés et à éperon de proue, en usage dès le VIe siècle av. J.-C. : environ 200 hommes à bord, dont quelque 170 rameurs. En 201 av. J.-C., Rome ne laisse à Carthage que dix trirèmes.",
+        "en": "A warship with three superimposed levels of rowers and a bow ram, in use from the 6th century BC: about 200 men aboard, some 170 of them rowers. In 201 BC, Rome left Carthage just ten triremes.",
+        "ar": "سفينة حربية بثلاث طبقات من المجدّفين بعضها فوق بعض ومِهماز في المقدمة، مستعملة منذ القرن السادس ق.م: على متنها نحو 200 رجل، منهم قرابة 170 مجدّفًا. وفي 201 ق.م لم تترك روما لقرطاج سوى عشر سفن ثلاثية."
+      },
+      "alias": ["trirèmes", "trieres", "ثلاثية"],
+      "see": ["/armee", "/guerres-puniques"],
+      "cat": "guerre"
+    },
+    {
+      "id": "pentecontere",
+      "term": { "fr": "Pentécontère", "en": "Penteconter", "ar": "السفينة الخمسينية" },
+      "phoen": null,
+      "def": {
+        "fr": "Navire long à cinquante rames, rapide et polyvalent, des premiers temps de l'expansion phénicienne. Selon le Périple, Hannon en conduisit soixante le long de la côte atlantique de l'Afrique.",
+        "en": "A long ship with fifty oars, fast and versatile, from the early days of Phoenician expansion. According to the Periplus, Hanno led sixty of them along the Atlantic coast of Africa.",
+        "ar": "سفينة طويلة بخمسين مجذافًا، سريعة ومتعددة الاستعمالات، من العهود الأولى للتوسع الفينيقي. وحسب نص الرحلة، قاد حنون ستين منها على طول الساحل الأطلسي لإفريقيا."
+      },
+      "alias": ["pentécontères", "penteconters", "خمسينية"],
+      "see": ["/hannon", "/armee"],
+      "cat": "guerre"
+    },
+    {
+      "id": "diekplous",
+      "term": { "fr": "Diekplous", "en": "Diekplous", "ar": "الديكبلوس" },
+      "phoen": null,
+      "def": {
+        "fr": "Manœuvre navale grecque : un navire se glisse dans un intervalle de la ligne ennemie, la traverse, puis vire pour éperonner un adversaire par le flanc ou la poupe. Elle exige des équipages très entraînés, ce qui faisait la réputation de la marine carthaginoise.",
+        "en": "A Greek naval manoeuvre: a ship slips through a gap in the enemy line, crosses it, then turns to ram an opponent in the side or stern. It demands highly trained crews, the very thing Carthage's navy was famed for.",
+        "ar": "مناورة بحرية إغريقية: تتسلل السفينة عبر فجوة في صف العدو وتجتازه، ثم تستدير لتطعن خصمًا بمهمازها في جنبه أو مؤخرته. وتتطلب طواقم عالية التدريب، وهو ما اشتهرت به البحرية القرطاجية."
+      },
+      "alias": ["diekplus", "ديكبلوس"],
+      "see": ["/armee", "/tactiques"],
+      "cat": "guerre"
+    },
+    {
+      "id": "periplous",
+      "term": { "fr": "Périplous", "en": "Periplous", "ar": "البيريبلوس (مناورة)" },
+      "phoen": null,
+      "def": {
+        "fr": "Manœuvre d'enveloppement : on déborde l'aile ennemie pour la prendre de flanc, d'où l'intérêt d'aligner une ligne plus longue que celle de l'adversaire. À ne pas confondre avec le périple, récit de navigation.",
+        "en": "An outflanking manoeuvre: ships go round the enemy wing to take it from the side, hence the value of a line longer than the opponent's. Not to be confused with a periplus, the account of a voyage.",
+        "ar": "مناورة التفاف: تُتجاوز جناح العدو لمهاجمته من الجانب، ومن هنا فائدة صفّ أطول من صف الخصم. ولا ينبغي الخلط بينها وبين «الرحلة» (بيريبلوس) بمعنى وصف الإبحار."
+      },
+      "alias": ["periplus", "بيريبلوس"],
+      "see": ["/armee"],
+      "cat": "guerre"
+    },
+    {
+      "id": "corvus",
+      "term": { "fr": "Corvus (« corbeau »)", "en": "Corvus (“raven”)", "ar": "«الغراب» (كورفوس)" },
+      "phoen": null,
+      "def": {
+        "fr": "Passerelle d'abordage munie d'un croc, inventée par les Romains pour annuler l'habileté manœuvrière des Carthaginois : elle changeait la bataille navale en combat d'infanterie. Elle leur valut leur première victoire navale, à Mylae en 260 av. J.-C. (Polybe, I, 22–23).",
+        "en": "A boarding bridge fitted with a spike, invented by the Romans to cancel out Carthaginian seamanship: it turned a sea battle into an infantry fight. It won them their first naval victory, at Mylae in 260 BC (Polybius, I, 22–23).",
+        "ar": "جسر اقتحام مزوّد بخطّاف، ابتكره الرومان لإبطال مهارة القرطاجيين في المناورة: فحوّل المعركة البحرية إلى قتال مشاة. وبه أحرزوا أول انتصار بحري لهم في ميلاي سنة 260 ق.م (بوليبيوس، I، 22–23)."
+      },
+      "alias": ["corbeau", "raven", "Mylae", "الغراب"],
+      "see": ["/armee", "/guerres-puniques"],
+      "cat": "guerre"
+    },
+    {
+      "id": "falcata",
+      "term": { "fr": "Falcata", "en": "Falcata", "ar": "فالكاتا" },
+      "phoen": null,
+      "def": {
+        "fr": "Épée courte ibérique à lame recourbée, redoutable pour frapper de taille. C'était l'arme, avec le bouclier, des contingents ibères de l'armée carthaginoise.",
+        "en": "A short Iberian sword with a curved blade, formidable for slashing blows. Together with the shield, it was the weapon of the Iberian contingents in the Carthaginian army.",
+        "ar": "سيف إيبيري قصير بنصل مقوّس، شديد الفتك في الضرب بالحدّ. وكان مع الترس سلاحَ الفرق الإيبيرية في الجيش القرطاجي."
+      },
+      "alias": ["épée ibère", "Iberian sword"],
+      "see": ["/armee"],
+      "cat": "guerre"
+    },
+    {
+      "id": "bataillon-sacre",
+      "term": { "fr": "Bataillon sacré", "en": "Sacred Band", "ar": "الكتيبة المقدسة" },
+      "phoen": null,
+      "def": {
+        "fr": "Corps d'élite d'environ 2 500 citoyens carthaginois lourdement armés, selon Diodore (XVI, 80), qui le montre anéanti par Timoléon au Crimisos, en Sicile, vers 340 av. J.-C.",
+        "en": "An elite corps of about 2,500 heavily armed Carthaginian citizens, according to Diodorus (XVI, 80), who describes it being wiped out by Timoleon at the Crimisus, in Sicily, around 340 BC.",
+        "ar": "فرقة نخبة من نحو 2500 مواطن قرطاجي مدججين بالسلاح، حسب ديودوروس (XVI، 80)، الذي يروي إبادتها على يد تيموليون عند نهر كريميسوس في صقلية نحو 340 ق.م."
+      },
+      "alias": ["Sacred Battalion", "Crimisos"],
+      "see": ["/armee"],
+      "cat": "guerre"
+    },
+    {
+      "id": "frondeurs-baleares",
+      "term": { "fr": "Frondeurs baléares", "en": "Balearic slingers", "ar": "رماة المقلاع البليار" },
+      "phoen": null,
+      "def": {
+        "fr": "Mercenaires des îles Baléares, entraînés dès l'enfance ; ils portaient trois frondes pour tirer à différentes distances (Strabon, III, 5, 1) et lançaient pierres et balles de plomb.",
+        "en": "Mercenaries from the Balearic Islands, trained from childhood; they carried three slings to shoot at different ranges (Strabo, III, 5, 1) and hurled stones and lead bullets.",
+        "ar": "مرتزقة من جزر البليار، تدرّبوا منذ الطفولة؛ حملوا ثلاثة مقاليع للرمي على مسافات مختلفة (سترابون، III، 5، 1)، ورموا الحجارة وكرات الرصاص."
+      },
+      "alias": ["frondeurs", "slingers", "Baléares", "المقلاعيون"],
+      "see": ["/armee", "/tactiques"],
+      "cat": "guerre"
+    },
+    {
+      "id": "shekel",
+      "term": { "fr": "Shekel", "en": "Shekel", "ar": "شيقل" },
+      "phoen": "𐤔𐤒𐤋",
+      "def": {
+        "fr": "Unité de poids sémitique devenue la monnaie de Carthage. Les premières pièces puniques sont frappées en Sicile pour payer les mercenaires ; Carthage n'ouvre ses propres ateliers qu'au milieu du IVe siècle av. J.-C. En Espagne, les Barcides émettent des shekels d'argent de grande qualité.",
+        "en": "A Semitic unit of weight that became Carthage's currency. The first Punic coins were struck in Sicily to pay mercenaries; Carthage opened its own mints only in the mid-4th century BC. In Spain, the Barcids issued silver shekels of high quality.",
+        "ar": "وحدة وزن سامية صارت عملة قرطاج. ضُربت أولى النقود البونيقية في صقلية لدفع أجور المرتزقة، ولم تفتح قرطاج دور سكّها إلا في منتصف القرن الرابع ق.م. وفي إسبانيا سكّ البرقيون شيقلات فضية عالية الجودة."
+      },
+      "alias": ["sicle", "shekels", "šql", "شيقل", "شيقلات"],
+      "see": ["/economie", "/art-et-artisanat"],
+      "cat": "economie"
+    },
+    {
+      "id": "talent",
+      "term": { "fr": "Talent", "en": "Talent", "ar": "تالنت" },
+      "phoen": null,
+      "def": {
+        "fr": "Unité de poids et de compte grecque, soit environ 26 kg d'argent. Les indemnités imposées par Rome s'expriment en talents : 3 200 en 241, 1 200 de plus en 237, puis 10 000 payables en cinquante ans en 201 av. J.-C.",
+        "en": "A Greek unit of weight and account, about 26 kg of silver. The indemnities imposed by Rome were reckoned in talents: 3,200 in 241, 1,200 more in 237, then 10,000 payable over fifty years in 201 BC.",
+        "ar": "وحدة وزن وحساب إغريقية تعادل نحو 26 كغ من الفضة. وبها قُدّرت التعويضات التي فرضتها روما: 3200 تالنت سنة 241، و1200 أخرى سنة 237، ثم 10000 تُدفع على خمسين عامًا سنة 201 ق.م."
+      },
+      "alias": ["talents", "وزنة"],
+      "see": ["/economie", "/richesse-rome", "/guerres-puniques"],
+      "cat": "economie"
+    },
+    {
+      "id": "garum",
+      "term": { "fr": "Garum", "en": "Garum", "ar": "الغاروم" },
+      "phoen": null,
+      "def": {
+        "fr": "Sauce de poissons gras fermentés, employée en cuisine et comme remède. Les Phénico-Puniques en ont répandu l'usage en Méditerranée ; Rome reprit cette industrie de salaison à grande échelle, comme à Baelo Claudia près de Cadix.",
+        "en": "A sauce of fermented oily fish, used in cooking and as a remedy. The Phoenicians and Carthaginians spread its use across the Mediterranean; Rome took over this salting industry on a large scale, as at Baelo Claudia near Cádiz.",
+        "ar": "صلصة من الأسماك الدهنية المخمّرة، تُستعمل في الطبخ وللتداوي. نشر الفينيقيون والبونيقيون استعمالها في المتوسط، ثم ورثت روما صناعة التمليح هذه على نطاق واسع، كما في بايلو كلاوديا قرب قادس."
+      },
+      "alias": ["sauce de poisson", "fish sauce", "غاروم"],
+      "see": ["/economie"],
+      "cat": "economie"
+    },
+    {
+      "id": "pourpre",
+      "term": { "fr": "Pourpre (murex)", "en": "Purple dye (murex)", "ar": "الأرجوان (الموريكس)" },
+      "phoen": null,
+      "def": {
+        "fr": "La teinture la plus chère de l'Antiquité, tirée d'un coquillage marin, le murex : il en fallait des milliers pour quelques grammes de colorant. Spécialité phénicienne, elle a laissé à Kerkouane des amas de coquilles broyées près des ateliers ; Djerba en restera célèbre à l'époque romaine.",
+        "en": "The costliest dye of antiquity, extracted from a sea snail, the murex: thousands were needed for a few grams of colour. A Phoenician speciality, it left heaps of crushed shells near the workshops at Kerkouane; Djerba remained famous for it in Roman times.",
+        "ar": "أغلى صباغ في العصور القديمة، يُستخرج من صدفة بحرية هي الموريكس: يلزم منها الآلاف لبضعة غرامات من اللون. وهو تخصص فينيقي خلّف في كركوان أكوامًا من الأصداف المسحوقة قرب المصابغ؛ وبقيت جربة مشهورة به في العهد الروماني."
+      },
+      "alias": ["murex", "purple", "pourpre de Tyr", "أرجوان", "موريكس"],
+      "see": ["/economie", "/lieux"],
+      "cat": "economie"
+    },
+    {
+      "id": "passum",
+      "term": { "fr": "Passum", "en": "Passum", "ar": "الباسوم" },
+      "phoen": null,
+      "def": {
+        "fr": "Vin doux de raisins séchés au soleil, spécialité réputée de Carthage. Columelle (XII, 39) en a conservé la recette d'après Magon, presque mot pour mot.",
+        "en": "A sweet wine made from sun-dried grapes, a renowned Carthaginian speciality. Columella (XII, 39) preserved Mago's recipe for it almost word for word.",
+        "ar": "نبيذ حلو من زبيب مجفف في الشمس، من أشهر منتجات قرطاج. وقد حفظ كولوميلا (XII، 39) وصفته عن ماغون شبه حرفية."
+      },
+      "alias": ["vin de raisins secs", "raisin wine", "باسوم"],
+      "see": ["/magon-agronome", "/economie", "/agriculture"],
+      "cat": "economie"
+    },
+    {
+      "id": "commerce-silencieux",
+      "term": { "fr": "Commerce silencieux", "en": "Silent trade", "ar": "التجارة الصامتة" },
+      "phoen": null,
+      "def": {
+        "fr": "Troc sans contact décrit par Hérodote (IV, 196) : au-delà des Colonnes d'Hercule, les Carthaginois déposaient leurs marchandises sur la plage et se retiraient ; les habitants posaient de l'or à côté, et l'on recommençait jusqu'à l'accord, sans un mot.",
+        "en": "A contactless barter described by Herodotus (IV, 196): beyond the Pillars of Hercules, the Carthaginians laid their goods on the beach and withdrew; the locals set gold beside them, and the exchange went on until both sides agreed, without a word.",
+        "ar": "مقايضة بلا تلاقٍ وصفها هيرودوت (IV، 196): وراء أعمدة هرقل كان القرطاجيون يضعون بضائعهم على الشاطئ وينسحبون، فيضع السكان الذهب إلى جانبها، وتتكرر العملية حتى يتفق الطرفان، دون كلمة واحدة."
+      },
+      "alias": ["commerce muet", "troc muet", "dumb barter", "Hérodote"],
+      "see": ["/economie"],
+      "cat": "economie"
+    },
+    {
+      "id": "traite-de-magon",
+      "term": { "fr": "Traité de Magon", "en": "Mago's treatise", "ar": "كتاب ماغون" },
+      "phoen": "𐤌𐤂𐤍",
+      "def": {
+        "fr": "Encyclopédie agricole en 28 livres, écrite en punique par Magon. Après 146 av. J.-C., le Sénat romain la fit traduire en latin (Pline, XVIII, 22) ; Varron et Columelle la citent comme une autorité.",
+        "en": "An agricultural encyclopedia in 28 books, written in Punic by Mago. After 146 BC, the Roman Senate had it translated into Latin (Pliny, XVIII, 22); Varro and Columella cite it as an authority.",
+        "ar": "موسوعة زراعية في 28 كتابًا ألّفها ماغون بالبونيقية. وبعد 146 ق.م أمر مجلس الشيوخ الروماني بترجمتها إلى اللاتينية (بلينيوس، XVIII، 22)؛ ويستشهد بها فارون وكولوميلا مرجعًا."
+      },
+      "alias": ["Magon l'agronome", "Mago", "agronomie", "ماغون"],
+      "see": ["/magon-agronome", "/agriculture"],
+      "cat": "economie"
+    },
+    {
+      "id": "qart-hadasht",
+      "term": { "fr": "Qart-Ḥadasht", "en": "Qart-Hadasht", "ar": "قرت حدشت" },
+      "phoen": "𐤒𐤓𐤕𐤇𐤃𐤔𐤕",
+      "def": {
+        "fr": "Nom phénicien de Carthage : « Ville nouvelle ». Les Grecs en ont fait Karchēdōn, les Romains Carthago. Le même nom fut donné à Carthagène, fondée en Espagne par Hasdrubal.",
+        "en": "The Phoenician name of Carthage: “New City”. The Greeks turned it into Karchedon, the Romans into Carthago. The same name was given to Cartagena, founded in Spain by Hasdrubal.",
+        "ar": "الاسم الفينيقي لقرطاج: «المدينة الجديدة». جعله الإغريق «كارخيدون» والرومان «كارثاغو». وأُطلق الاسم نفسه على قرطاجنة التي أسسها صدربعل في إسبانيا."
+      },
+      "alias": ["Qart Hadasht", "Carthago", "Karchedon", "Ville nouvelle", "New City", "المدينة الجديدة", "قرطاج"],
+      "see": ["/fondation", "/langue-ecriture", "/afrique"],
+      "cat": "lieux"
+    },
+    {
+      "id": "byrsa",
+      "term": { "fr": "Byrsa", "en": "Byrsa", "ar": "بيرصا" },
+      "phoen": null,
+      "def": {
+        "fr": "La colline-citadelle de Carthage, couronnée par le temple d'Eshmoun. Les Grecs rapprochèrent son nom de byrsa, « peau de bœuf », d'où la légende d'Élissa taillant une peau en lanières pour mesurer le terrain (Justin, XVIII, 5) ; l'origine réelle du mot, sans doute sémitique, reste discutée.",
+        "en": "The citadel hill of Carthage, crowned by the temple of Eshmun. The Greeks linked its name with byrsa, “oxhide”, hence the legend of Elissa cutting a hide into strips to measure out the land (Justin, XVIII, 5); the word's real origin, probably Semitic, is still debated.",
+        "ar": "تلة قرطاج الحصينة، يتوّجها معبد أشمون. ربط الإغريق اسمها بكلمة «بورسا» أي «جلد الثور»، ومنها أسطورة عليسة التي قطّعت جلدًا سيورًا لتقيس به الأرض (يوستينوس، XVIII، 5)؛ أما الأصل الحقيقي للكلمة، السامي على الأرجح، فلا يزال محل نقاش."
+      },
+      "alias": ["acropole", "citadelle", "peau de bœuf", "oxhide", "جلد الثور"],
+      "see": ["/fondation", "/didon", "/prise-de-carthage"],
+      "cat": "lieux"
+    },
+    {
+      "id": "cothon",
+      "term": { "fr": "Cothon", "en": "Cothon", "ar": "الكوثون" },
+      "phoen": null,
+      "def": {
+        "fr": "Le port militaire circulaire de Carthage, caché derrière le port de commerce rectangulaire. Selon Appien (Libyca, 96), il comptait 220 loges pour les navires de guerre, avec au centre, sur un îlot, le pavillon de l'amiral. Deux lagunes de Salammbô en gardent la forme.",
+        "en": "Carthage's circular naval harbour, hidden behind the rectangular merchant port. According to Appian (Libyca, 96), it had 220 berths for warships, with the admiral's pavilion on an island in the centre. Two lagoons at Salammbô still keep its shape.",
+        "ar": "الميناء الحربي الدائري في قرطاج، المختفي وراء الميناء التجاري المستطيل. وحسب أبيانوس (الليبيات، 96)، كان يضم 220 حوضًا للسفن الحربية، وفي وسطه، على جزيرة صغيرة، مقر الأميرال. ولا تزال بحيرتان في صلامبو تحفظان شكله."
+      },
+      "alias": ["kothon", "port circulaire", "ports puniques", "harbour", "الميناء الدائري", "الموانئ البونيقية"],
+      "see": ["/fondation", "/economie", "/armee"],
+      "cat": "lieux"
+    },
+    {
+      "id": "megara",
+      "term": { "fr": "Mégara", "en": "Megara", "ar": "ميغارا" },
+      "phoen": null,
+      "def": {
+        "fr": "Vaste faubourg au nord de la ville, vers l'actuelle La Marsa, fait de jardins et de riches demeures et bâti de façon plus lâche. L'aristocratie y avait ses résidences ; Scipion Émilien y força l'entrée lors du siège, en 147 av. J.-C. (Appien, Libyca, 117).",
+        "en": "A large suburb north of the city, towards modern La Marsa, made up of gardens and fine houses and more loosely built. The aristocracy had its residences there; Scipio Aemilianus forced his way in during the siege, in 147 BC (Appian, Libyca, 117).",
+        "ar": "ضاحية واسعة شمال المدينة، نحو المرسى الحالية، ذات بساتين ودور فاخرة وبناء أقل انتظامًا. فيها كانت مساكن الأرستقراطية؛ واقتحمها سكيبيو إيميليانوس خلال الحصار سنة 147 ق.م (أبيانوس، الليبيات، 117)."
+      },
+      "alias": ["Magara", "La Marsa", "المرسى"],
+      "see": ["/fondation", "/institutions", "/prise-de-carthage"],
+      "cat": "lieux"
+    },
+    {
+      "id": "salammbo",
+      "term": { "fr": "Salammbô", "en": "Salammbô", "ar": "صلامبو" },
+      "phoen": null,
+      "def": {
+        "fr": "Quartier de la Carthage actuelle, près des ports puniques, qui doit son nom au roman de Flaubert (1862). Le tophet de Carthage y fut découvert en 1921.",
+        "en": "A district of present-day Carthage, near the Punic harbours, named after Flaubert's novel (1862). The Carthage tophet was discovered there in 1921.",
+        "ar": "حي من أحياء قرطاج الحالية، قرب الموانئ البونيقية، يدين باسمه لرواية فلوبير (1862). وفيه اكتُشف توفيت قرطاج سنة 1921."
+      },
+      "alias": ["Flaubert", "tophet de Salammbô"],
+      "see": ["/religion", "/apres-146"],
+      "cat": "lieux"
+    },
+    {
+      "id": "kerkouane",
+      "term": { "fr": "Kerkouane", "en": "Kerkouane", "ar": "كركوان" },
+      "phoen": null,
+      "def": {
+        "fr": "Cité punique du cap Bon, abandonnée vers le milieu du IIIe siècle av. J.-C. et jamais rebâtie : elle garde intact le plan d'une ville punique, avec ses maisons à salle d'eau et ses sols ornés du signe de Tanit. Inscrite au patrimoine mondial de l'UNESCO en 1985.",
+        "en": "A Punic town on Cape Bon, abandoned around the mid-3rd century BC and never rebuilt: it keeps intact the layout of a Punic town, with houses fitted with bathrooms and floors marked with the sign of Tanit. A UNESCO World Heritage Site since 1985.",
+        "ar": "مدينة بونيقية في الوطن القبلي، هُجرت نحو منتصف القرن الثالث ق.م ولم يُعَد بناؤها: فحفظت مخطط مدينة بونيقية كاملًا، ببيوتها ذات غرف الاستحمام وأرضياتها المزينة بعلامة تانيت. أُدرجت في قائمة التراث العالمي لليونسكو سنة 1985."
+      },
+      "alias": ["cap Bon", "Cape Bon", "الوطن القبلي"],
+      "see": ["/lieux", "/art-et-artisanat", "/afrique"],
+      "cat": "lieux"
+    },
+    {
+      "id": "chora",
+      "term": { "fr": "Chôra", "en": "Chora", "ar": "الخورا" },
+      "phoen": null,
+      "def": {
+        "fr": "Mot grec, « la campagne », employé par les historiens pour le territoire rural de Carthage. Il couvrait une large part de la Tunisie actuelle et nourrissait la cité.",
+        "en": "A Greek word, “the countryside”, used by historians for the rural territory of Carthage. It covered a large part of modern Tunisia and fed the city.",
+        "ar": "كلمة إغريقية معناها «الريف»، يستعملها المؤرخون للدلالة على الإقليم الزراعي لقرطاج. كان يغطي جزءًا كبيرًا من تونس الحالية ويُطعم المدينة."
+      },
+      "alias": ["chora", "territoire", "hinterland", "خورا"],
+      "see": ["/agriculture"],
+      "cat": "lieux"
+    },
+    {
+      "id": "emporia",
+      "term": { "fr": "Emporia", "en": "Emporia", "ar": "الإمبوريا" },
+      "phoen": null,
+      "def": {
+        "fr": "Les riches comptoirs et terres des bords de la petite Syrte (golfe de Gabès), source de revenus pour Carthage. Massinissa s'en empara en partie dès 193 av. J.-C., et Rome refusa d'arbitrer (Tite-Live, XXXIV, 62).",
+        "en": "The rich trading posts and lands along the Lesser Syrtis (Gulf of Gabès), a source of revenue for Carthage. Masinissa seized part of them from 193 BC, and Rome declined to arbitrate (Livy, XXXIV, 62).",
+        "ar": "المراكز التجارية والأراضي الغنية على ضفاف خليج سرت الصغير (خليج قابس)، مورد دخل لقرطاج. استولى ماسينيسا على جزء منها منذ 193 ق.م، ولم تحسم روما النزاع (تيتوس ليفيوس، XXXIV، 62)."
+      },
+      "alias": ["petite Syrte", "Lesser Syrtis", "golfe de Gabès", "إمبوريا"],
+      "see": ["/agriculture", "/prise-de-carthage"],
+      "cat": "lieux"
+    },
+    {
+      "id": "fossa-regia",
+      "term": { "fr": "Fossa regia", "en": "Fossa regia", "ar": "الخندق الملكي" },
+      "phoen": null,
+      "def": {
+        "fr": "Le « fossé royal » tracé par Rome après 146 av. J.-C. pour séparer la nouvelle province d'Africa, l'ancien territoire de Carthage, du royaume numide.",
+        "en": "The “royal ditch” traced by Rome after 146 BC to divide the new province of Africa, Carthage's former territory, from the Numidian kingdom.",
+        "ar": "«الخندق الملكي» الذي خطّته روما بعد 146 ق.م ليفصل ولاية إفريقيا الجديدة، أي إقليم قرطاج السابق، عن المملكة النوميدية."
+      },
+      "alias": ["fossé royal", "royal ditch", "Africa"],
+      "see": ["/agriculture", "/apres-146"],
+      "cat": "lieux"
+    },
+    {
+      "id": "gades",
+      "term": { "fr": "Gadès", "en": "Gades", "ar": "قادس" },
+      "phoen": "𐤂𐤃𐤓",
+      "def": {
+        "fr": "Gadir, « l'enceinte », aujourd'hui Cadix : colonie de Tyr au-delà du détroit de Gibraltar, alliée de Carthage. Son temple de Melqart resta célèbre jusqu'à l'époque romaine, et c'est de là qu'Himilcon partit vers le nord sur la route de l'étain.",
+        "en": "Gadir, “the enclosure”, today's Cádiz: a colony of Tyre beyond the Strait of Gibraltar, allied with Carthage. Its temple of Melqart remained famous into Roman times, and it was from there that Himilco sailed north on the tin route.",
+        "ar": "جادير أي «السور»، قادس اليوم: مستعمرة صورية وراء مضيق جبل طارق، حليفة لقرطاج. بقي معبد ملقرت فيها مشهورًا حتى العهد الروماني، ومنها أبحر حملكون شمالًا على طريق القصدير."
+      },
+      "alias": ["Gadir", "Cadix", "Cádiz", "جادير", "قادش"],
+      "see": ["/lieux", "/economie"],
+      "cat": "lieux"
+    },
+    {
+      "id": "utique",
+      "term": { "fr": "Utique", "en": "Utica", "ar": "أوتيكا" },
+      "phoen": null,
+      "def": {
+        "fr": "Colonie tyrienne au nord de Carthage, que Pline (XVI, 216) date de 1101 av. J.-C., bien avant ses plus anciens vestiges connus. Alliée puis rivale de Carthage, elle se rallie à Rome en 149 et devient la capitale de la province d'Africa.",
+        "en": "A Tyrian colony north of Carthage, dated by Pliny (XVI, 216) to 1101 BC, well before its oldest known remains. Carthage's ally and then rival, it went over to Rome in 149 and became the capital of the province of Africa.",
+        "ar": "مستعمرة صورية شمال قرطاج، يؤرّخها بلينيوس (XVI، 216) بسنة 1101 ق.م، أي قبل أقدم بقاياها المعروفة بكثير. كانت حليفة لقرطاج ثم منافسة لها، وانحازت إلى روما سنة 149 فصارت عاصمة ولاية إفريقيا."
+      },
+      "alias": ["Utica", "عتيقة"],
+      "see": ["/fondation", "/didon", "/prise-de-carthage"],
+      "cat": "lieux"
+    },
+    {
+      "id": "carthagene",
+      "term": { "fr": "Carthagène", "en": "Cartagena", "ar": "قرطاجنة" },
+      "phoen": null,
+      "def": {
+        "fr": "La Carthago Nova des Romains, fondée vers 227 av. J.-C. par Hasdrubal le Beau sous le nom de Qart-Ḥadasht : capitale des Barcides en Hispanie, près de riches mines d'argent. Hannibal en partit au printemps 218 ; Scipion la prit en 209.",
+        "en": "The Romans' Carthago Nova, founded around 227 BC by Hasdrubal the Fair under the name Qart-Hadasht: the Barcid capital in Hispania, near rich silver mines. Hannibal set out from it in spring 218; Scipio took it in 209.",
+        "ar": "«قرطاج الجديدة» عند الرومان، أسسها صدربعل الجميل نحو 227 ق.م باسم قرت حدشت: عاصمة البرقيين في هسبانيا، قرب مناجم فضة غنية. منها انطلق حنبعل في ربيع 218، واستولى عليها سكيبيو سنة 209."
+      },
+      "alias": ["Carthago Nova", "Cartagena", "قرطاج الجديدة"],
+      "see": ["/hasdrubal", "/lieux", "/hannibal"],
+      "cat": "lieux"
+    },
+    {
+      "id": "colonnes-d-hercule",
+      "term": { "fr": "Colonnes d'Hercule", "en": "Pillars of Hercules", "ar": "أعمدة هرقل" },
+      "phoen": null,
+      "def": {
+        "fr": "Nom antique du détroit de Gibraltar, limite du monde connu des Grecs. Carthage en surveillait le passage et y lançait ses expéditions atlantiques, celle d'Hannon vers le sud, celle d'Himilcon vers le nord.",
+        "en": "The ancient name of the Strait of Gibraltar, the edge of the world known to the Greeks. Carthage watched over the passage and launched its Atlantic expeditions through it: Hanno's to the south, Himilco's to the north.",
+        "ar": "الاسم القديم لمضيق جبل طارق، حدّ العالم المعروف عند الإغريق. كانت قرطاج تراقب المعبر ومنه أطلقت رحلاتها الأطلسية: رحلة حنون جنوبًا ورحلة حملكون شمالًا."
+      },
+      "alias": ["Gibraltar", "détroit", "Pillars", "الأعمدة", "جبل طارق"],
+      "see": ["/hannon", "/economie", "/armee"],
+      "cat": "lieux"
+    },
+    {
+      "id": "motye",
+      "term": { "fr": "Motyé", "en": "Motya", "ar": "موتيا" },
+      "phoen": null,
+      "def": {
+        "fr": "Îlot phénicien de l'ouest de la Sicile, allié de Carthage, pris et détruit par Denys de Syracuse en 397 av. J.-C. (Diodore, XIV, 47–53). On y a découvert en 1979 l'« éphèbe de Motyé », statue de marbre du Ve siècle.",
+        "en": "A Phoenician island town in western Sicily, allied with Carthage, captured and destroyed by Dionysius of Syracuse in 397 BC (Diodorus, XIV, 47–53). The “Motya youth”, a 5th-century marble statue, was found there in 1979.",
+        "ar": "جزيرة فينيقية صغيرة غرب صقلية، حليفة لقرطاج، استولى عليها ديونيسيوس السرقوسي ودمّرها سنة 397 ق.م (ديودوروس، XIV، 47–53). وفيها اكتُشف سنة 1979 «فتى موتيا»، التمثال الرخامي من القرن الخامس."
+      },
+      "alias": ["Motya", "Mozia", "Sicile", "Sicily"],
+      "see": ["/afrique", "/art-et-artisanat"],
+      "cat": "lieux"
+    },
+    {
+      "id": "ifriqiya",
+      "term": { "fr": "Ifriqiya", "en": "Ifriqiya", "ar": "إفريقية" },
+      "phoen": null,
+      "def": {
+        "fr": "Transcription arabe du latin Africa, employée au Moyen Âge pour la Tunisie et ses marges, avec Kairouan pour capitale. Le nom prolonge celui de la province romaine née du territoire de Carthage.",
+        "en": "The Arabic rendering of Latin Africa, used in the Middle Ages for Tunisia and its borderlands, with Kairouan as capital. The name carries on that of the Roman province born from Carthage's territory.",
+        "ar": "النقل العربي للاسم اللاتيني Africa، استُعمل في العصر الوسيط لتونس وأطرافها وعاصمتها القيروان. ويمتدّ به اسم الولاية الرومانية التي نشأت على إقليم قرطاج."
+      },
+      "alias": ["Africa", "Afrique", "Kairouan", "القيروان", "إفريقيا"],
+      "see": ["/afrique", "/tunisie"],
+      "cat": "lieux"
+    },
+    {
+      "id": "punique",
+      "term": { "fr": "Punique", "en": "Punic", "ar": "البونيقية" },
+      "phoen": null,
+      "def": {
+        "fr": "Du latin Punicus, de Poenus, forme latine du grec Phoinix, « Phénicien ». Le mot désigne la civilisation et la langue de Carthage : un phénicien d'Occident, langue sémitique écrite de droite à gauche, encore parlée dans les campagnes d'Afrique au temps de saint Augustin, vers 400 apr. J.-C.",
+        "en": "From Latin Punicus, from Poenus, the Latin form of Greek Phoinix, “Phoenician”. The word refers to the civilisation and language of Carthage: a western Phoenician, a Semitic language written from right to left, still spoken in the African countryside in Saint Augustine's time, around AD 400.",
+        "ar": "من اللاتينية Punicus المشتقة من Poenus، الصيغة اللاتينية لكلمة Phoinix الإغريقية أي «فينيقي». وتدل الكلمة على حضارة قرطاج ولغتها: فينيقية الغرب، لغة سامية تُكتب من اليمين إلى اليسار، ظلت محكية في أرياف إفريقيا في عهد القديس أوغسطين نحو 400 م."
+      },
+      "alias": ["Poeni", "Punicus", "langue punique", "Punic language", "البونيقية", "البونيقي", "البونيقي"],
+      "see": ["/langue-ecriture", "/histoire-des-vainqueurs"],
+      "cat": "langue"
+    },
+    {
+      "id": "neopunique",
+      "term": { "fr": "Néopunique", "en": "Neo-Punic", "ar": "البونيقية الجديدة" },
+      "phoen": null,
+      "def": {
+        "fr": "Forme tardive, cursive, de l'écriture punique, employée en Afrique du Nord après 146 av. J.-C. et jusqu'aux premiers siècles de notre ère. Elle note parfois les voyelles à l'aide de certaines lettres.",
+        "en": "The late, cursive form of Punic script, used in North Africa after 146 BC and into the first centuries AD. It sometimes marks vowels with certain letters.",
+        "ar": "الصيغة المتأخرة المتصلة من الكتابة البونيقية، استُعملت في شمال إفريقيا بعد 146 ق.م وحتى القرون الأولى للميلاد. وكانت تدوّن أحيانًا حروف العلّة ببعض الحروف."
+      },
+      "alias": ["néo-punique", "Neopunic", "البونيقية الجديدة"],
+      "see": ["/langue-ecriture", "/apres-146"],
+      "cat": "langue"
+    },
+    {
+      "id": "alphabet-phenicien",
+      "term": { "fr": "Alphabet phénicien", "en": "Phoenician alphabet", "ar": "الأبجدية الفينيقية" },
+      "phoen": "𐤀𐤁𐤂𐤃",
+      "def": {
+        "fr": "Écriture de 22 lettres, toutes consonnes, tracée de droite à gauche. Transmise aux Grecs, elle est l'ancêtre des alphabets grec et latin et, par l'araméen, des écritures hébraïque et arabe.",
+        "en": "A script of 22 letters, all consonants, written from right to left. Passed on to the Greeks, it is the ancestor of the Greek and Latin alphabets and, through Aramaic, of the Hebrew and Arabic scripts.",
+        "ar": "كتابة من اثنين وعشرين حرفًا، كلها صوامت، تُخطّ من اليمين إلى اليسار. انتقلت إلى الإغريق، فهي أصل الأبجديتين الإغريقية واللاتينية، وعبر الآرامية أصل الكتابتين العبرية والعربية."
+      },
+      "alias": ["22 lettres", "abjad", "écriture", "script", "الفينيقية"],
+      "see": ["/langue-ecriture"],
+      "cat": "langue"
+    },
+    {
+      "id": "libyque",
+      "term": { "fr": "Libyque", "en": "Libyan (Libyco-Berber)", "ar": "الليبية" },
+      "phoen": null,
+      "def": {
+        "fr": "Langue et écriture des populations autochtones d'Afrique du Nord, ancêtres des Amazighs. La bilingue punico-libyque du mausolée de Dougga (IIe siècle av. J.-C.) a servi de clé pour en déchiffrer les lettres.",
+        "en": "The language and script of the native peoples of North Africa, ancestors of the Amazigh. The Punic–Libyan bilingual inscription of the Dougga mausoleum (2nd century BC) served as a key to deciphering its letters.",
+        "ar": "لغة السكان الأصليين لشمال إفريقيا، أجداد الأمازيغ، وكتابتهم. وقد كان النقش المزدوج البونيقي–الليبي في ضريح دقة (القرن الثاني ق.م) مفتاحًا لفك حروفها."
+      },
+      "alias": ["Dougga", "bilingue", "amazigh", "berbère", "Libyens", "دقة", "الأمازيغية"],
+      "see": ["/langue-ecriture", "/afrique"],
+      "cat": "langue"
+    },
+    {
+      "id": "pavimentum-punicum",
+      "term": { "fr": "Pavimentum punicum", "en": "Pavimentum punicum", "ar": "الرصيف البونيقي" },
+      "phoen": null,
+      "def": {
+        "fr": "Sol d'éclats de pierre et de marbre noyés dans un mortier rouge, parfois orné du signe de Tanit (Kerkouane, flanc sud de Byrsa). Datés du IIIe siècle av. J.-C., ces sols obligent à nuancer l'idée d'une mosaïque née en Grèce.",
+        "en": "A floor of stone and marble chips set in red mortar, sometimes decorated with the sign of Tanit (Kerkouane, southern slope of Byrsa). Dated to the 3rd century BC, these floors call into question the idea that mosaic was born in Greece.",
+        "ar": "أرضية من شظايا الحجر والرخام مغروسة في ملاط أحمر، تزيّنها أحيانًا علامة تانيت (كركوان، السفح الجنوبي لبيرصا). ويعود تاريخها إلى القرن الثالث ق.م، فتدعو إلى مراجعة فكرة أن الفسيفساء وُلدت في بلاد الإغريق."
+      },
+      "alias": ["sol punique", "Punic pavement", "mosaïque", "mosaic", "الرصيف البونيقي", "فسيفساء"],
+      "see": ["/art-et-artisanat", "/lieux"],
+      "cat": "art"
+    },
+    {
+      "id": "opus-africanum",
+      "term": { "fr": "Opus africanum", "en": "Opus africanum", "ar": "البناء الإفريقي" },
+      "phoen": null,
+      "def": {
+        "fr": "Technique de maçonnerie punique : des chaînes de grandes pierres, dressées et couchées en alternance, encadrent un remplissage de moellons. Attestée à Kerkouane, elle se perpétue dans l'Afrique romaine, jusqu'au Capitole de Dougga.",
+        "en": "A Punic masonry technique: chains of large stones, alternately upright and laid flat, frame a rubble infill. Found at Kerkouane, it lived on in Roman Africa, as far as the Capitol of Dougga.",
+        "ar": "تقنية بناء بونيقية: سلاسل من الحجارة الكبيرة، منتصبة ومستلقية بالتناوب، تؤطّر حشوة من الدبش. عُرفت في كركوان، واستمرت في إفريقيا الرومانية حتى الكابيتول في دقة."
+      },
+      "alias": ["appareil africain", "masonry", "أوبوس أفريكانوم"],
+      "see": ["/art-et-artisanat", "/afrique", "/apres-146"],
+      "cat": "art"
+    },
+    {
+      "id": "masques-grimacants",
+      "term": { "fr": "Masques grimaçants", "en": "Grimacing masks", "ar": "الأقنعة المتجهّمة" },
+      "phoen": null,
+      "def": {
+        "fr": "Masques de terre cuite aux rides profondes et à la bouche tordue, parfois ornés de motifs géométriques. D'origine sans doute orientale, ils étaient suspendus ou déposés dans les tombes pour écarter les démons (fin VIIe–VIe siècle av. J.-C.).",
+        "en": "Terracotta masks with deep wrinkles and twisted mouths, sometimes decorated with geometric patterns. Probably of eastern origin, they were hung up or laid in tombs to ward off demons (late 7th–6th century BC).",
+        "ar": "أقنعة من الطين المشوي ذات تجاعيد عميقة وأفواه ملتوية، تزيّنها أحيانًا زخارف هندسية. وهي مشرقية الأصل على الأرجح، كانت تُعلَّق أو توضع في القبور لطرد الشياطين (أواخر القرن السابع – السادس ق.م)."
+      },
+      "alias": ["masques", "masks", "terre cuite", "أقنعة"],
+      "see": ["/art-et-artisanat"],
+      "cat": "art"
+    },
+    {
+      "id": "rasoirs",
+      "term": { "fr": "Rasoirs puniques", "en": "Punic razors", "ar": "الأمواس البونيقية" },
+      "phoen": null,
+      "def": {
+        "fr": "Petites lames-hachettes de bronze, fréquentes dans les tombes après le VIIe siècle av. J.-C., liées à la purification du défunt et dotées d'une valeur talismanique (Lancel). Dès le Ve siècle, on les grave de motifs égyptiens ou égéens.",
+        "en": "Small hatchet-shaped bronze blades, common in tombs after the 7th century BC, linked to the purification of the dead and credited with talismanic value (Lancel). From the 5th century they were engraved with Egyptian or Aegean motifs.",
+        "ar": "نصال برونزية صغيرة على هيئة فأس، كثيرة في القبور بعد القرن السابع ق.م، ترتبط بتطهير الميت ولها قيمة طِلَّسمية (لانسيل). ومنذ القرن الخامس نُقشت بزخارف مصرية أو إيجية."
+      },
+      "alias": ["rasoir", "razors", "hachettes", "أمواس"],
+      "see": ["/art-et-artisanat"],
+      "cat": "art"
+    },
+    {
+      "id": "scarabees",
+      "term": { "fr": "Scarabées", "en": "Scarabs", "ar": "الجعارين" },
+      "phoen": null,
+      "def": {
+        "fr": "Amulettes et chatons de bagues-sceaux en forme de scarabée, gravés en intaille, souvent importés d'ateliers égyptiens ou phéniciens : un signe de la forte empreinte égyptienne sur l'art punique. Après le milieu du IVe siècle, des gravures sur pâte de verre, plus modestes, prennent le relais.",
+        "en": "Scarab-shaped amulets and seal-ring bezels engraved in intaglio, often imported from Egyptian or Phoenician workshops: a sign of Egypt's strong imprint on Punic art. After the mid-4th century, humbler glass-paste engravings took over.",
+        "ar": "تمائم وفصوص خواتم أختام على هيئة الجُعران، محفورة غائرًا، كثيرًا ما استُوردت من ورشات مصرية أو فينيقية: دليل على الأثر المصري القوي في الفن البونيقي. وبعد منتصف القرن الرابع حلّت محلها نقوش أبسط على عجينة الزجاج."
+      },
+      "alias": ["scarabée", "bagues-sceaux", "seal rings", "Égypte", "جعران", "الأختام"],
+      "see": ["/art-et-artisanat"],
+      "cat": "art"
+    },
+    {
+      "id": "libypheniciens",
+      "term": { "fr": "Libyphéniciens", "en": "Libyphoenicians", "ar": "الليبيون الفينيقيون" },
+      "phoen": null,
+      "def": {
+        "fr": "Nom grec d'une population née du mélange des colons phéniciens et des Libyens d'Afrique. Leur statut et leur territoire, sans doute au sud de Carthage, restent discutés ; le Périple d'Hannon dit qu'il partit fonder des « villes de Libyphéniciens ».",
+        "en": "The Greek name for a population born of the mingling of Phoenician settlers and the Libyans of Africa. Their status and territory, probably south of Carthage, are still debated; Hanno's Periplus says he set out to found “cities of Libyphoenicians”.",
+        "ar": "اسم إغريقي لسكان نشؤوا من امتزاج المستوطنين الفينيقيين بليبيي إفريقيا. ولا يزال وضعهم وإقليمهم، الواقع على الأرجح جنوب قرطاج، محل نقاش؛ ويذكر نص رحلة حنون أنه أبحر ليؤسس «مدنًا لليبيين الفينيقيين»."
+      },
+      "alias": ["Libyphénicien", "Libyens", "Libyans", "الليبيين الفينيقيين"],
+      "see": ["/fondation", "/hannon", "/afrique"],
+      "cat": "histoire"
+    },
+    {
+      "id": "magonides",
+      "term": { "fr": "Magonides", "en": "Magonids", "ar": "الماغونيون" },
+      "phoen": "𐤌𐤂𐤍",
+      "def": {
+        "fr": "Dynastie de généraux issue de Magon, qui domine Carthage aux VIe–Ve siècles av. J.-C. (Justin, XIX). Elle organise l'armée de mercenaires, soumet l'arrière-pays africain et mène les guerres de Sicile, jusqu'au désastre d'Himère en 480 ; les Cent-Quatre seront créés pour brider ce pouvoir familial.",
+        "en": "A dynasty of generals descended from Mago that dominated Carthage in the 6th–5th centuries BC (Justin, XIX). It organised the mercenary army, subdued the African hinterland and led the Sicilian wars, down to the disaster of Himera in 480; the Hundred and Four were created to curb this family power.",
+        "ar": "أسرة من القادة تنحدر من ماغون، هيمنت على قرطاج في القرنين السادس والخامس ق.م (يوستينوس، XIX). نظّمت جيش المرتزقة وأخضعت الداخل الإفريقي وقادت حروب صقلية حتى كارثة هيميرا سنة 480؛ ثم أُنشئت محكمة المئة والأربعة للحدّ من نفوذ هذه الأسرة."
+      },
+      "alias": ["Magon", "Mago", "Himère", "Himera", "الماغونيين", "ماغون"],
+      "see": ["/institutions", "/chronologie", "/fondation"],
+      "cat": "histoire"
+    },
+    {
+      "id": "barcides",
+      "term": { "fr": "Barcides", "en": "Barcids", "ar": "البرقيون" },
+      "phoen": "𐤁𐤓𐤒",
+      "def": {
+        "fr": "La famille d'Hamilcar Barca — du punique brq, « foudre » — et de ses fils Hannibal, Hasdrubal et Magon, avec son gendre Hasdrubal le Beau. Après 237 av. J.-C., ils bâtissent en Espagne une puissance presque autonome, base de la deuxième guerre punique.",
+        "en": "The family of Hamilcar Barca — from Punic brq, “lightning” — and of his sons Hannibal, Hasdrubal and Mago, with his son-in-law Hasdrubal the Fair. After 237 BC they built an almost autonomous power in Spain, the base for the Second Punic War.",
+        "ar": "أسرة حملقار برقا — من البونيقية «برق» — وأبنائه حنبعل وصدربعل وماغون، وصهره صدربعل الجميل. بعد 237 ق.م بنوا في إسبانيا قوة شبه مستقلة كانت قاعدة الحرب البونيقية الثانية."
+      },
+      "alias": ["Barca", "Barcas", "Barcid", "brq", "البرقيين", "آل برقا", "برقا"],
+      "see": ["/hamilcar", "/hannibal", "/biographies"],
+      "cat": "histoire"
+    },
+    {
+      "id": "guerres-puniques",
+      "term": { "fr": "Guerres puniques", "en": "Punic Wars", "ar": "الحروب البونيقية" },
+      "phoen": null,
+      "def": {
+        "fr": "Les trois guerres entre Rome et Carthage : 264–241 (la Sicile), 218–201 (Hannibal en Italie, jusqu'à Zama) et 149–146 av. J.-C., qui s'achève par la destruction de la ville.",
+        "en": "The three wars between Rome and Carthage: 264–241 (Sicily), 218–201 (Hannibal in Italy, ending at Zama) and 149–146 BC, which ended with the destruction of the city.",
+        "ar": "الحروب الثلاث بين روما وقرطاج: 264–241 (صقلية)، و218–201 (حنبعل في إيطاليا حتى زاما)، و149–146 ق.م التي انتهت بتدمير المدينة."
+      },
+      "alias": ["Zama", "Cannes", "Cannae", "الحروب البونيقية"],
+      "see": ["/guerres-puniques", "/chronologie", "/prise-de-carthage"],
+      "cat": "histoire"
+    },
+    {
+      "id": "guerre-des-mercenaires",
+      "term": { "fr": "Guerre des Mercenaires", "en": "Mercenary War", "ar": "حرب المرتزقة" },
+      "phoen": null,
+      "def": {
+        "fr": "Révolte des mercenaires revenus de Sicile et impayés, rejoints par des cités libyennes (241–238 av. J.-C.). Hamilcar Barca l'écrase au terme d'une guerre sans merci racontée par Polybe (I, 65–88) ; Rome en profite pour s'emparer de la Sardaigne.",
+        "en": "The revolt of unpaid mercenaries back from Sicily, joined by Libyan towns (241–238 BC). Hamilcar Barca crushed it after a merciless war told by Polybius (I, 65–88); Rome took the chance to seize Sardinia.",
+        "ar": "ثورة المرتزقة العائدين من صقلية الذين لم يتقاضوا أجورهم، وقد انضمت إليهم مدن ليبية (241–238 ق.م). سحقها حملقار برقا بعد حرب بلا رحمة رواها بوليبيوس (I، 65–88)، واغتنمت روما الفرصة للاستيلاء على سردينيا."
+      },
+      "alias": ["mercenaires", "mercenaries", "guerre inexpiable", "Truceless War", "المرتزقة"],
+      "see": ["/hamilcar", "/armee", "/chronologie"],
+      "cat": "histoire"
+    },
+    {
+      "id": "periple",
+      "term": { "fr": "Périple d'Hannon", "en": "Periplus of Hanno", "ar": "رحلة حنون" },
+      "phoen": null,
+      "def": {
+        "fr": "Récit, conservé en grec, du voyage d'Hannon le long de la côte atlantique de l'Afrique vers 500 av. J.-C., avec soixante pentécontères. Il traduirait une inscription punique exposée dans un temple de Carthage ; c'est le plus ancien témoignage d'exploration de l'Afrique occidentale.",
+        "en": "An account, preserved in Greek, of Hanno's voyage along the Atlantic coast of Africa around 500 BC, with sixty penteconters. It is said to translate a Punic inscription displayed in a Carthaginian temple; it is the oldest record of the exploration of West Africa.",
+        "ar": "رواية محفوظة بالإغريقية لرحلة حنون على طول الساحل الأطلسي لإفريقيا نحو 500 ق.م بستين سفينة خمسينية. ويُرجَّح أنها ترجمة لنقش بونيقي كان معروضًا في معبد بقرطاج؛ وهي أقدم شهادة على استكشاف غرب إفريقيا."
+      },
+      "alias": ["périple", "periplus", "Hannon", "Hanno", "البيريبلوس", "الرحلة", "حنون"],
+      "see": ["/hannon", "/armee", "/economie"],
+      "cat": "histoire"
+    },
+    {
+      "id": "punica-fides",
+      "term": { "fr": "Punica fides", "en": "Punica fides", "ar": "«الوفاء البونيقي»" },
+      "phoen": null,
+      "def": {
+        "fr": "« Foi punique » : expression latine devenue synonyme de trahison. Tite-Live (XXI, 4) prête à Hannibal une « perfidie plus que punique ». Un cliché de propagande romaine, que les faits ne distinguent guère des pratiques de Rome elle-même.",
+        "en": "“Punic faith”: a Latin phrase that became a byword for treachery. Livy (XXI, 4) credits Hannibal with “more than Punic perfidy”. A cliché of Roman propaganda, which the facts hardly set apart from Rome's own conduct.",
+        "ar": "«الوفاء البونيقي»: عبارة لاتينية صارت مرادفًا للخيانة. ونسب تيتوس ليفيوس (XXI، 4) إلى حنبعل «غدرًا يفوق الغدر البونيقي». وهي كليشيه دعائي روماني لا تكاد الوقائع تميّزه عن سلوك روما نفسها."
+      },
+      "alias": ["foi punique", "Punic faith", "perfidie", "الوفاء البونيقي", "الغدر البونيقي"],
+      "see": ["/histoire-des-vainqueurs"],
+      "cat": "histoire"
+    },
+    {
+      "id": "carthago-delenda-est",
+      "term": { "fr": "Carthago delenda est", "en": "Carthago delenda est", "ar": "«يجب تدمير قرطاج»" },
+      "phoen": null,
+      "def": {
+        "fr": "« Carthage doit être détruite » : Caton l'Ancien aurait conclu chacun de ses discours au Sénat par cet avis dans les années 150 av. J.-C. (Plutarque, Caton l'Ancien, 27 ; Pline, XV, 74). Les sources rapportent l'idée ; la formule latine exacte est une mise en forme plus tardive.",
+        "en": "“Carthage must be destroyed”: Cato the Elder is said to have closed every speech in the Senate with this opinion in the 150s BC (Plutarch, Cato the Elder, 27; Pliny, XV, 74). The sources report the idea; the exact Latin wording is a later phrasing.",
+        "ar": "«يجب تدمير قرطاج»: يُروى أن كاتو الأكبر كان يختم كل خطبه في مجلس الشيوخ بهذا الرأي في خمسينيات القرن الثاني ق.م (بلوتارخوس، كاتو الأكبر، 27؛ بلينيوس، XV، 74). وتنقل المصادر الفكرة، أما الصيغة اللاتينية الحرفية فمتأخرة."
+      },
+      "alias": ["delenda", "Caton", "Cato", "Ceterum censeo", "كاتو"],
+      "see": ["/prise-de-carthage", "/guerres-puniques", "/histoire-des-vainqueurs"],
+      "cat": "histoire"
+    },
+    {
+      "id": "colonia-iulia-carthago",
+      "term": { "fr": "Colonia Iulia Concordia Carthago", "en": "Colonia Iulia Concordia Carthago", "ar": "كولونيا يوليا كونكورديا قرطاج" },
+      "phoen": null,
+      "def": {
+        "fr": "La colonie romaine décidée par César et fondée sous Auguste (44–29 av. J.-C.) sur le site même de la ville punique. Elle devient la capitale de l'Afrique proconsulaire et l'une des grandes villes de l'Empire.",
+        "en": "The Roman colony decided by Caesar and founded under Augustus (44–29 BC) on the very site of the Punic city. It became the capital of Africa Proconsularis and one of the great cities of the Empire.",
+        "ar": "المستعمرة الرومانية التي قرّرها قيصر وأُسست في عهد أغسطس (44–29 ق.م) على موقع المدينة البونيقية ذاته. وصارت عاصمة إفريقيا البروقنصلية وإحدى كبرى مدن الإمبراطورية."
+      },
+      "alias": ["Carthage romaine", "Roman Carthage", "Colonia", "Auguste", "César", "قرطاجو"],
+      "see": ["/apres-146", "/chronologie"],
+      "cat": "histoire"
+    }
+  ]
+}

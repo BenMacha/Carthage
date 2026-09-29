@@ -46,6 +46,7 @@
         <div class="cab-media" :class="it.tone" :style="it.bg ? { background: it.bg } : null">
           <img v-if="it.img" :src="it.img" :alt="it.alt" :style="it.pos ? { objectPosition: it.pos } : null" loading="lazy">
           <span v-else class="phoen cab-glyph" aria-hidden="true">{{ it.glyph }}</span>
+          <span v-if="it.img && it.cap" class="cab-cap">{{ it.cap }}</span>
         </div>
         <div class="cab-body">
           <span class="kicker">{{ c.cats[it.cat] }}</span>
@@ -202,6 +203,8 @@
       </div>
     </div>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec sec--wide">
       <h2 class="h-section related-title">{{ c.relatedTitle }}</h2>
@@ -227,17 +230,17 @@ const CATS = ['stone', 'clay', 'adorn', 'metal']
 // Ordre : 12 tuiles = 3 lignes complètes de 4 à 1440 px
 const ITEMS = [
   { id: 'stelae', cat: 'stone', img: '/img/tanit-stele.jpg', bg: '#5E574F' },
-  { id: 'masks', cat: 'clay', glyph: '𐤐', tone: 'tone-terra' },
-  { id: 'jewels', cat: 'adorn', glyph: '𐤆', tone: 'tone-gold' },
+  { id: 'masks', cat: 'clay', img: '/img/punic-mask-louvre.jpg', bg: '#000000' },
+  { id: 'jewels', cat: 'adorn', img: '/img/punic-gold-earrings.jpg', bg: '#B9AE9F' },
   { id: 'coins', cat: 'metal', img: '/img/quarter-shekel.jpg', bg: '#16130F' },
-  { id: 'sarco', cat: 'stone', glyph: '𐤒', tone: 'tone-sand' },
+  { id: 'sarco', cat: 'stone', img: '/img/punic-sarcophagi-louvre.jpg', bg: '#C9B79C' },
   { id: 'figs', cat: 'clay', img: '/img/baal.jpg', bg: '#8E3720' },
-  { id: 'glass', cat: 'adorn', glyph: '𐤏', tone: 'tone-navy' },
-  { id: 'razors', cat: 'metal', glyph: '𐤇', tone: 'tone-olive' },
-  { id: 'ceramics', cat: 'clay', glyph: '𐤊', tone: 'tone-navy' },
-  { id: 'amulets', cat: 'adorn', glyph: '𐤉', tone: 'tone-purple' },
-  { id: 'seals', cat: 'adorn', glyph: '𐤇', tone: 'tone-ink' },
-  { id: 'ivory', cat: 'metal', glyph: '𐤔', tone: 'tone-sand' }
+  { id: 'glass', cat: 'adorn', img: '/img/punic-glass-pendants.jpg', bg: '#8C8C8E' },
+  { id: 'razors', cat: 'metal', img: '/img/punic-razors.jpg', bg: '#D9D6D0' },
+  { id: 'ceramics', cat: 'clay', img: '/img/punic-feeding-bottle.jpg', bg: '#6E6A62' },
+  { id: 'amulets', cat: 'adorn', img: '/img/punic-amulets.jpg', bg: '#3E4A63' },
+  { id: 'seals', cat: 'adorn', img: '/img/phoenician-scarab-ring.jpg', bg: '#6F6E76' },
+  { id: 'ivory', cat: 'metal', img: '/img/punic-ivories.jpg', bg: '#2F3548' }
 ]
 
 const MUSEUM_CARDS = [
@@ -276,6 +279,7 @@ const C = {
     facts: { mat: 'Matière', date: 'Époque', use: 'Usage', see: 'Où le voir' },
     items: {
       stelae: {
+        cap: "Musée du Louvre",
         name: 'Stèles et cippes',
         alt: 'Stèle punique gravée du signe de Tanit',
         text: "Taillées d'abord dans le grès, puis dans le calcaire, elles se couvrent de motifs d'influence grecque. Le « signe de Tanit » s'y répand à partir des Ve–IVe s. ; on le croyait propre à l'Occident, on le retrouve aujourd'hui au Levant.",
@@ -285,6 +289,7 @@ const C = {
         see: 'Carthage, Bardo, Louvre'
       },
       masks: {
+        cap: "Carthage · Musée du Louvre",
         name: 'Masques grimaçants',
         alt: 'Masque punique grimaçant en terre cuite',
         text: "Rides creusées, bouche tordue, parfois motifs géométriques : ces masques d'origine sans doute levantine étaient suspendus pour éloigner les démons.",
@@ -294,6 +299,8 @@ const C = {
         see: 'Bardo, Louvre, Motyé'
       },
       jewels: {
+        alt: "Boucles d'oreilles puniques en or, nécropole du Puig des Molins à Ibiza",
+        cap: "Ibiza · Musée archéologique national, Madrid",
         name: 'Bijoux',
         text: "Colliers lourds et chargés, bagues, anneaux d'oreille et de nez (nezem), étuis porte-amulettes : un luxe hérité de l'Orient, dont se moquaient les auteurs classiques.",
         mat: 'Or, argent, pierres dures',
@@ -311,6 +318,8 @@ const C = {
         see: 'British Museum, Carthage, Bardo'
       },
       sarco: {
+        alt: "Sarcophages en marbre d'un homme et d'une femme, nécropole de Sainte-Monique à Carthage",
+        cap: "Carthage, IVe–IIIe s. · Musée du Louvre",
         name: 'Sarcophages',
         text: "Le modèle anthropoïde phénicien évolue en Occident. Au IVe s., le couvercle porte la statue du défunt : le « prêtre » bénit de la main droite, la « prêtresse » tient une colombe ; tous deux portent un vase à encens.",
         mat: 'Marbre et calcaire sculptés',
@@ -319,6 +328,7 @@ const C = {
         see: 'Carthage, Louvre, Palerme'
       },
       figs: {
+        cap: "Thinissut · Musée du Bardo",
         name: 'Protomés et figurines',
         alt: 'Baal Hammon trônant, terre cuite de Thinissut',
         text: "Bustes moulés de style égyptien, puis grec dès le VIe s., figurines au tambourin : la coroplathie s'étend de l'Afrique aux Baléares. Elle survit à la chute de Carthage, comme au sanctuaire de Thinissut (cap Bon).",
@@ -328,6 +338,8 @@ const C = {
         see: 'Bardo, Louvre, Ibiza'
       },
       glass: {
+        alt: "Trois pendentifs-masques en pâte de verre : têtes barbues aux grands yeux cerclés",
+        cap: "Carthage · expo « Carthago », Colisée 2019",
         name: 'Pendentifs-masques en verre',
         text: "Pline rapporte que les Phéniciens auraient inventé le verre ; ils l'ont surtout diffusé à grande échelle. Signature punique : de minuscules têtes humaines en pâte de verre colorée dans la masse, enfilées sur des colliers de perles.",
         mat: 'Pâte de verre',
@@ -336,6 +348,8 @@ const C = {
         see: 'Louvre, Bardo, Carthage'
       },
       razors: {
+        alt: "Trois rasoirs votifs puniques en bronze, au manche en forme de cou d'oiseau",
+        cap: "Carthage, Kerkouane · expo « Carthago », Rome",
         name: 'Rasoirs',
         text: "Fréquents dans les tombes après le VIIe s., ils sont liés à la purification du défunt et ont une valeur talismanique (Lancel). Dès le Ve s., on les grave de motifs égyptiens ou égéens, parfois sur les deux faces.",
         mat: 'Bronze, parfois fer',
@@ -344,6 +358,8 @@ const C = {
         see: 'Madrid (Ibiza), Carthage'
       },
       ceramics: {
+        alt: "Biberon punique en terre cuite peint de deux grands yeux",
+        cap: "Carthage · Musée du Bardo",
         name: 'Céramiques et lampes',
         text: "Vaisselle de cuisine, lampes à huile aux formes standardisées, biberons, « moules à gâteaux » (Lancel), et même la maquette d'un four à pain de type tabouna trouvée dans une tombe.",
         mat: 'Argile',
@@ -352,6 +368,8 @@ const C = {
         see: 'Carthage, Bardo, Palerme'
       },
       amulets: {
+        alt: "Collier d'amulettes égyptisantes et amulettes puniques, dont un signe de Tanit en bronze",
+        cap: "Carthage, Tharros · expo « Carthago », Rome",
         name: 'Amulettes',
         text: "Surtout dans les tombes de femmes et d'enfants. Importées d'Égypte ou faites sur place, elles figurent Bès, Horus ou l'œil oudjat.",
         mat: 'Os, pâte de verre, pierre',
@@ -360,6 +378,8 @@ const C = {
         see: 'Bardo, Carthage'
       },
       seals: {
+        alt: "Scarabée en jaspe vert gravé d'un Héraclès, monté sur une bague pivotante en or",
+        cap: "Gréco-phénicien, fin VIe s. · Walters Art Museum",
         name: 'Bagues-sceaux et scarabées',
         text: "Chatons en scarabée gravés en intaille, souvent importés d'ateliers égyptiens ou phéniciens. Après le milieu du IVe s., des gravures sur pâte de verre, plus modestes, pourraient signaler une production locale.",
         mat: 'Cornaline, agate, jaspe, onyx',
@@ -368,6 +388,8 @@ const C = {
         see: 'Musée national de Carthage'
       },
       ivory: {
+        alt: "Manche de miroir en ivoire et plaquettes gravées en ivoire et en os",
+        cap: "Carthage, Tharros · expo « Carthago », Rome",
         name: 'Ivoires et os gravés',
         text: "Petites plaques sculptées d'inspiration orientale ou égyptienne ; l'os remplace souvent l'ivoire, plus coûteux. De l'ivoire brut retrouvé sur les mêmes sites suggère des ateliers locaux.",
         mat: 'Ivoire, os',
@@ -474,6 +496,17 @@ const C = {
         ]
       }
     },
+    sources: [
+      { type: "ancient", author: "Pline l'Ancien", work: "Histoire naturelle", ref: "XXXVI, 190–191", note: "l'invention du verre" },
+      { type: "ancient", author: "Appien", work: "Libyca (Le Livre africain)", note: "immeubles de six étages" },
+      { type: "modern", author: "Maria Giulia Amadasi Guzzo", work: "Carthage", ref: "PUF (Que sais-je ?), 2007" },
+      { type: "modern", author: "Hédi Dridi", work: "Carthage et le monde punique", ref: "Les Belles Lettres, 2006" },
+      { type: "modern", author: "Serge Lancel", work: "Carthage", ref: "Fayard, 1992" },
+      { type: "modern", author: "M'hamed Hassine Fantar", work: "Kerkouane", ref: "Alif, 2005" },
+      { type: "modern", author: "Picard", note: "cité dans la page (nécropoles)" },
+      { type: "modern", author: "François Decret", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "Wikipédia", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0, contenus reformulés" }
+    ],
     relatedTitle: 'À lire aussi',
     related: [
       { to: '/religion', kick: 'Religion', title: 'Les dieux de Carthage', text: 'Baal Hammon, Tanit, Melqart, Eshmoun et le débat du tophet.', cls: 'tile--purple' },
@@ -507,6 +540,7 @@ const C = {
     facts: { mat: 'Material', date: 'Period', use: 'Use', see: 'Where to see it' },
     items: {
       stelae: {
+        cap: "Louvre Museum",
         name: 'Stelae and cippi',
         alt: 'Punic stele carved with the sign of Tanit',
         text: 'First cut in sandstone, then in limestone, they gain Greek-influenced motifs. The “sign of Tanit” spreads from the 5th–4th c.; once thought unique to the West, it is now also found in the Levant.',
@@ -516,6 +550,7 @@ const C = {
         see: 'Carthage, Bardo, Louvre'
       },
       masks: {
+        cap: "Carthage · Louvre Museum",
         name: 'Grimacing masks',
         alt: 'Punic grimacing terracotta mask',
         text: 'Deep wrinkles, twisted mouths, sometimes geometric patterns: these masks, probably of Levantine origin, were hung up to ward off demons.',
@@ -525,6 +560,8 @@ const C = {
         see: 'Bardo, Louvre, Motya'
       },
       jewels: {
+        alt: "Punic gold earrings from the Puig des Molins necropolis, Ibiza",
+        cap: "Ibiza · National Archaeological Museum, Madrid",
         name: 'Jewellery',
         text: 'Heavy, crowded necklaces, rings, ear and nose rings (nezem), amulet cases: an Eastern luxury that classical authors liked to mock.',
         mat: 'Gold, silver, hardstones',
@@ -542,6 +579,8 @@ const C = {
         see: 'British Museum, Carthage, Bardo'
       },
       sarco: {
+        alt: "Marble sarcophagi of a man and a woman, Sainte-Monique necropolis, Carthage",
+        cap: "Carthage, 4th–3rd c. · Louvre Museum",
         name: 'Sarcophagi',
         text: 'The Phoenician anthropoid model evolved in the West. In the 4th c., the lid bears a statue of the deceased: the “priest” blesses with his right hand, the “priestess” holds a dove; both carry an incense vessel.',
         mat: 'Carved marble and limestone',
@@ -550,6 +589,7 @@ const C = {
         see: 'Carthage, Louvre, Palermo'
       },
       figs: {
+        cap: "Thinissut · Bardo Museum",
         name: 'Protomes and figurines',
         alt: 'Enthroned Baal Hammon, terracotta from Thinissut',
         text: 'Moulded busts in Egyptian style, then Greek from the 6th c., figurines with tambourines: coroplastic art spread from Africa to the Balearics. It outlived Carthage’s fall, as at the sanctuary of Thinissut (Cap Bon).',
@@ -559,6 +599,8 @@ const C = {
         see: 'Bardo, Louvre, Ibiza'
       },
       glass: {
+        alt: "Three glass-paste mask pendants: bearded heads with large ringed eyes",
+        cap: "Carthage · “Carthago” exhibition, Colosseum 2019",
         name: 'Glass mask pendants',
         text: 'Pliny reports that the Phoenicians invented glass; above all they traded it on a large scale. A Punic signature: tiny human heads in glass paste, coloured throughout, strung on bead necklaces.',
         mat: 'Glass paste',
@@ -567,6 +609,8 @@ const C = {
         see: 'Louvre, Bardo, Carthage'
       },
       razors: {
+        alt: "Three Punic bronze votive razors with bird-neck handles",
+        cap: "Carthage, Kerkouane · “Carthago” exhibition, Rome",
         name: 'Razors',
         text: 'Common in tombs after the 7th c., they are linked to the purification of the dead and had a talismanic value (Lancel). From the 5th c. they were engraved with Egyptian or Aegean motifs, sometimes on both sides.',
         mat: 'Bronze, sometimes iron',
@@ -575,6 +619,8 @@ const C = {
         see: 'Madrid (Ibiza), Carthage'
       },
       ceramics: {
+        alt: "Punic terracotta feeding bottle painted with two large eyes",
+        cap: "Carthage · Bardo Museum",
         name: 'Pottery and lamps',
         text: 'Kitchenware, oil lamps of standardised shapes, feeding bottles, “cake moulds” (Lancel), and even a model of a tabouna bread oven found in a tomb.',
         mat: 'Clay',
@@ -583,6 +629,8 @@ const C = {
         see: 'Carthage, Bardo, Palermo'
       },
       amulets: {
+        alt: "Necklace of Egyptianising amulets and Punic amulets, including a bronze sign of Tanit",
+        cap: "Carthage, Tharros · “Carthago” exhibition, Rome",
         name: 'Amulets',
         text: 'Mostly in the graves of women and children. Imported from Egypt or made locally, they show Bes, Horus or the wedjat eye.',
         mat: 'Bone, glass paste, stone',
@@ -591,6 +639,8 @@ const C = {
         see: 'Bardo, Carthage'
       },
       seals: {
+        alt: "Green jasper scarab engraved with Heracles, set on a gold swivel ring",
+        cap: "Greco-Phoenician, late 6th c. · Walters Art Museum",
         name: 'Seal rings and scarabs',
         text: 'Scarab bezels engraved in intaglio, often imported from Egyptian or Phoenician workshops. After the mid-4th c., humbler engravings on glass paste may point to local production.',
         mat: 'Carnelian, agate, jasper, onyx',
@@ -599,6 +649,8 @@ const C = {
         see: 'National Museum of Carthage'
       },
       ivory: {
+        alt: "Ivory mirror handle and carved ivory and bone plaques",
+        cap: "Carthage, Tharros · “Carthago” exhibition, Rome",
         name: 'Carved ivory and bone',
         text: 'Small carved plaques of Eastern or Egyptian inspiration; bone often replaces costlier ivory. Raw ivory found on the same sites suggests local workshops.',
         mat: 'Ivory, bone',
@@ -705,6 +757,17 @@ const C = {
         ]
       }
     },
+    sources: [
+      { type: "ancient", author: "Pliny the Elder", work: "Natural History", ref: "XXXVI, 190–191", note: "the invention of glass" },
+      { type: "ancient", author: "Appian", work: "Libyca (The African Book)", note: "six-storey buildings" },
+      { type: "modern", author: "Maria Giulia Amadasi Guzzo", work: "Carthage", ref: "PUF (Que sais-je ?), 2007" },
+      { type: "modern", author: "Hédi Dridi", work: "Carthage et le monde punique", ref: "Les Belles Lettres, 2006" },
+      { type: "modern", author: "Serge Lancel", work: "Carthage", ref: "Fayard, 1992" },
+      { type: "modern", author: "M'hamed Hassine Fantar", work: "Kerkouane", ref: "Alif, 2005" },
+      { type: "modern", author: "Picard", note: "cited on this page (cemeteries)" },
+      { type: "modern", author: "François Decret", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "Wikipedia (French)", work: "Carthage; Civilisation carthaginoise", note: "CC BY-SA 4.0, content rephrased" }
+    ],
     relatedTitle: 'Read also',
     related: [
       { to: '/religion', kick: 'Religion', title: 'The gods of Carthage', text: 'Baal Hammon, Tanit, Melqart, Eshmun and the tophet debate.', cls: 'tile--purple' },
@@ -715,20 +778,20 @@ const C = {
 
   ar: {
     meta: {
-      title: 'الفن والحرف البونية — نُصُب وأقنعة وحُليّ وزجاج ونقود',
-      desc: 'فن قرطاج قطعةً قطعة: النُّصُب والتوابيت والأقنعة المتجهّمة والحُليّ ودلايات الزجاج والأمواس والنقود؛ بيوت كركوان والفسيفساء البونية والمقابر، والمتاحف التي تعرضها.'
+      title: 'الفن والحرف البونيقية — نُصُب وأقنعة وحُليّ وزجاج ونقود',
+      desc: 'فن قرطاج قطعةً قطعة: النُّصُب والتوابيت والأقنعة المتجهّمة والحُليّ ودلايات الزجاج والأمواس والنقود؛ بيوت كركوان والفسيفساء البونيقية والمقابر، والمتاحف التي تعرضها.'
     },
     hero: {
       chip: 'قرطاج · الفن والحرف',
-      title: 'الفن والحرف البونية',
+      title: 'الفن والحرف البونيقية',
       lede: 'سخر الإغريق من «خُرَد» الفينيقيين. لكن الحفريات تروي شيئًا آخر: ورشات متخصصة تمزج النماذج الشرقية والمصرية والإغريقية بذوق إفريقي.',
       tags: ['القرن الثامن – الثاني ق.م', 'حجر · طين · زجاج · ذهب'],
-      alt: 'قناع بوني متجهّم من الطين المشوي',
+      alt: 'قناع بونيقي متجهّم من الطين المشوي',
       caption: 'قناع متجهّم، طين مشوي، المتحف الوطني بباردو'
     },
     cab: {
       kicker: 'خزانة العجائب',
-      title: 'الورشة البونية في اثنتي عشرة قطعة',
+      title: 'الورشة البونيقية في اثنتي عشرة قطعة',
       intro: 'جلّ ما وصلنا مصدره المقابر التي نُقّبت منذ القرن التاسع عشر: يكشف أثاث القبور عن حِرَف غزيرة ومتنوّعة (أماداسي غوتسو).',
       filterLabel: 'تصفية القطع حسب المادة',
       all: 'الكل',
@@ -738,8 +801,9 @@ const C = {
     facts: { mat: 'المادة', date: 'الحقبة', use: 'الاستعمال', see: 'أين تُرى' },
     items: {
       stelae: {
+        cap: "متحف اللوفر",
         name: 'النُّصُب والشواهد',
-        alt: 'نُصُب بوني منقوش بعلامة تانيت',
+        alt: 'نُصُب بونيقي منقوش بعلامة تانيت',
         text: 'نُحتت أولًا في الحجر الرملي ثم في الكلس، وازدانت بزخارف ذات تأثير إغريقي. انتشرت «علامة تانيت» منذ القرنين الخامس والرابع؛ وكان يُظن أنها خاصة بالغرب، ثم عُثر عليها في المشرق أيضًا.',
         mat: 'حجر رملي ثم كلس',
         date: 'القرن الثامن – الثاني ق.م',
@@ -747,8 +811,9 @@ const C = {
         see: 'قرطاج، باردو، اللوفر'
       },
       masks: {
+        cap: "قرطاج · متحف اللوفر",
         name: 'الأقنعة المتجهّمة',
-        alt: 'قناع بوني متجهّم من الطين المشوي',
+        alt: 'قناع بونيقي متجهّم من الطين المشوي',
         text: 'تجاعيد عميقة وأفواه ملتوية وأحيانًا زخارف هندسية: كانت هذه الأقنعة، المشرقية الأصل على الأرجح، تُعلَّق لطرد الشياطين.',
         mat: 'طين مشوي',
         date: 'أواخر القرن السابع – السادس ق.م',
@@ -756,10 +821,12 @@ const C = {
         see: 'باردو، اللوفر، موتيا'
       },
       jewels: {
+        alt: "أقراط بونيقية من الذهب من مقبرة بويغ دي مولينس في إيبيزا",
+        cap: "إيبيزا · المتحف الأثري الوطني، مدريد",
         name: 'الحُليّ',
         text: 'قلائد ثقيلة مكتظة، وخواتم، وأقراط للأذن والأنف (نِزَم)، وعلب للتمائم: ترف موروث عن المشرق كان الكتّاب الكلاسيكيون يسخرون منه.',
         mat: 'ذهب وفضة وأحجار صلبة',
-        date: 'طوال الحقبة البونية',
+        date: 'طوال الحقبة البونيقية',
         use: 'زينة وحماية',
         see: 'قرطاج، باردو'
       },
@@ -773,6 +840,8 @@ const C = {
         see: 'المتحف البريطاني، قرطاج، باردو'
       },
       sarco: {
+        alt: "تابوتان من الرخام لرجل وامرأة، مقبرة سانت مونيك في قرطاج",
+        cap: "قرطاج، القرنان 4–3 ق.م · متحف اللوفر",
         name: 'التوابيت',
         text: 'تطوّر النموذج الفينيقي ذو الهيئة البشرية في الغرب. في القرن الرابع صار الغطاء يحمل تمثال المتوفى: «الكاهن» يبارك بيده اليمنى، و«الكاهنة» تمسك حمامة، وكلاهما يحمل مبخرة.',
         mat: 'رخام وكلس منحوتان',
@@ -781,6 +850,7 @@ const C = {
         see: 'قرطاج، اللوفر، باليرمو'
       },
       figs: {
+        cap: "ثينيسوت · متحف باردو",
         name: 'التماثيل النصفية والدمى',
         alt: 'بعل حمون على عرشه، طين مشوي من تينيسوت',
         text: 'تماثيل نصفية مصبوبة على الطراز المصري ثم الإغريقي منذ القرن السادس، ودمى تحمل الدفوف: امتدّ فن الطين من إفريقيا إلى جزر البليار، وعاش بعد سقوط قرطاج كما في معبد تينيسوت (الوطن القبلي).',
@@ -790,14 +860,18 @@ const C = {
         see: 'باردو، اللوفر، إيبيزا'
       },
       glass: {
+        alt: "ثلاث دلايات-أقنعة من عجينة الزجاج: رؤوس ملتحية بعيون واسعة مطوّقة",
+        cap: "قرطاج · معرض «قرطاجة»، الكولوسيوم 2019",
         name: 'دلايات الأقنعة الزجاجية',
-        text: 'يروي بلينيوس أن الفينيقيين اخترعوا الزجاج؛ والأرجح أنهم نشروه على نطاق واسع. من بصماتهم البونية: رؤوس بشرية دقيقة من عجينة الزجاج الملوّنة في كتلتها، تُنظم في قلائد من الخرز.',
+        text: 'يروي بلينيوس أن الفينيقيين اخترعوا الزجاج؛ والأرجح أنهم نشروه على نطاق واسع. من بصماتهم البونيقية: رؤوس بشرية دقيقة من عجينة الزجاج الملوّنة في كتلتها، تُنظم في قلائد من الخرز.',
         mat: 'عجينة زجاج',
         date: 'غالبًا القرن الرابع – الثالث ق.م',
         use: 'تميمة وزينة؛ قوارير عطر',
         see: 'اللوفر، باردو، قرطاج'
       },
       razors: {
+        alt: "ثلاثة أمواس نذرية بونيقية من البرونز، مقابضها على هيئة عنق طائر",
+        cap: "قرطاج، كركوان · معرض «قرطاجة»، روما",
         name: 'الأمواس',
         text: 'كثيرة في القبور بعد القرن السابع، ترتبط بتطهير الميت ولها قيمة طِلَّسمية (لانسيل). منذ القرن الخامس نُقشت بزخارف مصرية أو إيجية، أحيانًا على الوجهين.',
         mat: 'برونز، وأحيانًا حديد',
@@ -806,6 +880,8 @@ const C = {
         see: 'مدريد (إيبيزا)، قرطاج'
       },
       ceramics: {
+        alt: "رضّاعة بونيقية من الطين المشوي مزيّنة بعينين كبيرتين",
+        cap: "قرطاج · متحف باردو",
         name: 'الخزف والمصابيح',
         text: 'أوانٍ للطبخ، ومصابيح زيت بأشكال موحّدة، ورضّاعات، و«قوالب حلوى» (لانسيل)، بل ونموذج مصغّر لفرن خبز من نوع الطابونة عُثر عليه في قبر.',
         mat: 'طين',
@@ -814,14 +890,18 @@ const C = {
         see: 'قرطاج، باردو، باليرمو'
       },
       amulets: {
+        alt: "قلادة من تمائم ذات طابع مصري وتمائم بونيقية، منها علامة تانيت من البرونز",
+        cap: "قرطاج، ثاروس · معرض «قرطاجة»، روما",
         name: 'التمائم',
         text: 'أكثرها في قبور النساء والأطفال. مستوردة من مصر أو مصنوعة محليًا، تمثّل بِس أو حورس أو عين الوجات.',
         mat: 'عظم وعجينة زجاج وحجر',
-        date: 'طوال الحقبة البونية',
+        date: 'طوال الحقبة البونيقية',
         use: 'حماية سحرية للميت',
         see: 'باردو، قرطاج'
       },
       seals: {
+        alt: "جُعَل من اليشب الأخضر نُقش عليه هرقل، مركّب على خاتم ذهبي دوّار",
+        cap: "فينيقي-إغريقي، أواخر القرن 6 ق.م · متحف والترز للفنون",
         name: 'خواتم الأختام والجعارين',
         text: 'فصوص على هيئة جُعَل محفورة غائرًا، مستوردة غالبًا من ورشات مصرية أو فينيقية. بعد منتصف القرن الرابع قد تدلّ نقوش أبسط على عجينة الزجاج على إنتاج محلي.',
         mat: 'عقيق وجزع ويشب',
@@ -830,6 +910,8 @@ const C = {
         see: 'المتحف الوطني بقرطاج'
       },
       ivory: {
+        alt: "مقبض مرآة من العاج ولويحات منقوشة من العاج والعظم",
+        cap: "قرطاج، ثاروس · معرض «قرطاجة»، روما",
         name: 'العاج والعظم المنقوشان',
         text: 'ألواح صغيرة منحوتة بإلهام شرقي أو مصري؛ وكثيرًا ما حلّ العظم محلّ العاج الأغلى. ويدلّ العاج الخام المعثور عليه في المواقع نفسها على ورشات محلية.',
         mat: 'عاج وعظم',
@@ -841,8 +923,8 @@ const C = {
     archi: {
       kicker: 'العمارة',
       title: 'بيوت وأرضيات وأضرحة',
-      intro: 'قليلة هي المباني البونية التي لا تزال قائمة: تُقرأ معظم القصة على مستوى الأرض، في كركوان وعلى سفوح بيرصا.',
-      kerkAlt: 'بيوت بونية في كركوان، الوطن القبلي',
+      intro: 'قليلة هي المباني البونيقية التي لا تزال قائمة: تُقرأ معظم القصة على مستوى الأرض، في كركوان وعلى سفوح بيرصا.',
+      kerkAlt: 'بيوت بونيقية في كركوان، الوطن القبلي',
       kerkCap: 'كركوان، الوطن القبلي (اليونسكو)',
       houses: {
         kicker: 'كركوان',
@@ -856,11 +938,11 @@ const C = {
         title: 'بيوت بطوابق',
         p1: 'على سفح بيرصا، يفضي مدخل ضيّق إلى ممرّ طويل ينتهي بفناء فيه بئر لتصريف المياه. وفي المقدّمة غرفة ربما كانت دكّانًا، ودرج يصعد إلى الطابق العلوي.',
         p2: 'يتحدث أبيانوس عن مبانٍ من ستة طوابق. يؤكد علم الآثار وجود عدة طوابق، دون أن يحسم عددها.',
-        alt: 'بقايا الحي البوني في بيرصا، قرطاج',
-        caption: 'الحي البوني في بيرصا، القرن الثاني ق.م'
+        alt: 'بقايا الحي البونيقي في بيرصا، قرطاج',
+        caption: 'الحي البونيقي في بيرصا، القرن الثاني ق.م'
       },
       pav: {
-        kicker: 'الرصيف البوني',
+        kicker: 'الرصيف البونيقي',
         title: 'علامة تانيت على الأرض',
         p1: 'شظايا من الحجر والرخام مغروسة في ملاط أحمر: هذه الأرضيات، التي عُثر عليها في كركوان وعلى السفح الجنوبي لبيرصا، تحمل أحيانًا علامة تانيت.',
         p2: 'يعود تاريخها إلى القرن الثالث ق.م، وتدعو إلى مراجعة فكرة أن الفسيفساء وُلدت في بلاد الإغريق.',
@@ -879,39 +961,39 @@ const C = {
     necro: {
       kicker: 'العمارة الجنائزية',
       title: 'المقابر',
-      alt: 'المقبرة البونية في بويغ دي مولينس، إيبيزا',
+      alt: 'المقبرة البونيقية في بويغ دي مولينس، إيبيزا',
       caption: 'مقبرة بويغ دي مولينس، إيبيزا',
       rows: [
-        { key: 'الموقع', val: 'على شكل قوس حول المدينة: سمح امتدادها بتحديد حدود قرطاج البونية (بيكار).' },
+        { key: 'الموقع', val: 'على شكل قوس حول المدينة: سمح امتدادها بتحديد حدود قرطاج البونيقية (بيكار).' },
         { key: 'القبور', val: 'محفورة في الصخر: بئر بسيطة، أو بئر بغرف متراكبة، أو درج ينزل إلى البئر.' },
         { key: 'الطقس', val: 'يغلب الدفن، ويتقدّم الحرق في بعض الفترات كما بيّنت مقبرة بويغ دي مولينس.' },
         { key: 'الأثاث', val: 'فخار وحُليّ وتمائم، ومغرة حمراء (الدم والحياة)، وبيض نعام ملوّن (الانبعاث)، وأثاث مصغّر من الطين.' },
         { key: 'الزخرفة', val: 'قبور جبل الملزّة المرسومة (الوطن القبلي)؛ وفي كركوان تابوت خشبي محفوظ على نحو استثنائي.' }
       ],
       quote: '«كانت المدينة السماوية، لدى هذا الشعب من البحّارة، آخر ميناء يرسو فيه.»',
-      cite: 'فرانسوا دوكريه، قرطاج أو إمبراطورية البحر (1977)'
+      cite: 'فرانسوا ديكري، قرطاج أو إمبراطورية البحر (1977)'
     },
     mus: {
       kicker: 'المتاحف',
-      title: 'أين تُرى الفنون البونية',
+      title: 'أين تُرى الفنون البونيقية',
       intro: 'المجموعات الكبرى في تونس وقرطاج؛ وأخرى موزّعة من لندن إلى مدريد، تبعًا لحفريات القرن التاسع عشر ومقتنياته.',
       items: {
         carthage: {
           place: 'قرطاج، هضبة بيرصا',
           name: 'المتحف الوطني بقرطاج',
           alt: '«سيدة قرطاج»، فسيفساء من العصور القديمة المتأخرة',
-          text: 'تابوتا الكاهن والكاهنة، وحُليّ ومصابيح وزجاجيات، ونموذج فرن طابونة — على بعد خطوات من الحي البوني. (الصورة: «سيدة قرطاج»، فسيفساء متأخرة كثيرًا عن العهد البوني.)'
+          text: 'تابوتا الكاهن والكاهنة، وحُليّ ومصابيح وزجاجيات، ونموذج فرن طابونة — على بعد خطوات من الحي البونيقي. (الصورة: «سيدة قرطاج»، فسيفساء متأخرة كثيرًا عن العهد البونيقي.)'
         },
         bardo: {
           place: 'تونس',
           name: 'المتحف الوطني بباردو',
           alt: 'إلهة برأس أسد من تينيسوت، طين مشوي',
-          text: 'القسم البوني: نُصُب التوفيت، وقناع متجهّم من أواخر القرن السادس، وتماثيل تينيسوت (بعل حمون والإلهة ذات رأس الأسد)، وتمائم وحُليّ، وناووس ثوبوربو ماجوس.'
+          text: 'القسم البونيقي: نُصُب التوفيت، وقناع متجهّم من أواخر القرن السادس، وتماثيل تينيسوت (بعل حمون والإلهة ذات رأس الأسد)، وتمائم وحُليّ، وناووس ثوبوربو ماجوس.'
         },
         kerkouane: {
           place: 'الوطن القبلي',
           name: 'موقع كركوان ومتحفها',
-          text: 'المدينة البونية نفسها، ومتحف صغير يعرض ما عُثر عليه فيها: خزف وحُليّ وقطع من المقابر.'
+          text: 'المدينة البونيقية نفسها، ومتحف صغير يعرض ما عُثر عليه فيها: خزف وحُليّ وقطع من المقابر.'
         },
         louvre: {
           place: 'باريس',
@@ -921,7 +1003,7 @@ const C = {
         bm: {
           place: 'لندن',
           name: 'المتحف البريطاني',
-          text: 'النقيشة الثنائية الليبية-البونية من ضريح دقة، وسلسلة غنية من النقود القرطاجية، منها شواقل البرقيين ذات الفيل.'
+          text: 'النقيشة الثنائية الليبية-البونيقية من ضريح دقة، وسلسلة غنية من النقود القرطاجية، منها شواقل البرقيين ذات الفيل.'
         }
       },
       elsewhere: {
@@ -930,16 +1012,27 @@ const C = {
         rows: [
           { key: 'مدريد', val: 'المتحف الأثري الوطني: سيدة غاليرا، وأمواس برونزية من بويغ دي مولينس.' },
           { key: 'إيبيزا', val: 'متحف بويغ دي مولينس ومقبرتها: دمى وقوارير مراهم وقبور آبار.' },
-          { key: 'باليرمو', val: 'متحف أنطونينو سالينَس: تابوت بهيئة بشرية من القرن الخامس، ومصابيح بونية.' },
-          { key: 'موتيا', val: 'متحف ويتاكر: أقنعة متجهّمة من الجزيرة البونية في صقلية.' },
+          { key: 'باليرمو', val: 'متحف أنطونينو سالينَس: تابوت بهيئة بشرية من القرن الخامس، ومصابيح بونيقية.' },
+          { key: 'موتيا', val: 'متحف ويتاكر: أقنعة متجهّمة من الجزيرة البونيقية في صقلية.' },
           { key: 'كالياري', val: 'المتحف الأثري الوطني: نُصُب نورا، من أقدم النقوش الفينيقية في الغرب.' }
         ]
       }
     },
+    sources: [
+      { type: "ancient", author: "بلينيوس الأكبر", work: "التاريخ الطبيعي", ref: "36، 190–191", note: "اختراع الزجاج" },
+      { type: "ancient", author: "أبيانوس", work: "ليبيكا (الكتاب الإفريقي)", note: "مبانٍ من ستة طوابق" },
+      { type: "modern", author: "ماريا جوليا أماداسي غوتسو", work: "Carthage", ref: "PUF (Que sais-je ?), 2007" },
+      { type: "modern", author: "هادي دريدي", work: "Carthage et le monde punique", ref: "Les Belles Lettres, 2006" },
+      { type: "modern", author: "سيرج لانسيل", work: "Carthage", ref: "Fayard, 1992" },
+      { type: "modern", author: "محمد حسين فنطر", work: "Kerkouane", ref: "Alif, 2005" },
+      { type: "modern", author: "بيكار", note: "مذكور في هذه الصفحة (المقابر)" },
+      { type: "modern", author: "فرانسوا ديكري", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "ويكيبيديا (بالفرنسية)", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0، محتوى أعيدت صياغته" }
+    ],
     relatedTitle: 'اقرأ أيضًا',
     related: [
       { to: '/religion', kick: 'الديانة', title: 'آلهة قرطاج', text: 'بعل حمون وتانيت وملقرت وأشمون، وجدل التوفيت.', cls: 'tile--purple' },
-      { to: '/langue-ecriture', kick: 'الكتابة', title: 'اللغة والكتابة البونية', text: 'الأبجدية ذات الاثنين والعشرين حرفًا، والنقوش، والأدب الضائع.', cls: '' },
+      { to: '/langue-ecriture', kick: 'الكتابة', title: 'اللغة والكتابة البونيقية', text: 'الأبجدية ذات الاثنين والعشرين حرفًا، والنقوش، والأدب الضائع.', cls: '' },
       { to: '/lieux', kick: 'رحلة', title: 'على خطى قرطاج', text: 'كركوان، بيرصا، إيبيزا، قرطاجنة: مواقع تستحق الزيارة.', cls: 'tile--navy' }
     ]
   }
@@ -1016,6 +1109,17 @@ useHead(() => ({
 }
 
 .cab-glyph { font-size: 96px; opacity: 0.9; }
+.cab-cap {
+  position: absolute;
+  inset-inline-start: 8px;
+  bottom: 8px;
+  max-width: calc(100% - 16px);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(22, 19, 15, 0.68);
+  color: #FFFFFF;
+  font: 500 11px/1.35 var(--font-body);
+}
 .tone-gold { background: var(--gold); color: var(--gold-ink); }
 .tone-sand { background: var(--sand); color: var(--purple); }
 .tone-navy { background: var(--navy); color: var(--navy-tint); }

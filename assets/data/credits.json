@@ -1,6 +1,13 @@
 {
  "images": [
   {
+   "file": "affiche-cabiria-1914.jpg",
+   "title": "Cabiria Poster Metlicovitz.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Cabiria_Poster_Metlicovitz.jpg",
+   "author": "Leopoldo Metlicovitz",
+   "license": "Public domain"
+  },
+  {
    "file": "baal.jpg",
    "title": "Terracotta statue of Baal-Hammon on a throne AvL.JPG",
    "url": "https://commons.wikimedia.org/wiki/File:Terracotta_statue_of_Baal-Hammon_on_a_throne_AvL.JPG",
@@ -36,6 +43,13 @@
    "license": "Public domain"
   },
   {
+   "file": "cirta-gorges-du-rhumel.jpg",
+   "title": "View of the Rhumel Gorge and the Old Town of Constantine, Algeria.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:View_of_the_Rhumel_Gorge_and_the_Old_Town_of_Constantine,_Algeria.jpg",
+   "author": "Rachid Hamatou",
+   "license": "CC BY-SA 4.0"
+  },
+  {
    "file": "coin-elephant.jpg",
    "title": "Carthago - 213-210 BC - silver shekel - head of Melqart - elefant - London BM TC-p74-42-Pan.jpg",
    "url": "https://commons.wikimedia.org/wiki/File:Carthago_-_213-210_BC_-_silver_shekel_-_head_of_Melqart_-_elefant_-_London_BM_TC-p74-42-Pan.jpg",
@@ -55,6 +69,20 @@
    "url": "https://commons.wikimedia.org/wiki/File:Dominus_Julius_mosaic_in_the_Bardo_National_Museum(12240864473",
    "author": "Boyd Dwyer",
    "license": "CC BY-SA 2.0"
+  },
+  {
+   "file": "dougga-mausolee-libyco-punique.jpg",
+   "title": "TUNISIA DOUGGA MAUSOLEE LIBYCO PUNIQUE 001.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:TUNISIA_DOUGGA_MAUSOLEE_LIBYCO_PUNIQUE_001.jpg",
+   "author": "GIRAUD Patrick",
+   "license": "CC BY 3.0"
+  },
+  {
+   "file": "erice-walls.jpg",
+   "title": "Elymian-Punic Walls in Erice.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Elymian-Punic_Walls_in_Erice.jpg",
+   "author": "Kned Wiki",
+   "license": "CC0"
   },
   {
    "file": "gadir.jpg",
@@ -113,6 +141,13 @@
    "license": "CC BY 4.0"
   },
   {
+   "file": "himere-temple-de-la-victoire.jpg",
+   "title": "Tempio della Vittoria-bjs0701-01.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Tempio_della_Vittoria-bjs0701-01.jpg",
+   "author": "Bjs",
+   "license": "CC BY-SA 4.0"
+  },
+  {
    "file": "kairouan.jpg",
    "title": "Grande Mosquée de Kairouan, vue d'ensemble.jpg",
    "url": "https://commons.wikimedia.org/wiki/File:Grande_Mosqu%C3%A9e_de_Kairouan,_vue_d%27ensemble.jpg",
@@ -120,11 +155,25 @@
    "license": "CC BY-SA 2.0"
   },
   {
+   "file": "kerkouane-baignoire-sabot.jpg",
+   "title": "Kerkouane baignoire en sabot.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Kerkouane_baignoire_en_sabot.jpg",
+   "author": "Rais67",
+   "license": "Public domain"
+  },
+  {
    "file": "kerkouane.jpg",
    "title": "Kerkouane, Tunesien Januar 2015 03.JPG",
    "url": "https://commons.wikimedia.org/wiki/File:Kerkouane,_Tunesien_Januar_2015_03.JPG",
    "author": "Kritzolina",
    "license": "CC BY-SA 4.0"
+  },
+  {
+   "file": "leptis-magna.jpg",
+   "title": "Leptis Magna Theatre.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Leptis_Magna_Theatre.jpg",
+   "author": "Daviegunn",
+   "license": "Public domain"
   },
   {
    "file": "leutemann.jpg",
@@ -138,6 +187,13 @@
    "title": "Statue of goddess with a lion's head AvL.JPG",
    "url": "https://commons.wikimedia.org/wiki/File:Statue_of_goddess_with_a_lion%27s_head_AvL.JPG",
    "author": "Alexander van Loon (AlexanderVanLoon)",
+   "license": "CC BY-SA 4.0"
+  },
+  {
+   "file": "lixus.jpg",
+   "title": "Ruins at Lixus archaeological site.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Ruins_at_Lixus_archaeological_site.jpg",
+   "author": "Ideophagous",
    "license": "CC BY-SA 4.0"
   },
   {
@@ -155,11 +211,53 @@
    "license": "CC BY-SA 4.0"
   },
   {
+   "file": "medracen-mausolee-numide.jpg",
+   "title": "Mausolée des Rois numides dit le Medracen -1.JPG",
+   "url": "https://commons.wikimedia.org/wiki/File:Mausol%C3%A9e_des_Rois_numides_dit_le_Medracen_-1.JPG",
+   "author": "Zakaria Mimouni / Algerian Wikimedians User Group",
+   "license": "CC BY-SA 4.0"
+  },
+  {
+   "file": "melqart-cippus.jpg",
+   "title": "Cippe de Melqart - Musée du Louvre Antiquités orientales AO 4818.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Cippe_de_Melqart_-_Mus%C3%A9e_du_Louvre_Antiquit%C3%A9s_orientales_AO_4818.jpg",
+   "author": "Shonagon",
+   "license": "CC0"
+  },
+  {
    "file": "motte-rhone.jpg",
    "title": "Hannibal traverse le Rhône Henri Motte 1878.jpg",
    "url": "https://commons.wikimedia.org/wiki/File:Hannibal_traverse_le_Rh%C3%B4ne_Henri_Motte_1878.jpg",
    "author": "Henri-Paul Motte",
    "license": "Public domain"
+  },
+  {
+   "file": "motya-kothon.jpg",
+   "title": "Mozia-kothon-baal-tempel.JPG",
+   "url": "https://commons.wikimedia.org/wiki/File:Mozia-kothon-baal-tempel.JPG",
+   "author": "Mboesch",
+   "license": "CC BY-SA 3.0"
+  },
+  {
+   "file": "mucha-salammbo.jpg",
+   "title": "Alfons Mucha - 1896 - Salammbô.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Alfons_Mucha_-_1896_-_Salammb%C3%B4.jpg",
+   "author": "Alphonse Mucha",
+   "license": "Public domain"
+  },
+  {
+   "file": "nora-stone.jpg",
+   "title": "Stele von Nora 02.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Stele_von_Nora_02.jpg",
+   "author": "Olaf Tausch",
+   "license": "CC BY 3.0"
+  },
+  {
+   "file": "nora.jpg",
+   "title": "Pula - area archeologica di Nora - 202109302346.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Pula_-_area_archeologica_di_Nora_-_202109302346.jpg",
+   "author": "Crimao",
+   "license": "CC BY-SA 4.0"
   },
   {
    "file": "oath.jpg",
@@ -176,6 +274,20 @@
    "license": "CC0"
   },
   {
+   "file": "pendentifs-masques-verre.jpg",
+   "title": "Carthage-Colosseo-Pendant Masks.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Carthage-Colosseo-Pendant_Masks.jpg",
+   "author": "G41rn8",
+   "license": "CC BY-SA 4.0"
+  },
+  {
+   "file": "phoenician-scarab-ring.jpg",
+   "title": "Greco-Phoenician - Scarab of Herakles with Club and Bow - Walters 42158 - Back.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Greco-Phoenician_-_Scarab_of_Herakles_with_Club_and_Bow_-_Walters_42158_-_Back.jpg",
+   "author": "Walters Art Museum",
+   "license": "Public domain"
+  },
+  {
    "file": "ports.jpg",
    "title": "Carthage-1958-PortsPuniques.jpg",
    "url": "https://commons.wikimedia.org/wiki/File:Carthage-1958-PortsPuniques.jpg",
@@ -190,11 +302,67 @@
    "license": "FAL"
   },
   {
+   "file": "punic-amulets.jpg",
+   "title": "Carthago exhibition - Amulets and Necklaces (49340900382).jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Carthago_exhibition_-_Amulets_and_Necklaces_(49340900382",
+   "author": "Jamie Heath",
+   "license": "CC BY-SA 2.0"
+  },
+  {
+   "file": "punic-feeding-bottle.jpg",
+   "title": "Baby bottle from Carthage.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Baby_bottle_from_Carthage.jpg",
+   "author": "IssamBarhoumi",
+   "license": "CC BY-SA 4.0"
+  },
+  {
+   "file": "punic-glass-pendants.jpg",
+   "title": "Carthage-Colosseo-Pendant Masks.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Carthage-Colosseo-Pendant_Masks.jpg",
+   "author": "G41rn8",
+   "license": "CC BY-SA 4.0"
+  },
+  {
+   "file": "punic-gold-earrings.jpg",
+   "title": "Pendientes, anillo y arracada púnicos procedentes de la Necrópolis de Puig des Molins - M.A.N.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Pendientes,_anillo_y_arracada_p%C3%BAnicos_procedentes_de_la_Necr%C3%B3polis_de_Puig_des_Molins_-_M.A.N.jpg",
+   "author": "Dorieo",
+   "license": "CC BY-SA 4.0"
+  },
+  {
+   "file": "punic-ivories.jpg",
+   "title": "Carthago exhibition - Personal Belongings 03 (49340219148).jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Carthago_exhibition_-_Personal_Belongings_03_(49340219148",
+   "author": "Jamie Heath",
+   "license": "CC BY 2.0"
+  },
+  {
+   "file": "punic-mask-louvre.jpg",
+   "title": "Grimacing mask-AO 3242-IMG 4093-black.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Grimacing_mask-AO_3242-IMG_4093-black.jpg",
+   "author": "Rama",
+   "license": "CC BY-SA 3.0 FR"
+  },
+  {
    "file": "punic-quarter.jpg",
    "title": "Carthage, Byrsa hill (13585124843).jpg",
    "url": "https://commons.wikimedia.org/wiki/File:Carthage,_Byrsa_hill_(13585124843",
    "author": "Verity Cridland",
    "license": "CC BY 2.0"
+  },
+  {
+   "file": "punic-razors.jpg",
+   "title": "Carthago exhibition - Razors (49340676276).jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Carthago_exhibition_-_Razors_(49340676276",
+   "author": "Jamie Heath",
+   "license": "CC BY-SA 2.0"
+  },
+  {
+   "file": "punic-sarcophagi-louvre.jpg",
+   "title": "Couple of Carthaginian sarcophagi (Louvre, MND 799, MND 800) 1.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Couple_of_Carthaginian_sarcophagi_(Louvre,_MND_799,_MND_800",
+   "author": "Tangopaso",
+   "license": "Public domain"
   },
   {
    "file": "punic-ship.jpg",
@@ -211,11 +379,32 @@
    "license": "Public domain"
   },
   {
+   "file": "rochegrosse-bataille-macar.jpg",
+   "title": "Georges-Antoine Rochegrosse - La bataille du Macar.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Georges-Antoine_Rochegrosse_-_La_bataille_du_Macar.jpg",
+   "author": "Georges-Antoine Rochegrosse (c. 1900, Musée des Beaux-Arts de Rouen)",
+   "license": "Public domain"
+  },
+  {
+   "file": "rochegrosse-salammbo.jpg",
+   "title": "Georges-Antoine Rochegrosse - Salammbô (aquarelle).jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Georges-Antoine_Rochegrosse_-_Salammb%C3%B4_(aquarelle",
+   "author": "Georges-Antoine Rochegrosse (1900)",
+   "license": "Public domain"
+  },
+  {
    "file": "ruins.jpg",
    "title": "01996 Ruins of Antonine Baths at Carthage.jpg",
    "url": "https://commons.wikimedia.org/wiki/File:01996_Ruins_of_Antonine_Baths_at_Carthage.jpg",
    "author": "Silar",
    "license": "CC BY-SA 4.0"
+  },
+  {
+   "file": "sabratha.jpg",
+   "title": "Sabratha - Bühnenhaus des Theaters 2. Jh..jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Sabratha_-_B%C3%BChnenhaus_des_Theaters_2._Jh..jpg",
+   "author": "Franzfoto",
+   "license": "CC BY-SA 3.0"
   },
   {
    "file": "sagunto.jpg",
@@ -246,10 +435,38 @@
    "license": "Public domain"
   },
   {
+   "file": "solunto.jpg",
+   "title": "2009-03-22 03-29 Sizilien 389 Solunto.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:2009-03-22_03-29_Sizilien_389_Solunto.jpg",
+   "author": "Allie_Caulfield from Germany",
+   "license": "CC BY 2.0"
+  },
+  {
    "file": "sophonisba.jpg",
    "title": "La Mort de Sophonisbe - Mattia Preti.jpg",
    "url": "https://commons.wikimedia.org/wiki/File:La_Mort_de_Sophonisbe_-_Mattia_Preti.jpg",
    "author": "Mattia Preti",
+   "license": "CC BY-SA 3.0"
+  },
+  {
+   "file": "statuette-tambourin-bardo.jpg",
+   "title": "Statuette tambourin Bardo.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Statuette_tambourin_Bardo.jpg",
+   "author": "Pascal Radigue",
+   "license": "CC BY-SA 3.0"
+  },
+  {
+   "file": "stele-pretre-enfant.jpg",
+   "title": "Prêtre à l'enfant Musée Bardo.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Pr%C3%AAtre_%C3%A0_l%27enfant_Mus%C3%A9e_Bardo.jpg",
+   "author": "Pascal Radigue",
+   "license": "CC BY-SA 3.0"
+  },
+  {
+   "file": "sulcis-tophet.jpg",
+   "title": "Il Tofet di Sant'Antioco.JPG",
+   "url": "https://commons.wikimedia.org/wiki/File:Il_Tofet_di_Sant%27Antioco.JPG",
+   "author": "Iolebi",
    "license": "CC BY-SA 3.0"
   },
   {
@@ -260,11 +477,32 @@
    "license": "CC BY-SA 4.0"
   },
   {
+   "file": "tas-silg.jpg",
+   "title": "Malta - Tas-Silg - 052.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Malta_-_Tas-Silg_-_052.jpg",
+   "author": "Zugraga",
+   "license": "CC BY-SA 4.0"
+  },
+  {
+   "file": "tharros.jpg",
+   "title": "At Tharros, Sardinia 2024 015.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:At_Tharros,_Sardinia_2024_015.jpg",
+   "author": "Mike Peel (www.mikepeel.net)",
+   "license": "CC BY-SA 4.0"
+  },
+  {
    "file": "theatre-cartagena.jpg",
    "title": "Teatro romano de Cartagena, España, 2022-07-16, DD 02.jpg",
    "url": "https://commons.wikimedia.org/wiki/File:Teatro_romano_de_Cartagena,_Espa%C3%B1a,_2022-07-16,_DD_02.jpg",
    "author": "Diego Delso",
    "license": "CC BY-SA 4.0"
+  },
+  {
+   "file": "tiepolo-hannibal-hasdrubal.jpg",
+   "title": "Giambattista Tiepolo, , Kunsthistorisches Museum Wien, Gemäldegalerie - Hannibal erkennt den Kopf seines Bruders Hasdrubal - GG 6797 - Kunsthistorisches Museum.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Giambattista_Tiepolo,_,_Kunsthistorisches_Museum_Wien,_Gem%C3%A4ldegalerie_-_Hannibal_erkennt_den_Kopf_seines_Bruders_Hasdrubal_-_GG_6797_-_Kunsthistorisches_Museum.jpg",
+   "author": "Giovanni Battista Tiepolo",
+   "license": "Public domain"
   },
   {
    "file": "tophet.jpg",

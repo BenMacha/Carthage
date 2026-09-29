@@ -20,6 +20,7 @@
       </nav>
 
       <div class="right">
+        <SiteSearch />
         <div class="langs" role="group" :aria-label="L.lang">
           <button
             v-for="loc in availableLocales"
@@ -73,7 +74,7 @@ const LABELS = {
     items: {
       hannibal: 'Hannibal Barca', tactiques: 'Les tactiques', elephants: 'Les éléphants et les Alpes', guerres: 'Les guerres puniques', armee: "L'armée de Carthage",
       fondation: 'La fondation', chronologie: 'Chronologie', richesse: 'La richesse et Rome', lieux: 'Lieux historiques', economie: 'Économie', agriculture: 'Agriculture', religion: 'Religion',
-      sources: 'Histoire des vainqueurs', prise: 'La prise de Carthage', apres: 'Carthage après 146', afrique: "L'Afrique et son nom", institutions: 'Institutions et société', art: 'Art et artisanat', langue: 'Langue et écriture'
+      sources: 'Histoire des vainqueurs', prise: 'La prise de Carthage', apres: 'Carthage après 146', mercenaires: 'La guerre des Mercenaires', monde: 'Le monde punique', vie: 'La vie quotidienne', heritage: "L'héritage culturel", afrique: "L'Afrique et son nom", institutions: 'Institutions et société', art: 'Art et artisanat', langue: 'Langue et écriture'
     }
   },
   en: {
@@ -82,7 +83,7 @@ const LABELS = {
     items: {
       hannibal: 'Hannibal Barca', tactiques: 'Tactics', elephants: 'Elephants and the Alps', guerres: 'The Punic Wars', armee: "Carthage's army",
       fondation: 'The founding', chronologie: 'Timeline', richesse: 'Wealth and Rome', lieux: 'Historic places', economie: 'Economy', agriculture: 'Agriculture', religion: 'Religion',
-      sources: "The victors' history", prise: 'The fall of Carthage', apres: 'Carthage after 146', afrique: 'Africa and its name', institutions: 'Institutions and society', art: 'Art and crafts', langue: 'Language and writing'
+      sources: "The victors' history", prise: 'The fall of Carthage', apres: 'Carthage after 146', mercenaires: 'The Mercenary War', monde: 'The Punic world', vie: 'Daily life', heritage: 'Cultural legacy', afrique: 'Africa and its name', institutions: 'Institutions and society', art: 'Art and crafts', langue: 'Language and writing'
     }
   },
   ar: {
@@ -91,7 +92,7 @@ const LABELS = {
     items: {
       hannibal: 'حنبعل برقا', tactiques: 'التكتيكات', elephants: 'الفيلة وجبال الألب', guerres: 'الحروب البونيقية', armee: 'جيش قرطاج',
       fondation: 'التأسيس', chronologie: 'التسلسل الزمني', richesse: 'الثروة وروما', lieux: 'أماكن تاريخية', economie: 'الاقتصاد', agriculture: 'الفلاحة', religion: 'الديانة',
-      sources: 'تاريخ المنتصرين', prise: 'سقوط قرطاج', apres: 'قرطاج بعد 146', afrique: 'إفريقيا واسمها', institutions: 'المؤسسات والمجتمع', art: 'الفن والحِرف', langue: 'اللغة والكتابة'
+      sources: 'تاريخ المنتصرين', prise: 'سقوط قرطاج', apres: 'قرطاج بعد 146', mercenaires: 'حرب المرتزقة', monde: 'العالم البونيقي', vie: 'الحياة اليومية', heritage: 'الإرث الثقافي', afrique: 'إفريقيا واسمها', institutions: 'المؤسسات والمجتمع', art: 'الفن والحِرف', langue: 'اللغة والكتابة'
     }
   }
 }
@@ -107,6 +108,7 @@ const groups = computed(() => [
       { to: '/tactiques', label: L.value.items.tactiques },
       { to: '/elephants', label: L.value.items.elephants },
       { to: '/guerres-puniques', label: L.value.items.guerres },
+      { to: '/guerre-des-mercenaires', label: L.value.items.mercenaires },
       { to: '/armee', label: L.value.items.armee }
     ]
   },
@@ -120,6 +122,7 @@ const groups = computed(() => [
       { to: '/prise-de-carthage', label: L.value.items.prise },
       { to: '/apres-146', label: L.value.items.apres },
       { to: '/histoire-des-vainqueurs', label: L.value.items.sources },
+      { to: '/monde-punique', label: L.value.items.monde },
       { to: '/lieux', label: L.value.items.lieux },
       { to: '/afrique', label: L.value.items.afrique }
     ]
@@ -133,7 +136,9 @@ const groups = computed(() => [
       { to: '/agriculture', label: L.value.items.agriculture },
       { to: '/religion', label: L.value.items.religion },
       { to: '/art-et-artisanat', label: L.value.items.art },
-      { to: '/langue-ecriture', label: L.value.items.langue }
+      { to: '/langue-ecriture', label: L.value.items.langue },
+      { to: '/vie-quotidienne', label: L.value.items.vie },
+      { to: '/heritage', label: L.value.items.heritage }
     ]
   }
 ])

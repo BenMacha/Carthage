@@ -84,6 +84,72 @@
       </div>
     </section>
 
+    <!-- Les défenses de Carthage -->
+    <section id="defenses" class="sec sec--wide">
+      <div class="sec-head">
+        <h2 class="h-section">{{ c.def.title }}</h2>
+        <p>{{ c.def.intro }}</p>
+      </div>
+      <div class="cols cols-7-5 cols--flush">
+        <figure class="tile tile--xl tile--paper def-map">
+          <svg class="def-svg" viewBox="0 0 640 420" role="img" :aria-label="c.def.map.aria" dir="ltr">
+            <rect width="640" height="420" fill="#D6E0EC" />
+            <path d="M0,0 H120 C135,60 130,110 150,160 L150,330 L240,330 L240,420 H0 Z" fill="#EFE6D6" />
+            <path d="M120,168 C190,160 230,120 290,85 C360,45 450,40 520,70 C580,95 610,160 600,220 C592,270 560,305 520,330 C490,345 470,350 450,352 C380,348 300,335 240,325 C200,320 170,318 120,318 Z" fill="#EFE6D6" />
+            <path d="M104,420 C112,368 150,326 240,324 C320,330 400,346 452,354 C468,378 470,400 462,420 Z" fill="#BFD1E4" />
+            <path d="M446,350 C470,364 480,394 472,420 L490,420 C497,390 488,360 468,344 Z" fill="#EFE6D6" />
+            <!-- Mur de mer -->
+            <path d="M290,85 C360,45 450,40 520,70 C580,95 610,160 600,220 C592,270 560,305 520,330 C490,345 470,350 450,352" fill="none" stroke="#6E1E47" stroke-width="3" stroke-dasharray="7 5" />
+            <!-- Triple ligne de l'isthme -->
+            <line x1="200" y1="150" x2="200" y2="321" stroke="#B8492A" stroke-width="3" stroke-dasharray="3 4" />
+            <line x1="216" y1="142" x2="216" y2="322" stroke="#B8492A" stroke-width="3" />
+            <line x1="234" y1="130" x2="234" y2="324" stroke="#16130F" stroke-width="6" />
+            <rect v-for="y in [150, 178, 206, 234, 262, 290]" :key="'tw' + y" x="229" :y="y" width="10" height="10" fill="#16130F" />
+            <!-- Byrsa, ports, angle faible -->
+            <circle cx="420" cy="262" r="17" fill="#B8492A" />
+            <rect x="466" y="318" width="22" height="12" rx="2" fill="#1D3F66" />
+            <circle cx="503" cy="316" r="9" fill="#1D3F66" />
+            <path d="M452,340 L462,358 L442,358 Z" fill="#D6A23E" stroke="#16130F" stroke-width="1.2" />
+            <!-- Libellés -->
+            <text x="60" y="235" class="def-lbl" text-anchor="middle">{{ c.def.map.lbl.mainland }}</text>
+            <text x="200" y="40" class="def-lbl def-lbl--water" text-anchor="middle">{{ c.def.map.lbl.gulf }}</text>
+            <text x="625" y="30" class="def-lbl def-lbl--water" text-anchor="end">{{ c.def.map.lbl.sea }}</text>
+            <text x="290" y="398" class="def-lbl def-lbl--water" text-anchor="middle">{{ c.def.map.lbl.lake }}</text>
+            <text x="217" y="112" class="def-lbl def-lbl--strong" text-anchor="middle">{{ c.def.map.lbl.isthmus }}</text>
+            <text x="420" y="130" class="def-lbl def-lbl--muted" text-anchor="middle">{{ c.def.map.lbl.megara }}</text>
+            <text x="420" y="230" class="def-lbl def-lbl--strong" text-anchor="middle">{{ c.def.map.lbl.byrsa }}</text>
+            <text x="520" y="302" class="def-lbl" text-anchor="middle">{{ c.def.map.lbl.ports }}</text>
+            <text x="505" y="392" class="def-lbl def-lbl--small" text-anchor="start">{{ c.def.map.lbl.angle }}</text>
+          </svg>
+          <ul class="def-legend">
+            <li v-for="(l, i) in c.def.map.legend" :key="i"><span class="def-key" :class="'def-key--' + i" aria-hidden="true" />{{ l }}</li>
+          </ul>
+          <figcaption class="def-cap">{{ c.def.map.caption }}</figcaption>
+        </figure>
+        <div class="tile tile--xl tile--ink">
+          <span class="kicker">{{ c.def.appian.kicker }}</span>
+          <h3 class="h-block def-h">{{ c.def.appian.title }}</h3>
+          <div class="rows def-rows" style="--row-key:118px">
+            <div v-for="(r, i) in c.def.appian.rows" :key="i">
+              <span class="key">{{ r.k }}</span>
+              <span class="val">{{ r.v }}</span>
+            </div>
+          </div>
+          <p class="def-note">{{ c.def.appian.note }}</p>
+        </div>
+      </div>
+      <div class="cols cols-3 cols--flush def-grid">
+        <div v-for="(t, i) in c.def.tiles" :key="i" class="tile tile--stack def-tile" :class="t.cls">
+          <div>
+            <span class="kicker">{{ t.kick }}</span>
+            <h3 class="h-card def-card-h">{{ t.title }}</h3>
+            <p class="body">{{ t.text }}</p>
+          </div>
+          <NuxtLink v-if="t.to" :to="localePath(t.to)" class="btn btn-outline def-cta">{{ t.cta }} →</NuxtLink>
+        </div>
+      </div>
+    </section>
+
     <!-- Déroulé -->
     <section class="sec">
       <div class="tile tile--xl tile--ink">
@@ -219,6 +285,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec">
       <h2 class="h-block more-title">{{ c.more.title }}</h2>
@@ -292,6 +360,38 @@ const C = {
       hannibal: "Carthage n'avait plus son meilleur défenseur : devenu suffète, Hannibal avait réformé l'État et rétabli les finances, mais ses ennemis l'avaient dénoncé à Rome. Il s'exile en 195 et meurt en 183, bien avant la dernière guerre.",
       romeKicker: 'Un allié encombrant',
       rome: "Rome s'est servie de Massinissa sans vouloir lui laisser Carthage. Plusieurs historiens modernes pensent que la destruction de la ville visait aussi à empêcher un royaume numide trop puissant de s'en emparer : à sa mort, son royaume est aussitôt divisé.",
+    },
+    def: {
+      title: 'Les défenses de Carthage',
+      intro: "Avant le siège, voici ce que Rome devait prendre : une ville bâtie sur une presqu'île, fermée côté terre par l'une des plus puissantes fortifications du monde antique. Elles expliquent qu'une cité désarmée ait tenu près de trois ans.",
+      map: {
+        aria: "Schéma de la presqu'île de Carthage : triple ligne de défense en travers de l'isthme, mur de mer, citadelle de Byrsa, ports et angle faible de l'enceinte",
+        caption: "Reconstitution schématique — tracés et proportions approximatifs, d'après Polybe et Appien.",
+        lbl: { mainland: 'Continent', gulf: "Golfe (auj. sebkha de l'Ariana)", sea: 'Mer Méditerranée', lake: 'Lac de Tunis', isthmus: 'Isthme', megara: 'Mégara', byrsa: 'Byrsa', ports: 'Ports', angle: 'Angle faible' },
+        legend: ["Triple ligne de l'isthme", 'Mur de mer (simple)', 'Byrsa, citadelle', 'Ports', 'Angle faible (Appien)']
+      },
+      appian: {
+        kicker: 'Appien, Libyca, 95',
+        title: "Le triple rempart de l'isthme",
+        rows: [
+          { k: 'Isthme', v: "Large d'environ 25 stades (≈ 4,5 km) selon Polybe (I, 73) et Appien : c'est le seul accès par la terre." },
+          { k: 'Hauteur', v: '30 coudées (≈ 13 à 14 m) pour chaque mur, sans compter les parapets et les tours.' },
+          { k: 'Épaisseur', v: '30 pieds (≈ 9 m).' },
+          { k: 'Tours', v: 'Une tous les deux plèthres (≈ 60 m), haute de quatre étages.' },
+          { k: 'Niveau bas', v: 'Des stalles pour 300 éléphants et leurs réserves de nourriture.' },
+          { k: 'Niveau haut', v: "Des écuries pour 4 000 chevaux et des magasins d'orge et de fourrage." },
+          { k: 'Casernes', v: 'De quoi loger 20 000 fantassins et 4 000 cavaliers.' }
+        ],
+        note: "Trois murs identiques ? Appien écrit au IIe siècle apr. J.-C. d'après Polybe, témoin du siège. De nombreux historiens modernes lisent plutôt une défense en profondeur : un fossé, une palissade ou un avant-mur, puis le grand mur à tours qui abritait casernes et écuries."
+      },
+      tiles: [
+        { cls: 'tile--terra', kick: 'Longueur', title: '34 km, un chiffre à nuancer', text: "Le chiffre souvent cité vient de Tite-Live (Periochae, 51) : une enceinte de 23 milles romains, soit environ 34 km. Orose en compte 22 (≈ 32,5 km) ; Strabon, lui, donne 360 stades (≈ 65 km) pour le pourtour de toute la presqu'île. Le tracé complet n'a jamais été retrouvé : on parlera d'une enceinte d'une trentaine de kilomètres, englobant le faubourg-jardin de Mégara." },
+        { cls: 'tile--navy', kick: 'Côté mer', title: 'Un seul mur', text: "Là où la mer et les escarpements protégeaient la ville, un simple rempart suffisait (Appien). Point faible : l'angle bas et négligé où ce mur rejoignait la langue de terre menant aux ports. C'est là que le consul Censorinus lance ses béliers en 149 ; la brèche est en partie refermée dans la nuit et l'assaut repoussé." },
+        { cls: 'tile--sand', kick: 'Citadelle', title: 'Byrsa, le dernier réduit', text: "Au cœur de la ville, la colline de Byrsa avait sa propre enceinte, autour du temple d'Eshmoun ; Orose lui prête un peu plus de deux milles de tour (≈ 3 km). En 146, c'est le dernier bastion des assiégés." },
+        { cls: 'tile--paper', kick: 'Ports', title: 'Le Cothon, défense navale', text: "Le double port et ses cales pour 220 navires sont décrits sur la page de la fondation. Pendant le siège, ils deviennent un enjeu : Scipion en barre l'entrée par une digue, les assiégés percent un nouveau chenal.", to: '/fondation', cta: 'Les ports de Carthage' },
+        { cls: 'tile--outline', kick: 'Archéologie', title: 'Ce que les fouilles ont retrouvé', text: "Côté mer, les fouilles allemandes de Friedrich Rakob (quartier Magon, campagne UNESCO) ont dégagé le rempart maritime du Ve siècle av. J.-C. et une porte ouvrant sur le rivage. Sur l'isthme, le général Duval a suivi en 1949 un tracé fortifié sur environ 2,9 km, qu'il identifie à l'enceinte extérieure punique." },
+        { cls: 'tile--purple', kick: 'À ne pas confondre', title: 'Le « mur de Théodose »', text: "Toutes les murailles fouillées à Carthage ne sont pas puniques. Vers 425 apr. J.-C., sous Théodose II, la Carthage romaine se dote d'une nouvelle enceinte face à la menace vandale ; des équipes canadiennes l'ont fouillée à partir de 1976. Elle n'a rien à voir avec les remparts de 146." }
+      ]
     },
     war: {
       title: 'Ce qui s\'est passé',
@@ -402,7 +502,21 @@ const C = {
         { to: '/fondation', kick: '814 av. J.-C.', title: 'La fondation', text: 'Élyssa, la peau de bœuf et la colline de Byrsa.', cls: 'tile--purple' },
         { to: '/chronologie', kick: 'Chronologie', title: "Sept siècles d'histoire", text: 'Toutes les grandes dates de Carthage, époque par époque.', cls: '' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'I, 73', note: 'témoin du siège aux côtés de Scipion Émilien ; source d\'Appien' },
+      { type: 'ancient', author: 'Appien d\'Alexandrie', work: 'Libyca (Le Livre africain)', ref: '95', note: 'remparts de l\'isthme, siège et chute de Byrsa' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', note: 'empiétements de Massinissa (193, 174–172 av. J.-C.)' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Periochae', ref: '51', note: 'longueur de l\'enceinte (23 milles)' },
+      { type: 'ancient', author: 'Plutarque', work: 'Vie de Caton l\'Ancien', note: 'les figues de Carthage' },
+      { type: 'ancient', author: 'Orose', work: 'Histoires contre les païens', note: 'enceinte de la ville et de Byrsa' },
+      { type: 'ancient', author: 'Strabon', work: 'Géographie (livre XVII)', note: 'pourtour de la presqu\'île' },
+      { type: 'ancient', author: 'Homère', work: 'Iliade', ref: 'VI, 448–449', note: 'vers cités par Scipion Émilien devant la ville en flammes' },
+      { type: 'ancient', author: 'Saint Augustin', note: 'témoin de l\'usage du punique vers 400 apr. J.-C.' },
+      { type: 'modern', author: 'Abdelmajid Ennabli', work: 'Pour sauver Carthage : exploration et conservation de la cité punique, romaine et byzantine', ref: 'Unesco/INAA, 1992', note: 'sur la campagne UNESCO « Sauvons Carthage »' },
+      { type: 'modern', author: 'Friedrich Rakob', note: 'fouilles allemandes du quartier Magon, cité dans la page' },
+      { type: 'modern', author: 'Général Duval', note: 'tracé fortifié de l\'isthme (1949), cité dans la page' }
+    ]
   },
 
   en: {
@@ -458,6 +572,38 @@ const C = {
       hannibal: 'Carthage had lost its best defender. As suffete, Hannibal had reformed the state and restored its finances, but his enemies denounced him to Rome. He went into exile in 195 and died in 183, long before the last war.',
       romeKicker: 'An awkward ally',
       rome: 'Rome used Masinissa without wanting to hand him Carthage. Several modern historians think the destruction of the city was also meant to stop an overly powerful Numidian kingdom from taking it: on his death, his kingdom was immediately divided.',
+    },
+    def: {
+      title: 'The defences of Carthage',
+      intro: 'Before the siege, here is what Rome had to take: a city built on a peninsula, closed on the landward side by one of the most powerful fortifications of the ancient world. They explain how a disarmed city held out for almost three years.',
+      map: {
+        aria: 'Diagram of the Carthage peninsula: triple line of defence across the isthmus, sea wall, Byrsa citadel, harbours and the weak angle of the walls',
+        caption: 'Schematic reconstruction — lines and proportions approximate, after Polybius and Appian.',
+        lbl: { mainland: 'Mainland', gulf: 'Gulf (now Sebkha of Ariana)', sea: 'Mediterranean Sea', lake: 'Lake of Tunis', isthmus: 'Isthmus', megara: 'Megara', byrsa: 'Byrsa', ports: 'Harbours', angle: 'Weak angle' },
+        legend: ['Triple line across the isthmus', 'Sea wall (single)', 'Byrsa, citadel', 'Harbours', 'Weak angle (Appian)']
+      },
+      appian: {
+        kicker: 'Appian, Libyca, 95',
+        title: 'The triple wall of the isthmus',
+        rows: [
+          { k: 'Isthmus', v: 'About 25 stades wide (≈ 4.5 km) according to Polybius (I, 73) and Appian: the only way in by land.' },
+          { k: 'Height', v: '30 cubits (≈ 13 to 14 m) for each wall, not counting parapets and towers.' },
+          { k: 'Thickness', v: '30 feet (≈ 9 m).' },
+          { k: 'Towers', v: 'One every two plethra (≈ 60 m), four storeys high.' },
+          { k: 'Lower level', v: 'Stalls for 300 elephants and their food stores.' },
+          { k: 'Upper level', v: 'Stables for 4,000 horses and stores of barley and fodder.' },
+          { k: 'Barracks', v: 'Room for 20,000 infantry and 4,000 cavalry.' }
+        ],
+        note: 'Three identical walls? Appian wrote in the 2nd century AD, drawing on Polybius, who witnessed the siege. Many modern historians read it instead as a defence in depth: a ditch, a palisade or outer wall, then the great towered wall housing barracks and stables.'
+      },
+      tiles: [
+        { cls: 'tile--terra', kick: 'Length', title: '34 km, a figure to qualify', text: 'The often-quoted figure comes from Livy (Periochae, 51): a circuit of 23 Roman miles, about 34 km. Orosius counts 22 (≈ 32.5 km); Strabo gives 360 stades (≈ 65 km) for the perimeter of the whole peninsula. The full line has never been found: think of a circuit of some thirty kilometres, taking in the garden suburb of Megara.' },
+        { cls: 'tile--navy', kick: 'Seaward', title: 'A single wall', text: 'Where the sea and the cliffs protected the city, a single wall was enough (Appian). The weak point: the low, neglected angle where this wall met the tongue of land leading to the harbours. There the consul Censorinus brought up his rams in 149; the breach was partly closed overnight and the assault driven back.' },
+        { cls: 'tile--sand', kick: 'Citadel', title: 'Byrsa, the last stronghold', text: 'At the heart of the city, the hill of Byrsa had its own wall, around the temple of Eshmun; Orosius gives it a circuit of a little over two miles (≈ 3 km). In 146 it was the besieged’s last bastion.' },
+        { cls: 'tile--paper', kick: 'Harbours', title: 'The Cothon, naval defence', text: 'The double harbour and its sheds for 220 ships are described on the foundation page. During the siege they became a key objective: Scipio blocked the entrance with a mole, and the besieged cut a new channel.', to: '/fondation', cta: 'The harbours of Carthage' },
+        { cls: 'tile--outline', kick: 'Archaeology', title: 'What excavation has found', text: 'On the seaward side, the German excavations of Friedrich Rakob (Magon quarter, UNESCO campaign) uncovered the 5th-century BC sea wall and a gate opening onto the shore. On the isthmus, General Duval traced a fortified line for about 2.9 km in 1949, which he identified as the outer Punic wall.' },
+        { cls: 'tile--purple', kick: 'Not to be confused', title: 'The “Theodosian wall”', text: 'Not every wall excavated at Carthage is Punic. Around AD 425, under Theodosius II, Roman Carthage built a new circuit against the Vandal threat; Canadian teams excavated it from 1976. It has nothing to do with the walls of 146.' }
+      ]
     },
     war: {
       title: 'What happened',
@@ -568,7 +714,21 @@ const C = {
         { to: '/fondation', kick: '814 BC', title: 'The foundation', text: 'Elissa, the oxhide and the hill of Byrsa.', cls: 'tile--purple' },
         { to: '/chronologie', kick: 'Timeline', title: 'Seven centuries of history', text: 'All the key dates of Carthage, era by era.', cls: '' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: 'I, 73', note: 'eyewitness of the siege alongside Scipio Aemilianus; Appian\'s source' },
+      { type: 'ancient', author: 'Appian of Alexandria', work: 'Libyca (The African Book)', ref: '95', note: 'the isthmus walls, the siege and the fall of Byrsa' },
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', note: 'Masinissa\'s encroachments (193, 174–172 BC)' },
+      { type: 'ancient', author: 'Livy', work: 'Periochae', ref: '51', note: 'length of the city wall (23 miles)' },
+      { type: 'ancient', author: 'Plutarch', work: 'Life of Cato the Elder', note: 'the figs of Carthage' },
+      { type: 'ancient', author: 'Orosius', work: 'Histories against the Pagans', note: 'circuit of the city and of Byrsa' },
+      { type: 'ancient', author: 'Strabo', work: 'Geography (book 17)', note: 'circuit of the peninsula' },
+      { type: 'ancient', author: 'Homer', work: 'Iliad', ref: 'VI, 448–449', note: 'lines quoted by Scipio Aemilianus before the burning city' },
+      { type: 'ancient', author: 'Saint Augustine', note: 'witness to Punic still being spoken around AD 400' },
+      { type: 'modern', author: 'Abdelmajid Ennabli', work: 'Pour sauver Carthage : exploration et conservation de la cité punique, romaine et byzantine', ref: 'Unesco/INAA, 1992', note: 'on the UNESCO “Save Carthage” campaign' },
+      { type: 'modern', author: 'Friedrich Rakob', note: 'German excavations of the Magon quarter, cited on this page' },
+      { type: 'modern', author: 'General Duval', note: 'fortified line across the isthmus (1949), cited on this page' }
+    ]
   },
 
   ar: {
@@ -580,8 +740,8 @@ const C = {
       chip: '149 – 146 ق.م',
       title: 'الاستيلاء على قرطاج',
       lede: 'ما فعلته روما، وما ادّعت أنها فعلته: الحرب البونيقية الثالثة، من نزع سلاح المدينة إلى إحراق بيرصا.',
-      alt: 'الحي البوني على تلة بيرصا',
-      caption: 'الحي البوني في بيرصا، أُحرق سنة 146'
+      alt: 'الحي البونيقي على تلة بيرصا',
+      caption: 'الحي البونيقي في بيرصا، أُحرق سنة 146'
     },
     stats: [
       { n: '3 سنوات', t: 'من الحصار، من 149 إلى ربيع 146 ق.م' },
@@ -596,7 +756,7 @@ const C = {
     myth: {
       kicker: 'الرواية والوقائع',
       title: 'تدمير حقيقي، لا محو',
-      text: 'أحرقت روما قرطاج وفكّكتها، وقتلت سكانها أو استعبدتهم. لكن حكاية مدينة «سُوّيت بالأرض» وعُقّمت بالملح أسطورة: فالحفريات تجد المدينة البونية تحت المدينة الرومانية، وقد عاشت الثقافة البونية قرونًا بعدها.',
+      text: 'أحرقت روما قرطاج وفكّكتها، وقتلت سكانها أو استعبدتهم. لكن حكاية مدينة «سُوّيت بالأرض» وعُقّمت بالملح أسطورة: فالحفريات تجد المدينة البونيقية تحت المدينة الرومانية، وقد عاشت الثقافة البونيقية قرونًا بعدها.',
       cta: 'التاريخ الذي كتبه المنتصر'
     },
     massi: {
@@ -625,6 +785,38 @@ const C = {
       romeKicker: 'حليف مُربك',
       rome: 'استعملت روما ماسينيسا دون أن تريد ترك قرطاج له. ويرى عدد من المؤرخين المحدثين أن تدمير المدينة كان يهدف أيضاً إلى منع مملكة نوميدية شديدة القوة من الاستيلاء عليها: فعند موته قُسّمت مملكته فوراً.',
     },
+    def: {
+      title: 'تحصينات قرطاج',
+      intro: 'قبل الحصار، هذا ما كان على روما أن تأخذه: مدينة مبنية على شبه جزيرة، يغلقها من جهة البر أحد أقوى التحصينات في العالم القديم. وهي التي تفسّر صمود مدينة منزوعة السلاح قرابة ثلاث سنوات.',
+      map: {
+        aria: 'رسم تخطيطي لشبه جزيرة قرطاج: خط دفاع ثلاثي عبر البرزخ، وسور البحر، وقلعة بيرصا، والموانئ، والزاوية الضعيفة من السور',
+        caption: 'إعادة تصوّر تخطيطية — المسارات والأبعاد تقريبية، استنادًا إلى بوليبيوس وأبيانوس.',
+        lbl: { mainland: 'البر', gulf: 'خليج — سبخة أريانة اليوم', sea: 'البحر المتوسط', lake: 'بحيرة تونس', isthmus: 'البرزخ', megara: 'ميغارا', byrsa: 'بيرصا', ports: 'الموانئ', angle: 'الزاوية الضعيفة' },
+        legend: ['الخط الثلاثي عبر البرزخ', 'سور البحر (مفرد)', 'بيرصا، القلعة', 'الموانئ', 'الزاوية الضعيفة (أبيانوس)']
+      },
+      appian: {
+        kicker: 'أبيانوس، الحروب الليبية، 95',
+        title: 'السور الثلاثي على البرزخ',
+        rows: [
+          { k: 'البرزخ', v: 'عرضه نحو 25 ستاديون (≈ 4,5 كم) حسب بوليبيوس (1، 73) وأبيانوس: وهو المنفذ البري الوحيد.' },
+          { k: 'الارتفاع', v: '30 ذراعًا (≈ 13 إلى 14 م) لكل سور، دون احتساب المتاريس والأبراج.' },
+          { k: 'السُّمك', v: '30 قدمًا (≈ 9 م).' },
+          { k: 'الأبراج', v: 'برج كل بليثرونين (≈ 60 م)، من أربعة طوابق.' },
+          { k: 'الطابق السفلي', v: 'مرابط لـ300 فيل ومخازن لعلفها.' },
+          { k: 'الطابق العلوي', v: 'إسطبلات لـ4 000 حصان ومخازن للشعير والعلف.' },
+          { k: 'الثكنات', v: 'تتسع لـ20 000 راجل و4 000 فارس.' }
+        ],
+        note: 'ثلاثة أسوار متطابقة؟ كتب أبيانوس في القرن الثاني الميلادي نقلًا عن بوليبيوس الذي شهد الحصار. ويرى كثير من المؤرخين المحدثين فيه بالأحرى دفاعًا متدرّجًا: خندق، ثم سياج أو سور أمامي، ثم السور الكبير ذو الأبراج الذي يضم الثكنات والإسطبلات.'
+      },
+      tiles: [
+        { cls: 'tile--terra', kick: 'الطول', title: '34 كم، رقم يحتاج إلى تدقيق', text: 'الرقم المتداول مصدره تيتوس ليفيوس (الملخّصات، 51): سور محيطه 23 ميلًا رومانيًا، أي نحو 34 كم. ويعدّ أوروسيوس 22 ميلًا (≈ 32,5 كم)، أما سترابون فيعطي 360 ستاديون (≈ 65 كم) لمحيط شبه الجزيرة كلها. ولم يُعثر قط على المسار كاملًا: فلنقل إنه سور بطول ثلاثين كيلومترًا تقريبًا، يضم ضاحية ميغارا وبساتينها.' },
+        { cls: 'tile--navy', kick: 'جهة البحر', title: 'سور واحد', text: 'حيث كان البحر والمنحدرات يحميان المدينة، كفى سور واحد (أبيانوس). ونقطة الضعف: الزاوية المنخفضة المهملة حيث يلتقي هذا السور بلسان الأرض المؤدي إلى الموانئ. هناك دفع القنصل سنسورينوس بكباشه سنة 149، فسُدّت الثغرة جزئيًا في الليل ورُدّ الهجوم.' },
+        { cls: 'tile--sand', kick: 'القلعة', title: 'بيرصا، المعقل الأخير', text: 'في قلب المدينة، كان لتلة بيرصا سورها الخاص حول معبد أشمون، ويقدّر أوروسيوس محيطه بأكثر من ميلين بقليل (≈ 3 كم). وفي سنة 146 كانت آخر حصون المحاصَرين.' },
+        { cls: 'tile--paper', kick: 'الموانئ', title: 'الكوثون، الدفاع البحري', text: 'الميناء المزدوج وأحواضه لـ220 سفينة موصوفة في صفحة التأسيس. وفي أثناء الحصار صارت هدفًا حاسمًا: سدّ سكيبيو مدخلها بسدّ، وشقّ المحاصَرون قناة جديدة.', to: '/fondation', cta: 'موانئ قرطاج' },
+        { cls: 'tile--outline', kick: 'علم الآثار', title: 'ما كشفته الحفريات', text: 'من جهة البحر، كشفت الحفريات الألمانية بإشراف فريدريش راكوب (حي ماغون، حملة اليونسكو) السور البحري من القرن الخامس ق.م وبابًا يفتح على الشاطئ. وعلى البرزخ، تتبّع الجنرال دوفال سنة 1949 خطًا محصّنًا على نحو 2,9 كم، وعدّه السور الخارجي البونيقي.' },
+        { cls: 'tile--purple', kick: 'للتمييز', title: '«سور ثيودوسيوس»', text: 'ليست كل الأسوار المكتشفة في قرطاج بونيقية. فنحو سنة 425 م، في عهد ثيودوسيوس الثاني، شيّدت قرطاج الرومانية سورًا جديدًا في وجه الخطر الوندالي، وقد نقّبت فيه فرق كندية منذ 1976. ولا علاقة له بأسوار 146.' }
+      ]
+    },
     war: {
       title: 'ما حدث فعلًا',
       cta: 'التسلسل الزمني كاملًا',
@@ -634,7 +826,7 @@ const C = {
         { date: '149–148 ق.م', title: 'مدينة تتسلّح من جديد.', desc: 'يُصهر كل معدن متاح لصنع أسلحة جديدة، وحسب أبيانوس قصّت النساء شعورهن لتُجدل منها حبال المجانيق. تفشل الهجمات الرومانية الأولى، بينما يسيطر صدربعل على الأرياف.' },
         { date: '147 ق.م', title: 'سكيبيو إيميليانوس.', desc: 'يُنتخب قنصلًا رغم صغر سنه، وهو الحفيد بالتبني لسكيبيو الإفريقي، فيُحكم الحصار ويسدّ مدخل الميناء بسدّ. فيحفر المحاصَرون قناة جديدة نحو البحر ويطلقون أسطولًا بُني سرًّا.' },
         { date: 'ربيع 146', title: 'الهجوم الأخير.', desc: 'يستولي الرومان على منطقة الموانئ ثم على الساحة العامة. وطوال ستة أيام وست ليالٍ يتقدمون بيتًا بيتًا على طول الشوارع الثلاثة الصاعدة إلى بيرصا، ويحرقون المباني تباعًا.' },
-        { date: '146 ق.م', title: 'سقوط بيرصا.', desc: 'يخرج 50,000 رجل وامرأة من القلعة ويستسلمون. ويتحصّن نحو 900 فارّ روماني في معبد إشمون ويضرمون فيه النار. ويستسلم صدربعل لسكيبيو.' },
+        { date: '146 ق.م', title: 'سقوط بيرصا.', desc: 'يخرج 50,000 رجل وامرأة من القلعة ويستسلمون. ويتحصّن نحو 900 فارّ روماني في معبد أشمون ويضرمون فيه النار. ويستسلم صدربعل لسكيبيو.' },
         { date: '146 ق.م', title: 'بعد النصر.', desc: 'تحترق المدينة أيامًا، وتأمر لجنة من عشرة شيوخ بتفكيك ما تبقى وتلعن الموقع. تصبح الأرض ولاية إفريقيا الرومانية وعاصمتها أوتيكا، وتُهدى المكتبات إلى الملوك النوميديين. وفي السنة نفسها تدمّر روما كورنثة.' }
       ]
     },
@@ -658,8 +850,8 @@ const C = {
       kicker: 'بيرصا',
       title: 'القلعة، من المعركة الأخيرة إلى الحفريات',
       paragraphs: [
-        'على قمة تلة ديدون الأسطورية كان يقوم معبد إشمون، يُصعد إليه بستين درجة. هناك دارت الساعات الأخيرة لقرطاج البونية.',
-        'في عهد أغسطس، سوّى الرومان القمة لبناء ساحة المدينة الجديدة. فغطّت الأتربة المنحدرات — وحمت دون قصد حيًّا سكنيًا بونيًا من القرن الثاني ق.م، بشوارعه وصهاريجه، كشفه علماء آثار فرنسيون منذ سبعينيات القرن العشرين.'
+        'على قمة تلة ديدون الأسطورية كان يقوم معبد أشمون، يُصعد إليه بستين درجة. هناك دارت الساعات الأخيرة لقرطاج البونيقية.',
+        'في عهد أغسطس، سوّى الرومان القمة لبناء ساحة المدينة الجديدة. فغطّت الأتربة المنحدرات — وحمت دون قصد حيًّا سكنيًا بونيقيًا من القرن الثاني ق.م، بشوارعه وصهاريجه، كشفه علماء آثار فرنسيون منذ سبعينيات القرن العشرين.'
       ],
       alt: 'تلة بيرصا',
       caption: 'تلة بيرصا اليوم',
@@ -670,9 +862,9 @@ const C = {
       labelMyth: 'الأسطورة',
       labelReal: 'الحقيقة',
       pairs: [
-        { myth: '«قرطاج سُوّيت بالأرض»', reality: 'أُحرقت المدينة وفُكّكت، لكنها لم تُمحَ: فقد وُجدت بيوت وشوارع وصهاريج بونية تحت الطبقات الرومانية، محفوظة على ارتفاع عدة أمتار.' },
+        { myth: '«قرطاج سُوّيت بالأرض»', reality: 'أُحرقت المدينة وفُكّكت، لكنها لم تُمحَ: فقد وُجدت بيوت وشوارع وصهاريج بونيقية تحت الطبقات الرومانية، محفوظة على ارتفاع عدة أمتار.' },
         { myth: '«نُثر الملح لتعقيم الأرض»', reality: 'لا يذكر ذلك أي مصدر قديم — لا بوليبيوس ولا أبيانوس ولا تيتوس ليفيوس. ظهرت القصة عند مؤلفين محدثين في القرنين 19 و20. ثم إن الملح كان سلعة ثمينة.' },
-        { myth: '«الحضارة القرطاجية اختفت»', reality: 'كانت البونية ما تزال تُتكلَّم في القرن الخامس الميلادي. وحافظت مدن في إفريقيا الرومانية على الشوفيطين، واستمرت العبادات البونية تحت أسماء رومانية.' },
+        { myth: '«الحضارة القرطاجية اختفت»', reality: 'كانت البونيقية ما تزال تُتكلَّم في القرن الخامس الميلادي. وحافظت مدن في إفريقيا الرومانية على الشفطين، واستمرت العبادات البونيقية تحت أسماء رومانية.' },
         { myth: '«قرطاج لم يُعَد بناؤها أبدًا»', reality: 'بعد فشل غايوس غراكوس (122 ق.م)، قرّر قيصر إعادة التأسيس ونُفّذت في عهد أغسطس: صارت قرطاج عاصمة إفريقيا الرومانية ومن أكبر مدن الإمبراطورية.' }
       ]
     },
@@ -680,12 +872,12 @@ const C = {
       title: 'الأدلة الأثرية',
       subtitle: 'ما تقوله الحفريات فعلًا، ولا سيما حفريات حملة اليونسكو «لننقذ قرطاج» (1972–1995).',
       items: [
-        { kick: '44 – 29 ق.م', title: 'إعادة تأسيس في الموقع نفسه', desc: 'بُنيت «كولونيا يوليا كونكورديا قرطاج» على الموقع البوني تمامًا، لموانئه وموقعه. ولم تصمد لعنة 146 قرنًا واحدًا.', cls: 'tile--purple' },
-        { kick: 'علم الطبقات', title: 'هياكل بونية محفوظة', desc: 'تظهر جدران وأرضيات وصهاريج بونية تحت الطبقات الرومانية. وفي بيرصا تؤرّخ طبقة حريق سميكة الاستيلاءَ سنة 146 بدقة.', cls: '' },
+        { kick: '44 – 29 ق.م', title: 'إعادة تأسيس في الموقع نفسه', desc: 'بُنيت «كولونيا يوليا كونكورديا قرطاج» على الموقع البونيقي تمامًا، لموانئه وموقعه. ولم تصمد لعنة 146 قرنًا واحدًا.', cls: 'tile--purple' },
+        { kick: 'علم الطبقات', title: 'هياكل بونيقية محفوظة', desc: 'تظهر جدران وأرضيات وصهاريج بونيقية تحت الطبقات الرومانية. وفي بيرصا تؤرّخ طبقة حريق سميكة الاستيلاءَ سنة 146 بدقة.', cls: '' },
         { kick: 'النصوص', title: 'أسطورة الملح', desc: 'لا يتحدث أي مؤلف قديم عن ملح نُثر على قرطاج: الحكاية اختراع حديث، ربما استُلهم من قصص توراتية أو وسيطة.', cls: 'tile--sand' },
-        { kick: 'اللغة', title: 'استمرارية ثقافية', desc: 'نقائش بونية حديثة، وأسماء أشخاص، وعبادات: استمرت الثقافة البونية. ويشهد القديس أوغسطين على استعمال اللغة نحو سنة 400 م.', cls: '' },
-        { kick: 'الموانئ', title: 'الميناء الدائري', desc: 'عبر مخطط الكوثون القرون: أعاد الرومان تهيئة الميناء العسكري البوني، وكشفت الحفريات أحواض سفنه.', cls: 'tile--navy' },
-        { kick: 'العمران', title: 'شبكة جديدة', desc: 'رسم الرومان مخططًا متعامدًا جديدًا وسوّوا قمة بيرصا — ما حفظ، على نحو مفارق، الحي البوني المدفون تحت الردم.', cls: '' }
+        { kick: 'اللغة', title: 'استمرارية ثقافية', desc: 'نقائش بونيقية حديثة، وأسماء أشخاص، وعبادات: استمرت الثقافة البونيقية. ويشهد القديس أوغسطين على استعمال اللغة نحو سنة 400 م.', cls: '' },
+        { kick: 'الموانئ', title: 'الميناء الدائري', desc: 'عبر مخطط الكوثون القرون: أعاد الرومان تهيئة الميناء العسكري البونيقي، وكشفت الحفريات أحواض سفنه.', cls: 'tile--navy' },
+        { kick: 'العمران', title: 'شبكة جديدة', desc: 'رسم الرومان مخططًا متعامدًا جديدًا وسوّوا قمة بيرصا — ما حفظ، على نحو مفارق، الحي البونيقي المدفون تحت الردم.', cls: '' }
       ]
     },
     cont: {
@@ -734,7 +926,21 @@ const C = {
         { to: '/fondation', kick: '814 ق.م', title: 'التأسيس', text: 'عليسة وجلد الثور وتلة بيرصا.', cls: 'tile--purple' },
         { to: '/chronologie', kick: 'التسلسل الزمني', title: 'سبعة قرون من التاريخ', text: 'كل التواريخ الكبرى لقرطاج، حقبة بعد حقبة.', cls: '' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', ref: '1، 73', note: 'شاهد عيان على الحصار إلى جانب سكيبيو إيميليانوس، ومصدر أبيانوس' },
+      { type: 'ancient', author: 'أبيانوس السكندري', work: 'الحروب الليبية (الكتاب الإفريقي)', ref: '95', note: 'أسوار البرزخ والحصار وسقوط بيرصا' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: 'تاريخ روما', note: 'توسّع ماسينيسا على حساب قرطاج (193، 174–172 ق.م)' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: 'الملخّصات', ref: '51', note: 'طول سور المدينة (23 ميلًا)' },
+      { type: 'ancient', author: 'بلوتارخ', work: 'حياة كاتو الأكبر', note: 'تين قرطاج' },
+      { type: 'ancient', author: 'أوروسيوس', work: 'التواريخ ضد الوثنيين', note: 'محيط المدينة وبيرصا' },
+      { type: 'ancient', author: 'سترابون', work: 'الجغرافيا (الكتاب 17)', note: 'محيط شبه الجزيرة' },
+      { type: 'ancient', author: 'هوميروس', work: 'الإلياذة', ref: '6، 448–449', note: 'أبيات استشهد بها سكيبيو إيميليانوس أمام المدينة المحترقة' },
+      { type: 'ancient', author: 'القديس أوغسطين', note: 'شاهد على استعمال البونيقية نحو سنة 400 م' },
+      { type: 'modern', author: 'عبد المجيد النابلي', work: 'Pour sauver Carthage : exploration et conservation de la cité punique, romaine et byzantine', ref: 'Unesco/INAA، 1992', note: 'عن حملة اليونسكو «لننقذ قرطاج»' },
+      { type: 'modern', author: 'فريدريش راكوب', note: 'الحفريات الألمانية في حي ماغون، مذكور في الصفحة' },
+      { type: 'modern', author: 'الجنرال دوفال', note: 'الخط المحصّن على البرزخ (1949)، مذكور في الصفحة' }
+    ]
   }
 }
 
@@ -754,6 +960,30 @@ useHead(() => ({
 .cont-intro { max-width: 860px; margin-bottom: 32px; color: var(--navy-soft); }
 .cont-grid { row-gap: 28px; }
 .stat-text { font: 500 15px/1.45 var(--font-body); margin-top: 10px; }
+
+.def-map { display: flex; flex-direction: column; gap: 16px; margin: 0; }
+.def-svg { display: block; width: 100%; height: auto; border-radius: var(--r-md); direction: ltr; }
+.def-lbl { font: 600 16px var(--font-body); fill: var(--stone); }
+.def-lbl--water { fill: var(--navy); font-style: italic; }
+.def-lbl--strong { fill: var(--ink); font-weight: 800; }
+.def-lbl--muted { fill: var(--muted); font-style: italic; }
+.def-lbl--small { font-size: 14px; fill: var(--ink); }
+.def-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; font: 500 13px/1.3 var(--font-body); color: var(--stone); }
+.def-legend li { display: flex; align-items: center; gap: 8px; }
+.def-key { display: inline-block; width: 22px; height: 0; border-top: 4px solid var(--ink); flex: none; }
+.def-key--0 { border-top: 5px double var(--terra); height: 5px; }
+.def-key--1 { border-top: 3px dashed var(--purple); }
+.def-key--2 { width: 12px; height: 12px; border: 0; border-radius: 50%; background: var(--terra); }
+.def-key--3 { width: 14px; height: 10px; border: 0; border-radius: 2px; background: var(--navy); }
+.def-key--4 { width: 0; height: 0; border: 0; border-inline: 7px solid transparent; border-bottom: 12px solid var(--gold); }
+.def-cap { font: 500 13px/1.45 var(--font-body); color: var(--muted); font-style: italic; }
+.def-h { margin: 6px 0 20px; }
+.def-rows .val { color: var(--on-dark); }
+.def-note { margin-top: 22px; font: 500 14px/1.55 var(--font-body); border-inline-start: 3px solid var(--gold); padding-inline-start: 14px; }
+.def-grid { margin-top: var(--gap); }
+.def-tile { min-height: 280px; gap: 18px; }
+.def-card-h { margin: 6px 0 10px; }
+.def-cta { align-self: flex-start; }
 
 .quote { margin: 0 0 20px; }
 .quote p {
@@ -820,7 +1050,7 @@ useHead(() => ({
   .tag-myth, .tag-real { display: block; }
   .tag-myth { color: var(--stone); }
   .pair .tile { padding: 22px; }
-  .ev, .more { min-height: 0; }
+  .ev, .more, .def-tile { min-height: 0; }
   .tile--navy .cols-4 { grid-template-columns: minmax(0, 1fr); }
   .today-fig, .byrsa-fig, .scipio-fig { min-height: 280px; }
 }

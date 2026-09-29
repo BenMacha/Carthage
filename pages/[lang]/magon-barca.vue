@@ -156,6 +156,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- La famille / liens -->
     <section class="sec sec--wide">
       <div class="sec-head">
@@ -300,6 +302,13 @@ const C = {
       ],
       agro: "Magon l'Agronome, l'autre Magon"
     },
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'III, 71', note: 'la Trébie, Cannes, Ilipa' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', ref: 'XXIII, 12–13 ; XXIX, 4', note: 'les anneaux de Cannes, la réplique d’Hannon, renforts de 205' },
+      { type: 'ancient', author: 'Cornelius Nepos', work: 'Vie d’Hannibal', note: 'autres traditions sur sa mort' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'ouvrage de référence (bibliographie du site)' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: '1992', note: 'ouvrage de référence (bibliographie du site)' }
+    ],
     family: {
       title: 'La famille Barca',
       all: 'Tous les personnages',
@@ -432,6 +441,13 @@ const C = {
       ],
       agro: 'Mago the Agronomist, the other Mago'
     },
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: 'III, 71', note: 'the Trebia, Cannae, Ilipa' },
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', ref: 'XXIII, 12–13; XXIX, 4', note: 'the rings of Cannae, Hanno’s retort, reinforcements of 205' },
+      { type: 'ancient', author: 'Cornelius Nepos', work: 'Life of Hannibal', note: 'other traditions about his death' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'reference work (site bibliography)' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: '1992', note: 'reference work (site bibliography)' }
+    ],
     family: {
       title: 'The Barca family',
       all: 'All people',
@@ -564,6 +580,13 @@ const C = {
       ],
       agro: 'ماغون المهندس الزراعي، الماغون الآخر'
     },
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: '«التواريخ»', ref: '3، 71', note: 'تريبيا وكاناي وإيليبا' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: '«تاريخ روما»', ref: '23، 12–13 ؛ 29، 4', note: 'خواتم كاناي ورد حنون وإمدادات 205' },
+      { type: 'ancient', author: 'كورنيليوس نيبوس', work: '«حياة حنبعل»', note: 'روايات أخرى عن موته' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'مرجع عام (قائمة مراجع الموقع)' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: '1992', note: 'مرجع عام (قائمة مراجع الموقع)' }
+    ],
     family: {
       title: 'أسرة برقا',
       all: 'كل الشخصيات',

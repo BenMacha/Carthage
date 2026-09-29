@@ -244,6 +244,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec">
       <h2 class="h-block more-title">{{ c.more.title }}</h2>
@@ -437,7 +439,23 @@ const C = {
         { to: '/didon', kick: 'Biographie', title: 'Didon (Élyssa)', text: 'La reine fondatrice, entre histoire et légende.', cls: '' },
         { to: '/prise-de-carthage', kick: '146 av. J.-C.', title: 'La prise de Carthage', text: 'Six siècles plus tard, le siège et la chute de Byrsa.', cls: 'tile--ink' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'I, 71–72 ; I, 78', note: 'tribut des Libyens, Naravas ; Libyphéniciens' },
+      { type: 'ancient', author: 'Diodore de Sicile', work: 'Bibliothèque historique', ref: 'XX, 55, 4', note: 'Libyphéniciens' },
+      { type: 'ancient', author: 'Strabon', work: 'Géographie', ref: 'XVII, 3, 19', note: 'population et site de Carthage, Libyphéniciens' },
+      { type: 'ancient', author: 'Pline l\'Ancien', work: 'Histoire naturelle', ref: 'V, 24 ; XVI, 216 ; XIX, 63', note: 'Utique, Lixus, Byzacium' },
+      { type: 'ancient', author: 'Appien', work: 'Libyca', ref: 'I, 1', note: 'fondation ; murailles, ports et maisons de Byrsa' },
+      { type: 'ancient', author: 'Justin', work: 'Abrégé des Histoires philippiques de Trogue Pompée', ref: 'XVIII, 5 ; XIX, 1–2', note: 'légende d\'Élyssa, loyer versé aux Africains' },
+      { type: 'ancient', author: 'Virgile', work: 'Énéide', note: 'rencontre de Didon et d\'Énée, invention poétique' },
+      { type: 'modern', author: 'Pierre Cintas', work: 'Manuel d\'archéologie punique', ref: '1970–1976', note: 'hypothèse d\'une fondation en deux temps' },
+      { type: 'modern', author: 'Sabatino Moscati', work: 'L\'épopée des Phéniciens', ref: '1971' },
+      { type: 'modern', author: 'Gabriel Camps', note: 'cité dans la page (Libyens, ancêtres des Berbères)' },
+      { type: 'modern', author: 'François Decret', work: 'Carthage ou l\'empire de la mer', ref: '1977' },
+      { type: 'modern', author: 'M\'hamed Hassine Fantar', work: 'Carthage, approche d\'une civilisation', ref: '1993' },
+      { type: 'modern', author: 'Friedrich Rakob', note: 'cité dans la page (fouilles allemandes du quartier Magon)' },
+      { type: 'modern', author: 'Wikipédia', work: 'Carthage ; Civilisation carthaginoise', note: 'CC BY-SA 4.0, contenus reformulés' }
+    ]
   },
 
   en: {
@@ -610,7 +628,23 @@ const C = {
         { to: '/didon', kick: 'Biography', title: 'Dido (Elissa)', text: 'The founding queen, between history and legend.', cls: '' },
         { to: '/prise-de-carthage', kick: '146 BC', title: 'The capture of Carthage', text: 'Six centuries later, the siege and the fall of Byrsa.', cls: 'tile--ink' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: 'I, 71–72 ; I, 78', note: 'Libyan tribute, Naravas; Libyphoenicians' },
+      { type: 'ancient', author: 'Diodorus Siculus', work: 'Library of History', ref: 'XX, 55, 4', note: 'Libyphoenicians' },
+      { type: 'ancient', author: 'Strabo', work: 'Geography', ref: 'XVII, 3, 19', note: 'population and site of Carthage, Libyphoenicians' },
+      { type: 'ancient', author: 'Pliny the Elder', work: 'Natural History', ref: 'V, 24 ; XVI, 216 ; XIX, 63', note: 'Utica, Lixus, Byzacium' },
+      { type: 'ancient', author: 'Appian', work: 'Libyca', ref: 'I, 1', note: 'foundation; walls, harbours and houses of Byrsa' },
+      { type: 'ancient', author: 'Justin', work: 'Epitome of Pompeius Trogus\' Philippic Histories', ref: 'XVIII, 5 ; XIX, 1–2', note: 'legend of Elissa, rent paid to the Africans' },
+      { type: 'ancient', author: 'Virgil', work: 'Aeneid', note: 'Dido meeting Aeneas, a poetic invention' },
+      { type: 'modern', author: 'Pierre Cintas', work: 'Manuel d\'archéologie punique', ref: '1970–1976', note: 'two-stage foundation hypothesis' },
+      { type: 'modern', author: 'Sabatino Moscati', work: 'L\'épopée des Phéniciens', ref: '1971' },
+      { type: 'modern', author: 'Gabriel Camps', note: 'cited on this page (Libyans as ancestors of the Berbers)' },
+      { type: 'modern', author: 'François Decret', work: 'Carthage ou l\'empire de la mer', ref: '1977' },
+      { type: 'modern', author: 'M\'hamed Hassine Fantar', work: 'Carthage, approche d\'une civilisation', ref: '1993' },
+      { type: 'modern', author: 'Friedrich Rakob', note: 'cited on this page (German excavations of the Magon quarter)' },
+      { type: 'modern', author: 'Wikipedia (French)', work: 'Carthage ; Civilisation carthaginoise', note: 'CC BY-SA 4.0, content rephrased' }
+    ]
   },
 
   ar: {
@@ -665,7 +699,7 @@ const C = {
         { key: '814 / 813', val: 'تاريخ التأسيس الذي أورده المؤرخ الإغريقي تيمايوس التاورميني (القرنان 4–3 ق.م)، وأخذت به الرواية التقليدية.' },
         { key: 'أبيانوس', val: 'رواية قديمة أخرى، أخذ بها أبيانوس (الليبيكا، 1، 1)، كانت ترجع قرطاج إلى زمن حرب طروادة، نحو القرن الثاني عشر ق.م. ولم تكشف الحفريات عن شيء بهذا القِدم.' },
         { key: 'فرضيات', val: 'اقترح بعضهم تأسيسًا نحو 670 ق.م، أو تأسيسًا على مرحلتين — مركز تجاري أولًا ثم المدينة بمعناها الحقيقي (بيار سانتاس). أما المؤرخون المحدثون، فاستنادًا إلى حوليات صور التي نقلها ميناندر الأفسسي وفلافيوس يوسيفوس، يرجّحون الربع الأخير من القرن التاسع ق.م.' },
-        { key: 'ق 8', val: 'تعود أقدم الطبقات المكتشفة — خزف، وأولى القرابين في توفة صلامبو — إلى النصف الثاني من القرن الثامن ق.م: الأسطورة ليست بعيدة عن الحقيقة.' },
+        { key: 'ق 8', val: 'تعود أقدم الطبقات المكتشفة — خزف، وأولى القرابين في توفيت صلامبو — إلى النصف الثاني من القرن الثامن ق.م: الأسطورة ليست بعيدة عن الحقيقة.' },
         { key: 'بيرصا', val: 'الاسم الإغريقي «بيرصا» (الجلد) هو على الأرجح إعادة تأويل لكلمة سامية تعني القلعة: وربما وُلدت حيلة جلد الثور من هذا التلاعب اللفظي.' },
         { key: 'ق 6', val: 'تتصدر قرطاج المدن الفينيقية في الغرب، بينما تقع صور تحت الحكم البابلي ثم الفارسي.' }
       ],
@@ -695,16 +729,16 @@ const C = {
         'جرى الاستقرار بالتفاوض. ففي الأسطورة تحصل عليسة على أرضها من الملك الليبي يارباس؛ وحسب يوستينوس (18، 5) دفعت قرطاج بعد ذلك للأفارقة إتاوة سنوية مقابل أرض المدينة. ولم تتحرر منها إلا في القرن الخامس ق.م، حين أخضع الماغونيون الداخل بقوة السلاح (يوستينوس، 19، 1-2).',
         'عندها انقلبت العلاقة: صار ليبيو الأرياف رعايا تُفرض عليهم ضريبة ثقيلة، من الحبوب أساسًا (بوليبيوس، 1، 71-72). وتتخلل ثوراتهم تاريخ المدينة، حتى حرب المرتزقة (241–238).',
         'ساد طويلًا الاعتقاد بأن هزيمة هيميرا (480) دفعت قرطاج إلى التوجه نحو إفريقيا (ديكريه). ويرى مؤرخون بالأحرى توسعًا تدريجيًا اقتضته تغذية سكان يتزايدون.',
-        'كانت المصاهرات بين الأرستقراطية البونية والأسر الأميرية الإفريقية شائعة — فقد وعد حملقار برقة الأمير النوميدي نارافاس بابنته (بوليبيوس، 1، 78) — من غير أن تفقد الدولة القرطاجية طابعها الفينيقي.'
+        'كانت المصاهرات بين الأرستقراطية البونيقية والأسر الأميرية الإفريقية شائعة — فقد وعد حملقار برقة الأمير النوميدي نارافاس بابنته (بوليبيوس، 1، 78) — من غير أن تفقد الدولة القرطاجية طابعها الفينيقي.'
       ],
       lpKicker: 'الليبيون الفينيقيون',
       lpTitle: 'فينيقيو إفريقيا',
-      lpText: 'من امتزاج المستوطنين بالليبيين نشأ سكان سمّاهم الإغريق «الليبيين الفينيقيين». ولا يتفق المؤلفون القدامى على وضعهم ولا على إقليمهم، الواقع على الأرجح جنوب قرطاج. وقد أدّوا دور الوسيط بين الثقافة البونية والعالم الأمازيغي.',
+      lpText: 'من امتزاج المستوطنين بالليبيين نشأ سكان سمّاهم الإغريق «الليبيين الفينيقيين». ولا يتفق المؤلفون القدامى على وضعهم ولا على إقليمهم، الواقع على الأرجح جنوب قرطاج. وقد أدّوا دور الوسيط بين الثقافة البونيقية والعالم الأمازيغي.',
       lpRows: [
         { key: 'هيكاتيوس', val: 'أول ذكر لهم، في القرن السادس ق.م، وصلنا عن طريق إسطفانوس البيزنطي.' },
         { key: 'بوليبيوس', val: 'رعايا لقرطاج يخضعون للقوانين نفسها التي يخضع لها القرطاجيون.' },
         { key: 'ديودوروس', val: 'سكان المدن الساحلية الذين كان لهم حق التزاوج مع قرطاج (20، 55، 4).' },
-        { key: 'تيتوس ليفيوس', val: 'خليط من البونيين والأفارقة.' },
+        { key: 'تيتوس ليفيوس', val: 'خليط من البونيقيين والأفارقة.' },
         { key: 'سترابون، بلينيوس', val: 'بين الساحل القرطاجي وجيتوليا (سترابون، 17، 3، 19)؛ وفي بيزاكيوم (بلينيوس، 5، 24).' }
       ]
     },
@@ -722,7 +756,7 @@ const C = {
       k2: 'مدينة كوسموبوليتية',
       t2: 'مدينة شعوب كثيرة',
       d2: [
-        'تجاور في قرطاج المستوطنون الفينيقيون والليبيون والإغريق والإيبيريون وأناس من كل أنحاء العالم البوني، وكان الزواج المختلط شائعًا.',
+        'تجاور في قرطاج المستوطنون الفينيقيون والليبيون والإغريق والإيبيريون وأناس من كل أنحاء العالم البونيقي، وكان الزواج المختلط شائعًا.',
         'منذ الأيام الأولى للاستيطان يكشف علم الآثار عن مجتمعات مختلطة: ومن هذا الامتزاج وُلدت حضارة أصيلة.'
       ],
       cta: 'الهوية الإفريقية لقرطاج'
@@ -733,7 +767,7 @@ const C = {
       features: [
         { kick: 'العمران', title: 'بيوت متعددة الطوابق', desc: 'حسب أبيانوس، كانت ثلاثة شوارع تصطف على جانبيها بيوت من ستة طوابق تصعد من الساحة العامة نحو بيرصا. وكشفت الحفريات شوارع مخططة وصهاريج وسواقي وآبار لتصريف المياه المستعملة، وبيوتًا مزودة بحمّامات.', cls: '' },
         { kick: 'البحرية', title: 'الميناء المزدوج', desc: 'ميناء تجاري مستطيل وميناء عسكري دائري، الكوثون، يتسع لـ220 سفينة حربية في أحواض فردية.', cls: 'tile--navy' },
-        { kick: 'الدين', title: 'المعابد والتوفة', desc: 'كان معبد إشمون يتوّج تلة بيرصا. وقرب الموانئ، كشفت توفة صلامبو، وهي حرم مكشوف مكرّس لبعل حمون وتانيت، عن آلاف النصب.', cls: '', link: { to: '/religion', label: 'آلهة قرطاج' } },
+        { kick: 'الدين', title: 'المعابد والتوفيت', desc: 'كان معبد أشمون يتوّج تلة بيرصا. وقرب الموانئ، كشفت توفيت صلامبو، وهي حرم مكشوف مكرّس لبعل حمون وتانيت، عن آلاف النصب.', cls: '', link: { to: '/religion', label: 'آلهة قرطاج' } },
         { kick: 'الصناعة', title: 'الحِرف والأرجوان', desc: 'ورشات للخزف والزجاج والصياغة، وإنتاج الأرجوان الصوري المستخرج من صدفة بحرية هي الموريكس.', cls: 'tile--sand', link: { to: '/economie', label: 'الاقتصاد' } },
         { kick: 'الماء', title: 'تدبير الماء', desc: 'لغياب ينابيع وفيرة، كان كل بيت يجمع ماء المطر في صهاريج. وحول المدينة غذّتها زراعة مروية متقنة. أما حنايا زغوان الكبرى فرومانية.', cls: '', link: { to: '/agriculture', label: 'الفلاحة' } },
         { kick: 'الدفاع', title: 'أسوار هائلة', desc: 'نحو 34 كم من الأسوار. وعلى جهة البرزخ، ضم خط ثلاثي من الجدران بارتفاع 13 م وسمك 9 م إسطبلات لـ300 فيل و4,000 حصان، وثكنات لـ20,000 من المشاة و4,000 فارس.', cls: 'tile--terra', link: { to: '/armee', label: 'الجيش' } }
@@ -743,8 +777,8 @@ const C = {
       kicker: 'الكوثون',
       title: 'ميناء قرطاج',
       lede: 'الميناء المزدوج الشهير، العسكري والتجاري، كما وصفه أبيانوس وكما كشفه علماء الآثار جنوب المدينة.',
-      alt: 'الموانئ البونية في قرطاج اليوم',
-      caption: 'بحيرتا الموانئ البونية اليوم',
+      alt: 'الموانئ البونيقية في قرطاج اليوم',
+      caption: 'بحيرتا الموانئ البونيقية اليوم',
       parts: [
         { n: '1', title: 'الميناء التجاري', desc: 'مستطيل، ينفتح على البحر بمدخل عرضه 70 قدمًا يُغلق بسلاسل من حديد. هنا كانت السفن التجارية تفرغ حمولاتها.' },
         { n: '2', title: 'الميناء العسكري', desc: 'دائري، لا يُبلغ إلا عبر الميناء التجاري. كان سور مزدوج يحجبه عن الأنظار، فلا يرى التجار الترسانة.' },
@@ -753,17 +787,17 @@ const C = {
       ]
     },
     craft: {
-      title: 'الحِرف البونية',
+      title: 'الحِرف البونيقية',
       subtitle: 'الأدوات والأشياء التي تشهد على المهارة القرطاجية.',
-      alt: 'نصب بوني مزيّن بعلامة تانيت',
+      alt: 'نصب بونيقي مزيّن بعلامة تانيت',
       caption: 'نصب يحمل علامة تانيت، منحوت بالإزميل (اللوفر)',
       items: [
         { kick: 'الفخار', title: 'قناديل الزيت', desc: 'صحون بسيطة مقروصة بمصبّين، كانت تضيء البيوت والمعابد والقبور.', cls: '' },
-        { kick: 'التجارة', title: 'الجِرار', desc: 'الخمر وزيت الزيتون والسمك المملّح: توجد الجرار البونية في كل أرجاء المتوسط.', cls: 'tile--sand' },
+        { kick: 'التجارة', title: 'الجِرار', desc: 'الخمر وزيت الزيتون والسمك المملّح: توجد الجرار البونيقية في كل أرجاء المتوسط.', cls: 'tile--sand' },
         { kick: 'النقود', title: 'العملات', desc: 'سُكّت منذ أواخر القرن الخامس ق.م، وتحمل صورة الحصان أو النخلة أو وجه إلهة.', cls: 'tile--gold' },
         { kick: 'المعادن', title: 'الأسلحة والأدوات', desc: 'كان الحدادون وصنّاع البرونز ينتجون السيوف ورؤوس الرماح وأزاميل النحّاتين وأدوات الفلاحة.', cls: '' },
         { kick: 'الكتابة', title: 'اللفائف والمعرفة', desc: 'استُعملت الأبجدية الفينيقية ذات الحروف الاثنين والعشرين للأرشيف والكتب. وتُرجم كتاب ماغون في الفلاحة إلى اللاتينية بأمر من مجلس الشيوخ الروماني.', cls: 'tile--purple', link: { to: '/magon-agronome', label: 'ماغون الفلاحي' } },
-        { kick: 'الحجر', title: 'النصب', desc: 'آلاف النصب المنقوشة من التوفة، كثيرًا ما تزيّنها علامة تانيت، تشهد على فن النحّاتين.', cls: '' }
+        { kick: 'الحجر', title: 'النصب', desc: 'آلاف النصب المنقوشة من التوفيت، كثيرًا ما تزيّنها علامة تانيت، تشهد على فن النحّاتين.', cls: '' }
       ]
     },
     map: { title: 'قرطاج ومستعمراتها الأولى', cta: 'الخريطة كاملة' },
@@ -771,8 +805,8 @@ const C = {
       title: 'بقايا قرطاج اليوم',
       items: [
         { img: 'byrsa.jpg', alt: 'تلة بيرصا', kick: 'تلة', title: 'بيرصا', text: 'قلب المدينة الأسطورية، وفيها اليوم المتحف الوطني بقرطاج.' },
-        { img: 'punic-quarter.jpg', alt: 'الحي البوني في بيرصا', kick: 'ق 2 ق.م', title: 'الحي البوني', text: 'بيوت وشوارع وصهاريج بونية محفوظة تحت الردم الروماني.' },
-        { img: 'ports.jpg', alt: 'الموانئ البونية', kick: 'الكوثون', title: 'الميناء الدائري', text: 'ما تزال جزيرة الأميرال تُرى وسط البحيرة.' },
+        { img: 'punic-quarter.jpg', alt: 'الحي البونيقي في بيرصا', kick: 'ق 2 ق.م', title: 'الحي البونيقي', text: 'بيوت وشوارع وصهاريج بونيقية محفوظة تحت الردم الروماني.' },
+        { img: 'ports.jpg', alt: 'الموانئ البونيقية', kick: 'الكوثون', title: 'الميناء الدائري', text: 'ما تزال جزيرة الأميرال تُرى وسط البحيرة.' },
         { img: 'ruins.jpg', alt: 'أطلال حمامات أنطونيوس', kick: 'يونسكو · 1979', title: 'حمامات أنطونيوس', text: 'قرطاج الرومانية، المعاد تأسيسها في الموقع نفسه، على ضفة الخليج.' }
       ]
     },
@@ -783,7 +817,23 @@ const C = {
         { to: '/didon', kick: 'سيرة', title: 'ديدون (عليسة)', text: 'الملكة المؤسِّسة، بين التاريخ والأسطورة.', cls: '' },
         { to: '/prise-de-carthage', kick: '146 ق.م', title: 'الاستيلاء على قرطاج', text: 'بعد ستة قرون: الحصار وسقوط بيرصا.', cls: 'tile--ink' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', ref: 'I, 71–72 ; I, 78', note: 'خراج الليبيين، ناراواس؛ الليبيون الفينيقيون' },
+      { type: 'ancient', author: 'ديودوروس الصقلي', work: 'المكتبة التاريخية', ref: 'XX, 55, 4', note: 'الليبيون الفينيقيون' },
+      { type: 'ancient', author: 'سترابون', work: 'الجغرافيا', ref: 'XVII, 3, 19', note: 'سكان قرطاج وموقعها، الليبيون الفينيقيون' },
+      { type: 'ancient', author: 'بلينيوس الأكبر', work: 'التاريخ الطبيعي', ref: 'V, 24 ; XVI, 216 ; XIX, 63', note: 'أوتيكا، ليكسوس، بيزاسيوم' },
+      { type: 'ancient', author: 'أبيانوس', work: 'الكتاب الليبي (ليبيكا)', ref: 'I, 1', note: 'التأسيس؛ الأسوار والموانئ ومنازل بيرصا' },
+      { type: 'ancient', author: 'يوستينوس', work: 'مختصر التواريخ الفيليبية لتروغوس بومبيوس', ref: 'XVIII, 5 ; XIX, 1–2', note: 'أسطورة عليسة، الإتاوة المدفوعة للأفارقة' },
+      { type: 'ancient', author: 'فرجيل', work: 'الإنيادة', note: 'لقاء ديدون وإينياس، اختلاق شعري' },
+      { type: 'modern', author: 'بيير سنتاس', work: 'Manuel d\'archéologie punique', ref: '1970–1976', note: 'فرضية التأسيس على مرحلتين' },
+      { type: 'modern', author: 'سباتينو موسكاتي', work: 'L\'épopée des Phéniciens', ref: '1971' },
+      { type: 'modern', author: 'غابرييل كامب', note: 'مذكور في الصفحة (الليبيون أسلاف الأمازيغ)' },
+      { type: 'modern', author: 'فرانسوا ديكريه', work: 'Carthage ou l\'empire de la mer', ref: '1977' },
+      { type: 'modern', author: 'محمد حسين فنطر', work: 'Carthage, approche d\'une civilisation', ref: '1993' },
+      { type: 'modern', author: 'فريدريش راكوب', note: 'مذكور في الصفحة (الحفريات الألمانية في حي ماغون)' },
+      { type: 'modern', author: 'ويكيبيديا (بالفرنسية)', work: 'Carthage ; Civilisation carthaginoise', note: 'رخصة CC BY-SA 4.0، مع إعادة صياغة المحتوى' }
+    ]
   }
 }
 

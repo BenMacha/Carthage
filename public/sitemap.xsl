@@ -84,7 +84,7 @@
 
       <section class="group">
         <header class="group-head" style="background:#6E1E47;color:#FFFFFF">
-          <span class="count">5 pages</span>
+          <span class="count">6 pages</span>
           <h2>Repères</h2>
           <span class="alt">Essentials · <span dir="rtl" lang="ar">معالم</span></span>
         </header>
@@ -159,11 +159,25 @@
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
             </li>
           </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/quiz']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">Quiz</a>
+                <span class="row-sub">Quiz · <span dir="rtl" lang="ar">اختبار</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
         </ul>
       </section>
       <section class="group">
         <header class="group-head" style="background:#B8492A;color:#FFFFFF">
-          <span class="count">7 pages</span>
+          <span class="count">9 pages</span>
           <h2>Histoire</h2>
           <span class="alt">History · <span dir="rtl" lang="ar">التاريخ</span></span>
         </header>
@@ -187,6 +201,20 @@
               <div class="row-main">
                 <a class="row-title" href="{s:loc}">Les guerres puniques</a>
                 <span class="row-sub">The Punic Wars · <span dir="rtl" lang="ar">الحروب البونيقية</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/guerre-des-mercenaires']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">La guerre des Mercenaires</a>
+                <span class="row-sub">The Mercenary War · <span dir="rtl" lang="ar">حرب المرتزقة</span></span>
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
@@ -266,6 +294,20 @@
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
             </li>
           </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/monde-punique']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">Le monde punique</a>
+                <span class="row-sub">The Punic world · <span dir="rtl" lang="ar">العالم البونيقي</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
         </ul>
       </section>
       <section class="group">
@@ -335,7 +377,7 @@
       </section>
       <section class="group">
         <header class="group-head" style="background:#D6A23E;color:#16130F">
-          <span class="count">6 pages</span>
+          <span class="count">8 pages</span>
           <h2>Civilisation</h2>
           <span class="alt">Civilisation · <span dir="rtl" lang="ar">الحضارة</span></span>
         </header>
@@ -424,11 +466,39 @@
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
             </li>
           </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/vie-quotidienne']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">La vie quotidienne</a>
+                <span class="row-sub">Daily life · <span dir="rtl" lang="ar">الحياة اليومية</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/heritage']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">L'héritage culturel</a>
+                <span class="row-sub">Cultural legacy · <span dir="rtl" lang="ar">الإرث الثقافي</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
         </ul>
       </section>
       <section class="group">
         <header class="group-head" style="background:#1D3F66;color:#FFFFFF">
-          <span class="count">8 pages</span>
+          <span class="count">10 pages</span>
           <h2>Personnages</h2>
           <span class="alt">People · <span dir="rtl" lang="ar">الشخصيات</span></span>
         </header>
@@ -545,11 +615,39 @@
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
             </li>
           </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/massinissa']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">Massinissa</a>
+                <span class="row-sub">Masinissa · <span dir="rtl" lang="ar">ماسينيسا</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/hannon-le-grand']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">Hannon le Grand</a>
+                <span class="row-sub">Hanno the Great · <span dir="rtl" lang="ar">حنون الكبير</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
         </ul>
       </section>
       <section class="group">
         <header class="group-head" style="background:#E6DED1;color:#16130F">
-          <span class="count">3 pages</span>
+          <span class="count">4 pages</span>
           <h2>À propos du site</h2>
           <span class="alt">About the site · <span dir="rtl" lang="ar">عن الموقع</span></span>
         </header>
@@ -573,6 +671,20 @@
               <div class="row-main">
                 <a class="row-title" href="{s:loc}">Sources et bibliographie</a>
                 <span class="row-sub">Sources and bibliography · <span dir="rtl" lang="ar">المصادر والمراجع</span></span>
+              </div>
+              <div class="row-langs">
+                <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                </xsl:for-each>
+              </div>
+              <span class="row-meta"><xsl:value-of select="s:priority"/></span>
+            </li>
+          </xsl:for-each>
+          <xsl:for-each select="s:urlset/s:url[s:loc='https://carthage.benmacha.tn/fr/glossaire']">
+            <li class="row">
+              <div class="row-main">
+                <a class="row-title" href="{s:loc}">Glossaire</a>
+                <span class="row-sub">Glossary · <span dir="rtl" lang="ar">المعجم</span></span>
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">

@@ -125,10 +125,10 @@
     <!-- Sources -->
     <section class="sec">
       <div class="tile tile--xl">
-        <span class="kicker">{{ c.sources.kicker }}</span>
-        <h2 class="h-block life-title">{{ c.sources.title }}</h2>
+        <span class="kicker">{{ c.sourcesNote.kicker }}</span>
+        <h2 class="h-block life-title">{{ c.sourcesNote.title }}</h2>
         <div class="rows" style="--row-key:260px">
-          <div v-for="s in c.sources.items" :key="s.key">
+          <div v-for="s in c.sourcesNote.items" :key="s.key">
             <span class="key src-key">{{ s.key }}</span>
             <span class="val">{{ s.text }}</span>
           </div>
@@ -155,6 +155,8 @@
         </figure>
       </div>
     </section>
+
+    <PageSources :items="c.sources" />
 
     <!-- À lire aussi -->
     <section class="sec sec--wide">
@@ -258,7 +260,7 @@ const C = {
         { orig: 'Dux femina facti.', tr: "Une femme conduit l'entreprise.", cite: 'Virgile, Énéide, I, 364' }
       ]
     },
-    sources: {
+    sourcesNote: {
       kicker: 'Sources et archives',
       title: "D'où vient ce que l'on sait",
       items: [
@@ -288,7 +290,15 @@ const C = {
         { to: '/religion', img: '/img/baal.jpg', alt: 'Statue de Baal Hammon', kicker: 'Croyances', title: 'La religion', text: 'Melqart, Baal Hammon, Tanit : les dieux de Carthage.' },
         { to: '/biographies', img: '/img/hamilcar.jpg', alt: 'Hamilcar Barca', kicker: 'Personnages', title: 'Toutes les biographies', text: 'Les Barca, les généraux, les navigateurs et les reines.' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Justin', work: 'Abrégé des Histoires philippiques de Trogue Pompée', ref: 'XVIII, 5 ; XVIII, 6', note: 'la source principale du récit' },
+      { type: 'ancient', author: 'Timée de Tauroménion', note: 'fragments transmis par d’autres auteurs : date de 814, nom de Didon' },
+      { type: 'ancient', author: 'Flavius Josèphe', work: 'Contre Apion', ref: 'I, 18', note: 'citant Ménandre d’Éphèse' },
+      { type: 'ancient', author: 'Virgile', work: 'Énéide', ref: 'I, 364 ; IV, 625', note: 'la version romaine, poétique' },
+      { type: 'ancient', author: 'Appien', work: 'Libyca', note: 'la ruse de la peau de bœuf' },
+      { type: 'ancient', author: 'Ovide', work: 'Héroïdes', ref: 'VII' }
+    ]
   },
   en: {
     meta: {
@@ -369,7 +379,7 @@ const C = {
         { orig: 'Dux femina facti.', tr: 'A woman led the enterprise.', cite: 'Virgil, Aeneid, I, 364' }
       ]
     },
-    sources: {
+    sourcesNote: {
       kicker: 'Sources and archives',
       title: 'Where our knowledge comes from',
       items: [
@@ -399,7 +409,15 @@ const C = {
         { to: '/religion', img: '/img/baal.jpg', alt: 'Statue of Baal Hammon', kicker: 'Beliefs', title: 'Religion', text: 'Melqart, Baal Hammon, Tanit: the gods of Carthage.' },
         { to: '/biographies', img: '/img/hamilcar.jpg', alt: 'Hamilcar Barca', kicker: 'People', title: 'All biographies', text: 'The Barcids, the generals, the navigators and the queens.' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Justin', work: 'Epitome of Pompeius Trogus\' Philippic Histories', ref: 'XVIII, 5; XVIII, 6', note: 'the main source of the story' },
+      { type: 'ancient', author: 'Timaeus of Tauromenium', note: 'fragments preserved by later authors: the 814 date, the name Dido' },
+      { type: 'ancient', author: 'Flavius Josephus', work: 'Against Apion', ref: 'I, 18', note: 'quoting Menander of Ephesus' },
+      { type: 'ancient', author: 'Virgil', work: 'Aeneid', ref: 'I, 364; IV, 625', note: 'the poetic Roman version' },
+      { type: 'ancient', author: 'Appian', work: 'Libyca', note: 'the oxhide trick' },
+      { type: 'ancient', author: 'Ovid', work: 'Heroides', ref: 'VII' }
+    ]
   },
   ar: {
     meta: {
@@ -418,7 +436,7 @@ const C = {
       { n: '814', t: 'ق.م: تاريخ التأسيس عند تيمايوس' },
       { n: '80', t: 'فتاة قبرصية رافقت الرحلة إلى إفريقيا (يوستينوس)' },
       { n: '1', t: 'جلد ثور لتحديد هضبة بيرصا' },
-      { n: '668', t: 'سنة عمر قرطاج البونية، حتى 146 ق.م' }
+      { n: '668', t: 'سنة عمر قرطاج البونيقية، حتى 146 ق.م' }
     ],
     names: {
       items: [
@@ -469,7 +487,7 @@ const C = {
         'وحسب يوستينوس، عُبدت إلهةً ما دامت قرطاج لم تُقهر.'
       ],
       more: 'آلهة قرطاج ←',
-      alt: 'نصب بوني يحمل علامة تانيت',
+      alt: 'نصب بونيقي يحمل علامة تانيت',
       caption: 'نصب بعلامة تانيت'
     },
     quotes: {
@@ -480,7 +498,7 @@ const C = {
         { orig: 'Dux femina facti.', tr: 'امرأةٌ قادت المسعى.', cite: 'فرجيل، الإنيادة، 1، 364' }
       ]
     },
-    sources: {
+    sourcesNote: {
       kicker: 'المصادر والأرشيف',
       title: 'من أين نعرف ما نعرف',
       items: [
@@ -488,7 +506,7 @@ const C = {
         { key: 'ميناندر الأفسسي', text: 'نقله فلافيوس يوسيفوس (ضد أبيون، 1، 18): هروب عليسة والتأسيس في السنة السابعة من حكم بيغماليون.' },
         { key: 'يوستينوس', text: 'مختصر التواريخ الفيليبية لتروغوس بومبيوس، الكتاب 18: المصدر الرئيسي للقصة (الهروب، قبرص، جلد الثور، يارباس، المحرقة).' },
         { key: 'فرجيل', text: 'الإنيادة، الكتابان 1 و4: الرواية الرومانية الأدبية، تُقرأ شعرًا وسياسةً لا تاريخًا.' },
-        { key: 'أبيان', text: 'ليبيكا (القرن 2 م): منظور إغريقي حول أصول قرطاج وحيلة جلد الثور.' }
+        { key: 'أبيانوس', text: 'ليبيكا (القرن 2 م): منظور إغريقي حول أصول قرطاج وحيلة جلد الثور.' }
       ]
     },
     legacy: {
@@ -508,9 +526,17 @@ const C = {
       items: [
         { to: '/fondation', img: '/img/byrsa.jpg', alt: 'هضبة بيرصا', kicker: '814 ق.م', title: 'تأسيس قرطاج', text: 'قرت حدشت، المدينة الجديدة، وقرونها الأولى.' },
         { to: '/religion', img: '/img/baal.jpg', alt: 'تمثال بعل حمون', kicker: 'المعتقدات', title: 'الديانة', text: 'ملقرت وبعل حمون وتانيت: آلهة قرطاج.' },
-        { to: '/biographies', img: '/img/hamilcar.jpg', alt: 'حملقار برقة', kicker: 'الشخصيات', title: 'كل السير', text: 'آل برقة والقادة والملاحون والملكات.' }
+        { to: '/biographies', img: '/img/hamilcar.jpg', alt: 'حملقار برقة', kicker: 'الشخصيات', title: 'كل السير', text: 'آل برقا والقادة والملاحون والملكات.' }
       ]
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'يوستينوس', work: 'مختصر التواريخ الفيليبية لتروغوس بومبيوس', ref: '18، 5؛ 18، 6', note: 'المصدر الرئيسي للقصة' },
+      { type: 'ancient', author: 'تيمايوس التاورميني', note: 'شذرات نقلها مؤلفون لاحقون: تاريخ 814 واسم ديدون' },
+      { type: 'ancient', author: 'فلافيوس يوسيفوس', work: 'ضد أبيون', ref: '1، 18', note: 'نقلاً عن ميناندر الأفسسي' },
+      { type: 'ancient', author: 'فرجيل', work: 'الإنيادة', ref: '1، 364؛ 4، 625', note: 'الرواية الرومانية الشعرية' },
+      { type: 'ancient', author: 'أبيانوس', work: 'ليبيكا', note: 'حيلة جلد الثور' },
+      { type: 'ancient', author: 'أوفيد', work: 'البطلات', ref: '7' }
+    ]
   }
 }
 

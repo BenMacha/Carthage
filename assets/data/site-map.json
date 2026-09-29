@@ -74,6 +74,19 @@
             "en": "What Rome said, what we know.",
             "ar": "ما رواه الرومان وما نعرفه."
           }
+        },
+        {
+          "slug": "quiz",
+          "label": {
+            "fr": "Quiz",
+            "en": "Quiz",
+            "ar": "اختبار"
+          },
+          "desc": {
+            "fr": "Six thèmes, soixante questions pour tester vos connaissances.",
+            "en": "Six themes, sixty questions to test your knowledge.",
+            "ar": "ستة محاور وستون سؤالاً لاختبار معلوماتك."
+          }
         }
       ]
     },
@@ -110,6 +123,19 @@
             "fr": "Trois guerres contre Rome, 264–146.",
             "en": "Three wars against Rome, 264–146.",
             "ar": "ثلاث حروب ضد روما، 264–146."
+          }
+        },
+        {
+          "slug": "guerre-des-mercenaires",
+          "label": {
+            "fr": "La guerre des Mercenaires",
+            "en": "The Mercenary War",
+            "ar": "حرب المرتزقة"
+          },
+          "desc": {
+            "fr": "La « guerre inexpiable » de 241–237, qui inspira Salammbô.",
+            "en": "The “truceless war” of 241–237 that inspired Salammbô.",
+            "ar": "«الحرب التي لا هوادة فيها» بين 241 و237، التي ألهمت رواية سالامبو."
           }
         },
         {
@@ -175,6 +201,19 @@
             "fr": "Sites puniques et villes qui portent son nom.",
             "en": "Punic sites and towns bearing its name.",
             "ar": "مواقع بونيقية ومدن تحمل اسمها."
+          }
+        },
+        {
+          "slug": "monde-punique",
+          "label": {
+            "fr": "Le monde punique",
+            "en": "The Punic world",
+            "ar": "العالم البونيقي"
+          },
+          "desc": {
+            "fr": "Sicile, Sardaigne, Ibiza, Malte, Libye : les cités sœurs de Carthage.",
+            "en": "Sicily, Sardinia, Ibiza, Malta, Libya: Carthage's sister cities.",
+            "ar": "صقلية وسردينيا وإيبيزا ومالطا وليبيا: المدن الشقيقة لقرطاج."
           }
         }
       ]
@@ -328,6 +367,32 @@
             "en": "The Phoenician alphabet, Punic and its inscriptions.",
             "ar": "الأبجدية الفينيقية واللغة البونيقية ونقوشها."
           }
+        },
+        {
+          "slug": "vie-quotidienne",
+          "label": {
+            "fr": "La vie quotidienne",
+            "en": "Daily life",
+            "ar": "الحياة اليومية"
+          },
+          "desc": {
+            "fr": "Maison, table, vêtements, noms, fêtes.",
+            "en": "Home, food, clothing, names, festivals.",
+            "ar": "البيت والمائدة واللباس والأسماء والأعياد."
+          }
+        },
+        {
+          "slug": "heritage",
+          "label": {
+            "fr": "L'héritage culturel",
+            "en": "Cultural legacy",
+            "ar": "الإرث الثقافي"
+          },
+          "desc": {
+            "fr": "Carthage dans la littérature, l'opéra, la peinture et le cinéma.",
+            "en": "Carthage in literature, opera, painting and film.",
+            "ar": "قرطاج في الأدب والأوبرا والرسم والسينما."
+          }
         }
       ]
     },
@@ -443,6 +508,32 @@
             "en": "Between Syphax and Masinissa.",
             "ar": "بين سيفاقس وماسينيسا."
           }
+        },
+        {
+          "slug": "massinissa",
+          "label": {
+            "fr": "Massinissa",
+            "en": "Masinissa",
+            "ar": "ماسينيسا"
+          },
+          "desc": {
+            "fr": "Le roi numide, allié puis fossoyeur de Carthage.",
+            "en": "The Numidian king, Carthage's ally then gravedigger.",
+            "ar": "الملك النوميدي، حليف قرطاج ثم حفّار قبرها."
+          }
+        },
+        {
+          "slug": "hannon-le-grand",
+          "label": {
+            "fr": "Hannon le Grand",
+            "en": "Hanno the Great",
+            "ar": "حنون الكبير"
+          },
+          "desc": {
+            "fr": "Le chef du parti opposé aux Barcides.",
+            "en": "Leader of the party opposed to the Barcids.",
+            "ar": "زعيم الحزب المعارض للبرقيين."
+          }
         }
       ]
     },
@@ -479,6 +570,19 @@
             "fr": "Auteurs antiques et ouvrages de référence.",
             "en": "Ancient authors and reference works.",
             "ar": "المؤلفون القدامى والمراجع الأساسية."
+          }
+        },
+        {
+          "slug": "glossaire",
+          "label": {
+            "fr": "Glossaire",
+            "en": "Glossary",
+            "ar": "المعجم"
+          },
+          "desc": {
+            "fr": "Les mots du monde punique, de suffète à tophet.",
+            "en": "The words of the Punic world, from suffete to tophet.",
+            "ar": "مفردات العالم البونيقي، من الشفط إلى التوفت."
           }
         },
         {

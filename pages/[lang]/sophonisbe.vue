@@ -129,10 +129,10 @@
     <!-- Sources -->
     <section class="sec">
       <div class="tile tile--xl">
-        <span class="kicker">{{ c.sources.kicker }}</span>
-        <h2 class="h-block block-h">{{ c.sources.title }}</h2>
+        <span class="kicker">{{ c.sourcesNote.kicker }}</span>
+        <h2 class="h-block block-h">{{ c.sourcesNote.title }}</h2>
         <div class="rows" style="--row-key:240px">
-          <div v-for="s in c.sources.items" :key="s.key">
+          <div v-for="s in c.sourcesNote.items" :key="s.key">
             <span class="key src-key">{{ s.key }}</span>
             <span class="val">{{ s.text }}</span>
           </div>
@@ -154,6 +154,8 @@
         </div>
       </div>
     </section>
+
+    <PageSources :items="c.sources" />
 
     <!-- À lire aussi -->
     <section class="sec sec--wide">
@@ -255,7 +257,7 @@ const C = {
         { tone: 'tile--gold', kicker: 'Dignité punique', title: 'Un refus', text: "Elle choisit la coupe de poison plutôt que les chaînes d'un triomphe romain, préservant l'honneur de Carthage jusqu'à son dernier souffle — un geste que la littérature européenne n'a cessé de rejouer." }
       ]
     },
-    sources: {
+    sourcesNote: {
       kicker: 'Sources et archives',
       title: "D'où vient ce que l'on sait",
       items: [
@@ -279,6 +281,14 @@ const C = {
         { key: 'Peinture', text: 'Mattia Preti, Giambattista Pittoni et bien d’autres peignent « la mort de Sophonisbe ».' }
       ]
     },
+    sources: [
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', ref: 'XXVIII–XXX ; XXX, 12–15', note: 'récit principal, dernières paroles de Sophonisbe' },
+      { type: 'ancient', author: "Appien d'Alexandrie", work: 'Libyca', note: 'Sophonisbe promise à Masinissa ; chute de Cirta' },
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', note: 'contexte des alliances numides' },
+      { type: 'ancient', author: 'Diodore de Sicile', work: 'Bibliothèque historique', note: 'bref récit parallèle, en fragments' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: 'Fayard, 1992', note: 'ouvrage de référence de la bibliographie du site' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: 'Éditions du Rocher, 2003', note: 'ouvrage de référence de la bibliographie du site' }
+    ],
     more: {
       title: 'À lire aussi',
       items: [
@@ -365,7 +375,7 @@ const C = {
         { tone: 'tile--gold', kicker: 'Punic dignity', title: 'A refusal', text: 'She chose the cup of poison over the chains of a Roman triumph, preserving the honour of Carthage to her last breath — a gesture European literature has never stopped re-enacting.' }
       ]
     },
-    sources: {
+    sourcesNote: {
       kicker: 'Sources and archives',
       title: 'Where our knowledge comes from',
       items: [
@@ -389,6 +399,14 @@ const C = {
         { key: 'Painting', text: 'Mattia Preti, Giambattista Pittoni and many others painted "the death of Sophonisba".' }
       ]
     },
+    sources: [
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', ref: 'XXVIII–XXX; XXX, 12–15', note: 'main account, with Sophonisba’s last words' },
+      { type: 'ancient', author: 'Appian of Alexandria', work: 'Libyca', note: 'Sophonisba first promised to Masinissa; the fall of Cirta' },
+      { type: 'ancient', author: 'Polybius', work: 'Histories', note: 'context of the Numidian alliances' },
+      { type: 'ancient', author: 'Diodorus Siculus', work: 'Library of History', note: 'brief parallel account, in fragments' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: 'Fayard, 1992', note: 'standard work from the site bibliography' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: 'Éditions du Rocher, 2003', note: 'standard work from the site bibliography' }
+    ],
     more: {
       title: 'Read also',
       items: [
@@ -407,7 +425,7 @@ const C = {
       chip: 'قرطاج · نوميديا',
       dates: '؟ – 203 ق.م',
       title: 'صوفونيسبا',
-      lede: 'ابنة حسدربعل بن جسكون، ملكة نوميديا مرتين في سنوات قليلة: كانت حياتها رهان الدبلوماسية البونية في الحرب البونيقية الثانية — وكان موتها رفضًا.',
+      lede: 'ابنة حسدربعل بن جسكون، ملكة نوميديا مرتين في سنوات قليلة: كانت حياتها رهان الدبلوماسية البونيقية في الحرب البونيقية الثانية — وكان موتها رفضًا.',
       alt: 'موت صوفونيسبا، لوحة ماتيا بريتي',
       caption: 'ماتيا بريتي، موت صوفونيسبا'
     },
@@ -421,19 +439,19 @@ const C = {
       kicker: 'مهندسة التحالفات',
       title: 'ورقة استراتيجية',
       paras: [
-        'ابنة القائد حسدربعل بن جسكون الذي قاد الجيوش البونية في إيبيريا، تنتمي صوفونيسبا إلى إحدى كبرى عائلات قرطاج. كانت متعلمة ومشهورة بجمالها، ولم تكن مجرد أميرة: كانت ورقة استراتيجية.',
+        'ابنة القائد حسدربعل بن جسكون الذي قاد الجيوش البونيقية في إيبيريا، تنتمي صوفونيسبا إلى إحدى كبرى عائلات قرطاج. كانت متعلمة ومشهورة بجمالها، ولم تكن مجرد أميرة: كانت ورقة استراتيجية.',
         'لم يكن زواجها من سيفاكس، ملك الماسيسيليين، شأنًا عاطفيًا بل ضربة بارعة: فقد جلب إلى صف قرطاج أقوى ملوك نوميديا وفرسانه، في الوقت الذي كانت فيه روما تستعد لغزو إفريقيا.'
       ],
       tags: ['النسب: بيت حسدربعل بن جسكون', 'المكانة: ملكة نوميديا'],
-      nameKicker: 'اسمها البوني',
+      nameKicker: 'اسمها البونيقي',
       name: 'Ṣapanbaʿal',
-      nameText: '«صوفونيسبا» هي الصيغة الإغريقية واللاتينية لاسم بوني، لعله «صفنبعل» أي «بعل حمى».'
+      nameText: '«صوفونيسبا» هي الصيغة الإغريقية واللاتينية لاسم بونيقي، لعله «صفنبعل» أي «بعل حمى».'
     },
     life: {
       kicker: 'التسلسل الزمني',
       title: 'حياة في قلب الحرب',
       rows: [
-        { key: 'أواخر القرن 3', title: 'المولد في قرطاج', text: 'ابنة حسدربعل بن جسكون. وحسب أبيان، كانت مخطوبة أولًا لماسينيسا، الأمير النوميدي الذي نشأ في قرطاج.' },
+        { key: 'أواخر القرن 3', title: 'المولد في قرطاج', text: 'ابنة حسدربعل بن جسكون. وحسب أبيانوس، كانت مخطوبة أولًا لماسينيسا، الأمير النوميدي الذي نشأ في قرطاج.' },
         { key: '206 ق.م', title: 'المحور النوميدي', text: 'بعد هزيمته في إيليبا، يغادر حسدربعل إيبيريا. ويستقبله سيفاكس في سيغا مع سكيبيو في اليوم نفسه: كلاهما يريد التحالف النوميدي.' },
         { key: 'نحو 205', title: 'ملكة الماسيسيليين', text: 'يزوّج حسدربعل ابنته لسيفاكس، فيقطع هذا علاقته بروما. أما ماسينيسا، المُقصى والمطرود من مملكته، فينضم إلى سكيبيو.' },
         { key: '204', title: 'روما في إفريقيا', text: 'ينزل سكيبيو قرب أوتيكا.' },
@@ -472,23 +490,23 @@ const C = {
       aside: 'لا نعرف صوفونيسبا إلا من خلال أعدائها.',
       items: [
         { tone: 'tile--purple', kicker: 'الورقة السياسية', title: '«مُغوية»؟', text: 'يُنطق ليفيوس سيفاكس الأسير بأنها كانت «لعنته» التي انتزعته من صداقة روما. وتصويرها مغويةً كان يفسّر تقلّب ولاءات النوميديين. أما نحن فنقرأ فيها دبلوماسية واعية أدركت أن انتصار روما يعني خراب قرطاج.' },
-        { tone: 'tile--gold', kicker: 'الكرامة البونية', title: 'رفض', text: 'اختارت كأس السم على قيود موكب النصر الروماني، محافظةً على شرف قرطاج حتى نفَسها الأخير — وهي لفتة لم يكفّ الأدب الأوروبي عن استعادتها.' }
+        { tone: 'tile--gold', kicker: 'الكرامة البونيقية', title: 'رفض', text: 'اختارت كأس السم على قيود موكب النصر الروماني، محافظةً على شرف قرطاج حتى نفَسها الأخير — وهي لفتة لم يكفّ الأدب الأوروبي عن استعادتها.' }
       ]
     },
-    sources: {
+    sourcesNote: {
       kicker: 'المصادر والأرشيف',
       title: 'من أين نعرف ما نعرف',
       items: [
         { key: 'ليفيوس، الكتب 28–30', text: 'تاريخ روما: الرواية الرئيسية لحياتها وموتها، مع كلماتها الأخيرة (30، 12–15).' },
-        { key: 'أبيان، ليبيكا', text: 'منظور مختلف: صوفونيسبا مخطوبة أولًا لماسينيسا، والأحداث المحيطة بسقوط سيرتا.' },
+        { key: 'أبيانوس، ليبيكا', text: 'منظور مختلف: صوفونيسبا مخطوبة أولًا لماسينيسا، والأحداث المحيطة بسقوط سيرتا.' },
         { key: 'بوليبيوس، التواريخ', text: 'السياق الجيوسياسي للتحالفات النوميدية خلال الحرب البونيقية الثانية.' },
-        { key: 'ديودور الصقلي', text: 'رواية موازية موجزة، وصلت في شذرات.' }
+        { key: 'ديودوروس الصقلي', text: 'رواية موازية موجزة، وصلت في شذرات.' }
       ]
     },
     legacy: {
       kicker: 'الإرث',
       title: 'بطلة تراجيدية',
-      intro: 'رمز المقاومة البونية، يجسّد اختيارها الأخير الكرامة في وجه الهيمنة. ومنذ عصر النهضة صار موتها من كبرى موضوعات التراجيديا والأوبرا والرسم.',
+      intro: 'رمز المقاومة البونيقية، يجسّد اختيارها الأخير الكرامة في وجه الهيمنة. ومنذ عصر النهضة صار موتها من كبرى موضوعات التراجيديا والأوبرا والرسم.',
       items: [
         { key: 'تريسينو، 1515', text: '«صوفونيسبا»، من أولى التراجيديات «النظامية» باللغة الإيطالية.' },
         { key: 'ميريه، 1634', text: '«صوفونيسبا»، علامة في التراجيديا الكلاسيكية الفرنسية.' },
@@ -499,12 +517,20 @@ const C = {
         { key: 'الرسم', text: 'رسم ماتيا بريتي وجامباتيستا بيتوني وكثيرون غيرهما «موت صوفونيسبا».' }
       ]
     },
+    sources: [
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: '«تاريخ روما»', ref: '28–30؛ 30، 12–15', note: 'الرواية الرئيسية، مع كلمات صوفونيسبا الأخيرة' },
+      { type: 'ancient', author: 'أبيانوس السكندري', work: '«ليبيكا»', note: 'صوفونيسبا مخطوبة أولًا لماسينيسا؛ سقوط سيرتا' },
+      { type: 'ancient', author: 'بوليبيوس', work: '«التواريخ»', note: 'سياق التحالفات النوميدية' },
+      { type: 'ancient', author: 'ديودوروس الصقلي', work: '«المكتبة التاريخية»', note: 'رواية موازية موجزة، في شذرات' },
+      { type: 'modern', author: 'سيرج لانسل', work: 'Carthage', ref: 'Fayard, 1992', note: 'مرجع أساسي من قائمة مراجع الموقع' },
+      { type: 'modern', author: 'يان لو بوهيك', work: 'Histoire militaire des guerres puniques', ref: 'Éditions du Rocher, 2003', note: 'مرجع أساسي من قائمة مراجع الموقع' }
+    ],
     more: {
       title: 'اقرأ أيضًا',
       items: [
         { to: '/hannibal', img: '/img/hannibal-bust.jpg', alt: 'تمثال نصفي لحنبعل', kicker: '247–183 ق.م', title: 'حنبعل', text: 'استُدعي من إيطاليا فواجه سكيبيو وماسينيسا في زاما.' },
         { to: '/guerres-puniques', img: '/img/scipio.jpg', alt: 'سكيبيو الإفريقي', kicker: '264–146 ق.م', title: 'الحروب البونيقية', text: 'ثلاث حروب و118 عامًا: روما ضد قرطاج.' },
-        { to: '/biographies', img: '/img/hamilcar.jpg', alt: 'حملقار برقة', kicker: 'الشخصيات', title: 'كل السير', text: 'آل برقة والقادة والملاحون والملكات.' }
+        { to: '/biographies', img: '/img/hamilcar.jpg', alt: 'حملقار برقة', kicker: 'الشخصيات', title: 'كل السير', text: 'آل برقا والقادة والملاحون والملكات.' }
       ]
     }
   }

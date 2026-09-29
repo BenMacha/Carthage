@@ -256,6 +256,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec">
       <h2 class="h-block related-title">{{ c.relatedTitle }}</h2>
@@ -597,6 +599,13 @@ const C = {
         { k: 'Rome → Londres', t: 'La leçon inverse', p: 'Pour contrer Hannibal, Fabius évita la bataille. Sa « stratégie fabienne » a même donné son nom à la Fabian Society britannique.' }
       ]
     },
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'III', note: 'la Trébie, Trasimène, Cannes' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', ref: 'XXI–XXIII', note: 'Trasimène, Cannes, les anneaux des chevaliers' },
+      { type: 'modern', author: 'Alfred von Schlieffen', work: 'Cannae', ref: '1909–1913', note: 'études citées dans la page' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'lecture complémentaire (bibliographie du site)' },
+      { type: 'modern', author: 'Michel Fauquier', work: 'Rome et Carthage', ref: '2020', note: 'lecture complémentaire (bibliographie du site)' }
+    ],
     relatedTitle: 'À lire aussi',
     links: [
       { to: '/hannibal', kick: 'Biographie', title: 'Hannibal Barca', text: 'De Carthagène à Zama, la vie du stratège qui fit trembler Rome.', cls: 'tile--purple' },
@@ -714,6 +723,13 @@ const C = {
         { k: 'Rome → London', t: 'The opposite lesson', p: 'To counter Hannibal, Fabius avoided battle. His "Fabian strategy" even gave its name to Britain’s Fabian Society.' }
       ]
     },
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: 'book 3', note: 'the Trebia, Trasimene, Cannae' },
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', ref: 'books 21–23', note: 'Trasimene, Cannae, the knights’ rings' },
+      { type: 'modern', author: 'Alfred von Schlieffen', work: 'Cannae', ref: '1909–1913', note: 'studies mentioned on this page' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'further reading (site bibliography)' },
+      { type: 'modern', author: 'Michel Fauquier', work: 'Rome et Carthage', ref: '2020', note: 'further reading (site bibliography)' }
+    ],
     relatedTitle: 'Read also',
     links: [
       { to: '/hannibal', kick: 'Biography', title: 'Hannibal Barca', text: 'From Carthago Nova to Zama, the life of the strategist who made Rome tremble.', cls: 'tile--purple' },
@@ -831,6 +847,13 @@ const C = {
         { k: 'روما ← لندن', t: 'الدرس المعاكس', p: 'لمواجهة حنبعل تجنّب فابيوس القتال. وقد أعطت «الاستراتيجية الفابية» اسمها لجمعية فابيان البريطانية.' }
       ]
     },
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', ref: 'الكتاب 3', note: 'تريبيا وتراسيمينوس وكاناي' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: 'تاريخ روما', ref: 'الكتب 21–23', note: 'تراسيمينوس وكاناي وخواتم الفرسان' },
+      { type: 'modern', author: 'ألفريد فون شليفن', work: 'Cannae', ref: '1909–1913', note: 'دراسات مذكورة في الصفحة' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'قراءة إضافية (قائمة مراجع الموقع)' },
+      { type: 'modern', author: 'Michel Fauquier', work: 'Rome et Carthage', ref: '2020', note: 'قراءة إضافية (قائمة مراجع الموقع)' }
+    ],
     relatedTitle: 'اقرأ أيضًا',
     links: [
       { to: '/hannibal', kick: 'سيرة', title: 'حنبعل برقا', text: 'من قرطاجنة إلى زاما، حياة القائد الذي أرعب روما.', cls: 'tile--purple' },

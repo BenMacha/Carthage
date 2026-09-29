@@ -318,6 +318,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec sec--wide">
       <h2 class="h-section sec-title">{{ c.more.title }}</h2>
@@ -538,6 +540,14 @@ const C = {
       ]
     },
     nav: { prev: '← Précédent', next: 'Suivant →', nextName: 'Hasdrubal Barca' },
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'III, 11 ; XI, 19', note: 'départ de 218, Cannes, Zama' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', ref: 'XXI, 1 ; XXI, 4 ; XXII, 51 ; XXVI, 2–3 ; XXXIX, 51' },
+      { type: 'ancient', author: 'Cornélius Népos', work: 'Vie d’Hannibal', note: 'les jarres de serpents contre la flotte de Pergame' },
+      { type: 'ancient', author: 'Silénos de Calé Acté', note: 'œuvre perdue, citée dans la page' },
+      { type: 'ancient', author: 'Sosylos de Sparte', note: 'œuvre perdue, citée dans la page' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'lecture complémentaire (bibliographie du site)' }
+    ],
     more: {
       title: 'À lire aussi',
       go: 'Lire →',
@@ -747,6 +757,14 @@ const C = {
       ]
     },
     nav: { prev: '← Previous', next: 'Next →', nextName: 'Hasdrubal Barca' },
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: '3.11; 11.19', note: 'march of 218, Cannae, Zama' },
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', ref: '21.1; 21.4; 22.51; 26.2–3; 39.51' },
+      { type: 'ancient', author: 'Cornelius Nepos', work: 'Life of Hannibal', note: 'the jars of snakes against the fleet of Pergamon' },
+      { type: 'ancient', author: 'Silenus of Kale Akte', note: 'lost work, mentioned on this page' },
+      { type: 'ancient', author: 'Sosylus of Sparta', note: 'lost work, mentioned on this page' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'further reading (site bibliography)' }
+    ],
     more: {
       title: 'Read also',
       go: 'Read →',
@@ -814,7 +832,7 @@ const C = {
       title: 'ما لا ترويه روما',
       paras: [
         'تأتينا الروايات من بوليبيوس، صديق آل سكيبيو، ومن تيتوس ليفيوس الذي كتب في عهد أغسطس. كلاهما يُعجب بحنبعل، لكن روما تبقى البطلة: حنبعل «قاسٍ» و«غادر» — وهي تهم كان أعداؤه يلصقونها بكل القرطاجيين.',
-        'ستة عشر عامًا في إيطاليا بتعزيزات قليلة: كان حزب حنّون الكبير في قرطاج معارضًا للحرب، وذهب معظم الجنود المرسلين إلى إسبانيا. فكان على حنبعل أن يُطعم جيشه ويدفع أجوره من الميدان.'
+        'ستة عشر عامًا في إيطاليا بتعزيزات قليلة: كان حزب حنون الكبير في قرطاج معارضًا للحرب، وذهب معظم الجنود المرسلين إلى إسبانيا. فكان على حنبعل أن يُطعم جيشه ويدفع أجوره من الميدان.'
       ],
       mythLabel: 'أسطورة الهزيمة',
       mythText: 'لم يخسر حنبعل أي معركة نظامية في إيطاليا. لم تهزمه روما إلا بتجنّب قتاله، ثم بنقل الحرب إلى إسبانيا وإفريقيا.',
@@ -956,6 +974,14 @@ const C = {
       ]
     },
     nav: { prev: '→ السابق', next: 'التالي ←', nextName: 'صدربعل برقا' },
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', ref: '3، 11؛ 11، 19', note: 'مسيرة 218 وكاناي وزاما' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: 'تاريخ روما', ref: '21، 1؛ 21، 4؛ 22، 51؛ 26، 2–3؛ 39، 51' },
+      { type: 'ancient', author: 'كورنيليوس نيبوس', work: 'سيرة حنبعل', note: 'جرار الأفاعي في مواجهة أسطول برغامون' },
+      { type: 'ancient', author: 'سيلينوس من كالي أكتي', note: 'مؤلَّف مفقود، مذكور في الصفحة' },
+      { type: 'ancient', author: 'سوسيلوس الإسبرطي', note: 'مؤلَّف مفقود، مذكور في الصفحة' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'قراءة إضافية (قائمة مراجع الموقع)' }
+    ],
     more: {
       title: 'اقرأ أيضًا',
       go: 'اقرأ ←',

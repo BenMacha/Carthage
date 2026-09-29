@@ -12,7 +12,7 @@ export const ar = {
     economy: "الاقتصاد",
     africa: "أفريقيا واسمها",
     founding: "التأسيس (814 ق.م)",
-    punicWars: "الحروب البونية",
+    punicWars: "الحروب البونيقية",
     hannibal: "حنبعل برقا",
     fall: "سقوط قرطاج",
     copyright: "مشروع تعليمي — قرطاج وحنبعل برقا"

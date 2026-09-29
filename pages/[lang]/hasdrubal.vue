@@ -132,6 +132,8 @@
       </section>
     </div>
 
+    <PageSources :items="c.sources" />
+
     <!-- La famille / liens -->
     <section class="sec sec--wide">
       <div class="sec-head">
@@ -314,6 +316,14 @@ const C = {
         d: "Le Métaure est le tournant de la deuxième guerre punique : Hannibal, privé de renforts, se replie dans le Bruttium ; l'Hispanie tombera aux mains de Scipion l'année suivante. Hasdrubal Barca reste le frère sacrifié, celui dont la mort ferma la route de Rome."
       }
     },
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', ref: 'II, 13 ; III, 33 ; XI, 2', note: 'traité de l’Èbre, armée d’Hispanie en 218, le Métaure' },
+      { type: 'ancient', author: 'Tite-Live', work: 'Histoire romaine', ref: 'XXI, 2 ; XXVI, 17 ; XXVII, 51', note: 'Hasdrubal le Beau, la ruse de 211, le Métaure' },
+      { type: 'ancient', author: 'Diodore de Sicile', work: 'Bibliothèque historique', note: 'mariage ibère d’Hasdrubal le Beau' },
+      { type: 'ancient', author: 'Horace', work: 'Odes', ref: 'IV, 4', note: 'la plainte d’Hannibal' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'ouvrage de référence (bibliographie du site)' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: '1992', note: 'ouvrage de référence (bibliographie du site)' }
+    ],
     family: {
       title: 'La famille Barca',
       all: 'Tous les personnages',
@@ -458,6 +468,14 @@ const C = {
         d: "The Metaurus is the turning point of the Second Punic War: Hannibal, deprived of reinforcements, falls back on Bruttium; Hispania falls to Scipio the following year. Hasdrubal Barca remains the sacrificed brother, whose death closed the road to Rome."
       }
     },
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', ref: 'II, 13; III, 33; XI, 2', note: 'Ebro treaty, the army of Hispania in 218, the Metaurus' },
+      { type: 'ancient', author: 'Livy', work: 'History of Rome', ref: 'XXI, 2; XXVI, 17; XXVII, 51', note: 'Hasdrubal the Fair, the ruse of 211, the Metaurus' },
+      { type: 'ancient', author: 'Diodorus Siculus', work: 'Library of History', note: 'Hasdrubal the Fair’s Iberian marriage' },
+      { type: 'ancient', author: 'Horace', work: 'Odes', ref: 'IV, 4', note: 'Hannibal’s lament' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'reference work (site bibliography)' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: '1992', note: 'reference work (site bibliography)' }
+    ],
     family: {
       title: 'The Barca family',
       all: 'All people',
@@ -480,7 +498,7 @@ const C = {
     title: 'صدربعل',
     lede: 'حمل هذا الاسم، ومعناه بالبونيقية «بعل عوني»، اثنان من آل برقا. بنى صهر حملقار هسبانيا البونيقية، وحاول ابنه اللحاق بحنبعل في إيطاليا. مصيران وميتتان عنيفتان.',
     heroAlt: 'ربع شيقل برقي سُكّ في هسبانيا',
-    heroCap: 'نقد برقي من هسبانيا: رأس مكلّل (ملقارت أم أحد آل برقا؟) وفيل',
+    heroCap: 'نقد برقي من هسبانيا: رأس مكلّل (ملقرت أم أحد آل برقا؟) وفيل',
     who: {
       beau: { k: 'صهر حملقار · † 221', name: 'صدربعل الجميل', tab: 'صدربعل الجميل', d: 'خليفة حملقار في هسبانيا (229/228–221)، مؤسس قرطاجنة وموقّع معاهدة إيبرو، اغتيل سنة 221.', switchTo: 'اقرأ سيرة صدربعل برقا' },
       barca: { k: 'ابن حملقار · نحو 245 – 207', name: 'صدربعل برقا', tab: 'صدربعل برقا', d: 'الأخ الأصغر لحنبعل: صمد في هسبانيا عشر سنوات، ثم عبر الألب بدوره وسقط عند الميتاورو سنة 207.', switchTo: 'اقرأ سيرة صدربعل الجميل' }
@@ -516,7 +534,7 @@ const C = {
       themesTitle: 'حكم هسبانيا',
       themes: [
         { tone: 'tile--paper', k: 'الدبلوماسية', t: 'سياسة التحالفات', p: [
-          'يقول تيتوس ليفيوس إن صدربعل وسّع سلطان قرطاج «بضيافة الملوك وصداقة الزعماء أكثر مما وسّعه بالحرب». ويروي ديودور أنه تزوج ابنة ملك إيبيري وأن الشعوب الإيبيرية نادت به قائدًا أعلى.',
+          'يقول تيتوس ليفيوس إن صدربعل وسّع سلطان قرطاج «بضيافة الملوك وصداقة الزعماء أكثر مما وسّعه بالحرب». ويروي ديودوروس أنه تزوج ابنة ملك إيبيري وأن الشعوب الإيبيرية نادت به قائدًا أعلى.',
           'رسّخت هذه الطريقة فتوحات حملقار: شبكات الموالين والرهائن والحاميات والجزية جعلت جنوب شبه الجزيرة دولة برقية حقيقية.'
         ] },
         { tone: '', k: 'العاصمة', t: 'قرت حدشت، «المدينة الجديدة»', p: [
@@ -602,6 +620,14 @@ const C = {
         d: 'كانت الميتاورو منعطف الحرب البونيقية الثانية: تراجع حنبعل، المحروم من الإمدادات، إلى بروتيوم، وسقطت هسبانيا في يد سكيبيو في السنة التالية. ويبقى صدربعل برقا الأخ المضحّى به، الذي أغلق موته طريق روما.'
       }
     },
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: '«التواريخ»', ref: '2، 13 ؛ 3، 33 ؛ 11، 2', note: 'معاهدة إيبرو وجيش هسبانيا سنة 218 والميتاورو' },
+      { type: 'ancient', author: 'تيتوس ليفيوس', work: '«تاريخ روما»', ref: '21، 2 ؛ 26، 17 ؛ 27، 51', note: 'صدربعل الجميل وحيلة 211 والميتاورو' },
+      { type: 'ancient', author: 'ديودوروس الصقلي', work: '«المكتبة التاريخية»', note: 'زواج صدربعل الجميل الإيبيري' },
+      { type: 'ancient', author: 'هوراس', work: '«الأناشيد»', ref: '4، 4', note: 'رثاء حنبعل' },
+      { type: 'modern', author: 'Yann Le Bohec', work: 'Histoire militaire des guerres puniques', ref: '2003', note: 'مرجع عام (قائمة مراجع الموقع)' },
+      { type: 'modern', author: 'Serge Lancel', work: 'Carthage', ref: '1992', note: 'مرجع عام (قائمة مراجع الموقع)' }
+    ],
     family: {
       title: 'أسرة برقا',
       all: 'كل الشخصيات',

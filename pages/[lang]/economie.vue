@@ -330,6 +330,8 @@
       </div>
     </section>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec sec--wide">
       <h2 class="h-section sec-title">{{ c.more.title }}</h2>
@@ -529,6 +531,20 @@ const C = {
       ]
     },
     go: 'Lire →',
+    sources: [
+      { type: "ancient", author: "Hérodote", work: "Histoires", ref: "I, 166 ; IV, 196" },
+      { type: "ancient", author: "Polybe", work: "Histoires", ref: "I, 72 ; III, 22–24" },
+      { type: "ancient", author: "Strabon", work: "Géographie", ref: "XVII, 3, 15" },
+      { type: "ancient", author: "Pline l'Ancien", work: "Histoire naturelle", ref: "VII ; XXXIII, 97" },
+      { type: "ancient", author: "Appien", work: "Libyca (Le Livre africain)", ref: "96" },
+      { type: "ancient", author: "Columelle", work: "De l'agriculture (De re rustica)", ref: "XII, 39", note: "recette du passum, d’après Magon" },
+      { type: "ancient", author: "Varron", work: "Économie rurale", note: "cite le traité de Magon" },
+      { type: "ancient", author: "Anonyme", work: "Périple d'Hannon" },
+      { type: "modern", author: "François Decret", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "Véronique Krings (dir.)", work: "La civilisation phénicienne et punique", ref: "Brill, 1995" },
+      { type: "modern", author: "Edward Lipinski (dir.)", work: "Dictionnaire de la civilisation phénicienne et punique", ref: "Brepols, 1992" },
+      { type: "modern", author: "Wikipédia", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0, contenus reformulés" }
+    ],
     more: {
       title: 'À lire aussi',
       items: [
@@ -713,6 +729,20 @@ const C = {
       ]
     },
     go: 'Read →',
+    sources: [
+      { type: "ancient", author: "Herodotus", work: "Histories", ref: "I, 166; IV, 196" },
+      { type: "ancient", author: "Polybius", work: "Histories", ref: "I, 72; III, 22–24" },
+      { type: "ancient", author: "Strabo", work: "Geography", ref: "XVII, 3, 15" },
+      { type: "ancient", author: "Pliny the Elder", work: "Natural History", ref: "VII; XXXIII, 97" },
+      { type: "ancient", author: "Appian", work: "Libyca (The African Book)", ref: "96" },
+      { type: "ancient", author: "Columella", work: "On Agriculture (De re rustica)", ref: "XII, 39", note: "recipe for passum, after Mago" },
+      { type: "ancient", author: "Varro", work: "On Agriculture", note: "cites Mago's treatise" },
+      { type: "ancient", author: "Anonymous", work: "Periplus of Hanno" },
+      { type: "modern", author: "François Decret", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "Véronique Krings (ed.)", work: "La civilisation phénicienne et punique", ref: "Brill, 1995" },
+      { type: "modern", author: "Edward Lipinski (ed.)", work: "Dictionnaire de la civilisation phénicienne et punique", ref: "Brepols, 1992" },
+      { type: "modern", author: "Wikipedia (French)", work: "Carthage; Civilisation carthaginoise", note: "CC BY-SA 4.0, content rephrased" }
+    ],
     more: {
       title: 'Read also',
       items: [
@@ -737,7 +767,7 @@ const C = {
     stats: [
       { n: '700000', t: 'نسمة حسب سترابون — ويقدّر المؤرخون المعاصرون العدد بين 200 ألف و400 ألف' },
       { n: '300', t: 'رطل فضة (≈ 100 كغ) يوميًا: بئر بايبيلو لحساب حنبعل (بلينيوس)' },
-      { n: '220', t: 'حوضًا للسفن الحربية في الميناء الدائري (أبيان)' },
+      { n: '220', t: 'حوضًا للسفن الحربية في الميناء الدائري (أبيانوس)' },
       { n: '28', t: 'كتابًا في موسوعة ماغون الزراعية' }
     ],
     pillars: {
@@ -764,12 +794,12 @@ const C = {
     },
     map: {
       title: 'الرحلات',
-      aside: 'عليسة من صور إلى قرطاج، وحنّون على طول إفريقيا، وحِملكون نحو شمال الأطلسي: تابع الطرق ثم الأراضي.',
+      aside: 'عليسة من صور إلى قرطاج، وحنون على طول إفريقيا، وحملكون نحو شمال الأطلسي: تابع الطرق ثم الأراضي.',
       hannoAlt: 'سفينة بونيقية',
       gadirAlt: 'قادس، جادير القديمة',
       cards: [
-        { k: 'القرن 5 ق.م · الجنوب', t: 'رحلة حنّون', d: 'ستون سفينة على طول الساحل الأطلسي لإفريقيا لتأسيس مراكز تجارية، حسب «الرحلة» المنسوبة إليه.' },
-        { k: 'إسبانيا · الغرب', t: 'جادير، بوابة الأطلسي', d: 'مدينة فينيقية حليفة لقرطاج: منها أبحر حِملكون شمالًا على طريق القصدير.' },
+        { k: 'القرن 5 ق.م · الجنوب', t: 'رحلة حنون', d: 'ستون سفينة على طول الساحل الأطلسي لإفريقيا لتأسيس مراكز تجارية، حسب «الرحلة» المنسوبة إليه.' },
+        { k: 'إسبانيا · الغرب', t: 'جادير، بوابة الأطلسي', d: 'مدينة فينيقية حليفة لقرطاج: منها أبحر حملكون شمالًا على طريق القصدير.' },
         { k: 'هيرودوت، 4، 196', t: 'التجارة الصامتة', d: 'وراء أعمدة هرقل، كان القرطاجيون يضعون بضائعهم على الشاطئ وينسحبون، فيضع السكان الذهب إلى جانبها. وتتكرّر العملية حتى يتّفق الطرفان، دون كلمة واحدة — ودون غشّ، كما يقول هيرودوت.', src: 'المصدر: هيرودوت، التواريخ، 4، 196' }
       ]
     },
@@ -789,7 +819,7 @@ const C = {
         { k: 'التجاري', v: 'حوض مستطيل لسفن التجارة، مفتوح على البحر.' },
         { k: 'الحربي', v: 'وخلفه الكوثون الدائري: 220 حوضًا للسفن الحربية، لا تُرى من عرض البحر.' },
         { k: 'الجزيرة', v: 'في الوسط، مقرّ قائد الأسطول، ومنه تُراقَب البحر.' },
-        { k: 'السلاسل', v: 'مدخل واحد عرضه نحو 21 مترًا (70 قدمًا)، يُغلق بسلاسل من حديد (أبيان).' }
+        { k: 'السلاسل', v: 'مدخل واحد عرضه نحو 21 مترًا (70 قدمًا)، يُغلق بسلاسل من حديد (أبيانوس).' }
       ]
     },
     metals: {
@@ -797,7 +827,7 @@ const C = {
       title: 'معادن الغرب',
       aside: 'لا برونز بلا قصدير، ولا مرتزقة بلا فضة. وكانت قرطاج تمسك بطرق الأول ومناجم الثانية.',
       items: [
-        { n: 'Sn', t: 'القصدير', d: 'ضروري لصنع البرونز، وكان يأتي من شمال غرب أوروبا — «جزر كاسيتيريدس» أو كورنوال أو بريتانيا أو غاليسيا. استكشف حِملكون هذا الطريق الأطلسي، وحرصت قرطاج على كتمان سرّه.' },
+        { n: 'Sn', t: 'القصدير', d: 'ضروري لصنع البرونز، وكان يأتي من شمال غرب أوروبا — «جزر كاسيتيريدس» أو كورنوال أو بريتانيا أو غاليسيا. استكشف حملكون هذا الطريق الأطلسي، وحرصت قرطاج على كتمان سرّه.' },
         { n: 'Ag', t: 'فضة إسبانيا', d: 'بعد سنة 237 استغلّ البرقيون مناجم جنوب إسبانيا. وحسب بلينيوس كانت بئر بايبيلو وحدها تدرّ على حنبعل 300 رطل من الفضة يوميًا. وبعد قرن أحصى بوليبيوس 40 ألف عامل منجم حول قرطاجنة.' },
         { n: 'Au', t: 'الذهب والنحاس', d: 'ذهب إفريقيا عبر التجارة الأطلسية والصحراوية، وذهب إيبيريا ونحاسها: ما يكفي لسكّ النقود ودفع أجور جيوش المرتزقة خلال الحرب ضد روما.' }
       ]
@@ -897,6 +927,20 @@ const C = {
       ]
     },
     go: 'اقرأ ←',
+    sources: [
+      { type: "ancient", author: "هيرودوت", work: "التواريخ", ref: "1، 166؛ 4، 196" },
+      { type: "ancient", author: "بوليبيوس", work: "التواريخ", ref: "1، 72؛ 3، 22–24" },
+      { type: "ancient", author: "سترابون", work: "الجغرافيا", ref: "17، 3، 15" },
+      { type: "ancient", author: "بلينيوس الأكبر", work: "التاريخ الطبيعي", ref: "7؛ 33، 97" },
+      { type: "ancient", author: "أبيانوس", work: "ليبيكا (الكتاب الإفريقي)", ref: "96" },
+      { type: "ancient", author: "كولوميلا", work: "في الفلاحة", ref: "12، 39", note: "وصفة «الباسوم» نقلًا عن ماغون" },
+      { type: "ancient", author: "فارون", work: "في الزراعة", note: "يستشهد بموسوعة ماغون" },
+      { type: "ancient", author: "مجهول المؤلف", work: "رحلة حنون" },
+      { type: "modern", author: "فرانسوا ديكري", work: "Carthage ou l'empire de la mer", ref: "Seuil, 1977" },
+      { type: "modern", author: "فيرونيك كرينغز (إشراف)", work: "La civilisation phénicienne et punique", ref: "Brill, 1995" },
+      { type: "modern", author: "إدوارد ليبينسكي (إشراف)", work: "Dictionnaire de la civilisation phénicienne et punique", ref: "Brepols, 1992" },
+      { type: "modern", author: "ويكيبيديا (بالفرنسية)", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0، محتوى أعيدت صياغته" }
+    ],
     more: {
       title: 'اقرأ أيضًا',
       items: [

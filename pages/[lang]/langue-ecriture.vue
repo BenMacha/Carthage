@@ -251,6 +251,8 @@
       </div>
     </div>
 
+    <PageSources :items="c.sources" />
+
     <!-- À lire aussi -->
     <section class="sec sec--wide">
       <h2 class="h-section related-title">{{ c.relatedTitle }}</h2>
@@ -508,6 +510,20 @@ const C = {
         note: "Les Grecs ont recyclé en voyelles des consonnes qui n'existaient pas dans leur langue : ʾālep devient alpha (A), ʿayin devient omicron (O)."
       }
     },
+    sources: [
+      { type: "ancient", author: "Augustin", work: "Epistolae ad Romanos inchoata expositio", ref: "13" },
+      { type: "ancient", author: "Pline l'Ancien", work: "Histoire naturelle", ref: "XVIII, 22" },
+      { type: "ancient", author: "Salluste", work: "Guerre de Jugurtha", ref: "17" },
+      { type: "ancient", author: "Diogène Laërce", work: "Vies et doctrines des philosophes illustres", note: "philosophes carthaginois (Clitomaque)" },
+      { type: "ancient", author: "Jamblique", work: "Vie de Pythagore", note: "philosophes carthaginois" },
+      { type: "ancient", author: "Anonyme", work: "Périple d'Hannon" },
+      { type: "modern", author: "Académie des inscriptions et belles-lettres", work: "Corpus Inscriptionum Semiticarum", ref: "Paris, depuis 1881" },
+      { type: "modern", author: "Serge Lancel", work: "Carthage", ref: "Fayard, 1992" },
+      { type: "modern", author: "Gabriel Camps", note: "cité dans la page (sens de punicus)" },
+      { type: "modern", author: "Stéphane Gsell", work: "Histoire ancienne de l'Afrique du Nord", ref: "Hachette, 1920" },
+      { type: "modern", author: "M'hamed Hassine Fantar", note: "cité dans la page (survie du punique et arabisation)" },
+      { type: "modern", author: "Wikipédia", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0, contenus reformulés" }
+    ],
     relatedTitle: 'À lire aussi',
     related: [
       { to: '/magon-agronome', kick: 'Littérature', title: "Magon l'Agronome", text: 'Le seul livre punique que Rome fit traduire.', cls: 'tile--olive' },
@@ -639,6 +655,20 @@ const C = {
         note: 'The Greeks recycled as vowels some consonants that did not exist in their language: ʾālep became alpha (A), ʿayin became omicron (O).'
       }
     },
+    sources: [
+      { type: "ancient", author: "Augustine", work: "Epistolae ad Romanos inchoata expositio", ref: "13" },
+      { type: "ancient", author: "Pliny the Elder", work: "Natural History", ref: "XVIII, 22" },
+      { type: "ancient", author: "Sallust", work: "The Jugurthine War", ref: "17" },
+      { type: "ancient", author: "Diogenes Laërtius", work: "Lives of Eminent Philosophers", note: "Carthaginian philosophers (Clitomachus)" },
+      { type: "ancient", author: "Iamblichus", work: "Life of Pythagoras", note: "Carthaginian philosophers" },
+      { type: "ancient", author: "Anonymous", work: "Periplus of Hanno" },
+      { type: "modern", author: "Académie des inscriptions et belles-lettres", work: "Corpus Inscriptionum Semiticarum", ref: "Paris, from 1881" },
+      { type: "modern", author: "Serge Lancel", work: "Carthage", ref: "Fayard, 1992" },
+      { type: "modern", author: "Gabriel Camps", note: "cited on this page (meaning of punicus)" },
+      { type: "modern", author: "Stéphane Gsell", work: "Histoire ancienne de l'Afrique du Nord", ref: "Hachette, 1920" },
+      { type: "modern", author: "M'hamed Hassine Fantar", note: "cited on this page (survival of Punic and Arabisation)" },
+      { type: "modern", author: "Wikipedia (French)", work: "Carthage; Civilisation carthaginoise", note: "CC BY-SA 4.0, content rephrased" }
+    ],
     relatedTitle: 'Read also',
     related: [
       { to: '/magon-agronome', kick: 'Literature', title: 'Mago the Agronomist', text: 'The only Punic book Rome had translated.', cls: 'tile--olive' },
@@ -649,22 +679,22 @@ const C = {
 
   ar: {
     meta: {
-      title: 'اللغة والكتابة البونية — الأبجدية الفينيقية والنقوش والكتب الضائعة',
-      desc: 'الأبجدية الفينيقية ذات الاثنين والعشرين حرفًا، من البونية إلى البونية الجديدة، والنقوش (التوفيت، تعرفة مرسيليا، بيرجي، دقة)، وأدب قرطاج الضائع وإرثه. اكتب اسمك بالفينيقية.'
+      title: 'اللغة والكتابة البونيقية — الأبجدية الفينيقية والنقوش والكتب الضائعة',
+      desc: 'الأبجدية الفينيقية ذات الاثنين والعشرين حرفًا، من البونيقية إلى البونيقية الجديدة، والنقوش (التوفيت، تعرفة مرسيليا، بيرجي، دقة)، وأدب قرطاج الضائع وإرثه. اكتب اسمك بالفينيقية.'
     },
     hero: {
       chip: 'قرطاج · اللغة والكتابة',
-      title: 'اللغة والكتابة البونية',
+      title: 'اللغة والكتابة البونيقية',
       lede: 'اثنان وعشرون حرفًا صامتًا تُكتب من اليمين إلى اليسار: حملت الأبجدية القادمة من فينيقيا لغة قرطاج قرونًا طويلة — وهي أصل أبجديات كثيرة.',
       tags: ['لغة سامية', 'تُكتب من اليمين إلى اليسار', '22 حرفًا'],
-      wordKicker: 'قرطاج بالبونية',
+      wordKicker: 'قرطاج بالبونيقية',
       wordText: '«قرت حدشت»، أي «المدينة الجديدة»: اسم قرطاج كما كتبه أهلها، بلا حروف علّة.'
     },
     stats: [
       { n: '22', t: 'حرفًا، كلها صوامت: الأبجدية الفينيقية' },
       { n: '0', t: 'حركة مكتوبة في الخط الفينيقي الكلاسيكي' },
       { n: '~800', t: 'ق.م: نُصُب نورا، القرن 9–8 (سردينيا)، من أقدم النقوش الفينيقية في الغرب' },
-      { n: '~400', t: 'م: القديس أوغسطين يسمع البونية في الأرياف' }
+      { n: '~400', t: 'م: القديس أوغسطين يسمع البونيقية في الأرياف' }
     ],
     abc: {
       kicker: 'الحروف الاثنان والعشرون',
@@ -682,9 +712,9 @@ const C = {
       title: 'اكتب اسمك بالفينيقية',
       lede: 'اكتب اسمًا (بحروف لاتينية أو عربية): يُستبدل كل صوت بأقرب حرف فينيقي إليه.',
       label: 'اسمك',
-      placeholder: 'مثال: عليسة، ياسمين، حنّون',
+      placeholder: 'مثال: عليسة، ياسمين، حنون',
       modeLabel: 'طريقة النقل',
-      withV: 'مع حروف العلّة (على الطريقة البونية الجديدة)',
+      withV: 'مع حروف العلّة (على الطريقة البونيقية الجديدة)',
       noV: 'بلا حروف علّة (على الطريقة الفينيقية)',
       spoken: 'الحروف: ',
       empty: 'لا توجد حروف للنقل',
@@ -693,20 +723,20 @@ const C = {
     },
     lang: {
       kicker: 'لغة سامية',
-      title: 'من الفينيقية إلى البونية ثم البونية الجديدة',
+      title: 'من الفينيقية إلى البونيقية ثم البونيقية الجديدة',
       rows: [
         { key: 'ق 9 – 8 ق.م', val: 'يُظهر نُصُب نورا في سردينيا أن الكتابة الفينيقية كانت قد استقرّت في غرب المتوسط.' },
-        { key: 'ق 8 – 2 ق.م', val: 'تصبح البونية، أي فينيقية الغرب، اللغة المشتركة للعالم القرطاجي، بنطق خاص تأثّر بالليبية (لانسيل).' },
-        { key: 'ق 3 – 1 ق.م', val: 'تتبنّاها الممالك النوميدية لغةً للسلطة: تحمل نقودها كتابات بونية (لانسيل).' },
-        { key: 'بعد 146', val: 'لم يُمِت سقوط قرطاج اللغة. صار الخط «البوني الجديد»، الأكثر انسيابًا، يدوّن بعض الحركات؛ وظلّت النقوش تُحفر في القرنين الأول والثاني للميلاد.' },
-        { key: 'ق 4 م', val: 'تُكتب البونية بحروف لاتينية (لانسيل): تتغيّر الأبجدية وتبقى اللغة.' }
+        { key: 'ق 8 – 2 ق.م', val: 'تصبح البونيقية، أي فينيقية الغرب، اللغة المشتركة للعالم القرطاجي، بنطق خاص تأثّر بالليبية (لانسيل).' },
+        { key: 'ق 3 – 1 ق.م', val: 'تتبنّاها الممالك النوميدية لغةً للسلطة: تحمل نقودها كتابات بونيقية (لانسيل).' },
+        { key: 'بعد 146', val: 'لم يُمِت سقوط قرطاج اللغة. صار الخط «البونيقي الجديد»، الأكثر انسيابًا، يدوّن بعض الحركات؛ وظلّت النقوش تُحفر في القرنين الأول والثاني للميلاد.' },
+        { key: 'ق 4 م', val: 'تُكتب البونيقية بحروف لاتينية (لانسيل): تتغيّر الأبجدية وتبقى اللغة.' }
       ]
     },
     aug: {
       kicker: 'القديس أوغسطين، نحو 400',
-      quote: '«اسألوا فلاحينا عمّا هم: يجيبون بالبونية ‹كنعاني›.»',
+      quote: '«اسألوا فلاحينا عمّا هم: يجيبون بالبونيقية ‹كنعاني›.»',
       cite: 'أوغسطين، شرح غير مكتمل للرسالة إلى أهل رومية، 13',
-      nuance: 'كثيرًا ما يُستشهد بهذا المقطع دليلًا على أن البونية كانت لا تزال محكية، وأن متكلّميها سمّوا أنفسهم «كنعانيين». لكن النص بلاغي ومخطوطاته متباينة؛ ويرى غابرييل كامبس فيه لهجة ليبية، إذ كانت كلمة punicus تعني غالبًا «إفريقي» في ذلك العصر.'
+      nuance: 'كثيرًا ما يُستشهد بهذا المقطع دليلًا على أن البونيقية كانت لا تزال محكية، وأن متكلّميها سمّوا أنفسهم «كنعانيين». لكن النص بلاغي ومخطوطاته متباينة؛ ويرى غابرييل كامبس فيه لهجة ليبية، إذ كانت كلمة punicus تعني غالبًا «إفريقي» في ذلك العصر.'
     },
     subst: {
       kicker: 'فرضية',
@@ -719,7 +749,7 @@ const C = {
       tophet: {
         kicker: 'آلاف النُّصُب',
         title: 'نُصُب التوفيت',
-        alt: 'نُصُب بوني بعلامة تانيت',
+        alt: 'نُصُب بونيقي بعلامة تانيت',
         caption: 'نُصُب بعلامة تانيت، متحف اللوفر',
         p1: 'أمدّت توفيتات قرطاج ومدن أخرى بآلاف منها، جُمعت في «مدوّنة النقوش السامية». نصوصها نمطية جدًا: لا تقول الكثير عن تاريخ المدينة، وتقدّم عددًا محدودًا من أسماء الأعلام.',
         formula: '«إلى السيدة تانيت، وجه بعل، وإلى السيد بعل حمون»: صيغة الإهداء التي تفتتح عددًا كبيرًا من نُصُب قرطاج.',
@@ -730,21 +760,21 @@ const C = {
       cards: [
         { kicker: 'مرسيليا، 1845', title: 'تعرفة مرسيليا', text: 'عُثر عليها في ميناء مرسيليا، وتحدّد، حيوانًا حيوانًا، نصيب الكهنة من كل قربان. ويرجعها المختصون إلى أصل قرطاجي.', where: 'متحف لا فياي شاريتيه، مرسيليا', tone: 'tile--terra' },
         { kicker: 'نحو 500 ق.م', title: 'صفائح بيرجي', text: 'ثلاث صفائح ذهبية اكتُشفت سنة 1964 في ميناء كايري: اثنتان بالإتروسكية وواحدة بالفينيقية. يهدي فيها الملك ثيفاري فيليانا موضعًا مقدّسًا إلى أوني-عشتارت.', where: 'فيلا جوليا، روما', tone: 'tile--gold' },
-        { kicker: 'ق 2 ق.م', title: 'ثنائية دقة', text: 'على الضريح الليبي-البوني في دقة، النص نفسه بالبونية والليبية — مفتاح لفكّ الخط الليبي. انتزع القنصل البريطاني توماس ريد الحجر سنة 1842.', where: 'المتحف البريطاني، لندن', tone: 'tile--olive' },
-        { kicker: 'النقود', title: 'حروف من معدن', text: 'كتابات النقود، البونية ثم النوميدية، نقوش أيضًا: تُظهر كيف تغيّرت أشكال الحروف بحسب الأمكنة والعصور.', where: 'قرطاج، باردو، المتحف البريطاني', tone: '' }
+        { kicker: 'ق 2 ق.م', title: 'ثنائية دقة', text: 'على الضريح الليبي-البونيقي في دقة، النص نفسه بالبونيقية والليبية — مفتاح لفكّ الخط الليبي. انتزع القنصل البريطاني توماس ريد الحجر سنة 1842.', where: 'المتحف البريطاني، لندن', tone: 'tile--olive' },
+        { kicker: 'النقود', title: 'حروف من معدن', text: 'كتابات النقود، البونيقية ثم النوميدية، نقوش أيضًا: تُظهر كيف تغيّرت أشكال الحروف بحسب الأمكنة والعصور.', where: 'قرطاج، باردو، المتحف البريطاني', tone: '' }
       ]
     },
     lit: {
       kicker: 'أدب ضائع',
       title: 'مكتبات بلا كتب',
       p1: 'كانت لقرطاج مكتبات يتداول فيها الأدب الإغريقي أيضًا. وكُتب فيها عن القانون والتاريخ والجغرافيا؛ ويُعرف فلاسفة قرطاجيون من خلال ديوجين اللايرتي ويامبليخوس.',
-      p2: 'سنة 146، حسب بلينيوس الأكبر، وهب مجلس الشيوخ الروماني هذه المكتبات لملوك نوميديا ولم يأمر إلا بترجمة ماغون. ويذكر سالوستيوس أنه اطّلع على «كتب بونية» منسوبة إلى الملك هيمبصال؛ ثم ينقطع أثرها.',
+      p2: 'سنة 146، حسب بلينيوس الأكبر، وهب مجلس الشيوخ الروماني هذه المكتبات لملوك نوميديا ولم يأمر إلا بترجمة ماغون. ويذكر سالوستيوس أنه اطّلع على «كتب بونيقية» منسوبة إلى الملك هيمبصال؛ ثم ينقطع أثرها.',
       src: 'بلينيوس، التاريخ الطبيعي، 18، 22 · سالوستيوس، حرب يوغرطة، 17',
       worksKicker: 'ما بقي منها',
       worksTitle: 'شذرات على ألسنة الآخرين',
       works: [
-        { key: 'ماغون', val: 'مؤلَّف في الفلاحة من 28 كتابًا، العمل البوني الوحيد الذي تُرجم إلى اللاتينية بأمر مجلس الشيوخ؛ نعرفه عبر فارو وكولوميلا وبلينيوس.', to: '/magon-agronome', toLabel: 'ماغون الفلاحي' },
-        { key: 'حنّون', val: 'وصلتنا رواية رحلته بالإغريقية، ترجمةً لنص بوني عُلّق في معبد؛ ولا يزال تفسيرها موضع نقاش.', to: '/hannon', toLabel: 'حنّون الملّاح' },
+        { key: 'ماغون', val: 'مؤلَّف في الفلاحة من 28 كتابًا، العمل البونيقي الوحيد الذي تُرجم إلى اللاتينية بأمر مجلس الشيوخ؛ نعرفه عبر فارو وكولوميلا وبلينيوس.', to: '/magon-agronome', toLabel: 'ماغون الفلاحي' },
+        { key: 'حنون', val: 'وصلتنا رواية رحلته بالإغريقية، ترجمةً لنص بونيقي عُلّق في معبد؛ ولا يزال تفسيرها موضع نقاش.', to: '/hannon', toLabel: 'حنون الملّاح' },
         { key: 'كليتوماخوس', val: 'وُلد في قرطاج باسم عزربعل، وترأس أكاديمية أفلاطون في أثينا في القرن الثاني ق.م — لكنه كتب بالإغريقية.' },
         { key: 'الحوليات', val: 'التاريخ والقانون والجغرافيا: لم يبق من هذه الكتابات إلا إشارات نادرة لدى المؤلفين الإغريق واللاتين.' }
       ]
@@ -770,10 +800,24 @@ const C = {
         note: 'حوّل الإغريق إلى حروف علّة صوامتَ لم تكن في لغتهم: صار «ألف» ألفا (A)، و«عين» أوميكرون (O).'
       }
     },
+    sources: [
+      { type: "ancient", author: "أوغسطين", work: "شرح غير مكتمل للرسالة إلى أهل رومية", ref: "13" },
+      { type: "ancient", author: "بلينيوس الأكبر", work: "التاريخ الطبيعي", ref: "18، 22" },
+      { type: "ancient", author: "سالوستيوس", work: "حرب يوغرطة", ref: "17" },
+      { type: "ancient", author: "ديوجين اللايرتي", work: "حياة مشاهير الفلاسفة", note: "فلاسفة قرطاجيون (كليتوماخوس)" },
+      { type: "ancient", author: "يامبليخوس", work: "حياة فيثاغورس", note: "فلاسفة قرطاجيون" },
+      { type: "ancient", author: "مجهول المؤلف", work: "رحلة حنون" },
+      { type: "modern", author: "أكاديمية النقوش والآداب", work: "Corpus Inscriptionum Semiticarum", ref: "Paris, 1881–" },
+      { type: "modern", author: "سيرج لانسيل", work: "Carthage", ref: "Fayard, 1992" },
+      { type: "modern", author: "غابرييل كامبس", note: "مذكور في هذه الصفحة (معنى punicus)" },
+      { type: "modern", author: "ستيفان غزيل", work: "Histoire ancienne de l'Afrique du Nord", ref: "Hachette, 1920" },
+      { type: "modern", author: "محمد حسين فنطر", note: "مذكور في هذه الصفحة (بقاء البونيقية والتعريب)" },
+      { type: "modern", author: "ويكيبيديا (بالفرنسية)", work: "Carthage ; Civilisation carthaginoise", note: "CC BY-SA 4.0، محتوى أعيدت صياغته" }
+    ],
     relatedTitle: 'اقرأ أيضًا',
     related: [
-      { to: '/magon-agronome', kick: 'أدب', title: 'ماغون الفلاحي', text: 'الكتاب البوني الوحيد الذي أمرت روما بترجمته.', cls: 'tile--olive' },
-      { to: '/hannon', kick: 'استكشاف', title: 'حنّون الملّاح', text: 'رحلة على طول سواحل إفريقيا، عُلّقت روايتها في معبد بقرطاج.', cls: '' },
+      { to: '/magon-agronome', kick: 'أدب', title: 'ماغون الفلاحي', text: 'الكتاب البونيقي الوحيد الذي أمرت روما بترجمته.', cls: 'tile--olive' },
+      { to: '/hannon', kick: 'استكشاف', title: 'حنون الملّاح', text: 'رحلة على طول سواحل إفريقيا، عُلّقت روايتها في معبد بقرطاج.', cls: '' },
       { to: '/religion', kick: 'الديانة', title: 'آلهة قرطاج', text: 'بعل حمون وتانيت والتوفيت، حيث عُثر على آلاف النُّصُب.', cls: 'tile--purple' }
     ]
   }

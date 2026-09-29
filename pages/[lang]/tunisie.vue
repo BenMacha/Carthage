@@ -157,6 +157,8 @@
         </div>
       </div>
     </section>
+
+    <PageSources :items="c.sources" />
   </div>
 </template>
 
@@ -292,7 +294,15 @@ const C = {
         text: "Les maires de Rome et de Carthage, Ugo Vetere et Chedli Klibi, signent un traité symbolique qui met officiellement fin à la troisième guerre punique, plus de 2 100 ans après 146 av. J.-C.",
         cta: 'Carthage après Carthage'
       }
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Polybe', work: 'Histoires', note: 'le nom grec de Carthage, Karchēdōn' },
+      { type: 'modern', author: 'Sophie Bessis', work: 'Histoire de la Tunisie. De Carthage à nos jours', ref: 'Tallandier, 2019', note: 'Carthage, « lieu de pouvoir emblématique »' },
+      { type: 'modern', author: 'Institut national de la statistique (Tunisie)', work: 'Recensement général de la population et de l\'habitat', ref: '2014', note: 'population de la commune' },
+      { type: 'modern', author: 'UNESCO', work: 'Site archéologique de Carthage', ref: 'Liste du patrimoine mondial, 1979' },
+      { type: 'modern', author: 'Wikipédia', work: 'Carthage', note: 'CC BY-SA 4.0, contenus reformulés' },
+      { type: 'modern', author: 'Wikipédia', work: 'Civilisation carthaginoise', note: 'CC BY-SA 4.0, contenus reformulés' }
+    ]
   },
   en: {
     meta: { title: 'Carthage lives in Tunisia', desc: "The city of Elissa and Hannibal gave Tunisia its first great state, and gave the world the very name of Africa." },
@@ -402,7 +412,15 @@ const C = {
         text: 'The mayors of Rome and Carthage, Ugo Vetere and Chedli Klibi, sign a symbolic treaty officially ending the Third Punic War, more than 2,100 years after 146 BC.',
         cta: 'Carthage after Carthage'
       }
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'Polybius', work: 'Histories', note: 'the Greek name of Carthage, Karchedon' },
+      { type: 'modern', author: 'Sophie Bessis', work: 'Histoire de la Tunisie. De Carthage à nos jours', ref: 'Tallandier, 2019', note: 'Carthage as an "emblematic seat of power"' },
+      { type: 'modern', author: 'National Institute of Statistics (Tunisia)', work: 'General Population and Housing Census', ref: '2014', note: 'population of the municipality' },
+      { type: 'modern', author: 'UNESCO', work: 'Archaeological Site of Carthage', ref: 'World Heritage List, 1979' },
+      { type: 'modern', author: 'Wikipedia (French)', work: 'Carthage', note: 'CC BY-SA 4.0, content paraphrased' },
+      { type: 'modern', author: 'Wikipedia (French)', work: 'Civilisation carthaginoise', note: 'CC BY-SA 4.0, content paraphrased' }
+    ]
   },
   ar: {
     meta: { title: 'قرطاج تحيا في تونس', desc: 'منحت مدينة عليسة وحنبعل تونسَ أولى دولها الكبرى، ومنحت العالم اسم إفريقيا نفسه.' },
@@ -416,7 +434,7 @@ const C = {
     names: {
       title: 'اسم واحد بأربع لغات',
       items: names([
-        'الفينيقية البونية: «المدينة الجديدة». هو الاسم الأصلي، نحو سنة 814 ق.م.',
+        'الفينيقية البونيقية: «المدينة الجديدة». هو الاسم الأصلي، نحو سنة 814 ق.م.',
         'الاسم الإغريقي، استعمله بوليبيوس والمؤلفون الهلنستيون.',
         'اللاتينية، ومنها جاءت أسماء Carthage وقرطاجنة وCartagena.',
         'العربية: اليوم بلدية في الضاحية الشمالية لتونس العاصمة.'
@@ -453,7 +471,7 @@ const C = {
     cont: {
       title: 'استمرارية تونسية',
       items: [
-        { name: 'قرطاج البونية', sub: '814 – 146 ق.م' },
+        { name: 'قرطاج البونيقية', sub: '814 – 146 ق.م' },
         { name: 'إفريقية الرومانية', sub: 'قرطاج المعاد تأسيسها، ثانية مدن الغرب' },
         { name: 'إفريقية', sub: 'القيروان، المهدية، تونس' },
         { name: 'تونس', sub: 'الحفصيون، البايات' },
@@ -474,8 +492,8 @@ const C = {
         kicker: 'أسماء تروي الماضي',
         title: 'الأحياء',
         rows: [
-          { key: 'صلامبو', val: 'حول الموانئ البونية والتوفِت. بنى فيها الوزير مصطفى خزندار أول قصر صيفي في القرن التاسع عشر، وفيها المتحف الأوقيانوغرافي للمعهد الوطني لعلوم وتكنولوجيا البحار (1924).' },
-          { key: 'بيرصا', val: 'الهضبة التاريخية: المتحف الوطني بقرطاج، والأكروبوليوم (الكاتدرائية سابقًا)، والحي البوني.' },
+          { key: 'صلامبو', val: 'حول الموانئ البونيقية والتوفيت. بنى فيها الوزير مصطفى خزندار أول قصر صيفي في القرن التاسع عشر، وفيها المتحف الأوقيانوغرافي للمعهد الوطني لعلوم وتكنولوجيا البحار (1924).' },
+          { key: 'بيرصا', val: 'الهضبة التاريخية: المتحف الوطني بقرطاج، والأكروبوليوم (الكاتدرائية سابقًا)، والحي البونيقي.' },
           { key: 'قرطاج الرئاسة', val: 'حول القصر الرئاسي؛ فيها بنى لوكوربوزييه فيلا بيزو (1928-1929)، ويعود معهد قرطاج الرئاسة إلى سنة 1952.' },
           { key: 'دوار الشط · المعلقة', val: 'القريتان الفلاحيتان اللتان بقيتا قبل القرن التاسع عشر، وفيهما ميدان السباق الروماني والصهاريج الكبرى.' },
           { key: 'الدرمش، حنبعل، أميلكار', val: 'محطات لقطار TGM وأحياء سكنية، ويحمل الأخيران اسمَي قائدين قرطاجيين كبيرين.' },
@@ -509,10 +527,18 @@ const C = {
       peace: {
         kicker: 'فيفري 1985',
         title: 'السلام الموقّع مع روما',
-        text: 'يوقّع رئيسا بلديتي روما وقرطاج، أوغو فيتيري والشاذلي القليبي، معاهدة رمزية تُنهي رسميًا الحرب البونية الثالثة، بعد أكثر من 2100 سنة من 146 ق.م.',
+        text: 'يوقّع رئيسا بلديتي روما وقرطاج، أوغو فيتيري والشاذلي القليبي، معاهدة رمزية تُنهي رسميًا الحرب البونيقية الثالثة، بعد أكثر من 2100 سنة من 146 ق.م.',
         cta: 'قرطاج بعد قرطاج'
       }
-    }
+    },
+    sources: [
+      { type: 'ancient', author: 'بوليبيوس', work: 'التواريخ', note: 'الاسم اليوناني لقرطاج، كارخيدون' },
+      { type: 'modern', author: 'صوفي بسيس', work: 'Histoire de la Tunisie. De Carthage à nos jours', ref: 'Tallandier, 2019', note: 'قرطاج «مكان رمزي للسلطة»' },
+      { type: 'modern', author: 'المعهد الوطني للإحصاء (تونس)', work: 'التعداد العام للسكان والسكنى', ref: '2014', note: 'عدد سكان البلدية' },
+      { type: 'modern', author: 'اليونسكو', work: 'موقع قرطاج الأثري', ref: 'قائمة التراث العالمي، 1979' },
+      { type: 'modern', author: 'ويكيبيديا (بالفرنسية)', work: 'Carthage', note: 'رخصة CC BY-SA 4.0، محتوى أعيدت صياغته' },
+      { type: 'modern', author: 'ويكيبيديا (بالفرنسية)', work: 'Civilisation carthaginoise', note: 'رخصة CC BY-SA 4.0، محتوى أعيدت صياغته' }
+    ]
   }
 }
 
