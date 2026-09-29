@@ -38,9 +38,13 @@ function extract (html) {
 }
 
 async function main () {
-  if (!existsSync(new URL('.output/server/index.mjs', root))) {
-    console.error('search : .output absent — lancer `nuxt build` d\'abord')
-    process.exit(1)
+  // Hors preset Node (ex. Cloudflare Workers en production), pas de serveur Node à interroger :
+  // on garde l'index versionné dans public/search/, déjà inclus dans le build.
+  let preset = ''
+  try { preset = JSON.parse(readFileSync(new URL('.output/nitro.json', root), 'utf8')).preset || '' } catch {}
+  if (!preset.startsWith('node') || !existsSync(new URL('.output/server/index.mjs', root))) {
+    console.warn(`search : preset « ${preset || 'inconnu'} » sans serveur Node — index versionné conservé`)
+    return
   }
   const port = await freePort()
   const server = spawn(process.execPath, ['.output/server/index.mjs'], {
@@ -79,4 +83,5 @@ async function main () {
   }
 }
 
-main().catch(err => { console.error(err); process.exit(1) })
+// Jamais bloquant pour un déploiement : en cas d'échec, l'index versionné reste en place.
+main().catch(err => { console.warn('search : index non régénéré —', err.message) })
