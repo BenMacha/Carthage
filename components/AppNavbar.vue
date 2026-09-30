@@ -38,7 +38,6 @@
     </header>
 
     <!-- Tiroir mobile -->
-    <Transition name="drawer">
       <div v-if="menuOpen" class="drawer" @click.self="close">
         <div class="drawer-panel">
           <NuxtLink :to="localePath('/')" class="d-main" @click="close">{{ L.home }}</NuxtLink>
@@ -56,7 +55,6 @@
           </div>
         </div>
       </div>
-    </Transition>
   </div>
 </template>
 
@@ -69,30 +67,30 @@ const openDd = ref(null)
 
 const LABELS = {
   fr: {
-    home: 'Accueil', menu: 'Menu', lang: 'Langue', hannibal: 'Hannibal', carthage: 'Carthage', civ: 'Civilisation',
+    home: 'Accueil', menu: 'Menu', lang: 'Langue', hannibal: 'Hannibal', carthage: 'Carthage', civ: 'Civilisation', res: 'Ressources',
     tunisie: 'Tunisie', carte: 'Carte', persos: 'Personnages',
     items: {
       hannibal: 'Hannibal Barca', tactiques: 'Les tactiques', elephants: 'Les éléphants et les Alpes', guerres: 'Les guerres puniques', armee: "L'armée de Carthage",
       fondation: 'La fondation', chronologie: 'Chronologie', richesse: 'La richesse et Rome', lieux: 'Lieux historiques', economie: 'Économie', agriculture: 'Agriculture', religion: 'Religion',
-      sources: 'Histoire des vainqueurs', prise: 'La prise de Carthage', apres: 'Carthage après 146', mercenaires: 'La guerre des Mercenaires', monde: 'Le monde punique', vie: 'La vie quotidienne', heritage: "L'héritage culturel", afrique: "L'Afrique et son nom", institutions: 'Institutions et société', art: 'Art et artisanat', langue: 'Langue et écriture'
+      sources: 'Histoire des vainqueurs', prise: 'La prise de Carthage', apres: 'Carthage après 146', mercenaires: 'La guerre des Mercenaires', monde: 'Le monde punique', vie: 'La vie quotidienne', heritage: "L'héritage culturel", quiz: 'Quiz', glossaire: 'Glossaire', biblio: 'Sources et bibliographie', plan: 'Plan du site', afrique: "L'Afrique et son nom", institutions: 'Institutions et société', art: 'Art et artisanat', langue: 'Langue et écriture'
     }
   },
   en: {
-    home: 'Home', menu: 'Menu', lang: 'Language', hannibal: 'Hannibal', carthage: 'Carthage', civ: 'Civilisation',
+    home: 'Home', menu: 'Menu', lang: 'Language', hannibal: 'Hannibal', carthage: 'Carthage', civ: 'Civilisation', res: 'Resources',
     tunisie: 'Tunisia', carte: 'Map', persos: 'People',
     items: {
       hannibal: 'Hannibal Barca', tactiques: 'Tactics', elephants: 'Elephants and the Alps', guerres: 'The Punic Wars', armee: "Carthage's army",
       fondation: 'The founding', chronologie: 'Timeline', richesse: 'Wealth and Rome', lieux: 'Historic places', economie: 'Economy', agriculture: 'Agriculture', religion: 'Religion',
-      sources: "The victors' history", prise: 'The fall of Carthage', apres: 'Carthage after 146', mercenaires: 'The Mercenary War', monde: 'The Punic world', vie: 'Daily life', heritage: 'Cultural legacy', afrique: 'Africa and its name', institutions: 'Institutions and society', art: 'Art and crafts', langue: 'Language and writing'
+      sources: "The victors' history", prise: 'The fall of Carthage', apres: 'Carthage after 146', mercenaires: 'The Mercenary War', monde: 'The Punic world', vie: 'Daily life', heritage: 'Cultural legacy', quiz: 'Quiz', glossaire: 'Glossary', biblio: 'Sources and bibliography', plan: 'Site map', afrique: 'Africa and its name', institutions: 'Institutions and society', art: 'Art and crafts', langue: 'Language and writing'
     }
   },
   ar: {
-    home: 'الرئيسية', menu: 'القائمة', lang: 'اللغة', hannibal: 'حنبعل', carthage: 'قرطاج', civ: 'الحضارة',
+    home: 'الرئيسية', menu: 'القائمة', lang: 'اللغة', hannibal: 'حنبعل', carthage: 'قرطاج', civ: 'الحضارة', res: 'مصادر وأدوات',
     tunisie: 'تونس', carte: 'الخريطة', persos: 'الشخصيات',
     items: {
       hannibal: 'حنبعل برقا', tactiques: 'التكتيكات', elephants: 'الفيلة وجبال الألب', guerres: 'الحروب البونيقية', armee: 'جيش قرطاج',
       fondation: 'التأسيس', chronologie: 'التسلسل الزمني', richesse: 'الثروة وروما', lieux: 'أماكن تاريخية', economie: 'الاقتصاد', agriculture: 'الفلاحة', religion: 'الديانة',
-      sources: 'تاريخ المنتصرين', prise: 'سقوط قرطاج', apres: 'قرطاج بعد 146', mercenaires: 'حرب المرتزقة', monde: 'العالم البونيقي', vie: 'الحياة اليومية', heritage: 'الإرث الثقافي', afrique: 'إفريقيا واسمها', institutions: 'المؤسسات والمجتمع', art: 'الفن والحِرف', langue: 'اللغة والكتابة'
+      sources: 'تاريخ المنتصرين', prise: 'سقوط قرطاج', apres: 'قرطاج بعد 146', mercenaires: 'حرب المرتزقة', monde: 'العالم البونيقي', vie: 'الحياة اليومية', heritage: 'الإرث الثقافي', quiz: 'اختبار', glossaire: 'المعجم', biblio: 'المصادر والمراجع', plan: 'خريطة الموقع', afrique: 'إفريقيا واسمها', institutions: 'المؤسسات والمجتمع', art: 'الفن والحِرف', langue: 'اللغة والكتابة'
     }
   }
 }
@@ -139,6 +137,16 @@ const groups = computed(() => [
       { to: '/langue-ecriture', label: L.value.items.langue },
       { to: '/vie-quotidienne', label: L.value.items.vie },
       { to: '/heritage', label: L.value.items.heritage }
+    ]
+  },
+  {
+    key: 'res',
+    label: L.value.res,
+    items: [
+      { to: '/quiz', label: L.value.items.quiz },
+      { to: '/glossaire', label: L.value.items.glossaire },
+      { to: '/bibliographie', label: L.value.items.biblio },
+      { to: '/plan-du-site', label: L.value.items.plan }
     ]
   }
 ])
@@ -453,10 +461,11 @@ onBeforeUnmount(() => {
 
 .d-langs button.on { background: var(--ink); color: var(--white); }
 
-.drawer-enter-active, .drawer-leave-active { transition: opacity 0.2s; }
-.drawer-enter-active .drawer-panel, .drawer-leave-active .drawer-panel { transition: transform 0.25s; }
-.drawer-enter-from, .drawer-leave-to { opacity: 0; }
-.drawer-enter-from .drawer-panel, .drawer-leave-to .drawer-panel { transform: translateY(-12px); }
+/* Ouverture animée en CSS pur ; fermeture immédiate (ne peut pas rester bloquée) */
+.drawer { animation: drawer-fade 0.2s ease-out; }
+.drawer-panel { animation: drawer-slide 0.25s ease-out; }
+@keyframes drawer-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes drawer-slide { from { transform: translateY(-12px); } to { transform: none; } }
 
 @media (max-width: 1320px) {
   .lk { padding: 12px 10px; font-size: 14px; }

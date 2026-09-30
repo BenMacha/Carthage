@@ -1177,7 +1177,7 @@
           "choices": {
             "fr": ["Les Lions de l'Atlas", "Les Aigles de Carthage", "Les Fennecs", "Les Pharaons"],
             "en": ["The Atlas Lions", "The Eagles of Carthage", "The Fennecs", "The Pharaohs"],
-            "ar": ["أسود الأطلس", "نسور قرطاج", "ثعالب الصحراء", "الفراعنة"]
+            "ar": ["أسود الأطلس", "نسور قرطاج", "محاربو الصحراء", "الفراعنة"]
           },
           "answer": 1,
           "explain": {

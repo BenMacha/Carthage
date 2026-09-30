@@ -1,12 +1,11 @@
 <template>
   <div class="ss">
-    <button class="ss-trigger" :aria-label="L.open" :title="`${L.open} (Ctrl K)`" @click="openPanel">
+    <button ref="triggerEl" class="ss-trigger" :aria-label="L.open" :title="`${L.open} (Ctrl K)`" @click="openPanel">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
     </button>
 
     <Teleport to="body">
-      <Transition name="ss-fade">
-        <div v-if="open" class="ss-overlay" :dir="locale === 'ar' ? 'rtl' : 'ltr'" @click.self="close">
+      <div v-if="open" class="ss-overlay" :dir="locale === 'ar' ? 'rtl' : 'ltr'" @click.self="close">
           <div class="ss-panel" role="dialog" aria-modal="true" :aria-label="L.open">
             <div class="ss-bar">
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
@@ -24,7 +23,6 @@
                 @keydown.down.prevent="move(1)"
                 @keydown.up.prevent="move(-1)"
                 @keydown.enter.prevent="go(results[active])"
-                @keydown.esc="close"
               >
               <button class="ss-close" :aria-label="L.close" @click="close">Esc</button>
             </div>
@@ -56,13 +54,13 @@
             </template>
           </div>
         </div>
-      </Transition>
     </Teleport>
   </div>
 </template>
 
 <script setup>
-// Recherche plein texte côté client dans l'index généré au build (public/search/<lang>.json).
+// Recherche côté client dans l'index de mots-clés généré au build
+// (public/search/<lang>.json, par scripts/generate-search-keywords.mjs) : aucun serveur requis.
 const { locale } = useI18n()
 const router = useRouter()
 
@@ -78,6 +76,7 @@ const q = ref('')
 const active = ref(0)
 const state = ref('idle')
 const inputEl = ref(null)
+const triggerEl = ref(null)
 const cache = {}
 const docs = ref([])
 
@@ -112,17 +111,6 @@ function highlight (text, terms) {
   return out + esc(text.slice(pos))
 }
 
-function snippetOf (d, terms) {
-  const src = d.body
-  const n = norm(src)
-  let at = -1
-  for (const t of terms) { const i = n.indexOf(t); if (i !== -1 && (at === -1 || i < at)) at = i }
-  if (at === -1) return highlight(d.desc || src.slice(0, 160), terms)
-  const start = Math.max(0, at - 70)
-  const cut = src.slice(start, start + 200)
-  return (start > 0 ? '… ' : '') + highlight(cut, terms) + ' …'
-}
-
 const results = computed(() => {
   const terms = norm(q.value).split(/\s+/).filter(t => t.length >= 2)
   if (!terms.length || !docs.value.length) return []
@@ -132,15 +120,17 @@ const results = computed(() => {
     let all = true
     for (const t of terms) {
       let s = 0
-      if (d._label.includes(t)) s += 40
-      if (d._title.includes(t)) s += 20
-      if (d._head.includes(t)) s += 8
+      if (d._label === t) s += 60
+      else if (d._label.includes(t)) s += 40
+      if (d._k.includes(' ' + t + ' ')) s += 12 // mot-clé exact
+      else if (d._k.includes(' ' + t)) s += 8 // début de mot-clé
+      else if (d._k.includes(t)) s += 3
       if (d._desc.includes(t)) s += 6
-      if (d._body.includes(t)) s += 2 + Math.min(6, d._body.split(t).length - 2)
       if (!s) { all = false; break }
       score += s
     }
-    if (all) scored.push({ d, score })
+    // Les pages passent devant les définitions du glossaire à score égal
+    if (all) scored.push({ d, score: score + (d.path.includes('#') ? 0 : 1) })
   }
   return scored
     .sort((a, b) => b.score - a.score)
@@ -149,7 +139,7 @@ const results = computed(() => {
       path: d.path,
       group: d.group,
       titleHtml: highlight(d.label, terms),
-      snippet: snippetOf(d, terms)
+      snippet: highlight(d.desc, terms)
     }))
 })
 
@@ -166,10 +156,8 @@ async function load () {
     cache[lang] = raw.map(d => ({
       ...d,
       _label: norm(d.label),
-      _title: norm(d.title),
-      _head: norm(d.headings.join(' ')),
       _desc: norm(d.desc),
-      _body: norm(d.body)
+      _k: ` ${d.k} `
     }))
     docs.value = cache[lang]
     state.value = 'ready'
@@ -189,6 +177,7 @@ async function openPanel () {
 function close () {
   open.value = false
   document.body.style.overflow = ''
+  nextTick(() => triggerEl.value?.focus())
 }
 
 function move (step) {
@@ -207,6 +196,11 @@ function go (r) {
 watch(locale, () => { if (open.value) load() })
 
 const onKey = (e) => {
+  if (e.key === 'Escape' && open.value) {
+    e.preventDefault()
+    close()
+    return
+  }
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
     e.preventDefault()
     open.value ? close() : openPanel()
@@ -355,8 +349,10 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
   min-height: 40px;
 }
 
-.ss-fade-enter-active, .ss-fade-leave-active { transition: opacity 0.18s; }
-.ss-fade-enter-from, .ss-fade-leave-to { opacity: 0; }
+/* Apparition en CSS pur : la fermeture est immédiate et ne peut pas rester bloquée */
+.ss-overlay { animation: ss-in 0.18s ease-out; }
+@keyframes ss-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .ss-overlay { animation: none; } }
 
 @media (max-width: 640px) {
   .ss-overlay { padding-top: calc(env(safe-area-inset-top, 0px) + 12px); }

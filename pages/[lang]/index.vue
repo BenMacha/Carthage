@@ -269,7 +269,11 @@ const IMG = {
     { to: '/tunisie', cls: 'tile--purple' },
     { to: '/carte', cls: 'tile--navy' },
     { to: '/tactiques', cls: 'tile--terra' },
-    { to: '/religion', cls: 'tile--ink' }
+    { to: '/religion', cls: 'tile--ink' },
+    { to: '/quiz', cls: 'tile--gold' },
+    { to: '/glossaire', cls: 'tile--sand' },
+    { to: '/monde-punique', cls: 'tile--olive' },
+    { to: '/vie-quotidienne', cls: '' }
   ]
 }
 
@@ -375,7 +379,11 @@ const C = {
         { kick: 'Héritage', title: 'Carthage vit en Tunisie' },
         { kick: 'Interactif', title: 'La carte animée' },
         { kick: 'Art de la guerre', title: 'Les tactiques' },
-        { kick: 'Croyances', title: 'La religion punique' }
+        { kick: 'Croyances', title: 'La religion punique' },
+        { kick: 'Jouer', title: 'Le quiz' },
+        { kick: 'Les mots', title: 'Le glossaire' },
+        { kick: 'Au-delà de Carthage', title: 'Le monde punique' },
+        { kick: 'Au quotidien', title: 'La vie à Carthage' }
       ]
     },
     sources: [
@@ -477,7 +485,11 @@ const C = {
         { kick: 'Legacy', title: 'Carthage lives on in Tunisia' },
         { kick: 'Interactive', title: 'The animated map' },
         { kick: 'Art of war', title: 'Tactics' },
-        { kick: 'Beliefs', title: 'Punic religion' }
+        { kick: 'Beliefs', title: 'Punic religion' },
+        { kick: 'Play', title: 'The quiz' },
+        { kick: 'The words', title: 'The glossary' },
+        { kick: 'Beyond Carthage', title: 'The Punic world' },
+        { kick: 'Everyday', title: 'Life in Carthage' }
       ]
     },
     sources: [
@@ -579,7 +591,11 @@ const C = {
         { kick: 'الإرث', title: 'قرطاج تحيا في تونس' },
         { kick: 'تفاعلي', title: 'الخريطة المتحركة' },
         { kick: 'فن الحرب', title: 'التكتيكات' },
-        { kick: 'المعتقدات', title: 'الديانة البونيقية' }
+        { kick: 'المعتقدات', title: 'الديانة البونيقية' },
+        { kick: 'العب', title: 'الاختبار' },
+        { kick: 'المفردات', title: 'المعجم' },
+        { kick: 'ما وراء قرطاج', title: 'العالم البونيقي' },
+        { kick: 'الحياة اليومية', title: 'الحياة في قرطاج' }
       ]
     },
     sources: [
