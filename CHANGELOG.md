@@ -8,7 +8,10 @@ Chaque entrée indique **ce qui a changé** et, quand c'est utile, **les fichier
 
 ## [Non publié] — Site en 15 langues (branche `i18n-15-langues`)
 
-> En cours : traductions à terminer (voir `I18N-HANDOFF.md`). À dater au déploiement.
+> En cours : traductions à terminer (voir `I18N-HANDOFF.md`). À dater au déploiement final.
+> **Publication progressive** : chaque langue est fusionnée sur `main` et déployée dès qu'elle atteint 100 % et passe les vérifications — sans attendre les 12 langues. Un texte non traduit reste en français : rien ne casse pour les visiteurs.
+> - ✅ **russe, chinois simplifié, japonais** : 100 %, déployés.
+> - ⏳ italien (89 %), espagnol/allemand/portugais (~10 %), néerlandais/turc/maltais/tunisien/tamazight (0 %) : en cours.
 
 ### Langues
 - **12 langues ajoutées** au français, à l'anglais et à l'arabe : italien, espagnol, allemand, portugais, néerlandais, turc, russe, chinois simplifié, japonais, et en **bêta** maltais, tunisien (derja, écriture arabe, de droite à gauche) et tamazight (écriture latine amazighe).
@@ -19,6 +22,7 @@ Chaque entrée indique **ce qui a changé** et, quand c'est utile, **les fichier
 - **Sélecteur de langue avec drapeaux** (`components/LangPicker.vue`, `components/FlagIcon.vue`) : bouton drapeau + code, panneau des 15 langues ; fermeture par clic extérieur ou Échap ; panneau 2 colonnes sur mobile. Drapeaux dessinés en SVG (Windows n'affiche pas les drapeaux emoji) ; drapeau amazigh pour le tamazight, tunisien pour le derja.
 - Menu mobile (`AppNavbar.vue`) : les 15 langues avec drapeaux (grille 3 colonnes, 2 sous 400 px) au lieu des anciens boutons FR/EN/ع.
 - **Langue inconnue dans l'URL → redirection vers l'arabe** (`/ar`, code 302) au lieu du français (`middleware/locale.global.ts`).
+- **La racine `/` redirige aussi vers l'arabe** (`/ar`, code 302) au lieu du français (`nuxt.config.ts`, `routeRules`) — décision explicite du commanditaire du site.
 - Polices : Noto Sans ajoutée (cyrillique) ; pile de polices système pour le chinois et le japonais ; pas d'espacement de lettres sur les titres CJK ; césure automatique pour l'allemand, le néerlandais, le russe, le turc et le maltais (`assets/css/main.css`).
 - Sens de lecture : flèches et mises en page RTL calculées pour toute langue RTL (arabe et tunisien), plus seulement l'arabe.
 

@@ -20,6 +20,6 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/main.css'],
   routeRules: {
-    '/': { redirect: { to: '/fr', statusCode: 302 } }
+    '/': { redirect: { to: '/ar', statusCode: 302 } }
   }
 })
