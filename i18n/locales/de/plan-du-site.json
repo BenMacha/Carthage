@@ -1,0 +1,18 @@
+{
+ "chip": "Navigation",
+ "title": "Sitemap",
+ "lede": "Alle Seiten, nach Themen geordnet. Jede Seite gibt es auf Französisch, Englisch und Arabisch.",
+ "pages": "Seiten",
+ "langs": "Sprachen: Französisch, Englisch, Arabisch",
+ "urls": "Adressen in der Sitemap",
+ "pageShort": "Seite",
+ "pagesShort": "Seiten",
+ "jump": "Zu einer Rubrik springen",
+ "xmlKick": "Für Suchmaschinen",
+ "xmlText": "Die vollständige Liste der Adressen mit ihren Sprachversionen (hreflang). Sie wird bei jeder Veröffentlichung neu erzeugt.",
+ "xmlBtn": "Sitemap öffnen",
+ "llmsKick": "Für KI-Assistenten",
+ "llmsText": "Eine Zusammenfassung der Website und ihrer Seiten im Format llms.txt, für Antwortmaschinen und Assistenten.",
+ "llmsBtn": "llms.txt öffnen",
+ "meta": "Sitemap der Karthago-Website: alle Seiten nach Themen, auf Französisch, Englisch und Arabisch."
+}

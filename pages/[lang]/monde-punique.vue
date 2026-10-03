@@ -1171,7 +1171,7 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('monde-punique', C)
 
 const places = computed(() => PLACES.map(p => ({ ...p, ...c.value.places[p.id] })))
 

@@ -75,7 +75,12 @@
 </template>
 
 <script setup>
-import SITE_MAP from '~/assets/data/site-map.json'
+import SITE_MAP_RAW from '~/assets/data/site-map.json'
+
+// Données complétées pour la langue affichée (langues ajoutées : i18n/locales/<langue>/)
+const { locale: dataLocale } = useI18n()
+const SITE_MAP = localizeSiteMap(SITE_MAP_RAW, dataLocale.value)
+
 
 const { locale, localePath } = useI18n()
 
@@ -112,8 +117,8 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
-const arrow = computed(() => (locale.value === 'ar' ? '←' : '→'))
+const c = await useLocalized('plan-du-site', C)
+const arrow = computed(() => (isRtlLocale(locale.value) ? '←' : '→'))
 
 const groups = computed(() => SITE_MAP.groups.map(g => ({
   key: g.key,

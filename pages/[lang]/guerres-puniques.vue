@@ -962,7 +962,7 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('guerres-puniques', C)
 
 useHead(() => ({
   title: c.value.meta.title,

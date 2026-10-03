@@ -1118,7 +1118,7 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('vie-quotidienne', C)
 
 const nameCards = computed(() =>
   NAMES.map((n) => ({ ...n, ...c.value.names.items[n.id] }))

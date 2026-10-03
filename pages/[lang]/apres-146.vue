@@ -759,7 +759,7 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('apres-146', C)
 
 const siteCards = computed(() => c.value.site.cards.map((card, i) => ({ ...SITE_IMG[i], ...card })))
 

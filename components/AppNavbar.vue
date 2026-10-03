@@ -21,16 +21,7 @@
 
       <div class="right">
         <SiteSearch />
-        <div class="langs" role="group" :aria-label="L.lang">
-          <button
-            v-for="loc in availableLocales"
-            :key="loc.code"
-            :class="{ on: locale === loc.code, ar: loc.code === 'ar' }"
-            :title="loc.label"
-            @click="setLocale(loc.code)"
-          >{{ loc.code === 'ar' ? 'ع' : loc.code.toUpperCase() }}</button>
-        </div>
-        <button class="lang-mobile ar" :title="altLocale.label" @click="setLocale(altLocale.code)">{{ altLocale.code === 'ar' ? 'ع' : altLocale.code.toUpperCase() }}</button>
+        <LangPicker :label="L.lang" />
         <button class="burger" :class="{ open: menuOpen }" :aria-expanded="menuOpen" :aria-label="L.menu" @click="menuOpen = !menuOpen">
           <i /><i />
         </button>
@@ -50,8 +41,12 @@
           <div class="d-flat">
             <NuxtLink v-for="it in flat" :key="it.to" :to="localePath(it.to)" class="d-main" @click="close">{{ it.label }}</NuxtLink>
           </div>
+          <div class="d-title">{{ L.lang }}</div>
           <div class="d-langs">
-            <button v-for="loc in availableLocales" :key="loc.code" :class="{ on: locale === loc.code }" @click="setLocale(loc.code); close()">{{ loc.label }}</button>
+            <button v-for="loc in LOCALES" :key="loc.code" :class="{ on: locale === loc.code }" :lang="loc.code" :dir="loc.dir" @click="setLocale(loc.code); close()">
+              <FlagIcon :code="loc.flag" />
+              <span>{{ loc.name }}</span>
+            </button>
           </div>
         </div>
       </div>
@@ -59,7 +54,9 @@
 </template>
 
 <script setup>
-const { t, locale, setLocale, localePath, availableLocales } = useI18n()
+import LOCALES from '~/i18n/locales.json'
+
+const { t, locale, setLocale, localePath } = useI18n()
 const route = useRoute()
 const isScrolled = ref(false)
 const menuOpen = ref(false)
@@ -95,7 +92,7 @@ const LABELS = {
   }
 }
 
-const L = computed(() => LABELS[locale.value] || LABELS.fr)
+const L = useUiText('navbar', LABELS)
 
 const groups = computed(() => [
   {
@@ -160,10 +157,6 @@ const flat = computed(() => [
 const isHome = computed(() => route.path === `/${locale.value}` || route.path === `/${locale.value}/`)
 const groupActive = (g) => g.items.some(it => route.path === localePath(it.to))
 
-const altLocale = computed(() => {
-  const target = locale.value === 'ar' ? 'fr' : 'ar'
-  return availableLocales.find(l => l.code === target)
-})
 
 const close = () => { menuOpen.value = false }
 
@@ -330,28 +323,6 @@ onBeforeUnmount(() => {
   flex: none;
 }
 
-.langs {
-  display: flex;
-  background: var(--paper);
-  border-radius: 999px;
-  padding: 4px;
-}
-
-.langs button {
-  border: 0;
-  background: transparent;
-  font: 600 13px/1 var(--font-body);
-  color: var(--ink);
-  padding: 9px 12px;
-  border-radius: 999px;
-  cursor: pointer;
-  min-width: 38px;
-}
-
-.langs button.ar { font: 700 15px/1 var(--font-ar); padding: 7px 12px; }
-.langs button.on { background: var(--ink); color: var(--white); }
-
-.lang-mobile,
 .burger {
   display: none;
   width: 44px;
@@ -361,12 +332,6 @@ onBeforeUnmount(() => {
   cursor: pointer;
   align-items: center;
   justify-content: center;
-}
-
-.lang-mobile {
-  background: var(--paper);
-  color: var(--ink);
-  font: 700 16px/1 var(--font-ar);
 }
 
 .burger {
@@ -445,9 +410,13 @@ onBeforeUnmount(() => {
 .d-flat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
 .d-flat .d-main { font-size: 16px; text-align: center; padding: 14px 8px; }
 
-.d-langs { display: flex; gap: 6px; }
+.d-langs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
 
 .d-langs button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   flex: 1;
   border: 0;
   background: var(--paper);
@@ -472,8 +441,8 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 1180px) {
-  .links, .langs { display: none; }
-  .lang-mobile, .burger { display: inline-flex; }
+  .links { display: none; }
+  .burger { display: inline-flex; }
   .nav { padding: 6px 6px 6px 18px; }
   [dir="rtl"] .nav { padding: 6px 18px 6px 6px; }
 }
@@ -481,6 +450,7 @@ onBeforeUnmount(() => {
 @media (max-width: 400px) {
   .d-grid { grid-template-columns: minmax(0, 1fr); }
   .d-flat { grid-template-columns: minmax(0, 1fr); }
+  .d-langs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .brand-name { font-size: 18px; }
 }
 </style>

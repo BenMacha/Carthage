@@ -433,7 +433,7 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('hannon', C)
 
 useHead(() => ({
   title: c.value.metaTitle,

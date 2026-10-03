@@ -1038,7 +1038,7 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('art-et-artisanat', C)
 
 const items = computed(() => ITEMS.map(it => ({ ...it, ...c.value.items[it.id] })))
 

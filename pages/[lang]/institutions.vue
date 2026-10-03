@@ -634,8 +634,8 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
-const isAr = computed(() => locale.value === 'ar')
+const c = await useLocalized('institutions', C)
+const isAr = computed(() => isRtlLocale(locale.value))
 
 const fx = (x) => (isAr.value ? 1000 - x : x)
 const labelW = (s) => Math.round(s.length * 7.4 + 22)

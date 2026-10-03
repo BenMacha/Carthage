@@ -309,7 +309,7 @@
 
 <script setup>
 const { locale, localePath } = useI18n()
-const isAr = computed(() => locale.value === 'ar')
+const isAr = computed(() => isRtlLocale(locale.value))
 
 // Positions calculées à partir des coordonnées réelles (côte actuelle)
 const places = [
@@ -969,7 +969,7 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('guerre-des-mercenaires', C)
 
 useHead(() => ({
   title: c.value.metaTitle,

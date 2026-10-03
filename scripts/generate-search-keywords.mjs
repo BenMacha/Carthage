@@ -2,12 +2,13 @@
 // Fonctionne sans serveur (compatible build statique Cloudflare) : lit directement le texte
 // des pages (objet `C` de chaque pages/[lang]/*.vue), le plan du site et le glossaire.
 // Lancé automatiquement avant chaque build (voir package.json, « prebuild »).
-import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs'
+import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { parse as parseSfc } from '@vue/compiler-sfc'
 import { parse as parseJs } from '@babel/parser'
 
 const root = new URL('../', import.meta.url)
-const LOCALES = ['fr', 'en', 'ar']
+const LOCALES = JSON.parse(readFileSync(new URL('i18n/locales.json', root), 'utf8')).map(l => l.code)
+const NATIVE = new Set(['fr', 'en', 'ar'])
 // Tous les mots distincts de la page (≈ 170 Ko par langue, ≈ 65 Ko compressé) :
 // chaque mot du site est trouvable. Baisser cette valeur pour alléger l'index.
 const MAX_KEYWORDS = Infinity
@@ -84,6 +85,15 @@ function keywords (strings) {
   return [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, MAX_KEYWORDS).map(([w]) => w)
 }
 
+
+// Traductions des langues ajoutées : tables plates i18n/locales/<langue>/<clé>.json
+const flatOf = (lang, key) => {
+  const f = new URL(`i18n/locales/${lang}/${key}.json`, root)
+  return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : {}
+}
+// Nœud { fr, en, ar } d'un fichier de données → texte dans la langue (repli : français)
+const pick = (node, lang, flat, path) => (NATIVE.has(lang) ? node?.[lang] : flat[path]) || node?.fr || ''
+
 const pagesDir = new URL('pages/[lang]/', root)
 const files = new Set(readdirSync(pagesDir).filter(f => f.endsWith('.vue')))
 const cache = {}
@@ -94,18 +104,27 @@ const textsFor = slug => {
 }
 
 mkdirSync(new URL('public/search/', root), { recursive: true })
-const glossGroup = siteMap.groups.find(g => g.key === 'site')?.pages.find(p => p.slug === 'glossaire')?.label
+// Libellé du glossaire (et son chemin dans site-map.json pour les traductions)
+const siteGi = siteMap.groups.findIndex(g => g.key === 'site')
+const glossPi = siteMap.groups[siteGi]?.pages.findIndex(p => p.slug === 'glossaire')
+const glossGroup = siteMap.groups[siteGi]?.pages[glossPi]?.label
+const glossPath = `groups.${siteGi}.pages.${glossPi}.label`
 
 for (const lang of LOCALES) {
   const index = []
-  for (const g of siteMap.groups) {
-    for (const p of g.pages) {
-      const texts = textsFor(p.slug)[lang]
-      const label = p.label[lang] || p.label.fr
-      const desc = p.desc[lang] || p.desc.fr
+  const smFlat = NATIVE.has(lang) ? {} : flatOf(lang, 'site-map')
+  const glFlat = NATIVE.has(lang) ? {} : flatOf(lang, 'glossaire-data')
+  for (const [gi, g] of siteMap.groups.entries()) {
+    for (const [pi, p] of g.pages.entries()) {
+      const base = textsFor(p.slug)
+      const flat = NATIVE.has(lang) ? null : flatOf(lang, p.slug || 'index')
+      // Langue ajoutée : textes traduits ; page pas encore traduite : texte français
+      const texts = NATIVE.has(lang) ? base[lang] : (Object.keys(flat).length ? Object.values(flat) : base.fr)
+      const label = pick(p.label, lang, smFlat, `groups.${gi}.pages.${pi}.label`)
+      const desc = pick(p.desc, lang, smFlat, `groups.${gi}.pages.${pi}.desc`)
       index.push({
         path: `/${lang}${p.slug ? `/${p.slug}` : ''}`,
-        group: g.label[lang] || g.label.fr,
+        group: pick(g.label, lang, smFlat, `groups.${gi}.label`),
         label,
         desc,
         k: keywords([label, label, desc, ...texts]).join(' ')
@@ -113,14 +132,16 @@ for (const lang of LOCALES) {
     }
   }
   // Chaque terme du glossaire devient une entrée qui mène à sa définition
-  for (const t of glossary.terms || glossary.entries || []) {
-    const def = (t.def?.[lang] || t.def?.fr || '').replace(/\s+/g, ' ')
+  const glossLabel = pick(glossGroup, lang, smFlat, glossPath)
+  for (const [ti, t] of (glossary.terms || []).entries()) {
+    const term = pick(t.term, lang, glFlat, `terms.${ti}.term`)
+    const def = pick(t.def, lang, glFlat, `terms.${ti}.def`).replace(/\s+/g, ' ')
     index.push({
       path: `/${lang}/glossaire#${t.id}`,
-      group: glossGroup?.[lang] || 'Glossaire',
-      label: t.term?.[lang] || t.term?.fr,
+      group: glossLabel || 'Glossaire',
+      label: term,
       desc: def.length > 170 ? def.slice(0, 167) + '…' : def,
-      k: [...new Set([t.term?.fr, t.term?.en, t.term?.ar, ...(t.alias || [])].filter(Boolean).map(norm))].join(' ')
+      k: [...new Set([term, t.term?.fr, t.term?.en, t.term?.ar, ...(t.alias || [])].filter(Boolean).map(norm))].join(' ')
     })
   }
   const json = JSON.stringify(index)

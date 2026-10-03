@@ -1,0 +1,15 @@
+{
+ "chip": "Fonti e licenze",
+ "title": "Crediti",
+ "lede": "Le immagini del sito provengono da Wikimedia Commons. Grazie ai fotografi, ai musei e ai contributori che le hanno rese disponibili con licenza libera.",
+ "imagesTitle": "Immagini",
+ "imagesText": "Ogni immagine è pubblicata dal suo autore con la licenza indicata (pubblico dominio, CC BY, CC BY-SA o Licence Art Libre). Le immagini sono state ridimensionate e ricompresse per il web.",
+ "textTitle": "Testi",
+ "textText": "Le pagine si basano sugli autori antichi, sui lavori di storici e archeologi (vedi la bibliografia) e sugli articoli di Wikipedia in francese, con licenza CC BY-SA 4.0, le cui informazioni sono state riformulate e verificate.",
+ "biblioCta": "Fonti e bibliografia",
+ "dataTitle": "Base cartografica",
+ "dataText": "Mappa animata: contorni Natural Earth (pubblico dominio) tramite world-atlas, resi con D3. I confini antichi sono zone d'influenza approssimative.",
+ "fontsTitle": "Caratteri tipografici",
+ "fontsText": "Archivo, Instrument Sans, Noto Sans Phoenician e Noto Naskh Arabic, distribuiti da Google Fonts con licenza SIL Open Font License.",
+ "meta": "Crediti delle immagini, della base cartografica e dei caratteri tipografici del sito Cartagine."
+}

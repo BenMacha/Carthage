@@ -233,7 +233,7 @@
 <script setup>
 const { locale, localePath } = useI18n()
 
-const isRtl = computed(() => locale.value === 'ar')
+const isRtl = computed(() => isRtlLocale(locale.value))
 
 const IMG = {
   dates: [
@@ -609,7 +609,7 @@ const C = {
   })
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('index', C)
 
 useHead(() => ({
   title: c.value.meta.title,

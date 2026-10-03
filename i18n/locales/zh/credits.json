@@ -1,0 +1,15 @@
+{
+ "chip": "来源与授权",
+ "title": "致谢",
+ "lede": "本站图片来自维基共享资源。感谢将其以自由许可发布的摄影师、博物馆和贡献者。",
+ "imagesTitle": "图片",
+ "imagesText": "每张图片均由作者按所标明的许可发布（公有领域、CC BY、CC BY-SA 或自由艺术许可）。图片已针对网络调整尺寸并重新压缩。",
+ "textTitle": "文本",
+ "textText": "各页面依据古代作家的著作、历史学家和考古学家的研究成果（见参考书目），以及法语维基百科中采用 CC BY-SA 4.0 许可的条目，相关信息经过改写和核对。",
+ "biblioCta": "来源与参考书目",
+ "dataTitle": "底图",
+ "dataText": "动态地图：Natural Earth 轮廓数据（公有领域），经 world-atlas 提供，由 D3 渲染。古代边界仅为大致的势力范围。",
+ "fontsTitle": "字体",
+ "fontsText": "Archivo、Instrument Sans、Noto Sans Phoenician 和 Noto Naskh Arabic，由 Google Fonts 依据 SIL 开放字体许可发布。",
+ "meta": "迦太基网站的图片、底图和字体署名信息。"
+}

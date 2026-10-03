@@ -5,7 +5,7 @@
     </button>
 
     <Teleport to="body">
-      <div v-if="open" class="ss-overlay" :dir="locale === 'ar' ? 'rtl' : 'ltr'" @click.self="close">
+      <div v-if="open" class="ss-overlay" :dir="searchDir" @click.self="close">
           <div class="ss-panel" role="dialog" aria-modal="true" :aria-label="L.open">
             <div class="ss-bar">
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
@@ -61,7 +61,8 @@
 <script setup>
 // Recherche côté client dans l'index de mots-clés généré au build
 // (public/search/<lang>.json, par scripts/generate-search-keywords.mjs) : aucun serveur requis.
-const { locale } = useI18n()
+const { locale, isRtl } = useI18n()
+const searchDir = computed(() => (isRtl.value ? 'rtl' : 'ltr'))
 const router = useRouter()
 
 const LABELS = {
@@ -69,7 +70,7 @@ const LABELS = {
   en: { open: 'Search', close: 'Close', placeholder: 'Search a page, a name, a date…', loading: 'Loading the index…', error: 'The search index is unavailable.', hint: 'Type at least two letters.', found: 'results', none: 'No results.', suggestions: ['Hannibal', 'Tanit', 'suffete', 'Cannae', 'garum', 'Masinissa'] },
   ar: { open: 'بحث', close: 'إغلاق', placeholder: 'ابحث عن صفحة أو اسم أو تاريخ…', loading: 'جارٍ تحميل الفهرس…', error: 'فهرس البحث غير متاح.', hint: 'اكتب حرفين على الأقل.', found: 'نتيجة', none: 'لا نتائج.', suggestions: ['حنبعل', 'تانيت', 'زاما', 'كاناي', 'ماسينيسا'] }
 }
-const L = computed(() => LABELS[locale.value] || LABELS.fr)
+const L = useUiText('search', LABELS)
 
 const open = ref(false)
 const q = ref('')

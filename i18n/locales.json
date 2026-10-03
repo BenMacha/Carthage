@@ -1,0 +1,17 @@
+[
+  {"code": "fr", "name": "Français", "dir": "ltr", "hreflang": "fr", "og": "fr_FR", "flag": "fr", "brand": "Carthage"},
+  {"code": "en", "name": "English", "dir": "ltr", "hreflang": "en", "og": "en_GB", "flag": "gb", "brand": "Carthage"},
+  {"code": "ar", "name": "العربية", "dir": "rtl", "hreflang": "ar", "og": "ar_TN", "flag": "tn", "brand": "قرطاج"},
+  {"code": "aeb", "name": "تونسي", "dir": "rtl", "hreflang": "aeb", "og": "ar_TN", "beta": true, "flag": "tn", "brand": "قرطاج"},
+  {"code": "ber", "name": "Tamaziɣt", "dir": "ltr", "hreflang": "ber", "og": "fr_FR", "beta": true, "flag": "amazigh", "brand": "Qarṭaǧ"},
+  {"code": "it", "name": "Italiano", "dir": "ltr", "hreflang": "it", "og": "it_IT", "flag": "it", "brand": "Cartagine"},
+  {"code": "es", "name": "Español", "dir": "ltr", "hreflang": "es", "og": "es_ES", "flag": "es", "brand": "Cartago"},
+  {"code": "de", "name": "Deutsch", "dir": "ltr", "hreflang": "de", "og": "de_DE", "flag": "de", "brand": "Karthago"},
+  {"code": "pt", "name": "Português", "dir": "ltr", "hreflang": "pt", "og": "pt_PT", "flag": "pt", "brand": "Cartago"},
+  {"code": "nl", "name": "Nederlands", "dir": "ltr", "hreflang": "nl", "og": "nl_NL", "flag": "nl", "brand": "Carthago"},
+  {"code": "mt", "name": "Malti", "dir": "ltr", "hreflang": "mt", "og": "mt_MT", "beta": true, "flag": "mt", "brand": "Kartaġni"},
+  {"code": "tr", "name": "Türkçe", "dir": "ltr", "hreflang": "tr", "og": "tr_TR", "flag": "tr", "brand": "Kartaca"},
+  {"code": "ru", "name": "Русский", "dir": "ltr", "hreflang": "ru", "og": "ru_RU", "flag": "ru", "brand": "Карфаген"},
+  {"code": "zh", "name": "中文", "dir": "ltr", "hreflang": "zh-Hans", "og": "zh_CN", "flag": "cn", "brand": "迦太基"},
+  {"code": "ja", "name": "日本語", "dir": "ltr", "hreflang": "ja", "og": "ja_JP", "flag": "jp", "brand": "カルタゴ"}
+]

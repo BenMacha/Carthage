@@ -50,14 +50,14 @@
           .row-title{display:block;font:800 18px/1.2 'Archivo',sans-serif}
           .row-title:hover{color:#6E1E47}
           .row-sub{display:block;color:#6B6258;font-size:13px;margin-top:2px}
-          .row-langs{display:flex;gap:6px}
-          .lang{display:grid;place-items:center;min-width:44px;height:36px;border-radius:999px;background:#F4EEE3;font-weight:600;font-size:13px}
+          .row-langs{display:flex;flex-wrap:wrap;gap:4px;max-width:440px;justify-content:flex-end}
+          .lang{display:grid;place-items:center;min-width:38px;height:30px;padding:0 6px;border-radius:999px;background:#F4EEE3;font-weight:600;font-size:11px}
           .lang:hover{background:#16130F;color:#fff}
           .row-meta{justify-self:end;font-size:12px;color:#A9A094;font-variant-numeric:tabular-nums}
           .foot{margin-top:12px;background:#16130F;color:#A9A094;border-radius:28px;padding:22px 26px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px}
           .foot a{color:#E7B75A}
           @media (max-width:860px){.hero,.group{grid-template-columns:minmax(0,1fr)}.group-head{min-height:0}}
-          @media (max-width:560px){.row{grid-template-columns:minmax(0,1fr);gap:10px}.row-meta{display:none}.top-link{padding:11px 14px}}
+          .row-langs{} @media (max-width:560px){.row{grid-template-columns:minmax(0,1fr);gap:10px}.row-langs{justify-content:flex-start;max-width:none}.row-meta{display:none}.top-link{padding:11px 14px}}
         </style>
       </head>
       <body>
@@ -72,13 +72,13 @@
               <span class="chip">sitemap.xml</span>
               <div>
                 <h1>Sitemap</h1>
-                <p class="lede">Fichier destiné aux moteurs de recherche : chaque page, ses trois versions linguistiques (hreflang) et sa priorité.</p>
+                <p class="lede">Fichier destiné aux moteurs de recherche : chaque page, ses versions linguistiques (hreflang) et sa priorité.</p>
               </div>
             </div>
             <div class="hero-side">
               <div class="stat"><b><xsl:value-of select="count(s:urlset/s:url)"/></b><span>adresses</span></div>
-              <div class="stat"><b><xsl:value-of select="count(s:urlset/s:url) div 3"/></b><span>pages</span></div>
-              <div class="stat"><b>3</b><span>langues · FR · EN · <span lang="ar">ع</span></span></div>
+              <div class="stat"><b><xsl:value-of select="count(s:urlset/s:url) div 15"/></b><span>pages</span></div>
+              <div class="stat"><b>15</b><span>langues</span></div>
             </div>
           </section>
 
@@ -97,7 +97,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -111,7 +111,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -125,7 +125,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -139,7 +139,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -153,7 +153,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -167,7 +167,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -190,7 +190,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -204,7 +204,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -218,7 +218,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -232,7 +232,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -246,7 +246,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -260,7 +260,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -274,7 +274,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -288,7 +288,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -302,7 +302,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -325,7 +325,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -339,7 +339,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -353,7 +353,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -367,7 +367,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -390,7 +390,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -404,7 +404,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -418,7 +418,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -432,7 +432,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -446,7 +446,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -460,7 +460,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -474,7 +474,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -488,7 +488,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -511,7 +511,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -525,7 +525,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -539,7 +539,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -553,7 +553,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -567,7 +567,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -581,7 +581,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -595,7 +595,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -609,7 +609,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -623,7 +623,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -637,7 +637,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -660,7 +660,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -674,7 +674,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -688,7 +688,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -702,7 +702,7 @@
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>

@@ -823,7 +823,7 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('langue-ecriture', C)
 
 const letters = computed(() => BASE.map((b, i) => ({ ...b, i, g: G(i), meaning: c.value.abc.meanings[i] })))
 

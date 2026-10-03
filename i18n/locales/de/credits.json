@@ -1,0 +1,15 @@
+{
+ "chip": "Quellen & Lizenzen",
+ "title": "Bildnachweis",
+ "lede": "Die Bilder dieser Website stammen von Wikimedia Commons. Dank an die Fotografen, Museen und Beitragenden, die sie unter freier Lizenz veröffentlicht haben.",
+ "imagesTitle": "Bilder",
+ "imagesText": "Jedes Bild wurde von seinem Urheber unter der angegebenen Lizenz veröffentlicht (gemeinfrei, CC BY, CC BY-SA oder Licence Art Libre). Die Bilder wurden für das Web verkleinert und neu komprimiert.",
+ "textTitle": "Texte",
+ "textText": "Die Seiten stützen sich auf antike Autoren, auf Arbeiten von Historikern und Archäologen (siehe Bibliografie) sowie auf Artikel der französischen Wikipedia unter der Lizenz CC BY-SA 4.0, deren Angaben umformuliert und überprüft wurden.",
+ "biblioCta": "Quellen und Bibliografie",
+ "dataTitle": "Kartengrundlage",
+ "dataText": "Animierte Karte: Umrisse von Natural Earth (gemeinfrei) über world-atlas, dargestellt mit D3. Die antiken Grenzen sind ungefähre Einflussgebiete.",
+ "fontsTitle": "Schriften",
+ "fontsText": "Archivo, Instrument Sans, Noto Sans Phoenician und Noto Naskh Arabic, bereitgestellt von Google Fonts unter der SIL Open Font License.",
+ "meta": "Nachweise für Bilder, Kartengrundlage und Schriften der Website Karthago."
+}
