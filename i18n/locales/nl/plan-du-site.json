@@ -1,0 +1,18 @@
+{
+ "chip": "Navigatie",
+ "title": "Sitekaart",
+ "lede": "Alle pagina's, gegroepeerd per thema. Elke pagina bestaat in Frans, Engels en Arabisch.",
+ "pages": "pagina's",
+ "langs": "talen: Frans, Engels, Arabisch",
+ "urls": "adressen in de sitekaart",
+ "pageShort": "pagina",
+ "pagesShort": "pagina's",
+ "jump": "Naar een sectie springen",
+ "xmlKick": "Voor zoekmachines",
+ "xmlText": "De volledige lijst met adressen met hun taalversies (hreflang). Ze wordt bij elke publicatie opnieuw gegenereerd.",
+ "xmlBtn": "Sitemap openen",
+ "llmsKick": "Voor AI-assistenten",
+ "llmsText": "Een samenvatting van de site en zijn pagina's in het llms.txt-formaat, voor antwoordenmachines en assistenten.",
+ "llmsBtn": "llms.txt openen",
+ "meta": "Sitekaart van Carthago: elke pagina per thema, in het Frans, Engels en Arabisch."
+}
