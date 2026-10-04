@@ -1,8 +1,10 @@
-export default defineNuxtRouteMiddleware((to) => {
-  const validLocales = ['fr', 'en', 'ar']
-  const lang = to.params.lang as string
+import LOCALES from '~/i18n/locales.json'
 
-  if (lang && !validLocales.includes(lang)) {
-    return navigateTo('/fr', { redirectCode: 302 })
+const valid = new Set(LOCALES.map(l => l.code))
+
+export default defineNuxtRouteMiddleware((to) => {
+  const lang = to.params.lang as string
+  if (lang && !valid.has(lang)) {
+    return navigateTo('/ar', { redirectCode: 302 })
   }
 })

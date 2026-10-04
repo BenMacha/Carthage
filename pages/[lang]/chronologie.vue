@@ -480,7 +480,7 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('chronologie', C)
 
 const events = computed(() => c.value.events)
 

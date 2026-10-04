@@ -1,0 +1,18 @@
+{
+ "chip": "Navigazione",
+ "title": "Mappa del sito",
+ "lede": "Tutte le pagine, ordinate per tema. Ogni pagina esiste in francese, in inglese e in arabo.",
+ "pages": "pagine",
+ "langs": "lingue: francese, inglese, arabo",
+ "urls": "indirizzi nella sitemap",
+ "pageShort": "pagina",
+ "pagesShort": "pagine",
+ "jump": "Vai a una sezione",
+ "xmlKick": "Per i motori di ricerca",
+ "xmlText": "L'elenco completo degli indirizzi, con le rispettive versioni linguistiche (hreflang). Viene rigenerato a ogni pubblicazione.",
+ "xmlBtn": "Apri la sitemap",
+ "llmsKick": "Per gli assistenti IA",
+ "llmsText": "Un riassunto del sito e delle sue pagine, in formato llms.txt, per i motori di risposta e gli assistenti.",
+ "llmsBtn": "Apri llms.txt",
+ "meta": "Mappa del sito Cartagine: tutte le pagine per tema, in francese, inglese e arabo."
+}

@@ -214,7 +214,7 @@
           <span class="kicker">{{ c.gates.sourcesKicker }}</span>
           <h3 class="h-card">{{ c.gates.sourcesTitle }}</h3>
           <p class="body">{{ c.gates.sources }}</p>
-          <NuxtLink :to="localePath('/histoire-des-vainqueurs')" class="btn btn-outline gates-btn">{{ c.gates.sourcesCta }} {{ locale === 'ar' ? '←' : '→' }}</NuxtLink>
+          <NuxtLink :to="localePath('/histoire-des-vainqueurs')" class="btn btn-outline gates-btn">{{ c.gates.sourcesCta }} {{ rtlArrow }}</NuxtLink>
         </div>
       </div>
       <AltReading v-bind="c.gates.alt" />
@@ -339,6 +339,7 @@
 
 <script setup>
 const { locale, localePath } = useI18n()
+const rtlArrow = computed(() => (isRtlLocale(locale.value) ? '←' : '→'))
 
 const C = {
   fr: {
@@ -994,7 +995,7 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('hannibal', C)
 
 useHead(() => ({
   title: c.value.meta.title,

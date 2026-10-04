@@ -1,0 +1,18 @@
+{
+ "chip": "Navigazzjoni",
+ "title": "Pjanta tas-sit",
+ "lede": "Il-paġni kollha, imqassmin skont it-tema. Kull paġna teżisti bil-Franċiż, bl-Ingliż u bl-Għarbi.",
+ "pages": "paġni",
+ "langs": "lingwi: Franċiż, Ingliż, Għarbi",
+ "urls": "indirizzi fis-sitemap",
+ "pageShort": "paġna",
+ "pagesShort": "paġni",
+ "jump": "Mur għal taqsima",
+ "xmlKick": "Għall-magni tat-tfittxija",
+ "xmlText": "Il-lista sħiħa tal-indirizzi, bil-verżjonijiet lingwistiċi tagħhom (hreflang). Tiġi ġġenerata mill-ġdid ma' kull pubblikazzjoni.",
+ "xmlBtn": "Iftaħ is-sitemap",
+ "llmsKick": "Għall-assistenti tal-IA",
+ "llmsText": "Sommarju tas-sit u tal-paġni tiegħu, fil-format llms.txt, għal magni ta' tweġiba u assistenti.",
+ "llmsBtn": "Iftaħ llms.txt",
+ "meta": "Pjanta tas-sit Kartaġni: il-paġni kollha skont it-tema, bil-Franċiż, l-Ingliż u l-Għarbi."
+}

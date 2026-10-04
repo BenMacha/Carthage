@@ -144,7 +144,12 @@
 </template>
 
 <script setup>
-import BIB from '~/assets/data/bibliographie.json'
+import BIB_RAW from '~/assets/data/bibliographie.json'
+
+// Données complétées pour la langue affichée (langues ajoutées : i18n/locales/<langue>/)
+const { locale: dataLocale } = useI18n()
+const BIB = (await useLocalizedData('bibliographie-data', BIB_RAW)).value
+
 
 const { locale, localePath } = useI18n()
 const filter = ref('all')
@@ -266,8 +271,8 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
-const lang = computed(() => (C[locale.value] ? locale.value : 'fr'))
+const c = await useLocalized('bibliographie', C)
+const lang = computed(() => locale.value)
 
 // Recherche insensible à la casse, aux accents, aux apostrophes (M'hamed = Mhamed) et aux voyelles brèves arabes
 const fold = s => (s || '')

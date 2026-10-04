@@ -1,0 +1,15 @@
+{
+ "chip": "出典とライセンス",
+ "title": "クレジット",
+ "lede": "本サイトの画像はウィキメディア・コモンズから引用しています。自由ライセンスのもとで公開してくださった写真家、美術館、投稿者の皆様に感謝します。",
+ "imagesTitle": "画像",
+ "imagesText": "各画像は、表示されたライセンス（パブリックドメイン、CC BY、CC BY-SA、またはLicence Art Libre）に基づき作者によって公開されています。画像はウェブ用にサイズ変更・再圧縮しています。",
+ "textTitle": "テキスト",
+ "textText": "各ページは、古代の著述家、歴史家・考古学者の研究（参考文献を参照）、およびCC BY-SA 4.0ライセンスで公開されているフランス語版ウィキペディアの記事に基づいており、その情報は書き改めたうえで検証しています。",
+ "biblioCta": "出典と参考文献",
+ "dataTitle": "ベースマップ",
+ "dataText": "アニメーション地図：Natural Earth（パブリックドメイン）の輪郭をworld-atlas経由で取得し、D3で描画しています。古代の国境は大まかな勢力圏を示したものです。",
+ "fontsTitle": "書体",
+ "fontsText": "Archivo、Instrument Sans、Noto Sans Phoenician、Noto Naskh Arabicを使用しています。いずれもGoogle FontsからSIL Open Font Licenseのもとで配布されています。",
+ "meta": "カルタゴのサイトで使用している画像、ベースマップ、書体のクレジット。"
+}

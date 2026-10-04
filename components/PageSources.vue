@@ -51,7 +51,7 @@ const LABELS = {
   ar: { kicker: 'للاستزادة', title: 'مصادر هذه الصفحة', refs: 'مرجعاً', ancient: 'المصادر القديمة', modern: 'الدراسات الحديثة', biblio: 'قائمة المراجع كاملة ←', glossary: 'المعجم ←' }
 }
 
-const L = computed(() => LABELS[locale.value] || LABELS.fr)
+const L = useUiText('sources', LABELS)
 const ancient = computed(() => props.items.filter(s => s.type === 'ancient'))
 const modern = computed(() => props.items.filter(s => s.type !== 'ancient'))
 const total = computed(() => props.items.length)

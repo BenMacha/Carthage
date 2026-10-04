@@ -141,8 +141,14 @@
 </template>
 
 <script setup>
-import GLO from '~/assets/data/glossaire.json'
-import SITE_MAP from '~/assets/data/site-map.json'
+import GLO_RAW from '~/assets/data/glossaire.json'
+import SITE_MAP_RAW from '~/assets/data/site-map.json'
+
+// Données complétées pour la langue affichée (langues ajoutées : i18n/locales/<langue>/)
+const { locale: dataLocale } = useI18n()
+const GLO = (await useLocalizedData('glossaire-data', GLO_RAW)).value
+const SITE_MAP = localizeSiteMap(SITE_MAP_RAW, dataLocale.value)
+
 
 const { locale, localePath } = useI18n()
 const query = ref('')
@@ -250,8 +256,8 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
-const lang = computed(() => (C[locale.value] ? locale.value : 'fr'))
+const c = await useLocalized('glossaire', C)
+const lang = computed(() => locale.value)
 const otherLangs = computed(() => ['fr', 'en', 'ar'].filter(l => l !== lang.value))
 const arrow = computed(() => (lang.value === 'ar' ? '←' : '→'))
 

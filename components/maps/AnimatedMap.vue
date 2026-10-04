@@ -352,7 +352,7 @@ const TXT = {
   }
 }
 
-const T = computed(() => TXT[locale.value] || TXT.fr)
+const T = await useLocalized('map', TXT)
 const shownModes = computed(() => (props.modes?.length ? MODES.filter(m => props.modes.includes(m)) : MODES))
 
 const svgEl = ref(null)

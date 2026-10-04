@@ -1,0 +1,18 @@
+{
+ "chip": "导航",
+ "title": "网站地图",
+ "lede": "全部页面，按主题分类。每个页面均有法语、英语和阿拉伯语版本。",
+ "pages": "个页面",
+ "langs": "语言：法语、英语、阿拉伯语",
+ "urls": "个 sitemap 网址",
+ "pageShort": "页面",
+ "pagesShort": "页面",
+ "jump": "前往栏目",
+ "xmlKick": "供搜索引擎使用",
+ "xmlText": "完整的网址列表及其语言版本（hreflang），每次上线时重新生成。",
+ "xmlBtn": "打开 sitemap",
+ "llmsKick": "供 AI 助手使用",
+ "llmsText": "以 llms.txt 格式提供的网站及其页面摘要，供答案引擎和助手使用。",
+ "llmsBtn": "打开 llms.txt",
+ "meta": "迦太基网站地图：按主题列出所有页面，含法语、英语和阿拉伯语版本。"
+}

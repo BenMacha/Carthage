@@ -1,0 +1,51 @@
+{
+ "key": "global",
+ "fr": {
+  "lang": "fr",
+  "dir": "ltr",
+  "siteName": "Carthage",
+  "siteDescription": "Découvrez l'histoire fascinante de Carthage, d'Hannibal Barca, la traversée des Alpes avec les éléphants et l'économie carthaginoise.",
+  "footer.description": "Un projet dédié à la mémoire et à l'histoire de la grande civilisation carthaginoise, de ses héros et de son héritage.",
+  "footer.timeline": "Chronologie",
+  "footer.elephantPassage": "Passage des Éléphants",
+  "footer.economy": "Économie",
+  "footer.africa": "Afrique & son nom",
+  "footer.founding": "Fondation (814 av. J.-C.)",
+  "footer.punicWars": "Guerres Puniques",
+  "footer.hannibal": "Hannibal Barca",
+  "footer.fall": "Prise de Carthage",
+  "footer.copyright": "Projet éducatif — Carthage & Hannibal Barca"
+ },
+ "en": {
+  "lang": "en",
+  "dir": "ltr",
+  "siteName": "Carthage",
+  "siteDescription": "Discover the fascinating history of Carthage, Hannibal Barca, the crossing of the Alps with elephants, and the Carthaginian economy.",
+  "footer.description": "A project dedicated to the memory and history of the great Carthaginian civilization, its heroes and its legacy.",
+  "footer.timeline": "Timeline",
+  "footer.elephantPassage": "Elephant Passage",
+  "footer.economy": "Economy",
+  "footer.africa": "Africa & its name",
+  "footer.founding": "Foundation (814 BC)",
+  "footer.punicWars": "Punic Wars",
+  "footer.hannibal": "Hannibal Barca",
+  "footer.fall": "Fall of Carthage",
+  "footer.copyright": "Educational project — Carthage & Hannibal Barca"
+ },
+ "ar": {
+  "lang": "ar",
+  "dir": "rtl",
+  "siteName": "قرطاج",
+  "siteDescription": "اكتشف التاريخ المذهل لقرطاج وحنبعل برقا وعبور جبال الألب بالفيلة والاقتصاد القرطاجي.",
+  "footer.description": "مشروع مخصص لذاكرة وتاريخ الحضارة القرطاجية العظيمة وأبطالها وإرثها.",
+  "footer.timeline": "التسلسل الزمني",
+  "footer.elephantPassage": "عبور الفيلة",
+  "footer.economy": "الاقتصاد",
+  "footer.africa": "أفريقيا واسمها",
+  "footer.founding": "التأسيس (814 ق.م)",
+  "footer.punicWars": "الحروب البونيقية",
+  "footer.hannibal": "حنبعل برقا",
+  "footer.fall": "سقوط قرطاج",
+  "footer.copyright": "مشروع تعليمي — قرطاج وحنبعل برقا"
+ }
+}

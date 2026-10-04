@@ -39,8 +39,10 @@
   --on-dark-2: #D9D0C2;
 
   /* Typo */
-  --font-display: 'Archivo', system-ui, sans-serif;
-  --font-body: 'Instrument Sans', system-ui, sans-serif;
+  /* Repli : Noto Sans (cyrillique), polices système CJK (chinois, japonais) */
+  --font-cjk: 'PingFang SC', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans JP';
+  --font-display: 'Archivo', 'Noto Sans', var(--font-cjk), system-ui, sans-serif;
+  --font-body: 'Instrument Sans', 'Noto Sans', var(--font-cjk), system-ui, sans-serif;
   --font-phoen: 'Noto Sans Phoenician', sans-serif;
   --font-ar: 'Noto Naskh Arabic', 'Instrument Sans', serif;
 
@@ -544,4 +546,22 @@ a.card-img:hover, a.tile:hover {
 [dir="rtl"] .h-display, [dir="rtl"] .h-section, [dir="rtl"] .h-block {
   letter-spacing: 0;
   font-family: var(--font-ar), var(--font-display);
+}
+
+/* Chinois et japonais : pas d'interlettrage serré ni de mise en majuscules */
+:lang(zh) h1, :lang(zh) h2, :lang(zh) h3, :lang(zh) .h-display, :lang(zh) .h-section, :lang(zh) .h-block,
+:lang(ja) h1, :lang(ja) h2, :lang(ja) h3, :lang(ja) .h-display, :lang(ja) .h-section, :lang(ja) .h-block {
+  letter-spacing: 0;
+  line-height: 1.15;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+:lang(zh) body, :lang(ja) body { line-height: 1.7; }
+
+/* Langues à lettres longues (allemand, néerlandais, russe…) : césure des titres */
+:lang(de) .h-display, :lang(de) .h-section, :lang(nl) .h-display, :lang(nl) .h-section,
+:lang(ru) .h-display, :lang(ru) .h-section, :lang(tr) .h-display, :lang(mt) .h-display {
+  hyphens: auto;
+  overflow-wrap: anywhere;
 }

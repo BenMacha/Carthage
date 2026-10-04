@@ -1,10 +1,11 @@
-// Génère public/sitemap.xml (fr, en, ar + hreflang) et son habillage public/sitemap.xsl
+// Génère public/sitemap.xml (toutes les langues de i18n/locales.json + hreflang) et son habillage public/sitemap.xsl
 // à partir de assets/data/site-map.json. Vérifie que chaque page de pages/[lang]/ y figure.
 // Lancé automatiquement avant `nuxt build` / `nuxt generate` (voir package.json).
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 
 const SITE = 'https://carthage.benmacha.tn'
-const LOCALES = ['fr', 'en', 'ar']
+const LOCALES = JSON.parse(readFileSync(new URL('../i18n/locales.json', import.meta.url), 'utf8'))
+const CODES = LOCALES.map(l => l.code)
 const PRIORITY = { '': '1.0', tunisie: '0.9', hannibal: '0.9', carte: '0.9', credits: '0.3', 'plan-du-site': '0.3' }
 const TONES = { purple: ['#6E1E47', '#FFFFFF'], terra: ['#B8492A', '#FFFFFF'], ink: ['#16130F', '#FFFFFF'], gold: ['#D6A23E', '#16130F'], navy: ['#1D3F66', '#FFFFFF'], sand: ['#E6DED1', '#16130F'] }
 
@@ -31,10 +32,10 @@ const pathOf = slug => (slug ? `/${slug}` : '')
 const urls = listed.flatMap(slug => {
   const path = pathOf(slug)
   const alternates = [
-    ...LOCALES.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE}/${l}${path}"/>`),
+    ...LOCALES.map(l => `    <xhtml:link rel="alternate" hreflang="${l.hreflang}" href="${SITE}/${l.code}${path}"/>`),
     `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/fr${path}"/>`
   ].join('\n')
-  return LOCALES.map(l => `  <url>
+  return CODES.map(l => `  <url>
     <loc>${SITE}/${l}${path}</loc>
 ${alternates}
     <lastmod>${today}</lastmod>
@@ -65,7 +66,7 @@ const groupBlocks = groups.map(g => {
               </div>
               <div class="row-langs">
                 <xsl:for-each select="xhtml:link[@hreflang!='x-default']">
-                  <a class="lang" href="{@href}"><xsl:value-of select="translate(@hreflang, 'fraen', 'FRAEN')"/></a>
+                  <a class="lang" href="{@href}"><xsl:value-of select="translate(substring-before(concat(@hreflang, '-'), '-'), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></a>
                 </xsl:for-each>
               </div>
               <span class="row-meta"><xsl:value-of select="s:priority"/></span>
@@ -136,14 +137,14 @@ writeFileSync(new URL('public/sitemap.xsl', root), `<?xml version="1.0" encoding
           .row-title{display:block;font:800 18px/1.2 'Archivo',sans-serif}
           .row-title:hover{color:#6E1E47}
           .row-sub{display:block;color:#6B6258;font-size:13px;margin-top:2px}
-          .row-langs{display:flex;gap:6px}
-          .lang{display:grid;place-items:center;min-width:44px;height:36px;border-radius:999px;background:#F4EEE3;font-weight:600;font-size:13px}
+          .row-langs{display:flex;flex-wrap:wrap;gap:4px;max-width:440px;justify-content:flex-end}
+          .lang{display:grid;place-items:center;min-width:38px;height:30px;padding:0 6px;border-radius:999px;background:#F4EEE3;font-weight:600;font-size:11px}
           .lang:hover{background:#16130F;color:#fff}
           .row-meta{justify-self:end;font-size:12px;color:#A9A094;font-variant-numeric:tabular-nums}
           .foot{margin-top:12px;background:#16130F;color:#A9A094;border-radius:28px;padding:22px 26px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px}
           .foot a{color:#E7B75A}
           @media (max-width:860px){.hero,.group{grid-template-columns:minmax(0,1fr)}.group-head{min-height:0}}
-          @media (max-width:560px){.row{grid-template-columns:minmax(0,1fr);gap:10px}.row-meta{display:none}.top-link{padding:11px 14px}}
+          .row-langs{} @media (max-width:560px){.row{grid-template-columns:minmax(0,1fr);gap:10px}.row-langs{justify-content:flex-start;max-width:none}.row-meta{display:none}.top-link{padding:11px 14px}}
         </style>
       </head>
       <body>
@@ -158,13 +159,13 @@ writeFileSync(new URL('public/sitemap.xsl', root), `<?xml version="1.0" encoding
               <span class="chip">sitemap.xml</span>
               <div>
                 <h1>Sitemap</h1>
-                <p class="lede">Fichier destiné aux moteurs de recherche : chaque page, ses trois versions linguistiques (hreflang) et sa priorité.</p>
+                <p class="lede">Fichier destiné aux moteurs de recherche : chaque page, ses versions linguistiques (hreflang) et sa priorité.</p>
               </div>
             </div>
             <div class="hero-side">
               <div class="stat"><b><xsl:value-of select="count(s:urlset/s:url)"/></b><span>adresses</span></div>
-              <div class="stat"><b><xsl:value-of select="count(s:urlset/s:url) div 3"/></b><span>pages</span></div>
-              <div class="stat"><b>3</b><span>langues · FR · EN · <span lang="ar">ع</span></span></div>
+              <div class="stat"><b><xsl:value-of select="count(s:urlset/s:url) div ${CODES.length}"/></b><span>pages</span></div>
+              <div class="stat"><b>${CODES.length}</b><span>langues</span></div>
             </div>
           </section>
 ${groupBlocks}

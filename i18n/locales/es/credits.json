@@ -1,0 +1,15 @@
+{
+ "chip": "Fuentes y licencias",
+ "title": "Créditos",
+ "lede": "Las imágenes del sitio proceden de Wikimedia Commons. Gracias a los fotógrafos, museos y colaboradores que las han publicado con licencia libre.",
+ "imagesTitle": "Imágenes",
+ "imagesText": "Cada imagen ha sido publicada por su autor con la licencia indicada (dominio público, CC BY, CC BY-SA o Licence Art Libre). Las imágenes se han redimensionado y recomprimido para la web.",
+ "textTitle": "Textos",
+ "textText": "Las páginas se basan en los autores antiguos, en los trabajos de historiadores y arqueólogos (véase la bibliografía) y en los artículos de Wikipedia en francés, con licencia CC BY-SA 4.0, cuya información ha sido reformulada y verificada.",
+ "biblioCta": "Fuentes y bibliografía",
+ "dataTitle": "Mapa base",
+ "dataText": "Mapa animado: contornos de Natural Earth (dominio público) a través de world-atlas, representados con D3. Las fronteras antiguas son zonas de influencia aproximadas.",
+ "fontsTitle": "Tipografías",
+ "fontsText": "Archivo, Instrument Sans, Noto Sans Phoenician y Noto Naskh Arabic, distribuidas por Google Fonts con licencia SIL Open Font License.",
+ "meta": "Créditos de las imágenes, del mapa base y de las tipografías del sitio Cartago."
+}

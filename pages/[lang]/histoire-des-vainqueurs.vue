@@ -242,7 +242,7 @@ const C = {
   }
 }
 
-const c = computed(() => C[locale.value] || C.fr)
+const c = await useLocalized('histoire-des-vainqueurs', C)
 
 useHead(() => ({
   title: c.value.meta.title,

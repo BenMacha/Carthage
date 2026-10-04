@@ -1,0 +1,18 @@
+{
+ "chip": "Navegação",
+ "title": "Mapa do site",
+ "lede": "Todas as páginas, organizadas por tema. Cada página existe em francês, inglês e árabe.",
+ "pages": "páginas",
+ "langs": "línguas: francês, inglês, árabe",
+ "urls": "endereços no sitemap",
+ "pageShort": "página",
+ "pagesShort": "páginas",
+ "jump": "Ir para uma secção",
+ "xmlKick": "Para os motores de busca",
+ "xmlText": "A lista completa dos endereços, com as suas versões linguísticas (hreflang). É regenerada a cada publicação.",
+ "xmlBtn": "Abrir o sitemap",
+ "llmsKick": "Para os assistentes de IA",
+ "llmsText": "Um resumo do site e das suas páginas, no formato llms.txt, para motores de resposta e assistentes.",
+ "llmsBtn": "Abrir llms.txt",
+ "meta": "Mapa do site Cartago: todas as páginas por tema, em francês, inglês e árabe."
+}

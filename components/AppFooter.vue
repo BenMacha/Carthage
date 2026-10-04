@@ -54,7 +54,7 @@ const FOOT = {
   }
 }
 
-const F = computed(() => FOOT[locale.value] || FOOT.fr)
+const F = useUiText('footer', FOOT)
 
 const cols = computed(() => [
   {
