@@ -1,0 +1,15 @@
+{
+ "chip": "Bronnen & licenties",
+ "title": "Credits",
+ "lede": "De afbeeldingen op deze site komen van Wikimedia Commons. Bedankt aan de fotografen, musea en bijdragers die ze onder een vrije licentie hebben vrijgegeven.",
+ "imagesTitle": "Afbeeldingen",
+ "imagesText": "Elke afbeelding is gepubliceerd door zijn auteur onder de vermelde licentie (openbaar domein, CC BY, CC BY-SA of Vrije Kunstlicentie). Afbeeldingen zijn voor het web geredimensioneerd en opnieuw gecomprimeerd.",
+ "textTitle": "Teksten",
+ "textText": "De pagina's zijn gebaseerd op antieke auteurs, het werk van historici en archeologen (zie de bibliografie) en Franse Wikipedia-artikelen, gelicentieerd onder CC BY-SA 4.0, waarvan de informatie is herschreven en gecontroleerd.",
+ "biblioCta": "Bronnen en bibliografie",
+ "dataTitle": "Kaartbasis",
+ "dataText": "Animatiekaart: contouren van Natural Earth (publiek domein) via world-atlas, gerenderd met D3. Oude grenzen zijn bij benadering weergegeven invloedsgebieden.",
+ "fontsTitle": "Typografieën",
+ "fontsText": "Archivo, Instrument Sans, Noto Sans Phoenician en Noto Naskh Arabic, geleverd door Google Fonts onder de SIL Open Font License.",
+ "meta": "Credits voor de afbeeldingen, kaartbasis en typografieën van de Carthago-website."
+}
