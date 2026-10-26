@@ -6,6 +6,15 @@ Chaque entrée indique **ce qui a changé** et, quand c'est utile, **les fichier
 
 ---
 
+## 2026-10-26 — Correctif : erreurs 500 dans les langues ajoutées
+
+- **69 pages renvoyaient une erreur 500** (signalées par la Search Console) : `art-et-artisanat`, `bibliographie`, `glossaire`, `heritage`, `lieux`, `monde-punique` et `quiz`, dans toutes les langues hors français, anglais et arabe.
+- Cause : la copie de l'objet de textes avant traduction se faisait en JSON, ce qui supprimait les fonctions de ces pages (`results(n)`, `live(n)`, `nQuestions(n)`…), appelées ensuite au rendu.
+- Correction : copie profonde qui garde les fonctions (`utils/i18n-flat.ts`). Ces textes calculés restent en français dans les langues ajoutées, comme prévu par le repli.
+- Vérifié en local (dev et build de production) : les 615 URL du sitemap répondent 200.
+
+---
+
 ## [Non publié] — Site en 15 langues (branche `i18n-15-langues`)
 
 > En cours : traductions à terminer (voir `I18N-HANDOFF.md`). À dater au déploiement final.

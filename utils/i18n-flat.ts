@@ -3,7 +3,20 @@
 
 export type Flat = Record<string, string>
 
-export const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o))
+/**
+ * Copie profonde des tableaux et objets simples. Les autres valeurs (fonctions des objets C,
+ * comme `results(n)` ou `live(n)`) sont gardées telles quelles : une copie JSON les supprimait,
+ * et la page faisait une erreur 500 dans toute langue hors fr/en/ar.
+ */
+export const clone = <T>(o: T): T => {
+  if (Array.isArray(o)) return o.map(clone) as T
+  if (o && typeof o === 'object' && Object.getPrototypeOf(o) === Object.prototype) {
+    const out: Record<string, unknown> = {}
+    for (const [k, v] of Object.entries(o)) out[k] = clone(v)
+    return out as T
+  }
+  return o
+}
 
 /** Applique une table plate de traductions sur une copie de `base`. */
 export function applyFlat<T> (base: T, flat: Flat | undefined): T {
